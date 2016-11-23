@@ -12,5 +12,13 @@ export interface Position {
     startDate: Date;
     endDate: Date;
     current: boolean;
-    companyName: string;
+    company: string;
+}
+
+export interface Education {
+    school: string;
+    field: string;
+    startDate: Date;
+    endDate: Date;
+    degree: string;
 }

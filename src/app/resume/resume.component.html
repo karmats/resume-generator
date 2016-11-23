@@ -1,4 +1,13 @@
-<app-summary [picture]="resume.pictureUrl"
-             [name]="resume.firstName + ' ' + resume.lastName"
-             [description]="resume.summary">
-</app-summary>
+<md-card>
+    <app-summary [picture]="resume.pictureUrl" [name]="resume.firstName + ' ' + resume.lastName" [description]="resume.summary">
+    </app-summary>
+</md-card>
+
+<md-card>
+    <ul>
+        <li *ngFor="let position of resume.positions">
+            <app-position [position]="position">
+            </app-position>
+        </li>
+    </ul>
+</md-card>

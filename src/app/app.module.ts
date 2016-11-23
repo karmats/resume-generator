@@ -7,12 +7,14 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { ResumeComponent } from './resume/resume.component';
 import { SummaryComponent } from './summary/summary.component';
+import { PositionComponent } from './position/position.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResumeComponent,
-    SummaryComponent
+    SummaryComponent,
+    PositionComponent
   ],
   imports: [
     BrowserModule,

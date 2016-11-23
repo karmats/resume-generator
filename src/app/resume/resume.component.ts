@@ -15,7 +15,21 @@ export class ResumeComponent implements OnInit {
       firstName: 'Mats',
       lastName: 'Roshauw',
       pictureUrl: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/010/3a0/1d2671f.jpg',
-      summary: "Good stuff dev"
+      summary: 'Good stuff dev',
+      positions: [{
+        company: 'Acando',
+        startDate: new Date(2011, 6),
+        endDate: new Date(2013, 6),
+        current: false,
+        summary: 'Consulting stuffs',
+        title: 'IT consultant'
+      }, {
+        company: 'Seal',
+        startDate: new Date(2013, 6),
+        current: true,
+        summary: 'Frontend stuffs',
+        title: 'Frontend developer'
+      }]
     }
   }
 
