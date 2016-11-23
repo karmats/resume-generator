@@ -6,13 +6,13 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ResumeComponent } from './resume/resume.component';
-import { ResumeSummaryComponent } from './resume-summary/resume-summary.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResumeComponent,
-    ResumeSummaryComponent
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

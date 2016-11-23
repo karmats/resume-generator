@@ -14,7 +14,8 @@ export class ResumeComponent implements OnInit {
     this.resume = <Resume>{
       firstName: 'Mats',
       lastName: 'Roshauw',
-      pictureUrl: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/010/3a0/1d2671f.jpg'
+      pictureUrl: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/010/3a0/1d2671f.jpg',
+      summary: "Good stuff dev"
     }
   }
 
