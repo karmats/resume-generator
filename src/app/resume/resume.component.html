@@ -1,13 +1,25 @@
+<!-- Summary -->
 <md-card>
     <app-summary [picture]="resume.pictureUrl" [name]="resume.firstName + ' ' + resume.lastName" [description]="resume.summary">
     </app-summary>
 </md-card>
 
+<!-- Work experience -->
 <md-card>
-    <ul>
+    <ul class="list-unstyled">
         <li *ngFor="let position of resume.positions">
             <app-position [position]="position">
             </app-position>
+        </li>
+    </ul>
+</md-card>
+
+<!-- Education -->
+<md-card>
+    <ul class="list-unstyled">
+        <li *ngFor="let education of resume.educations">
+            <app-education [education]="education">
+            </app-education>
         </li>
     </ul>
 </md-card>

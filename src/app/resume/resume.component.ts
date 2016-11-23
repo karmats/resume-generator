@@ -29,6 +29,19 @@ export class ResumeComponent implements OnInit {
         current: true,
         summary: 'Frontend stuffs',
         title: 'Frontend developer'
+      }],
+      educations: [{
+        degree: 'Bachelor',
+        school: 'Växjö Unversity',
+        startDate: new Date(2003, 8),
+        endDate: new Date(2006, 6),
+        field: 'Computer science'
+      }, {
+        degree: 'Master',
+        school: 'Chalmers Unversity',
+        startDate: new Date(2006, 8),
+        endDate: new Date(2007, 1),
+        field: 'Computer gaming'
       }]
     }
   }

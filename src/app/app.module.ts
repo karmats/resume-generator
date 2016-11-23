@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { ResumeComponent } from './resume/resume.component';
 import { SummaryComponent } from './summary/summary.component';
 import { PositionComponent } from './position/position.component';
+import { EducationComponent } from './education/education.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResumeComponent,
     SummaryComponent,
-    PositionComponent
+    PositionComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,

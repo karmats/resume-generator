@@ -4,6 +4,7 @@ export interface Resume {
     lastName: string;
     summary: string;
     positions: Array<Position>;
+    educations: Array<Education>;
 }
 
 export interface Position {
