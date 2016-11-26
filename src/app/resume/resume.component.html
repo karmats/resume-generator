@@ -9,22 +9,13 @@
 
     <!-- Work experience -->
     <md-card>
-        <ul class="list-unstyled">
-            <li *ngFor="let position of resume.positions">
-                <app-position [position]="position">
-                </app-position>
-            </li>
-        </ul>
+        <app-position [positions]="resume.positions"></app-position>
     </md-card>
 
     <!-- Education -->
     <md-card>
-        <ul class="list-unstyled">
-            <li *ngFor="let education of resume.educations">
-                <app-education [education]="education">
-                </app-education>
-            </li>
-        </ul>
+        <app-education [educations]="resume.educations">
+        </app-education>
     </md-card>
 
     <!-- Skills -->

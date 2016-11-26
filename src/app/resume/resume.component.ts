@@ -20,6 +20,7 @@ export class ResumeComponent implements OnInit {
       phone: '0730-825481',
       positions: [{
         company: 'Acando',
+        companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAeBAAAAJDViZDYyYTRmLWQ3YWUtNGRmZS04NTdlLTNlZTk2NTA0MmJiOA.png',
         startDate: new Date(2011, 6),
         endDate: new Date(2013, 6),
         current: false,
@@ -27,6 +28,7 @@ export class ResumeComponent implements OnInit {
         title: 'IT consultant'
       }, {
         company: 'Seal',
+        companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAcWAAAAJGNkMTU0MzMxLTQ1MWEtNDZmZS05NTE3LTAyMDI5MmEwNTg0MQ.png',
         startDate: new Date(2013, 6),
         current: true,
         summary: 'Frontend stuffs',

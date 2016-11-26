@@ -7,7 +7,7 @@ import { Education } from '../models';
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
-  @Input() education: Education;
+  @Input() educations: Array<Education>;
 
   constructor() { }
 

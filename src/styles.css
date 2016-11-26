@@ -13,7 +13,3 @@ body {
 .app-content md-card {
   margin: 20px;
 }
-
-ul.list-unstyled {
-    list-style-type: none;
-}

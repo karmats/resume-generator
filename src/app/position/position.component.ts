@@ -7,7 +7,7 @@ import { Position } from '../models'
   styleUrls: ['./position.component.css']
 })
 export class PositionComponent implements OnInit {
-  @Input() position: Position;
+  @Input() positions: Array<Position>;
 
   constructor() { }
 

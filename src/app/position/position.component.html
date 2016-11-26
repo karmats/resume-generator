@@ -1,5 +1,8 @@
-<p>
-  <b>{{position.title}} - {{position.company}}</b> <br />
-  <i>{{position.startDate | date}} - {{position.endDate ? (position.endDate | date) : 'Present'}}</i> <br />
-  <span>{{position.summary}}</span>
-</p>
+<md-list>
+  <md-list-item *ngFor="let position of positions">
+    <img md-list-avatar [src]="position.companyLogoUrl" alt="position.company">
+    <h3 md-line>{{position.title}} - {{position.company}}</h3>
+    <p md-line>{{position.startDate | date}} - {{position.endDate ? (position.endDate | date) : 'Present'}}</p>
+    <p md-line>{{position.summary}}</p>
+  </md-list-item>
+</md-list>
