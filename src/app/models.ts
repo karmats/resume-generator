@@ -5,6 +5,7 @@ export interface Resume {
     summary: string;
     positions: Array<Position>;
     educations: Array<Education>;
+    skills: Array<Skill>;
 }
 
 export interface Position {
@@ -22,4 +23,9 @@ export interface Education {
     startDate: Date;
     endDate: Date;
     degree: string;
+}
+
+export interface Skill {
+    name: string;
+    competence: number;
 }

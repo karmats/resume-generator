@@ -1,4 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+
+body {
+    background: #eee;
+}
+
+.app-content {
+  padding: 20px;
+}
+
+.app-content md-card {
+  margin: 20px;
+}
 
 ul.list-unstyled {
     list-style-type: none;

@@ -42,6 +42,16 @@ export class ResumeComponent implements OnInit {
         startDate: new Date(2006, 8),
         endDate: new Date(2007, 1),
         field: 'Computer gaming'
+      }],
+      skills: [{
+        name: 'Angular',
+        competence: 90
+      }, {
+        name: 'React',
+        competence: 60
+      }, {
+        name: 'Javascript',
+        competence: 80
       }]
     }
   }
