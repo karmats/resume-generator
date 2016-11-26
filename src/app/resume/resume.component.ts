@@ -12,10 +12,12 @@ export class ResumeComponent implements OnInit {
 
   constructor() {
     this.resume = <Resume>{
-      firstName: 'Mats',
-      lastName: 'Roshauw',
+      name: 'Mats Roshauw',
+      title: 'Frontend engineer',
       pictureUrl: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/010/3a0/1d2671f.jpg',
       summary: 'Good stuff dev',
+      email: 'karmats@gmail.com',
+      phone: '0730-825481',
       positions: [{
         company: 'Acando',
         startDate: new Date(2011, 6),

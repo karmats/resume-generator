@@ -9,6 +9,9 @@ export class SummaryComponent implements OnInit {
   @Input() name: string;
   @Input('picture') profileUrl: string;
   @Input() description: string;
+  @Input() title: string;
+  @Input() phone: string;
+  @Input() email: string;
 
   constructor() { }
 

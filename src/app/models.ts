@@ -1,8 +1,9 @@
 export interface Resume {
     pictureUrl: string;
-    firstName: string;
-    lastName: string;
+    name: string;
     summary: string;
+    email: string;
+    phone: string;
     positions: Array<Position>;
     educations: Array<Education>;
     skills: Array<Skill>;
