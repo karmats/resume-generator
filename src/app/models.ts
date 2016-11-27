@@ -1,9 +1,10 @@
 export interface Resume {
-    pictureUrl: string;
     name: string;
+    title: string;
     summary: string;
     email: string;
     phone: string;
+    pictureUrl: string;
     positions: Array<Position>;
     educations: Array<Education>;
     skills: Array<Skill>;
@@ -11,20 +12,20 @@ export interface Resume {
 
 export interface Position {
     title: string;
-    summary: string;
+    summary?: string;
     startDate: Date;
-    endDate: Date;
+    endDate?: Date;
     current: boolean;
     company: string;
-    companyLogoUrl: string;
+    companyLogoUrl?: string;
 }
 
 export interface Education {
     school: string;
     field: string;
     startDate: Date;
-    endDate: Date;
-    degree: string;
+    endDate?: Date;
+    degree?: string;
 }
 
 export interface Skill {
