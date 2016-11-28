@@ -19,10 +19,8 @@
     </md-card>
 
     <!-- Skills -->
-    <md-card>
-        <div *ngFor="let skill of resume.skills">
-            <span>{{skill.name}}</span>
-            <md-progress-bar mode="determinate" value="{{skill.competence}}"></md-progress-bar>
-        </div>
+    <md-card *ngIf="resume.skills">
+        <app-skill [skills]="resume.skills">
+        </app-skill>
     </md-card>
 </div>

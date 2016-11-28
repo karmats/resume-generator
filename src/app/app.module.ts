@@ -9,6 +9,9 @@ import { ResumeComponent } from './resume/resume.component';
 import { SummaryComponent } from './summary/summary.component';
 import { PositionComponent } from './position/position.component';
 import { EducationComponent } from './education/education.component';
+import { SkillComponent } from './skill/skill.component';
+
+import { ResumeService } from './resume.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { EducationComponent } from './education/education.component';
     ResumeComponent,
     SummaryComponent,
     PositionComponent,
-    EducationComponent
+    EducationComponent,
+    SkillComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,7 @@ import { EducationComponent } from './education/education.component';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [],
+  providers: [ResumeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
