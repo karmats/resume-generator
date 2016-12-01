@@ -4,6 +4,7 @@ import { Resume } from './models'
 @Injectable()
 export class ResumeService {
 
+  private STORAGE_KEY = 'resume';
   private RESUME: Resume = {
     name: 'Mats Roshauw',
     title: 'Frontend engineer',
@@ -60,17 +61,16 @@ export class ResumeService {
    * @param {Resume}  resume  The resume to store
    */
   saveResume(resume: Resume) {
-    // FIXME Implement
-    console.log('Saving', resume);
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(resume));
   }
 
   /**
    * Retrive last saved resume stored in browser
    * 
-   * @return {Promise<Resume>}  Latest stored resume
+   * @return {Resume}  Latest stored resume
    */
-  retrieveResume(): Promise<Resume> {
-    // FIXME Retrieve from indexDB or local storage
-    return Promise.resolve(this.RESUME);
+  retrieveResume(): Resume {
+    const resumeAsString = localStorage.getItem(this.STORAGE_KEY);
+    return resumeAsString ? JSON.parse(resumeAsString) : this.RESUME;
   }
 }

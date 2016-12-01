@@ -13,11 +13,10 @@ export class ResumeComponent implements OnInit {
   resume: Resume;
 
   constructor(private resumeService: ResumeService) {
-    this.resume = <Resume>{}; 
   }
 
   ngOnInit() {
-    this.resumeService.retrieveResume().then(resume => this.resume = resume);
+    this.resume = this.resumeService.retrieveResume();
   }
 
 }
