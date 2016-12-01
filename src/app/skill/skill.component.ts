@@ -26,4 +26,7 @@ export class SkillComponent implements OnInit {
     },[[], []]);
   }
 
+  newSkill() {
+    console.log('Add new skill');
+  }
 }

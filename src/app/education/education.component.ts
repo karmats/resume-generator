@@ -14,4 +14,7 @@ export class EducationComponent implements OnInit {
   ngOnInit() {
   }
 
+  newEducation() {
+    console.log('Add new edcuation');
+  }
 }

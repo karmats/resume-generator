@@ -1,7 +1,12 @@
-<md-list>
-  <md-list-item *ngFor="let education of educations">
-    <b md-line>{{education.field}} - {{education.school}}</b>
-    <i md-line>{{education.startDate | date}} - {{education.endDate ? (education.endDate | date) : 'Present'}}</i>
-    <span md-line>{{education.degree}}</span>
-  </md-list-item>
-</md-list>
+<md-card>
+  <md-list>
+    <md-list-item *ngFor="let education of educations">
+      <b md-line>{{education.field}} - {{education.school}}</b>
+      <i md-line>{{education.startDate | date}} - {{education.endDate ? (education.endDate | date) : 'Present'}}</i>
+      <span md-line>{{education.degree}}</span>
+    </md-list-item>
+  </md-list>
+  <md-card-actions>
+    <button md-button color="primary" (click)="newEducation()">ADD EDUCATION</button>
+  </md-card-actions>
+</md-card>

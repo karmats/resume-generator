@@ -1,26 +1,19 @@
 <!-- Summary -->
 <div class="app-content">
-    <md-card>
-        <app-summary [picture]="resume.pictureUrl" [name]="resume.name"
-                     [description]="resume.summary" [title]="resume.title"
-                     [phone]="resume.phone" [email]="resume.email">
-        </app-summary>
-    </md-card>
+    <app-summary [picture]="resume.pictureUrl" [name]="resume.name" [description]="resume.summary" [title]="resume.title" [phone]="resume.phone"
+        [email]="resume.email">
+    </app-summary>
 
     <!-- Work experience -->
-    <md-card>
-        <app-position [positions]="resume.positions"></app-position>
-    </md-card>
+    <app-position [positions]="resume.positions">
+    </app-position>
 
     <!-- Education -->
-    <md-card>
-        <app-education [educations]="resume.educations">
-        </app-education>
-    </md-card>
+    <app-education [educations]="resume.educations">
+    </app-education>
 
     <!-- Skills -->
-    <md-card *ngIf="resume.skills">
-        <app-skill [skills]="resume.skills">
-        </app-skill>
-    </md-card>
+    <app-skill [skills]="resume.skills">
+    </app-skill>
+
 </div>

@@ -1,10 +1,15 @@
-<div class="row">
-  <div *ngFor="let skill of firstList" class="col-md-6 col-xs-12">
-    <span>{{skill.name}}</span>
-    <md-progress-bar class="skill-bar" mode="determinate" value="{{skill.competence}}"></md-progress-bar>
+<md-card>
+  <div class="row">
+    <div *ngFor="let skill of firstList" class="col-md-6 col-xs-12">
+      <span>{{skill.name}}</span>
+      <md-progress-bar class="skill-bar" mode="determinate" value="{{skill.competence}}"></md-progress-bar>
+    </div>
+    <div *ngFor="let skill of secondList" class="col-md-6 col-xs-12">
+      <span>{{skill.name}}</span>
+      <md-progress-bar class="skill-bar" mode="determinate" value="{{skill.competence}}"></md-progress-bar>
+    </div>
   </div>
-  <div *ngFor="let skill of secondList" class="col-md-6 col-xs-12">
-    <span>{{skill.name}}</span>
-    <md-progress-bar class="skill-bar" mode="determinate" value="{{skill.competence}}"></md-progress-bar>
-  </div>
-</div>
+  <md-card-actions>
+    <button md-button color="primary" (click)="newSkill()">ADD SKILL</button>
+  </md-card-actions>
+</md-card>

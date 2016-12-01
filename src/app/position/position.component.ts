@@ -14,4 +14,7 @@ export class PositionComponent implements OnInit {
   ngOnInit() {
   }
 
+  newPosition() {
+    console.log('Add new position');
+  }
 }

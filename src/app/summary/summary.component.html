@@ -1,10 +1,12 @@
-<div class="text-center">
-    <img class="profile-picture" [src]="profileUrl" alt="Profile picture">
-    <h2>{{name}}</h2>
-    <i>{{title}}</i>
-    <p>{{description}}</p>
-    <p class="contact-info">
-        <md-icon>phone</md-icon> {{phone}}
-        <md-icon>email</md-icon> {{email}}
-    </p>
-</div>
+<md-card>
+    <div class="text-center">
+        <img class="profile-picture" [src]="profileUrl" alt="Profile picture">
+        <h2>{{name}}</h2>
+        <i>{{title}}</i>
+        <p>{{description}}</p>
+        <p class="contact-info">
+            <md-icon>phone</md-icon> {{phone}}
+            <md-icon>email</md-icon> {{email}}
+        </p>
+    </div>
+</md-card>
