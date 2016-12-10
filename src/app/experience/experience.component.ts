@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Position } from '../models'
 
 @Component({
-  selector: 'app-position',
-  templateUrl: './position.component.html',
-  styleUrls: ['./position.component.css']
+  selector: 'app-experience',
+  templateUrl: './experience.component.html',
+  styleUrls: ['./experience.component.css']
 })
-export class PositionComponent implements OnInit {
+export class ExperienceComponent implements OnInit {
   @Input() positions: Array<Position>;
 
   constructor() { }
