@@ -1,3 +1,10 @@
+.summary {
+    text-align: center;
+    background: #3949ab;
+    color: #fff;
+    padding: 20px;
+    margin: -30px;
+}
 .profile-picture {
     border-radius: 200px;
     width: 200px;
