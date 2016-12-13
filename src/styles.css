@@ -15,3 +15,32 @@ body {
   width: 75%;
   margin: 20px auto;
 }
+
+/* Dialog styles */
+.dialog-header {
+  margin: 0 0 20px 0;
+  color: rgba(0, 0, 0, 0.870588);
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 400;
+  border-bottom: none;
+}
+
+.dialog-content {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  padding-bottom: 24px;
+}
+
+.dialog-footer {
+  box-sizing: border-box;
+  margin-bottom: -16px;
+  margin-top: 8px;
+  width: 100%;
+  text-align: right;
+}
+
+.dialog-footer > button:last-child {
+  margin-right: -16px;
+}

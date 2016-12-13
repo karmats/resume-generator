@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { Resume } from './models'
 
 @Injectable()
@@ -53,7 +54,24 @@ export class ResumeService {
     }]
   }
 
-  constructor() { }
+  // Years and months to choose from when adding new content to resume
+  years: Array<number> = [];
+  months: Array<string> = [];
+
+  constructor() {
+    // Create years to choose from, 1950 - current years
+    const today = new Date();
+    for (let year = 1950; year <= today.getFullYear(); year++) {
+      this.years.push(year);
+    }
+    // To get the name of the month, use the browsers language and angular DatePipe,
+    // the position in the array will tell which js month it is
+    const datePipe = new DatePipe(navigator.language);
+    for (let month = 1; month <= 12; month++) {
+      let dateString = `2016-${month < 10 ? '0' : ''}${month}-15`;
+      this.months.push(datePipe.transform(dateString, 'MMMM '));
+    }
+  }
 
   /**
    * Saves resume in browser
