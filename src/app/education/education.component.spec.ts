@@ -2,6 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { MdCard, MdCardActions, MdDialog, MdList, MdListItem } from '@angular/material';
 
 import { EducationComponent } from './education.component';
 
@@ -11,7 +12,13 @@ describe('EducationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EducationComponent ]
+      declarations: [
+        EducationComponent,
+        MdCard,
+        MdCardActions,
+        MdList,
+        MdListItem
+      ]
     })
     .compileComponents();
   }));

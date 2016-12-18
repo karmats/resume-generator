@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { SkillComponent } from './skill.component';
+import { MdCard, MdCardActions, MdProgressBar } from '@angular/material';
 
 describe('SkillComponent', () => {
   let component: SkillComponent;
@@ -11,7 +12,12 @@ describe('SkillComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SkillComponent ]
+      declarations: [ 
+        SkillComponent,
+        MdCard,
+        MdCardActions,
+        MdProgressBar
+      ]
     })
     .compileComponents();
   }));
@@ -19,6 +25,7 @@ describe('SkillComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SkillComponent);
     component = fixture.componentInstance;
+    component.skills = [];
     fixture.detectChanges();
   });
 

@@ -2,16 +2,29 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { MdCard, MdCardActions, MdDialog, MdList, MdListItem } from '@angular/material';
 
 import { ExperienceComponent } from './experience.component';
 
 describe('ExperienceComponent', () => {
   let component: ExperienceComponent;
   let fixture: ComponentFixture<ExperienceComponent>;
+  const mdDialogStub = {
+    open: () => {}
+  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExperienceComponent ]
+      declarations: [
+        ExperienceComponent,
+        MdCard,
+        MdCardActions,
+        MdList,
+        MdListItem
+      ],
+      providers: [
+        { provide: MdDialog, useValue: mdDialogStub }
+      ]
     })
     .compileComponents();
   }));
