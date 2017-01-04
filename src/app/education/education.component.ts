@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Education } from '../models';
+import { ResumeService } from '../resume.service'
 
 @Component({
   selector: 'app-education',
@@ -8,10 +9,12 @@ import { Education } from '../models';
 })
 export class EducationComponent implements OnInit {
   @Input() educations: Array<Education>;
+  months: Array<string>
 
-  constructor() { }
+  constructor(private resumeService: ResumeService) { }
 
   ngOnInit() {
+    this.months = this.resumeService.months;
   }
 
   newEducation() {

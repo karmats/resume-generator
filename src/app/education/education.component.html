@@ -2,7 +2,7 @@
   <md-list>
     <md-list-item *ngFor="let education of educations">
       <b md-line>{{education.field}} - {{education.school}}</b>
-      <i md-line>{{education.startDate | date}} - {{education.endDate ? (education.endDate | date) : 'Present'}}</i>
+      <i md-line>{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</i>
       <span md-line>{{education.degree}}</span>
     </md-list-item>
   </md-list>

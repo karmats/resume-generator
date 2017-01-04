@@ -13,8 +13,8 @@ export interface Resume {
 export interface Position {
     title: string;
     summary?: string;
-    startDate: Date;
-    endDate?: Date;
+    startDate: YearAndMonth;
+    endDate?: YearAndMonth;
     current: boolean;
     company: string;
     companyLogoUrl?: string;
@@ -23,12 +23,17 @@ export interface Position {
 export interface Education {
     school: string;
     field: string;
-    startDate: Date;
-    endDate?: Date;
+    startDate: YearAndMonth;
+    endDate?: YearAndMonth;
     degree?: string;
 }
 
 export interface Skill {
     name: string;
     competence: number;
+}
+
+export interface YearAndMonth {
+    year: number,
+    month: number;
 }

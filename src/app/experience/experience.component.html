@@ -1,9 +1,9 @@
 <md-card>
   <md-list>
     <md-list-item *ngFor="let position of positions">
-      <img md-list-avatar [src]="position.companyLogoUrl" alt="position.company">
+      <img *ngIf="position.companyLogoUrl" md-list-avatar [src]="position.companyLogoUrl" alt="position.company">
       <h3 md-line>{{position.title}} - {{position.company}}</h3>
-      <p md-line>{{position.startDate | date}} - {{position.endDate ? (position.endDate | date) : 'Present'}}</p>
+      <p md-line>{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>
       <p md-line>{{position.summary}}</p>
     </md-list-item>
   </md-list>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { Resume } from './models'
+import { Resume, Position } from './models'
 
 @Injectable()
 export class ResumeService {
@@ -16,15 +16,24 @@ export class ResumeService {
     positions: [{
       company: 'Acando',
       companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAeBAAAAJDViZDYyYTRmLWQ3YWUtNGRmZS04NTdlLTNlZTk2NTA0MmJiOA.png',
-      startDate: new Date(2011, 6),
-      endDate: new Date(2013, 6),
+      startDate: {
+        year: 2011,
+        month: 6
+      },
+      endDate: {
+        year: 2013,
+        month: 6
+      },
       current: false,
       summary: 'Consulting stuffs',
       title: 'IT consultant'
     }, {
       company: 'Seal',
       companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAcWAAAAJGNkMTU0MzMxLTQ1MWEtNDZmZS05NTE3LTAyMDI5MmEwNTg0MQ.png',
-      startDate: new Date(2013, 6),
+      startDate: {
+        year: 2013,
+        month: 6
+      },
       current: true,
       summary: 'Frontend stuffs',
       title: 'Frontend developer'
@@ -32,14 +41,26 @@ export class ResumeService {
     educations: [{
       degree: 'Bachelor',
       school: 'Växjö Unversity',
-      startDate: new Date(2003, 8),
-      endDate: new Date(2006, 6),
+      startDate: {
+        year: 2003,
+        month: 8
+      },
+      endDate: {
+        year: 2006,
+        month: 6
+      },
       field: 'Computer science'
     }, {
       degree: 'Master',
       school: 'Chalmers Unversity',
-      startDate: new Date(2006, 8),
-      endDate: new Date(2007, 1),
+      startDate: {
+        year: 2006,
+        month: 8
+      },
+      endDate: {
+        year: 2007,
+        month: 1
+      },
       field: 'Computer gaming'
     }],
     skills: [{
@@ -90,5 +111,18 @@ export class ResumeService {
   retrieveResume(): Resume {
     const resumeAsString = localStorage.getItem(this.STORAGE_KEY);
     return resumeAsString ? JSON.parse(resumeAsString) : this.RESUME;
+  }
+
+  /**
+   * Adds a position to the saved resume and saves it.
+   * 
+   * @param   {Position}  position  The position to add
+   * @return  {Array<Position>}     Updated positions array
+   */
+  addPosition(position: Position): Array<Position> {
+    const currentResume = this.retrieveResume();
+    currentResume.positions.push(position);
+    this.saveResume(currentResume);
+    return currentResume.positions;
   }
 }

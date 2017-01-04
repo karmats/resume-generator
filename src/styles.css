@@ -44,3 +44,7 @@ body {
 .dialog-footer > button:last-child {
   margin-right: -16px;
 }
+
+.dialog-content md-select {
+  padding-top: 25px;
+}
