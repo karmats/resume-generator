@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { Resume, Position } from './models'
+import { Resume, Position, Education } from './models'
 
 @Injectable()
 export class ResumeService {
@@ -78,6 +78,17 @@ export class ResumeService {
   // Years and months to choose from when adding new content to resume
   years: Array<number> = [];
   months: Array<string> = [];
+  // All posssible education degrees
+  readonly degrees: Array<string> = [
+      'Associate’s Degree',
+      'Bachelor’s Degree',
+      'Master’s Degree',
+      'Master of Business Administration (M.B.A)',
+      'Juris Doctor (J.D.)',
+      'Doctor of Medicine (M.D.)',
+      'Doctor of Philosophy (Ph.D.)',
+      'Engineer’s Degree',
+      'Other']
 
   constructor() {
     // Create years to choose from, 1950 - current years
@@ -124,5 +135,18 @@ export class ResumeService {
     currentResume.positions.push(position);
     this.saveResume(currentResume);
     return currentResume.positions;
+  }
+
+  /**
+   * Adds an education to the saved resume and saves it.
+   * 
+   * @param   {Education}  education  The education to add
+   * @return  {Array<Education>}      Updated educations array
+   */
+  addEducation(education: Education): Array<Education> {
+    const currentResume = this.retrieveResume();
+    currentResume.educations.push(education);
+    this.saveResume(currentResume);
+    return currentResume.educations;
   }
 }

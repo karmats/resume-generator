@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { ResumeComponent } from './resume/resume.component';
 import { SummaryComponent } from './summary/summary.component';
 import { ExperienceComponent, NewPositionDialog } from './experience/experience.component';
-import { EducationComponent } from './education/education.component';
+import { EducationComponent, NewEducationDialog } from './education/education.component';
 import { SkillComponent } from './skill/skill.component';
 
 import { ResumeService } from './resume.service';
@@ -20,10 +20,12 @@ import { ResumeService } from './resume.service';
     SummaryComponent,
     ExperienceComponent,
     NewPositionDialog,
+    NewEducationDialog,
     EducationComponent,
     SkillComponent
   ],
   entryComponents: [
+    NewEducationDialog,
     NewPositionDialog
   ],
   imports: [

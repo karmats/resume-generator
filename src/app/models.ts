@@ -25,6 +25,7 @@ export interface Education {
     field: string;
     startDate: YearAndMonth;
     endDate?: YearAndMonth;
+    current?: boolean;
     degree?: string;
 }
 
