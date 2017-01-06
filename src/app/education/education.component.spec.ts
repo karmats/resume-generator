@@ -2,8 +2,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MdCard, MdCardActions, MdDialog, MdList, MdListItem } from '@angular/material';
+import { MaterialModule } from '@angular/material';
 
+import { ResumeService } from '../resume.service'
 import { EducationComponent } from './education.component';
 
 describe('EducationComponent', () => {
@@ -13,12 +14,10 @@ describe('EducationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        EducationComponent,
-        MdCard,
-        MdCardActions,
-        MdList,
-        MdListItem
-      ]
+        EducationComponent
+      ],
+      providers: [{ provide: ResumeService, useValue: {} },],
+      imports: [ MaterialModule.forRoot() ]
     })
     .compileComponents();
   }));
