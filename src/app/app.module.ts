@@ -9,7 +9,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { SummaryComponent } from './summary/summary.component';
 import { ExperienceComponent, NewPositionDialog } from './experience/experience.component';
 import { EducationComponent, NewEducationDialog } from './education/education.component';
-import { SkillComponent } from './skill/skill.component';
+import { SkillComponent, NewSkillDialog } from './skill/skill.component';
 
 import { ResumeService } from './resume.service';
 
@@ -21,12 +21,14 @@ import { ResumeService } from './resume.service';
     ExperienceComponent,
     NewPositionDialog,
     NewEducationDialog,
+    NewSkillDialog,
     EducationComponent,
     SkillComponent
   ],
   entryComponents: [
     NewEducationDialog,
-    NewPositionDialog
+    NewPositionDialog,
+    NewSkillDialog
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { Resume, Position, Education } from './models'
+import { Resume, Position, Education, Skill } from './models'
 
 @Injectable()
 export class ResumeService {
@@ -149,4 +149,18 @@ export class ResumeService {
     this.saveResume(currentResume);
     return currentResume.educations;
   }
+
+  /**
+   * Adds a skill to the saved resume and saves it.
+   * 
+   * @param   {Skill}  skill  The skill to add
+   * @return  {Array<Skill>}  Updated skills array
+   */
+  addSkill(skill: Skill): Array<Skill> {
+    const currentResume = this.retrieveResume();
+    currentResume.skills.push(skill);
+    this.saveResume(currentResume);
+    return currentResume.skills;
+  }
+
 }
