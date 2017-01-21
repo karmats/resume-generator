@@ -4,6 +4,9 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
+    "clean": "rm -rf dist/",
+    "build": "npm run clean && ng build",
+    "build:demo": "npm run clean && ng build --bh /resume-generator/",
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
