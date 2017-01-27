@@ -6,7 +6,7 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ResumeComponent } from './resume/resume.component';
-import { SummaryComponent } from './summary/summary.component';
+import { SummaryComponent, EditSummaryDialog } from './summary/summary.component';
 import { ExperienceComponent, NewPositionDialog } from './experience/experience.component';
 import { EducationComponent, NewEducationDialog } from './education/education.component';
 import { SkillComponent, NewSkillDialog } from './skill/skill.component';
@@ -18,6 +18,7 @@ import { ResumeService } from './resume.service';
     AppComponent,
     ResumeComponent,
     SummaryComponent,
+    EditSummaryDialog,
     ExperienceComponent,
     NewPositionDialog,
     NewEducationDialog,
@@ -28,7 +29,8 @@ import { ResumeService } from './resume.service';
   entryComponents: [
     NewEducationDialog,
     NewPositionDialog,
-    NewSkillDialog
+    NewSkillDialog,
+    EditSummaryDialog
   ],
   imports: [
     BrowserModule,

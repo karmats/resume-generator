@@ -2,8 +2,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MdIcon, MdIconRegistry } from '@angular/material';
+import { MdIcon, MdIconRegistry, MaterialModule } from '@angular/material';
 
+import { ResumeService } from '../resume.service';
 import { SummaryComponent } from './summary.component';
 
 describe('SummaryComponent', () => {
@@ -16,12 +17,12 @@ describe('SummaryComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ 
-        SummaryComponent,
-        MdIcon
+        SummaryComponent
       ],
       providers: [
-        { provide: MdIconRegistry, useValue: mdIconRegistryStub }
-      ]
+        { provide: ResumeService, useValue: {} },
+      ],
+      imports: [ MaterialModule.forRoot() ]
     })
     .compileComponents();
   }));

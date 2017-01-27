@@ -11,8 +11,8 @@ export class ResumeService {
     title: 'Frontend engineer',
     pictureUrl: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/010/3a0/1d2671f.jpg',
     summary: 'Good stuff dev',
-    email: 'karmats@gmail.com',
-    phone: '0730-825481',
+    email: 'mats@mail.com',
+    phone: '0707-777777',
     positions: [{
       company: 'Acando',
       companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAeBAAAAJDViZDYyYTRmLWQ3YWUtNGRmZS04NTdlLTNlZTk2NTA0MmJiOA.png',
@@ -80,15 +80,15 @@ export class ResumeService {
   months: Array<string> = [];
   // All posssible education degrees
   readonly degrees: Array<string> = [
-      'Associate’s Degree',
-      'Bachelor’s Degree',
-      'Master’s Degree',
-      'Master of Business Administration (M.B.A)',
-      'Juris Doctor (J.D.)',
-      'Doctor of Medicine (M.D.)',
-      'Doctor of Philosophy (Ph.D.)',
-      'Engineer’s Degree',
-      'Other']
+    'Associate’s Degree',
+    'Bachelor’s Degree',
+    'Master’s Degree',
+    'Master of Business Administration (M.B.A)',
+    'Juris Doctor (J.D.)',
+    'Doctor of Medicine (M.D.)',
+    'Doctor of Philosophy (Ph.D.)',
+    'Engineer’s Degree',
+    'Other']
 
   constructor() {
     // Create years to choose from, 1950 - current years
@@ -163,4 +163,19 @@ export class ResumeService {
     return currentResume.skills;
   }
 
+  /**
+   * Update resume personal information.
+   */
+  updateSummary(name: string, profileUrl: string, description: string, title: string,
+                phone: string, email: string): Resume {
+    const currentResume = this.retrieveResume();
+    currentResume.name = name;
+    currentResume.pictureUrl = profileUrl;
+    currentResume.summary = description;
+    currentResume.title = title;
+    currentResume.phone = phone;
+    currentResume.email = email;
+    this.saveResume(currentResume);
+    return currentResume;
+  }
 }
