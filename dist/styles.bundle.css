@@ -14,6 +14,11 @@ body {
   margin: 20px auto;
 }
 
+/** Material override */
+button[md-button], button[md-raised-button] {
+  text-transform: uppercase;
+}
+
 /* Dialog styles */
 .dialog-header {
   margin: 0 0 20px 0;

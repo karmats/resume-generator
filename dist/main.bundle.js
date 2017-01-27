@@ -1,184 +1,5 @@
 webpackJsonp([0,3],{
 
-/***/ 110:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(19);
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ResumeService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ResumeService = (function () {
-    function ResumeService() {
-        this.STORAGE_KEY = 'resume';
-        this.RESUME = {
-            name: 'Mats Roshauw',
-            title: 'Frontend engineer',
-            pictureUrl: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/010/3a0/1d2671f.jpg',
-            summary: 'Good stuff dev',
-            email: 'karmats@gmail.com',
-            phone: '0730-825481',
-            positions: [{
-                    company: 'Acando',
-                    companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAeBAAAAJDViZDYyYTRmLWQ3YWUtNGRmZS04NTdlLTNlZTk2NTA0MmJiOA.png',
-                    startDate: {
-                        year: 2011,
-                        month: 6
-                    },
-                    endDate: {
-                        year: 2013,
-                        month: 6
-                    },
-                    current: false,
-                    summary: 'Consulting stuffs',
-                    title: 'IT consultant'
-                }, {
-                    company: 'Seal',
-                    companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAcWAAAAJGNkMTU0MzMxLTQ1MWEtNDZmZS05NTE3LTAyMDI5MmEwNTg0MQ.png',
-                    startDate: {
-                        year: 2013,
-                        month: 6
-                    },
-                    current: true,
-                    summary: 'Frontend stuffs',
-                    title: 'Frontend developer'
-                }],
-            educations: [{
-                    degree: 'Bachelor',
-                    school: 'Växjö Unversity',
-                    startDate: {
-                        year: 2003,
-                        month: 8
-                    },
-                    endDate: {
-                        year: 2006,
-                        month: 6
-                    },
-                    field: 'Computer science'
-                }, {
-                    degree: 'Master',
-                    school: 'Chalmers Unversity',
-                    startDate: {
-                        year: 2006,
-                        month: 8
-                    },
-                    endDate: {
-                        year: 2007,
-                        month: 1
-                    },
-                    field: 'Computer gaming'
-                }],
-            skills: [{
-                    name: 'Angular',
-                    competence: 90
-                }, {
-                    name: 'React',
-                    competence: 60
-                }, {
-                    name: 'Javascript',
-                    competence: 80
-                }]
-        };
-        // Years and months to choose from when adding new content to resume
-        this.years = [];
-        this.months = [];
-        // All posssible education degrees
-        this.degrees = [
-            'Associate’s Degree',
-            'Bachelor’s Degree',
-            'Master’s Degree',
-            'Master of Business Administration (M.B.A)',
-            'Juris Doctor (J.D.)',
-            'Doctor of Medicine (M.D.)',
-            'Doctor of Philosophy (Ph.D.)',
-            'Engineer’s Degree',
-            'Other'];
-        // Create years to choose from, 1950 - current years
-        var today = new Date();
-        for (var year = 1950; year <= today.getFullYear(); year++) {
-            this.years.push(year);
-        }
-        // To get the name of the month, use the browsers language and angular DatePipe,
-        // the position in the array will tell which js month it is
-        var datePipe = new __WEBPACK_IMPORTED_MODULE_1__angular_common__["c" /* DatePipe */](navigator.language);
-        for (var month = 1; month <= 12; month++) {
-            var dateString = "2016-" + (month < 10 ? '0' : '') + month + "-15";
-            this.months.push(datePipe.transform(dateString, 'MMMM '));
-        }
-    }
-    /**
-     * Saves resume in browser
-     *
-     * @param {Resume}  resume  The resume to store
-     */
-    ResumeService.prototype.saveResume = function (resume) {
-        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(resume));
-    };
-    /**
-     * Retrive last saved resume stored in browser
-     *
-     * @return {Resume}  Latest stored resume
-     */
-    ResumeService.prototype.retrieveResume = function () {
-        var resumeAsString = localStorage.getItem(this.STORAGE_KEY);
-        return resumeAsString ? JSON.parse(resumeAsString) : this.RESUME;
-    };
-    /**
-     * Adds a position to the saved resume and saves it.
-     *
-     * @param   {Position}  position  The position to add
-     * @return  {Array<Position>}     Updated positions array
-     */
-    ResumeService.prototype.addPosition = function (position) {
-        var currentResume = this.retrieveResume();
-        currentResume.positions.push(position);
-        this.saveResume(currentResume);
-        return currentResume.positions;
-    };
-    /**
-     * Adds an education to the saved resume and saves it.
-     *
-     * @param   {Education}  education  The education to add
-     * @return  {Array<Education>}      Updated educations array
-     */
-    ResumeService.prototype.addEducation = function (education) {
-        var currentResume = this.retrieveResume();
-        currentResume.educations.push(education);
-        this.saveResume(currentResume);
-        return currentResume.educations;
-    };
-    /**
-     * Adds a skill to the saved resume and saves it.
-     *
-     * @param   {Skill}  skill  The skill to add
-     * @return  {Array<Skill>}  Updated skills array
-     */
-    ResumeService.prototype.addSkill = function (skill) {
-        var currentResume = this.retrieveResume();
-        currentResume.skills.push(skill);
-        this.saveResume(currentResume);
-        return currentResume.skills;
-    };
-    ResumeService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Injectable */])(), 
-        __metadata('design:paramtypes', [])
-    ], ResumeService);
-    return ResumeService;
-}());
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/resume.service.js.map
-
-/***/ },
-
 /***/ 394:
 /***/ function(module, exports, __webpack_require__) {
 
@@ -257,14 +78,14 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(394);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__resume_resume_component__ = __webpack_require__(595);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__summary_summary_component__ = __webpack_require__(597);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__experience_experience_component__ = __webpack_require__(593);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__education_education_component__ = __webpack_require__(592);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__skill_skill_component__ = __webpack_require__(596);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__resume_service__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__resume_service__ = __webpack_require__(84);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -296,6 +117,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_6__resume_resume_component__["a" /* ResumeComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__summary_summary_component__["a" /* SummaryComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__summary_summary_component__["b" /* EditSummaryDialog */],
                 __WEBPACK_IMPORTED_MODULE_8__experience_experience_component__["a" /* ExperienceComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__experience_experience_component__["b" /* NewPositionDialog */],
                 __WEBPACK_IMPORTED_MODULE_9__education_education_component__["a" /* NewEducationDialog */],
@@ -306,7 +128,8 @@ var AppModule = (function () {
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_9__education_education_component__["a" /* NewEducationDialog */],
                 __WEBPACK_IMPORTED_MODULE_8__experience_experience_component__["b" /* NewPositionDialog */],
-                __WEBPACK_IMPORTED_MODULE_10__skill_skill_component__["a" /* NewSkillDialog */]
+                __WEBPACK_IMPORTED_MODULE_10__skill_skill_component__["a" /* NewSkillDialog */],
+                __WEBPACK_IMPORTED_MODULE_7__summary_summary_component__["b" /* EditSummaryDialog */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["e" /* BrowserModule */],
@@ -330,8 +153,8 @@ var AppModule = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(84);
 /* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return EducationComponent; });
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return NewEducationDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -424,8 +247,8 @@ var NewEducationDialog = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(84);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ExperienceComponent; });
 /* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return NewPositionDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -532,7 +355,7 @@ var NewPositionDialog = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__resume_service__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__resume_service__ = __webpack_require__(84);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ResumeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -573,8 +396,8 @@ var ResumeComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(84);
 /* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return SkillComponent; });
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return NewSkillDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -665,7 +488,10 @@ var NewSkillDialog = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(84);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SummaryComponent; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return EditSummaryDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -676,10 +502,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var SummaryComponent = (function () {
-    function SummaryComponent() {
+    function SummaryComponent(dialog, viewContainerRef, resumeService) {
+        this.dialog = dialog;
+        this.viewContainerRef = viewContainerRef;
+        this.resumeService = resumeService;
     }
     SummaryComponent.prototype.ngOnInit = function () {
+    };
+    SummaryComponent.prototype.editSummary = function () {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogConfig"]();
+        config.viewContainerRef = this.viewContainerRef;
+        var dialogRef = this.dialog.open(EditSummaryDialog, config);
+        dialogRef.componentInstance.summary = {
+            name: this.name,
+            profileUrl: this.profileUrl,
+            description: this.description,
+            title: this.title,
+            phone: this.phone,
+            email: this.email
+        };
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (!result) {
+                return;
+            }
+            var resume = _this.resumeService.updateSummary(result.name, result.profileUrl, result.description, result.title, result.phone, result.email);
+            _this.name = resume.name;
+            _this.profileUrl = resume.pictureUrl;
+            _this.description = resume.summary;
+            _this.title = resume.title;
+            _this.phone = resume.phone;
+            _this.email = resume.email;
+        });
     };
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
@@ -711,9 +568,24 @@ var SummaryComponent = (function () {
             template: __webpack_require__(764),
             styles: [__webpack_require__(758)]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _c) || Object])
     ], SummaryComponent);
     return SummaryComponent;
+    var _a, _b, _c;
+}());
+// Edit summary dialog
+var EditSummaryDialog = (function () {
+    function EditSummaryDialog(dialogRef) {
+        this.dialogRef = dialogRef;
+    }
+    EditSummaryDialog = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            template: "\n    <h3 class=\"dialog-header\">Edit summary</h3>\n    <div class=\"dialog-content row\">\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"summary.name\"\n          placeholder=\"Your name\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"summary.profileUrl\"\n          placeholder=\"Url to profile picture\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"summary.title\"\n          placeholder=\"Job title\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <textarea md-input\n        [(ngModel)]=\"summary.description\"\n        placeholder=\"Description of yourself\"></textarea>\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"summary.phone\"\n          placeholder=\"Your phone number\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"summary.email\"\n          placeholder=\"Your email adress\">\n      </md-input-container>\n    </div>\n    <div class=\"dialog-footer\">\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(summary)\">Ok</button>\n    </div>\n  ",
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"]) === 'function' && _a) || Object])
+    ], EditSummaryDialog);
+    return EditSummaryDialog;
+    var _a;
 }());
 //# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/summary.component.js.map
 
@@ -871,7 +743,7 @@ module.exports = "<md-card>\n  <div class=\"row\">\n    <div *ngFor=\"let skill 
 /***/ 764:
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"summary\">\n    <img class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n    <h2>{{name}}</h2>\n    <i>{{title}}</i>\n    <p>{{description}}</p>\n    <p class=\"contact-info\">\n        <md-icon>phone</md-icon> {{phone}}\n        <md-icon>email</md-icon> {{email}}\n    </p>\n</div>\n"
+module.exports = "<div class=\"summary\">\n    <img class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n    <h2>{{name}}</h2>\n    <i>{{title}}</i>\n    <p>{{description}}</p>\n    <p class=\"contact-info\">\n        <md-icon>phone</md-icon> {{phone}}\n        <md-icon>email</md-icon> {{email}}\n    </p>\n    <button md-raised-button color=\"primary\" (click)=\"editSummary()\">Edit profile</button>\n</div>\n"
 
 /***/ },
 
@@ -880,6 +752,199 @@ module.exports = "<div class=\"summary\">\n    <img class=\"profile-picture\" [s
 
 module.exports = __webpack_require__(442);
 
+
+/***/ },
+
+/***/ 84:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(19);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ResumeService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ResumeService = (function () {
+    function ResumeService() {
+        this.STORAGE_KEY = 'resume';
+        this.RESUME = {
+            name: 'Mats Roshauw',
+            title: 'Frontend engineer',
+            pictureUrl: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/010/3a0/1d2671f.jpg',
+            summary: 'Good stuff dev',
+            email: 'mats@mail.com',
+            phone: '0707-777777',
+            positions: [{
+                    company: 'Acando',
+                    companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAeBAAAAJDViZDYyYTRmLWQ3YWUtNGRmZS04NTdlLTNlZTk2NTA0MmJiOA.png',
+                    startDate: {
+                        year: 2011,
+                        month: 6
+                    },
+                    endDate: {
+                        year: 2013,
+                        month: 6
+                    },
+                    current: false,
+                    summary: 'Consulting stuffs',
+                    title: 'IT consultant'
+                }, {
+                    company: 'Seal',
+                    companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAcWAAAAJGNkMTU0MzMxLTQ1MWEtNDZmZS05NTE3LTAyMDI5MmEwNTg0MQ.png',
+                    startDate: {
+                        year: 2013,
+                        month: 6
+                    },
+                    current: true,
+                    summary: 'Frontend stuffs',
+                    title: 'Frontend developer'
+                }],
+            educations: [{
+                    degree: 'Bachelor',
+                    school: 'Växjö Unversity',
+                    startDate: {
+                        year: 2003,
+                        month: 8
+                    },
+                    endDate: {
+                        year: 2006,
+                        month: 6
+                    },
+                    field: 'Computer science'
+                }, {
+                    degree: 'Master',
+                    school: 'Chalmers Unversity',
+                    startDate: {
+                        year: 2006,
+                        month: 8
+                    },
+                    endDate: {
+                        year: 2007,
+                        month: 1
+                    },
+                    field: 'Computer gaming'
+                }],
+            skills: [{
+                    name: 'Angular',
+                    competence: 90
+                }, {
+                    name: 'React',
+                    competence: 60
+                }, {
+                    name: 'Javascript',
+                    competence: 80
+                }]
+        };
+        // Years and months to choose from when adding new content to resume
+        this.years = [];
+        this.months = [];
+        // All posssible education degrees
+        this.degrees = [
+            'Associate’s Degree',
+            'Bachelor’s Degree',
+            'Master’s Degree',
+            'Master of Business Administration (M.B.A)',
+            'Juris Doctor (J.D.)',
+            'Doctor of Medicine (M.D.)',
+            'Doctor of Philosophy (Ph.D.)',
+            'Engineer’s Degree',
+            'Other'];
+        // Create years to choose from, 1950 - current years
+        var today = new Date();
+        for (var year = 1950; year <= today.getFullYear(); year++) {
+            this.years.push(year);
+        }
+        // To get the name of the month, use the browsers language and angular DatePipe,
+        // the position in the array will tell which js month it is
+        var datePipe = new __WEBPACK_IMPORTED_MODULE_1__angular_common__["c" /* DatePipe */](navigator.language);
+        for (var month = 1; month <= 12; month++) {
+            var dateString = "2016-" + (month < 10 ? '0' : '') + month + "-15";
+            this.months.push(datePipe.transform(dateString, 'MMMM '));
+        }
+    }
+    /**
+     * Saves resume in browser
+     *
+     * @param {Resume}  resume  The resume to store
+     */
+    ResumeService.prototype.saveResume = function (resume) {
+        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(resume));
+    };
+    /**
+     * Retrive last saved resume stored in browser
+     *
+     * @return {Resume}  Latest stored resume
+     */
+    ResumeService.prototype.retrieveResume = function () {
+        var resumeAsString = localStorage.getItem(this.STORAGE_KEY);
+        return resumeAsString ? JSON.parse(resumeAsString) : this.RESUME;
+    };
+    /**
+     * Adds a position to the saved resume and saves it.
+     *
+     * @param   {Position}  position  The position to add
+     * @return  {Array<Position>}     Updated positions array
+     */
+    ResumeService.prototype.addPosition = function (position) {
+        var currentResume = this.retrieveResume();
+        currentResume.positions.push(position);
+        this.saveResume(currentResume);
+        return currentResume.positions;
+    };
+    /**
+     * Adds an education to the saved resume and saves it.
+     *
+     * @param   {Education}  education  The education to add
+     * @return  {Array<Education>}      Updated educations array
+     */
+    ResumeService.prototype.addEducation = function (education) {
+        var currentResume = this.retrieveResume();
+        currentResume.educations.push(education);
+        this.saveResume(currentResume);
+        return currentResume.educations;
+    };
+    /**
+     * Adds a skill to the saved resume and saves it.
+     *
+     * @param   {Skill}  skill  The skill to add
+     * @return  {Array<Skill>}  Updated skills array
+     */
+    ResumeService.prototype.addSkill = function (skill) {
+        var currentResume = this.retrieveResume();
+        currentResume.skills.push(skill);
+        this.saveResume(currentResume);
+        return currentResume.skills;
+    };
+    /**
+     * Update resume personal information.
+     */
+    ResumeService.prototype.updateSummary = function (name, profileUrl, description, title, phone, email) {
+        var currentResume = this.retrieveResume();
+        currentResume.name = name;
+        currentResume.pictureUrl = profileUrl;
+        currentResume.summary = description;
+        currentResume.title = title;
+        currentResume.phone = phone;
+        currentResume.email = email;
+        this.saveResume(currentResume);
+        return currentResume;
+    };
+    ResumeService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Injectable */])(), 
+        __metadata('design:paramtypes', [])
+    ], ResumeService);
+    return ResumeService;
+}());
+//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/resume.service.js.map
 
 /***/ }
 
