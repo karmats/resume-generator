@@ -144,6 +144,19 @@ export class ResumeService {
   }
 
   /**
+   * Update positions.
+   * 
+   * @param   {Array<Position>}   positions   The positons to update resume with
+   * @return  {Array<Position>}               Updated positions
+   */
+  updatePositions(positions: Array<Position>): Array<Position> {
+    const currentResume = this.retrieveResume();
+    currentResume.positions = positions;
+    this.saveResume(currentResume);
+    return currentResume.positions;
+  }
+
+  /**
    * Adds an education to the saved resume and saves it.
    * 
    * @param   {Education}  education  The education to add

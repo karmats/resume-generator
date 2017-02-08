@@ -8,7 +8,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { AppComponent } from './app.component';
 import { ResumeComponent } from './resume/resume.component';
 import { SummaryComponent, EditSummaryDialog } from './summary/summary.component';
-import { ExperienceComponent, NewPositionDialog } from './experience/experience.component';
+import { ExperienceComponent, PositionDialog } from './experience/experience.component';
 import { EducationComponent, NewEducationDialog } from './education/education.component';
 import { SkillComponent, NewSkillDialog } from './skill/skill.component';
 
@@ -21,7 +21,7 @@ import { ResumeService } from './resume.service';
     SummaryComponent,
     EditSummaryDialog,
     ExperienceComponent,
-    NewPositionDialog,
+    PositionDialog,
     NewEducationDialog,
     NewSkillDialog,
     EducationComponent,
@@ -29,7 +29,7 @@ import { ResumeService } from './resume.service';
   ],
   entryComponents: [
     NewEducationDialog,
-    NewPositionDialog,
+    PositionDialog,
     NewSkillDialog,
     EditSummaryDialog
   ],

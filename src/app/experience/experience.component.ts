@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 import { Position } from '../models'
 import { ResumeService } from '../resume.service';
 
@@ -12,14 +12,14 @@ export class ExperienceComponent implements OnInit {
   @Input() positions: Array<Position>;
   months: Array<string>;
 
-  constructor(private dialog: MdDialog, private resumeService: ResumeService) { }
+  constructor(private dialog: MdDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService) { }
 
   ngOnInit() {
     this.months = this.resumeService.months;
   }
 
   newPosition() {
-    const dialogRef = this.dialog.open(NewPositionDialog);
+    const dialogRef = this.dialog.open(PositionDialog);
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) {
@@ -31,12 +31,27 @@ export class ExperienceComponent implements OnInit {
       this.positions = this.resumeService.addPosition(result);
     });
   }
+
+  editPosition(position: Position) {
+    const config = new MdDialogConfig();
+    config.viewContainerRef = this.viewContainerRef;
+
+    const dialogRef = this.dialog.open(PositionDialog, config);
+    dialogRef.componentInstance.position = position;
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) {
+        return;
+      }
+      this.positions = this.resumeService.updatePositions(this.positions);
+    });
+  }
 }
 
 // Add new position dialog
 @Component({
   template: `
-    <h3 class="dialog-header">Add new position</h3>
+    <h3 class="dialog-header">{{ editMode ? 'Edit ' : 'Add new '}}position</h3>
     <div class="dialog-content row">
       <md-input-container class="col-md-12">
         <input md-input
@@ -77,17 +92,18 @@ export class ExperienceComponent implements OnInit {
       </md-checkbox>
     </div>
     <div class="dialog-footer">
-      <button md-button color="primary" (click)="dialogRef.close()">CANCEL</button>
-      <button md-button color="primary" (click)="dialogRef.close(position)">ADD</button>
+      <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
+      <button md-button color="primary" (click)="dialogRef.close(position)">Save</button>
     </div>
   `,
 })
-export class NewPositionDialog {
+export class PositionDialog implements OnInit {
   public position: Position;
   public years: Array<number>;
   public months: Array<string>;
+  public editMode: boolean;
 
-  constructor(public dialogRef: MdDialogRef<NewPositionDialog>, private resumeService: ResumeService) {
+  constructor(public dialogRef: MdDialogRef<PositionDialog>, private resumeService: ResumeService) {
     const today = new Date();
     this.position = {
       company: '',
@@ -107,5 +123,10 @@ export class NewPositionDialog {
 
     this.years = resumeService.years;
     this.months = resumeService.months;
+  }
+
+  ngOnInit() {
+    // Assume edit mode if company isn't blank
+    this.editMode = this.position && this.position.company.length > 0;
   }
 }
