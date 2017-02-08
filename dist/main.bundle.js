@@ -79,13 +79,14 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(394);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__resume_resume_component__ = __webpack_require__(595);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__summary_summary_component__ = __webpack_require__(597);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__experience_experience_component__ = __webpack_require__(593);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__education_education_component__ = __webpack_require__(592);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__skill_skill_component__ = __webpack_require__(596);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__resume_service__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__resume_resume_component__ = __webpack_require__(595);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__ = __webpack_require__(597);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__ = __webpack_require__(593);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__education_education_component__ = __webpack_require__(592);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__ = __webpack_require__(596);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__resume_service__ = __webpack_require__(84);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -108,28 +109,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__resume_resume_component__["a" /* ResumeComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__summary_summary_component__["a" /* SummaryComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__summary_summary_component__["b" /* EditSummaryDialog */],
-                __WEBPACK_IMPORTED_MODULE_8__experience_experience_component__["a" /* ExperienceComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__experience_experience_component__["b" /* NewPositionDialog */],
-                __WEBPACK_IMPORTED_MODULE_9__education_education_component__["a" /* NewEducationDialog */],
-                __WEBPACK_IMPORTED_MODULE_10__skill_skill_component__["a" /* NewSkillDialog */],
-                __WEBPACK_IMPORTED_MODULE_9__education_education_component__["b" /* EducationComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__skill_skill_component__["b" /* SkillComponent */]
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__resume_resume_component__["a" /* ResumeComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__["a" /* SummaryComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__["b" /* EditSummaryDialog */],
+                __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["a" /* ExperienceComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["b" /* NewPositionDialog */],
+                __WEBPACK_IMPORTED_MODULE_10__education_education_component__["a" /* NewEducationDialog */],
+                __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__["a" /* NewSkillDialog */],
+                __WEBPACK_IMPORTED_MODULE_10__education_education_component__["b" /* EducationComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__["b" /* SkillComponent */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_9__education_education_component__["a" /* NewEducationDialog */],
-                __WEBPACK_IMPORTED_MODULE_8__experience_experience_component__["b" /* NewPositionDialog */],
-                __WEBPACK_IMPORTED_MODULE_10__skill_skill_component__["a" /* NewSkillDialog */],
-                __WEBPACK_IMPORTED_MODULE_7__summary_summary_component__["b" /* EditSummaryDialog */]
+                __WEBPACK_IMPORTED_MODULE_10__education_education_component__["a" /* NewEducationDialog */],
+                __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["b" /* NewPositionDialog */],
+                __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__["a" /* NewSkillDialog */],
+                __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__["b" /* EditSummaryDialog */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["e" /* BrowserModule */],
@@ -137,8 +139,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_material__["MaterialModule"].forRoot()
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_11__resume_service__["a" /* ResumeService */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_12__resume_service__["a" /* ResumeService */], __WEBPACK_IMPORTED_MODULE_5__angular_common__["d" /* Location */], { provide: __WEBPACK_IMPORTED_MODULE_5__angular_common__["e" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_5__angular_common__["f" /* PathLocationStrategy */] }],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
@@ -580,7 +582,7 @@ var EditSummaryDialog = (function () {
     }
     EditSummaryDialog = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
-            template: "\n    <h3 class=\"dialog-header\">Edit summary</h3>\n    <div class=\"dialog-content row\">\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"summary.name\"\n          placeholder=\"Your name\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"summary.profileUrl\"\n          placeholder=\"Url to profile picture\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"summary.title\"\n          placeholder=\"Job title\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <textarea md-input\n        [(ngModel)]=\"summary.description\"\n        placeholder=\"Description of yourself\"></textarea>\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"summary.phone\"\n          placeholder=\"Your phone number\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"summary.email\"\n          placeholder=\"Your email adress\">\n      </md-input-container>\n    </div>\n    <div class=\"dialog-footer\">\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(summary)\">Ok</button>\n    </div>\n  ",
+            template: "\n    <h3 md-dialog-title>Edit summary</h3>\n    <div md-dialog-content>\n      <div class=\"row\">\n        <md-input-container class=\"col-md-12\">\n          <input md-input\n            [(ngModel)]=\"summary.name\"\n            placeholder=\"Your name\">\n        </md-input-container>\n        <md-input-container class=\"col-md-12\">\n          <input md-input\n            [(ngModel)]=\"summary.profileUrl\"\n            placeholder=\"Url to profile picture\">\n        </md-input-container>\n        <md-input-container class=\"col-md-12\">\n          <input md-input\n            [(ngModel)]=\"summary.title\"\n            placeholder=\"Job title\">\n        </md-input-container>\n        <md-input-container class=\"col-md-12\">\n          <textarea md-input\n          [(ngModel)]=\"summary.description\"\n          placeholder=\"Description of yourself\"></textarea>\n        </md-input-container>\n        <md-input-container class=\"col-md-12\">\n          <input md-input\n            [(ngModel)]=\"summary.phone\"\n            placeholder=\"Your phone number\">\n        </md-input-container>\n        <md-input-container class=\"col-md-12\">\n          <input md-input\n            [(ngModel)]=\"summary.email\"\n            placeholder=\"Your email adress\">\n        </md-input-container>\n      </div>\n    </div>\n    <div class=\"dialog-footer\">\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(summary)\">Ok</button>\n    </div>\n  ",
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"]) === 'function' && _a) || Object])
     ], EditSummaryDialog);
@@ -715,14 +717,14 @@ module.exports = "<app-resume>\n</app-resume>\n"
 /***/ 760:
 /***/ function(module, exports) {
 
-module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let education of educations\">\n      <b md-line>{{education.field}} - {{education.school}}</b>\n      <i md-line>{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</i>\n      <span md-line>{{education.degree}}</span>\n    </md-list-item>\n  </md-list>\n  <md-card-actions>\n    <button md-button color=\"primary\" (click)=\"newEducation()\">ADD EDUCATION</button>\n  </md-card-actions>\n</md-card>\n"
+module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let education of educations\">\n      <b md-line>{{education.field}} - {{education.school}}</b>\n      <i md-line>{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</i>\n      <span md-line>{{education.degree}}</span>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newEducation()\">ADD EDUCATION</button>\n  </md-card-actions>\n</md-card>\n"
 
 /***/ },
 
 /***/ 761:
 /***/ function(module, exports) {
 
-module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let position of positions\">\n      <img *ngIf=\"position.companyLogoUrl\" md-list-avatar [src]=\"position.companyLogoUrl\" alt=\"position.company\">\n      <h3 md-line>{{position.title}} - {{position.company}}</h3>\n      <p md-line>{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>\n      <p md-line>{{position.summary}}</p>\n    </md-list-item>\n  </md-list>\n  <md-card-actions>\n    <button md-button color=\"primary\" (click)=\"newPosition()\">ADD POSITION</button>\n  </md-card-actions>\n</md-card>\n"
+module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let position of positions\">\n      <img *ngIf=\"position.companyLogoUrl\" md-list-avatar [src]=\"position.companyLogoUrl\" alt=\"position.company\">\n      <h3 md-line>{{position.title}} - {{position.company}}</h3>\n      <p md-line>{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>\n      <p md-line>{{position.summary}}</p>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newPosition()\">ADD POSITION</button>\n  </md-card-actions>\n</md-card>\n"
 
 /***/ },
 
@@ -736,14 +738,14 @@ module.exports = "<!-- Summary -->\n<div class=\"app-content\">\n    <app-summar
 /***/ 763:
 /***/ function(module, exports) {
 
-module.exports = "<md-card>\n  <div class=\"row\">\n    <div *ngFor=\"let skill of firstList\" class=\"col-md-6 col-xs-12\">\n      <span>{{skill.name}}</span>\n      <md-progress-bar class=\"skill-bar\" mode=\"determinate\" value=\"{{skill.competence}}\"></md-progress-bar>\n    </div>\n    <div *ngFor=\"let skill of secondList\" class=\"col-md-6 col-xs-12\">\n      <span>{{skill.name}}</span>\n      <md-progress-bar class=\"skill-bar\" mode=\"determinate\" value=\"{{skill.competence}}\"></md-progress-bar>\n    </div>\n  </div>\n  <md-card-actions>\n    <button md-button color=\"primary\" (click)=\"newSkill()\">ADD SKILL</button>\n  </md-card-actions>\n</md-card>\n"
+module.exports = "<md-card>\n  <div class=\"row\">\n    <div *ngFor=\"let skill of firstList\" class=\"col-md-6 col-xs-12\">\n      <span>{{skill.name}}</span>\n      <md-progress-bar class=\"skill-bar\" mode=\"determinate\" value=\"{{skill.competence}}\"></md-progress-bar>\n    </div>\n    <div *ngFor=\"let skill of secondList\" class=\"col-md-6 col-xs-12\">\n      <span>{{skill.name}}</span>\n      <md-progress-bar class=\"skill-bar\" mode=\"determinate\" value=\"{{skill.competence}}\"></md-progress-bar>\n    </div>\n  </div>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newSkill()\">ADD SKILL</button>\n  </md-card-actions>\n</md-card>\n"
 
 /***/ },
 
 /***/ 764:
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"summary\">\n    <img class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n    <h2>{{name}}</h2>\n    <i>{{title}}</i>\n    <p>{{description}}</p>\n    <p class=\"contact-info\">\n        <md-icon>phone</md-icon> {{phone}}\n        <md-icon>email</md-icon> {{email}}\n    </p>\n    <button md-raised-button color=\"primary\" (click)=\"editSummary()\">Edit profile</button>\n</div>\n"
+module.exports = "<div class=\"summary\">\n    <img class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n    <h2>{{name}}</h2>\n    <i>{{title}}</i>\n    <p>{{description}}</p>\n    <p class=\"contact-info\">\n        <md-icon>phone</md-icon> {{phone}}\n        <md-icon>email</md-icon> {{email}}\n    </p>\n    <button *ngIf=\"resumeService.editMode\" md-raised-button color=\"primary\" (click)=\"editSummary()\">Edit profile</button>\n</div>\n"
 
 /***/ },
 
@@ -760,7 +762,7 @@ module.exports = __webpack_require__(442);
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(18);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ResumeService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -774,7 +776,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ResumeService = (function () {
-    function ResumeService() {
+    function ResumeService(location) {
         this.STORAGE_KEY = 'resume';
         this.RESUME = {
             name: 'Mats Roshauw',
@@ -870,6 +872,8 @@ var ResumeService = (function () {
             var dateString = "2016-" + (month < 10 ? '0' : '') + month + "-15";
             this.months.push(datePipe.transform(dateString, 'MMMM '));
         }
+        // Edit mode if path is /edit
+        this.editMode = location.isCurrentPathEqualTo('/edit');
     }
     /**
      * Saves resume in browser
@@ -940,9 +944,10 @@ var ResumeService = (function () {
     };
     ResumeService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Injectable */])(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common__["d" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_common__["d" /* Location */]) === 'function' && _a) || Object])
     ], ResumeService);
     return ResumeService;
+    var _a;
 }());
 //# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/resume.service.js.map
 
