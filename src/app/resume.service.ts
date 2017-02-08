@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { DatePipe, Location } from '@angular/common';
 import { Resume, Position, Education, Skill } from './models'
 
 @Injectable()
@@ -90,7 +90,10 @@ export class ResumeService {
     'Engineer’s Degree',
     'Other']
 
-  constructor() {
+  // If in edit mode, possible to edit
+  editMode: boolean;
+
+  constructor(location: Location) {
     // Create years to choose from, 1950 - current years
     const today = new Date();
     for (let year = 1950; year <= today.getFullYear(); year++) {
@@ -103,6 +106,9 @@ export class ResumeService {
       let dateString = `2016-${month < 10 ? '0' : ''}${month}-15`;
       this.months.push(datePipe.transform(dateString, 'MMMM '));
     }
+
+    // Edit mode if path is /edit
+    this.editMode = location.isCurrentPathEqualTo('/edit');
   }
 
   /**

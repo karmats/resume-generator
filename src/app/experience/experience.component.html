@@ -7,7 +7,7 @@
       <p md-line>{{position.summary}}</p>
     </md-list-item>
   </md-list>
-  <md-card-actions>
+  <md-card-actions *ngIf="resumeService.editMode">
     <button md-button color="primary" (click)="newPosition()">ADD POSITION</button>
   </md-card-actions>
 </md-card>

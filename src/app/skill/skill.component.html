@@ -9,7 +9,7 @@
       <md-progress-bar class="skill-bar" mode="determinate" value="{{skill.competence}}"></md-progress-bar>
     </div>
   </div>
-  <md-card-actions>
+  <md-card-actions *ngIf="resumeService.editMode">
     <button md-button color="primary" (click)="newSkill()">ADD SKILL</button>
   </md-card-actions>
 </md-card>

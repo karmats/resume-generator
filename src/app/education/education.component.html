@@ -6,7 +6,7 @@
       <span md-line>{{education.degree}}</span>
     </md-list-item>
   </md-list>
-  <md-card-actions>
+  <md-card-actions *ngIf="resumeService.editMode">
     <button md-button color="primary" (click)="newEducation()">ADD EDUCATION</button>
   </md-card-actions>
 </md-card>

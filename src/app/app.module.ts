@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { ResumeComponent } from './resume/resume.component';
@@ -38,7 +39,7 @@ import { ResumeService } from './resume.service';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [ResumeService],
+  providers: [ResumeService, Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
