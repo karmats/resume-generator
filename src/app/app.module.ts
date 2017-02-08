@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { ResumeComponent } from './resume/resume.component';
 import { SummaryComponent, EditSummaryDialog } from './summary/summary.component';
 import { ExperienceComponent, PositionDialog } from './experience/experience.component';
-import { EducationComponent, NewEducationDialog } from './education/education.component';
+import { EducationComponent, EducationDialog } from './education/education.component';
 import { SkillComponent, NewSkillDialog } from './skill/skill.component';
 
 import { ResumeService } from './resume.service';
@@ -22,13 +22,13 @@ import { ResumeService } from './resume.service';
     EditSummaryDialog,
     ExperienceComponent,
     PositionDialog,
-    NewEducationDialog,
+    EducationDialog,
     NewSkillDialog,
     EducationComponent,
     SkillComponent
   ],
   entryComponents: [
-    NewEducationDialog,
+    EducationDialog,
     PositionDialog,
     NewSkillDialog,
     EditSummaryDialog

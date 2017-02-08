@@ -170,6 +170,19 @@ export class ResumeService {
   }
 
   /**
+   * Update educations.
+   * 
+   * @param   {Array<Education>}   ecuations   The educations to update resume with
+   * @return  {Array<Education>}               Updated educations
+   */
+  updateEducations(educations: Array<Education>): Array<Education> {
+    const currentResume = this.retrieveResume();
+    currentResume.educations = educations;
+    this.saveResume(currentResume);
+    return currentResume.educations;
+  }
+
+  /**
    * Adds a skill to the saved resume and saves it.
    * 
    * @param   {Skill}  skill  The skill to add
