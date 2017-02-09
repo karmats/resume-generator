@@ -121,15 +121,15 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__["a" /* SummaryComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__["b" /* EditSummaryDialog */],
                 __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["a" /* ExperienceComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["b" /* NewPositionDialog */],
-                __WEBPACK_IMPORTED_MODULE_10__education_education_component__["a" /* NewEducationDialog */],
+                __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["b" /* PositionDialog */],
+                __WEBPACK_IMPORTED_MODULE_10__education_education_component__["a" /* EducationDialog */],
                 __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__["a" /* NewSkillDialog */],
                 __WEBPACK_IMPORTED_MODULE_10__education_education_component__["b" /* EducationComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__["b" /* SkillComponent */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_10__education_education_component__["a" /* NewEducationDialog */],
-                __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["b" /* NewPositionDialog */],
+                __WEBPACK_IMPORTED_MODULE_10__education_education_component__["a" /* EducationDialog */],
+                __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["b" /* PositionDialog */],
                 __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__["a" /* NewSkillDialog */],
                 __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__["b" /* EditSummaryDialog */]
             ],
@@ -158,7 +158,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(84);
 /* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return EducationComponent; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return NewEducationDialog; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return EducationDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -172,8 +172,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var EducationComponent = (function () {
-    function EducationComponent(dialog, resumeService) {
+    function EducationComponent(dialog, viewContainerRef, resumeService) {
         this.dialog = dialog;
+        this.viewContainerRef = viewContainerRef;
         this.resumeService = resumeService;
     }
     EducationComponent.prototype.ngOnInit = function () {
@@ -181,7 +182,7 @@ var EducationComponent = (function () {
     };
     EducationComponent.prototype.newEducation = function () {
         var _this = this;
-        var dialogRef = this.dialog.open(NewEducationDialog);
+        var dialogRef = this.dialog.open(EducationDialog);
         dialogRef.afterClosed().subscribe(function (result) {
             if (!result) {
                 return;
@@ -190,6 +191,19 @@ var EducationComponent = (function () {
                 result.endDate = null;
             }
             _this.educations = _this.resumeService.addEducation(result);
+        });
+    };
+    EducationComponent.prototype.editEducation = function (education) {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogConfig"]();
+        config.viewContainerRef = this.viewContainerRef;
+        var dialogRef = this.dialog.open(EducationDialog, config);
+        dialogRef.componentInstance.education = education;
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (!result) {
+                return;
+            }
+            _this.educations = _this.resumeService.updateEducations(_this.educations);
         });
     };
     __decorate([
@@ -202,14 +216,14 @@ var EducationComponent = (function () {
             template: __webpack_require__(760),
             styles: [__webpack_require__(754)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _c) || Object])
     ], EducationComponent);
     return EducationComponent;
-    var _a, _b;
+    var _a, _b, _c;
 }());
 // Add new education dialog
-var NewEducationDialog = (function () {
-    function NewEducationDialog(dialogRef, resumeService) {
+var EducationDialog = (function () {
+    function EducationDialog(dialogRef, resumeService) {
         this.dialogRef = dialogRef;
         this.resumeService = resumeService;
         var today = new Date();
@@ -231,13 +245,17 @@ var NewEducationDialog = (function () {
         this.months = resumeService.months;
         this.degrees = resumeService.degrees;
     }
-    NewEducationDialog = __decorate([
+    EducationDialog.prototype.ngOnInit = function () {
+        // Assume edit mode if school isn't blank
+        this.editMode = this.education && this.education.school.length > 0;
+    };
+    EducationDialog = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
-            template: "\n    <h3 class=\"dialog-header\">Add new education</h3>\n    <div class=\"dialog-content row\">\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"education.school\"\n          placeholder=\"School\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"education.field\"\n          placeholder=\"Field of Study\">\n      </md-input-container>\n      <md-select [(ngModel)]=\"education.degree\" placeholder=\"Degree\" class=\"col-md-12\">\n        <md-option *ngFor=\"let degree of degrees\" [value]=\"degree\"> {{degree}} </md-option>\n      </md-select>\n      <label class=\"col-md-6 select-label\">From</label>\n      <label class=\"col-md-6 select-label\">To</label>\n      <md-select [(ngModel)]=\"education.startDate.year\" placeholder=\"Year\" class=\"col-md-3\">\n        <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n      </md-select>\n      <md-select [(ngModel)]=\"education.startDate.month\" placeholder=\"Month\" class=\"col-md-3\">\n        <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n      </md-select>\n      <md-select *ngIf=\"!education.current\" [(ngModel)]=\"education.endDate.year\" placeholder=\"Year\" class=\"col-md-3\">\n        <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n      </md-select>\n      <md-select *ngIf=\"!education.current\" [(ngModel)]=\"education.endDate.month\" placeholder=\"Month\" class=\"col-md-3\">\n        <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n      </md-select>\n      <md-checkbox class=\"col-md-12\" [(ngModel)]=\"education.current\">\n        Current education\n      </md-checkbox>\n    </div>\n    <div class=\"dialog-footer\">\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">CANCEL</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(education)\">ADD</button>\n    </div>\n  ",
+            template: "\n    <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}education</h3>\n    <div md-dialog-content>\n      <div class=\"row\">\n        <md-input-container class=\"col-md-12\">\n          <input md-input\n            [(ngModel)]=\"education.school\"\n            placeholder=\"School\">\n        </md-input-container>\n        <md-input-container class=\"col-md-12\">\n          <input md-input\n            [(ngModel)]=\"education.field\"\n            placeholder=\"Field of Study\">\n        </md-input-container>\n        <md-select [(ngModel)]=\"education.degree\" placeholder=\"Degree\" class=\"col-md-12\">\n          <md-option *ngFor=\"let degree of degrees\" [value]=\"degree\"> {{degree}} </md-option>\n        </md-select>\n        <label class=\"col-md-6 select-label\">From</label>\n        <label class=\"col-md-6 select-label\">To</label>\n        <md-select [(ngModel)]=\"education.startDate.year\" placeholder=\"Year\" class=\"col-md-3\">\n          <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n        </md-select>\n        <md-select [(ngModel)]=\"education.startDate.month\" placeholder=\"Month\" class=\"col-md-3\">\n          <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n        </md-select>\n        <md-select *ngIf=\"!education.current\" [(ngModel)]=\"education.endDate.year\" placeholder=\"Year\" class=\"col-md-3\">\n          <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n        </md-select>\n        <md-select *ngIf=\"!education.current\" [(ngModel)]=\"education.endDate.month\" placeholder=\"Month\" class=\"col-md-3\">\n          <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n        </md-select>\n        <md-checkbox class=\"col-md-12\" [(ngModel)]=\"education.current\">\n          Current education\n        </md-checkbox>\n      </div>\n    </div>\n    <div class=\"dialog-footer\">\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(education)\">Save</button>\n    </div>\n  ",
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _b) || Object])
-    ], NewEducationDialog);
-    return NewEducationDialog;
+    ], EducationDialog);
+    return EducationDialog;
     var _a, _b;
 }());
 //# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/education.component.js.map
@@ -252,7 +270,7 @@ var NewEducationDialog = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(84);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ExperienceComponent; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return NewPositionDialog; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return PositionDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -266,8 +284,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ExperienceComponent = (function () {
-    function ExperienceComponent(dialog, resumeService) {
+    function ExperienceComponent(dialog, viewContainerRef, resumeService) {
         this.dialog = dialog;
+        this.viewContainerRef = viewContainerRef;
         this.resumeService = resumeService;
     }
     ExperienceComponent.prototype.ngOnInit = function () {
@@ -275,7 +294,7 @@ var ExperienceComponent = (function () {
     };
     ExperienceComponent.prototype.newPosition = function () {
         var _this = this;
-        var dialogRef = this.dialog.open(NewPositionDialog);
+        var dialogRef = this.dialog.open(PositionDialog);
         dialogRef.afterClosed().subscribe(function (result) {
             if (!result) {
                 return;
@@ -284,6 +303,19 @@ var ExperienceComponent = (function () {
                 result.endDate = null;
             }
             _this.positions = _this.resumeService.addPosition(result);
+        });
+    };
+    ExperienceComponent.prototype.editPosition = function (position) {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogConfig"]();
+        config.viewContainerRef = this.viewContainerRef;
+        var dialogRef = this.dialog.open(PositionDialog, config);
+        dialogRef.componentInstance.position = position;
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (!result) {
+                return;
+            }
+            _this.positions = _this.resumeService.updatePositions(_this.positions);
         });
     };
     __decorate([
@@ -296,14 +328,14 @@ var ExperienceComponent = (function () {
             template: __webpack_require__(761),
             styles: [__webpack_require__(755)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _c) || Object])
     ], ExperienceComponent);
     return ExperienceComponent;
-    var _a, _b;
+    var _a, _b, _c;
 }());
 // Add new position dialog
-var NewPositionDialog = (function () {
-    function NewPositionDialog(dialogRef, resumeService) {
+var PositionDialog = (function () {
+    function PositionDialog(dialogRef, resumeService) {
         this.dialogRef = dialogRef;
         this.resumeService = resumeService;
         var today = new Date();
@@ -325,13 +357,17 @@ var NewPositionDialog = (function () {
         this.years = resumeService.years;
         this.months = resumeService.months;
     }
-    NewPositionDialog = __decorate([
+    PositionDialog.prototype.ngOnInit = function () {
+        // Assume edit mode if company isn't blank
+        this.editMode = this.position && this.position.company.length > 0;
+    };
+    PositionDialog = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
-            template: "\n    <h3 class=\"dialog-header\">Add new position</h3>\n    <div class=\"dialog-content row\">\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"position.company\"\n          placeholder=\"Company\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"position.companyLogoUrl\"\n          placeholder=\"Company Logo URL (Optional)\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"position.title\"\n          placeholder=\"Title\">\n      </md-input-container>\n      <md-input-container class=\"col-md-12\">\n        <textarea md-input\n        [(ngModel)]=\"position.summary\"\n        placeholder=\"Summary\"></textarea>\n      </md-input-container>\n      <label class=\"col-md-6 select-label\">From</label>\n      <label class=\"col-md-6 select-label\">To</label>\n      <md-select [(ngModel)]=\"position.startDate.year\" placeholder=\"Year\" class=\"col-md-3\">\n        <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n      </md-select>\n      <md-select [(ngModel)]=\"position.startDate.month\" placeholder=\"Month\" class=\"col-md-3\">\n        <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n      </md-select>\n      <md-select *ngIf=\"!position.current\" [(ngModel)]=\"position.endDate.year\" placeholder=\"Year\" class=\"col-md-3\">\n        <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n      </md-select>\n      <md-select *ngIf=\"!position.current\" [(ngModel)]=\"position.endDate.month\" placeholder=\"Month\" class=\"col-md-3\">\n        <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n      </md-select>\n      <md-checkbox class=\"col-md-12\" [(ngModel)]=\"position.current\">\n        Current job\n      </md-checkbox>\n    </div>\n    <div class=\"dialog-footer\">\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">CANCEL</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(position)\">ADD</button>\n    </div>\n  ",
+            template: "\n    <h3 md-dialog-title>{{ editMode ? 'Edit ' : 'Add new '}}position</h3>\n    <div md-dialog-content>\n      <div class=\"row\">\n        <md-input-container class=\"col-md-12\">\n          <input md-input\n            [(ngModel)]=\"position.company\"\n            placeholder=\"Company\">\n        </md-input-container>\n        <md-input-container class=\"col-md-12\">\n          <input md-input\n            [(ngModel)]=\"position.companyLogoUrl\"\n            placeholder=\"Company Logo URL (Optional)\">\n        </md-input-container>\n        <md-input-container class=\"col-md-12\">\n          <input md-input\n            [(ngModel)]=\"position.title\"\n            placeholder=\"Title\">\n        </md-input-container>\n        <md-input-container class=\"col-md-12\">\n          <textarea md-input\n          [(ngModel)]=\"position.summary\"\n          placeholder=\"Summary\"></textarea>\n        </md-input-container>\n        <label class=\"col-md-6 select-label\">From</label>\n        <label class=\"col-md-6 select-label\">To</label>\n        <md-select [(ngModel)]=\"position.startDate.year\" placeholder=\"Year\" class=\"col-md-3\">\n          <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n        </md-select>\n        <md-select [(ngModel)]=\"position.startDate.month\" placeholder=\"Month\" class=\"col-md-3\">\n          <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n        </md-select>\n        <md-select *ngIf=\"!position.current\" [(ngModel)]=\"position.endDate.year\" placeholder=\"Year\" class=\"col-md-3\">\n          <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n        </md-select>\n        <md-select *ngIf=\"!position.current\" [(ngModel)]=\"position.endDate.month\" placeholder=\"Month\" class=\"col-md-3\">\n          <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n        </md-select>\n        <md-checkbox class=\"col-md-12\" [(ngModel)]=\"position.current\">\n          Current job\n        </md-checkbox>\n      </div>\n    </div>\n    <div class=\"dialog-footer\">\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(position)\">Save</button>\n    </div>\n  ",
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _b) || Object])
-    ], NewPositionDialog);
-    return NewPositionDialog;
+    ], PositionDialog);
+    return PositionDialog;
     var _a, _b;
 }());
 //# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/experience.component.js.map
@@ -717,14 +753,14 @@ module.exports = "<app-resume>\n</app-resume>\n"
 /***/ 760:
 /***/ function(module, exports) {
 
-module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let education of educations\">\n      <b md-line>{{education.field}} - {{education.school}}</b>\n      <i md-line>{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</i>\n      <span md-line>{{education.degree}}</span>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newEducation()\">ADD EDUCATION</button>\n  </md-card-actions>\n</md-card>\n"
+module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let education of educations\">\n      <b md-line>{{education.field}} - {{education.school}}</b>\n      <i md-line>{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</i>\n      <span md-line>{{education.degree}}</span>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editEducation(education)\">\n        <md-icon>edit</md-icon>\n      </button>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newEducation()\">Add Education</button>\n  </md-card-actions>\n</md-card>\n"
 
 /***/ },
 
 /***/ 761:
 /***/ function(module, exports) {
 
-module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let position of positions\">\n      <img *ngIf=\"position.companyLogoUrl\" md-list-avatar [src]=\"position.companyLogoUrl\" alt=\"position.company\">\n      <h3 md-line>{{position.title}} - {{position.company}}</h3>\n      <p md-line>{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>\n      <p md-line>{{position.summary}}</p>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newPosition()\">ADD POSITION</button>\n  </md-card-actions>\n</md-card>\n"
+module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let position of positions\">\n      <img *ngIf=\"position.companyLogoUrl\" md-list-avatar [src]=\"position.companyLogoUrl\" alt=\"position.company\">\n      <h3 md-line>{{position.title}} - {{position.company}}</h3>\n      <p md-line>{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>\n      <p md-line>{{position.summary}}</p>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editPosition(position)\">\n        <md-icon>edit</md-icon>\n      </button>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newPosition()\">Add Position</button>\n  </md-card-actions>\n</md-card>\n"
 
 /***/ },
 
@@ -905,6 +941,18 @@ var ResumeService = (function () {
         return currentResume.positions;
     };
     /**
+     * Update positions.
+     *
+     * @param   {Array<Position>}   positions   The positons to update resume with
+     * @return  {Array<Position>}               Updated positions
+     */
+    ResumeService.prototype.updatePositions = function (positions) {
+        var currentResume = this.retrieveResume();
+        currentResume.positions = positions;
+        this.saveResume(currentResume);
+        return currentResume.positions;
+    };
+    /**
      * Adds an education to the saved resume and saves it.
      *
      * @param   {Education}  education  The education to add
@@ -913,6 +961,18 @@ var ResumeService = (function () {
     ResumeService.prototype.addEducation = function (education) {
         var currentResume = this.retrieveResume();
         currentResume.educations.push(education);
+        this.saveResume(currentResume);
+        return currentResume.educations;
+    };
+    /**
+     * Update educations.
+     *
+     * @param   {Array<Education>}   ecuations   The educations to update resume with
+     * @return  {Array<Education>}               Updated educations
+     */
+    ResumeService.prototype.updateEducations = function (educations) {
+        var currentResume = this.retrieveResume();
+        currentResume.educations = educations;
         this.saveResume(currentResume);
         return currentResume.educations;
     };
