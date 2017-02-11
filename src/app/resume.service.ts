@@ -108,7 +108,7 @@ export class ResumeService {
     }
 
     // Edit mode if path is /edit
-    this.editMode = location.isCurrentPathEqualTo('/edit');
+    this.editMode = location.isCurrentPathEqualTo('/?edit');
   }
 
   /**
