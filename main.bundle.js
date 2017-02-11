@@ -909,7 +909,7 @@ var ResumeService = (function () {
             this.months.push(datePipe.transform(dateString, 'MMMM '));
         }
         // Edit mode if path is /edit
-        this.editMode = location.isCurrentPathEqualTo('/edit');
+        this.editMode = location.isCurrentPathEqualTo('/?edit');
     }
     /**
      * Saves resume in browser
