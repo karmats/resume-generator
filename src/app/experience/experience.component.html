@@ -8,6 +8,9 @@
       <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="editPosition(position)">
         <md-icon>edit</md-icon>
       </button>
+      <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="deletePosition(position)">
+        <md-icon>delete</md-icon>
+      </button>
     </md-list-item>
   </md-list>
   <md-card-actions *ngIf="resumeService.editMode">

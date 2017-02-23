@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+
 import { Position } from '../models'
 import { ResumeService } from '../resume.service';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-experience',
@@ -46,6 +48,20 @@ export class ExperienceComponent implements OnInit {
       this.positions = this.resumeService.updatePositions(this.positions);
     });
   }
+
+  deletePosition(position: Position) {
+    const config = new MdDialogConfig();
+    config.viewContainerRef = this.viewContainerRef;
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, config);
+    dialogRef.componentInstance.message = `Are you sure you want to remove your work experience at ${position.company}?`;
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.positions = this.resumeService.removePosition(position);
+      }
+    })
+  }
+
 }
 
 // Add new position dialog

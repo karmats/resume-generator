@@ -157,6 +157,19 @@ export class ResumeService {
   }
 
   /**
+   * Removes a position.
+   * 
+   * @param   {Position}        position  The position to remove
+   * @return  {Array<Position>}           Positions after the deletion
+   */
+  removePosition(position: Position): Array<Position> {
+    const currentResume = this.retrieveResume();
+    currentResume.positions = currentResume.positions.filter(p => p.company !== position.company);
+    this.saveResume(currentResume);
+    return currentResume.positions;
+  }
+
+  /**
    * Adds an education to the saved resume and saves it.
    * 
    * @param   {Education}  education  The education to add
