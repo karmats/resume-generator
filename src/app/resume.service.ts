@@ -172,8 +172,8 @@ export class ResumeService {
   /**
    * Update educations.
    * 
-   * @param   {Array<Education>}   ecuations   The educations to update resume with
-   * @return  {Array<Education>}               Updated educations
+   * @param   {Array<Education>}   educations   The educations to update resume with
+   * @return  {Array<Education>}                Updated educations
    */
   updateEducations(educations: Array<Education>): Array<Education> {
     const currentResume = this.retrieveResume();
@@ -191,6 +191,19 @@ export class ResumeService {
   addSkill(skill: Skill): Array<Skill> {
     const currentResume = this.retrieveResume();
     currentResume.skills.push(skill);
+    this.saveResume(currentResume);
+    return currentResume.skills;
+  }
+
+  /**
+   * Update skills.
+   * 
+   * @param   {Array<Skill>}   skills     The skills to update resume with
+   * @return  {Array<Skill>}              Updated skills
+   */
+  updateSkills(skills: Array<Skill>): Array<Skill> {
+    const currentResume = this.retrieveResume();
+    currentResume.skills = skills;
     this.saveResume(currentResume);
     return currentResume.skills;
   }

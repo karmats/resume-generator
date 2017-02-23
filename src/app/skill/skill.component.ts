@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 import { ResumeService } from '../resume.service';
 import { Skill } from '../models';
 
@@ -13,7 +13,7 @@ export class SkillComponent implements OnInit {
   firstList: Array<Skill>;
   secondList: Array<Skill>;
 
-  constructor(private dialog: MdDialog, private resumeService: ResumeService) {
+  constructor(private dialog: MdDialog, private resumeService: ResumeService, private viewContainerRef: ViewContainerRef) {
    }
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class SkillComponent implements OnInit {
   }
 
   newSkill() {
-    const dialogRef = this.dialog.open(NewSkillDialog);
+    const dialogRef = this.dialog.open(SkillDialog);
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) {
@@ -29,6 +29,21 @@ export class SkillComponent implements OnInit {
       }
       this.skills = this.resumeService.addSkill(result);
       this.skillsToTwoLists();
+    });
+  }
+
+  editSkill(skill: Skill) {
+    const config = new MdDialogConfig();
+    config.viewContainerRef = this.viewContainerRef;
+
+    const dialogRef = this.dialog.open(SkillDialog, config);
+    dialogRef.componentInstance.skill = skill;
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) {
+        return;
+      }
+      this.skills = this.resumeService.updateSkills(this.skills);
     });
   }
 
@@ -48,7 +63,7 @@ export class SkillComponent implements OnInit {
 // Add new skill dialog
 @Component({
   template: `
-    <h3 class="dialog-header">Add new skill</h3>
+    <h3 class="dialog-header">{{editMode ? 'Edit ' : 'Add new '}}skill</h3>
     <div class="dialog-content row">
       <md-input-container class="col-md-12">
         <input md-input
@@ -65,20 +80,26 @@ export class SkillComponent implements OnInit {
         tickInterval="1"></md-slider>
     </div>
     <div class="dialog-footer">
-      <button md-button color="primary" (click)="dialogRef.close()">CANCEL</button>
-      <button md-button color="primary" (click)="dialogRef.close(skill)">ADD</button>
+      <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
+      <button md-button color="primary" (click)="dialogRef.close(skill)">Save</button>
     </div>
   `,
 })
-export class NewSkillDialog {
+export class SkillDialog implements OnInit {
   public skill: Skill;
+  public editMode: boolean;
 
-  constructor(public dialogRef: MdDialogRef<NewSkillDialog>, private resumeService: ResumeService) {
+  constructor(public dialogRef: MdDialogRef<SkillDialog>, private resumeService: ResumeService) {
     const today = new Date();
     this.skill = {
       competence: 0,
       name: ''
     }
-
   }
+
+  ngOnInit() {
+    // Assume edit mode if name isn't blank
+    this.editMode = this.skill && this.skill.name.length > 0;
+  }
+
 }

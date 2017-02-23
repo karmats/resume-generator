@@ -2,14 +2,20 @@
   <div class="row">
     <div *ngFor="let skill of firstList" class="col-md-6 col-xs-12">
       <span>{{skill.name}}</span>
+      <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="editSkill(skill)">
+        <md-icon>edit</md-icon>
+      </button>
       <md-progress-bar class="skill-bar" mode="determinate" value="{{skill.competence}}"></md-progress-bar>
     </div>
     <div *ngFor="let skill of secondList" class="col-md-6 col-xs-12">
       <span>{{skill.name}}</span>
+      <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="editSkill(skill)">
+        <md-icon>edit</md-icon>
+      </button>
       <md-progress-bar class="skill-bar" mode="determinate" value="{{skill.competence}}"></md-progress-bar>
     </div>
   </div>
   <md-card-actions *ngIf="resumeService.editMode">
-    <button md-button color="primary" (click)="newSkill()">ADD SKILL</button>
+    <button md-button color="primary" (click)="newSkill()">Add Skill</button>
   </md-card-actions>
 </md-card>

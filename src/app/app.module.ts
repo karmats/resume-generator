@@ -25,14 +25,14 @@ import { ResumeService } from './resume.service';
     ExperienceComponent,
     PositionDialog,
     EducationDialog,
-    NewSkillDialog,
+    SkillDialog,
     EducationComponent,
     SkillComponent
   ],
   entryComponents: [
     EducationDialog,
     PositionDialog,
-    NewSkillDialog,
+    SkillDialog,
     EditSummaryDialog
   ],
   imports: [
