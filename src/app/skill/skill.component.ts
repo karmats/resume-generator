@@ -10,14 +10,11 @@ import { Skill } from '../models';
 })
 export class SkillComponent implements OnInit {
   @Input() skills:Array<Skill>;
-  firstList: Array<Skill>;
-  secondList: Array<Skill>;
 
   constructor(private dialog: MdDialog, private resumeService: ResumeService, private viewContainerRef: ViewContainerRef) {
-   }
+  }
 
   ngOnInit() {
-    this.skillsToTwoLists();
   }
 
   newSkill() {
@@ -28,7 +25,6 @@ export class SkillComponent implements OnInit {
         return;
       }
       this.skills = this.resumeService.addSkill(result);
-      this.skillsToTwoLists();
     });
   }
 
@@ -45,18 +41,6 @@ export class SkillComponent implements OnInit {
       }
       this.skills = this.resumeService.updateSkills(this.skills);
     });
-  }
-
-  // Since skill lists are in two columns, split skill list to a tuple
-  skillsToTwoLists() {
-    [this.firstList, this.secondList] = this.skills.reduce((acc, curr, idx) => {
-      if (idx % 2 === 0) {
-        acc[0].push(curr);
-      } else {
-        acc[1].push(curr);
-      }
-      return acc;
-    },[[], []]);
   }
 }
 
