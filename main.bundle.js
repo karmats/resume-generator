@@ -1,6 +1,45 @@
 webpackJsonp([0,3],{
 
-/***/ 394:
+/***/ 161:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(83);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ConfirmDialogComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ConfirmDialogComponent = (function () {
+    function ConfirmDialogComponent(dialogRef) {
+        this.dialogRef = dialogRef;
+    }
+    ConfirmDialogComponent.prototype.ngOnInit = function () {
+    };
+    ConfirmDialogComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'app-confirm-dialog',
+            template: __webpack_require__(763),
+            styles: [__webpack_require__(756)]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"]) === 'function' && _a) || Object])
+    ], ConfirmDialogComponent);
+    return ConfirmDialogComponent;
+    var _a;
+}());
+//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/confirm-dialog.component.js.map
+
+/***/ },
+
+/***/ 395:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22,8 +61,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
             selector: 'app-root',
-            template: __webpack_require__(759),
-            styles: [__webpack_require__(753)]
+            template: __webpack_require__(762),
+            styles: [__webpack_require__(755)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -33,7 +72,7 @@ var AppComponent = (function () {
 
 /***/ },
 
-/***/ 441:
+/***/ 442:
 /***/ function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -42,21 +81,21 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 441;
+webpackEmptyContext.id = 442;
 
 
 /***/ },
 
-/***/ 442:
+/***/ 443:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(599);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(600);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfills_ts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(571);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(572);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(598);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app___ = __webpack_require__(594);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(599);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app___ = __webpack_require__(595);
 
 
 
@@ -70,23 +109,26 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ },
 
-/***/ 591:
+/***/ 592:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(394);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__resume_resume_component__ = __webpack_require__(595);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__ = __webpack_require__(597);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__ = __webpack_require__(593);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__education_education_component__ = __webpack_require__(592);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__ = __webpack_require__(596);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__resume_service__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_hammerjs__ = __webpack_require__(753);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__resume_resume_component__ = __webpack_require__(596);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__summary_summary_component__ = __webpack_require__(598);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__experience_experience_component__ = __webpack_require__(594);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__education_education_component__ = __webpack_require__(593);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__skill_skill_component__ = __webpack_require__(597);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__resume_service__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__confirm_dialog_confirm_dialog_component__ = __webpack_require__(161);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -110,28 +152,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__resume_resume_component__["a" /* ResumeComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__["a" /* SummaryComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__["b" /* EditSummaryDialog */],
-                __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["a" /* ExperienceComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["b" /* PositionDialog */],
-                __WEBPACK_IMPORTED_MODULE_10__education_education_component__["a" /* EducationDialog */],
-                __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__["a" /* NewSkillDialog */],
-                __WEBPACK_IMPORTED_MODULE_10__education_education_component__["b" /* EducationComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__["b" /* SkillComponent */]
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__resume_resume_component__["a" /* ResumeComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__summary_summary_component__["a" /* SummaryComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__summary_summary_component__["b" /* EditSummaryDialog */],
+                __WEBPACK_IMPORTED_MODULE_10__experience_experience_component__["a" /* ExperienceComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__experience_experience_component__["b" /* PositionDialog */],
+                __WEBPACK_IMPORTED_MODULE_11__education_education_component__["a" /* EducationDialog */],
+                __WEBPACK_IMPORTED_MODULE_12__skill_skill_component__["a" /* SkillDialog */],
+                __WEBPACK_IMPORTED_MODULE_11__education_education_component__["b" /* EducationComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__skill_skill_component__["b" /* SkillComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_10__education_education_component__["a" /* EducationDialog */],
-                __WEBPACK_IMPORTED_MODULE_9__experience_experience_component__["b" /* PositionDialog */],
-                __WEBPACK_IMPORTED_MODULE_11__skill_skill_component__["a" /* NewSkillDialog */],
-                __WEBPACK_IMPORTED_MODULE_8__summary_summary_component__["b" /* EditSummaryDialog */]
+                __WEBPACK_IMPORTED_MODULE_11__education_education_component__["a" /* EducationDialog */],
+                __WEBPACK_IMPORTED_MODULE_10__experience_experience_component__["b" /* PositionDialog */],
+                __WEBPACK_IMPORTED_MODULE_12__skill_skill_component__["a" /* SkillDialog */],
+                __WEBPACK_IMPORTED_MODULE_9__summary_summary_component__["b" /* EditSummaryDialog */],
+                __WEBPACK_IMPORTED_MODULE_14__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["e" /* BrowserModule */],
@@ -139,8 +185,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_material__["MaterialModule"].forRoot()
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_12__resume_service__["a" /* ResumeService */], __WEBPACK_IMPORTED_MODULE_5__angular_common__["d" /* Location */], { provide: __WEBPACK_IMPORTED_MODULE_5__angular_common__["e" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_5__angular_common__["f" /* PathLocationStrategy */] }],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_13__resume_service__["a" /* ResumeService */], __WEBPACK_IMPORTED_MODULE_5__angular_common__["d" /* Location */], { provide: __WEBPACK_IMPORTED_MODULE_5__angular_common__["e" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_5__angular_common__["f" /* PathLocationStrategy */] }],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
@@ -150,13 +196,14 @@ var AppModule = (function () {
 
 /***/ },
 
-/***/ 592:
+/***/ 593:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__(161);
 /* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return EducationComponent; });
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return EducationDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -168,6 +215,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -184,13 +232,10 @@ var EducationComponent = (function () {
         var _this = this;
         var dialogRef = this.dialog.open(EducationDialog);
         dialogRef.afterClosed().subscribe(function (result) {
-            if (!result) {
-                return;
+            if (result) {
+                result.endDate = result.current ? null : result.endDate;
+                _this.educations = _this.resumeService.addEducation(result);
             }
-            if (result.current) {
-                result.endDate = null;
-            }
-            _this.educations = _this.resumeService.addEducation(result);
         });
     };
     EducationComponent.prototype.editEducation = function (education) {
@@ -200,10 +245,20 @@ var EducationComponent = (function () {
         var dialogRef = this.dialog.open(EducationDialog, config);
         dialogRef.componentInstance.education = education;
         dialogRef.afterClosed().subscribe(function (result) {
-            if (!result) {
-                return;
+            _this.educations = result ? _this.resumeService.updateEducations(_this.educations) :
+                _this.resumeService.retrieveResume().educations;
+        });
+    };
+    EducationComponent.prototype.deleteEducation = function (education) {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogConfig"]();
+        config.viewContainerRef = this.viewContainerRef;
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */], config);
+        dialogRef.componentInstance.message = "Are you sure you want to remove your work education at " + education.school + "?";
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.educations = _this.resumeService.removeEducation(education);
             }
-            _this.educations = _this.resumeService.updateEducations(_this.educations);
         });
     };
     __decorate([
@@ -213,8 +268,8 @@ var EducationComponent = (function () {
     EducationComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
             selector: 'app-education',
-            template: __webpack_require__(760),
-            styles: [__webpack_require__(754)]
+            template: __webpack_require__(764),
+            styles: [__webpack_require__(757)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _c) || Object])
     ], EducationComponent);
@@ -262,13 +317,14 @@ var EducationDialog = (function () {
 
 /***/ },
 
-/***/ 593:
+/***/ 594:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__(161);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ExperienceComponent; });
 /* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return PositionDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -280,6 +336,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -296,13 +353,10 @@ var ExperienceComponent = (function () {
         var _this = this;
         var dialogRef = this.dialog.open(PositionDialog);
         dialogRef.afterClosed().subscribe(function (result) {
-            if (!result) {
-                return;
+            if (result) {
+                result.endDate = result.current ? null : result.endDate;
+                _this.positions = _this.resumeService.addPosition(result);
             }
-            if (result.current) {
-                result.endDate = null;
-            }
-            _this.positions = _this.resumeService.addPosition(result);
         });
     };
     ExperienceComponent.prototype.editPosition = function (position) {
@@ -312,10 +366,20 @@ var ExperienceComponent = (function () {
         var dialogRef = this.dialog.open(PositionDialog, config);
         dialogRef.componentInstance.position = position;
         dialogRef.afterClosed().subscribe(function (result) {
-            if (!result) {
-                return;
+            _this.positions = result ? _this.resumeService.updatePositions(_this.positions) :
+                _this.resumeService.retrieveResume().positions;
+        });
+    };
+    ExperienceComponent.prototype.deletePosition = function (position) {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogConfig"]();
+        config.viewContainerRef = this.viewContainerRef;
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */], config);
+        dialogRef.componentInstance.message = "Are you sure you want to remove your work experience at " + position.company + "?";
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.positions = _this.resumeService.removePosition(position);
             }
-            _this.positions = _this.resumeService.updatePositions(_this.positions);
         });
     };
     __decorate([
@@ -325,8 +389,8 @@ var ExperienceComponent = (function () {
     ExperienceComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
             selector: 'app-experience',
-            template: __webpack_require__(761),
-            styles: [__webpack_require__(755)]
+            template: __webpack_require__(765),
+            styles: [__webpack_require__(758)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _c) || Object])
     ], ExperienceComponent);
@@ -374,12 +438,12 @@ var PositionDialog = (function () {
 
 /***/ },
 
-/***/ 594:
+/***/ 595:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_component__ = __webpack_require__(394);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_component__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(592);
 /* unused harmony namespace reexport */
 /* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__app_module__["a"]; });
 
@@ -388,12 +452,12 @@ var PositionDialog = (function () {
 
 /***/ },
 
-/***/ 595:
+/***/ 596:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__resume_service__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__resume_service__ = __webpack_require__(85);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ResumeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -416,8 +480,8 @@ var ResumeComponent = (function () {
     ResumeComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
             selector: 'app-resume',
-            template: __webpack_require__(762),
-            styles: [__webpack_require__(756)],
+            template: __webpack_require__(766),
+            styles: [__webpack_require__(759)],
             providers: [__WEBPACK_IMPORTED_MODULE_1__resume_service__["a" /* ResumeService */]]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__resume_service__["a" /* ResumeService */]) === 'function' && _a) || Object])
@@ -429,15 +493,16 @@ var ResumeComponent = (function () {
 
 /***/ },
 
-/***/ 596:
+/***/ 597:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__(161);
 /* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return SkillComponent; });
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return NewSkillDialog; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SkillDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -450,37 +515,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SkillComponent = (function () {
-    function SkillComponent(dialog, resumeService) {
+    function SkillComponent(dialog, resumeService, viewContainerRef) {
         this.dialog = dialog;
         this.resumeService = resumeService;
+        this.viewContainerRef = viewContainerRef;
     }
     SkillComponent.prototype.ngOnInit = function () {
-        this.skillsToTwoLists();
     };
     SkillComponent.prototype.newSkill = function () {
         var _this = this;
-        var dialogRef = this.dialog.open(NewSkillDialog);
+        var dialogRef = this.dialog.open(SkillDialog);
         dialogRef.afterClosed().subscribe(function (result) {
-            if (!result) {
-                return;
+            if (result) {
+                _this.skills = _this.resumeService.addSkill(result);
             }
-            _this.skills = _this.resumeService.addSkill(result);
-            _this.skillsToTwoLists();
         });
     };
-    // Since skill lists are in two columns, split skill list to a tuple
-    SkillComponent.prototype.skillsToTwoLists = function () {
-        _a = this.skills.reduce(function (acc, curr, idx) {
-            if (idx % 2 === 0) {
-                acc[0].push(curr);
+    SkillComponent.prototype.editSkill = function (skill) {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogConfig"]();
+        config.viewContainerRef = this.viewContainerRef;
+        var dialogRef = this.dialog.open(SkillDialog, config);
+        dialogRef.componentInstance.skill = skill;
+        dialogRef.afterClosed().subscribe(function (result) {
+            _this.skills = result ? _this.resumeService.updateSkills(_this.skills) :
+                _this.resumeService.retrieveResume().skills;
+        });
+    };
+    SkillComponent.prototype.deleteSkill = function (skill) {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogConfig"]();
+        config.viewContainerRef = this.viewContainerRef;
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */], config);
+        dialogRef.componentInstance.message = "Are you sure you want to remove your skill in " + skill.name + "?";
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.skills = _this.resumeService.removeSkill(skill);
             }
-            else {
-                acc[1].push(curr);
-            }
-            return acc;
-        }, [[], []]), this.firstList = _a[0], this.secondList = _a[1];
-        var _a;
+        });
     };
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
@@ -489,17 +563,17 @@ var SkillComponent = (function () {
     SkillComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
             selector: 'app-skill',
-            template: __webpack_require__(763),
-            styles: [__webpack_require__(757)]
+            template: __webpack_require__(767),
+            styles: [__webpack_require__(760)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */]) === 'function' && _c) || Object])
     ], SkillComponent);
     return SkillComponent;
-    var _a, _b;
+    var _a, _b, _c;
 }());
 // Add new skill dialog
-var NewSkillDialog = (function () {
-    function NewSkillDialog(dialogRef, resumeService) {
+var SkillDialog = (function () {
+    function SkillDialog(dialogRef, resumeService) {
         this.dialogRef = dialogRef;
         this.resumeService = resumeService;
         var today = new Date();
@@ -508,26 +582,30 @@ var NewSkillDialog = (function () {
             name: ''
         };
     }
-    NewSkillDialog = __decorate([
+    SkillDialog.prototype.ngOnInit = function () {
+        // Assume edit mode if name isn't blank
+        this.editMode = this.skill && this.skill.name.length > 0;
+    };
+    SkillDialog = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
-            template: "\n    <h3 class=\"dialog-header\">Add new skill</h3>\n    <div class=\"dialog-content row\">\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"skill.name\"\n          placeholder=\"Competence name\">\n      </md-input-container>\n      <md-slider\n        class=\"col-md-12\"\n        [(ngModel)]=\"skill.competence\"\n        min=\"0\"\n        max=\"100\"\n        thumbLabel\n        step=\"10\"\n        tickInterval=\"1\"></md-slider>\n    </div>\n    <div class=\"dialog-footer\">\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">CANCEL</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(skill)\">ADD</button>\n    </div>\n  ",
+            template: "\n    <h3 class=\"dialog-header\">{{editMode ? 'Edit ' : 'Add new '}}skill</h3>\n    <div class=\"dialog-content row\">\n      <md-input-container class=\"col-md-12\">\n        <input md-input\n          [(ngModel)]=\"skill.name\"\n          placeholder=\"Competence name\">\n      </md-input-container>\n      <md-slider\n        class=\"col-md-12\"\n        [(ngModel)]=\"skill.competence\"\n        min=\"0\"\n        max=\"100\"\n        thumbLabel\n        step=\"10\"\n        tickInterval=\"1\"></md-slider>\n    </div>\n    <div class=\"dialog-footer\">\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(skill)\">Save</button>\n    </div>\n  ",
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialogRef"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _b) || Object])
-    ], NewSkillDialog);
-    return NewSkillDialog;
+    ], SkillDialog);
+    return SkillDialog;
     var _a, _b;
 }());
 //# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/skill.component.js.map
 
 /***/ },
 
-/***/ 597:
+/***/ 598:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(85);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SummaryComponent; });
 /* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return EditSummaryDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -603,8 +681,8 @@ var SummaryComponent = (function () {
     SummaryComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
             selector: 'app-summary',
-            template: __webpack_require__(764),
-            styles: [__webpack_require__(758)]
+            template: __webpack_require__(768),
+            styles: [__webpack_require__(761)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ViewContainerRef */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === 'function' && _c) || Object])
     ], SummaryComponent);
@@ -629,7 +707,7 @@ var EditSummaryDialog = (function () {
 
 /***/ },
 
-/***/ 598:
+/***/ 599:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -645,41 +723,41 @@ var environment = {
 
 /***/ },
 
-/***/ 599:
+/***/ 600:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(613);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(614);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(606);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(607);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(602);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(603);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(608);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(609);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(607);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(608);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(605);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(606);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(604);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(605);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(612);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(613);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(601);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(602);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(600);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(601);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(610);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(611);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(603);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(604);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(611);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(612);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(609);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(610);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(614);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(615);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(800);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(804);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
 
 
@@ -701,20 +779,6 @@ var environment = {
 
 /***/ },
 
-/***/ 753:
-/***/ function(module, exports) {
-
-module.exports = ""
-
-/***/ },
-
-/***/ 754:
-/***/ function(module, exports) {
-
-module.exports = ""
-
-/***/ },
-
 /***/ 755:
 /***/ function(module, exports) {
 
@@ -732,68 +796,96 @@ module.exports = ""
 /***/ 757:
 /***/ function(module, exports) {
 
-module.exports = ".skill-bar {\n    margin-bottom: 30px;\n    margin-top: 10px;\n}\n"
+module.exports = ""
 
 /***/ },
 
 /***/ 758:
 /***/ function(module, exports) {
 
-module.exports = ".summary {\n    text-align: center;\n    background: #3949ab;\n    color: #fff;\n    padding: 20px;\n    margin: -30px;\n}\n.profile-picture {\n    border-radius: 200px;\n    width: 200px;\n    height: 200px;\n}\n\n.contact-info {\n    margin-top: 40px;\n}\n.contact-info md-icon {\n    vertical-align: middle;\n}\n.contact-info md-icon:not(:first-child) {\n    margin-left: 20px;\n}\n"
+module.exports = ""
 
 /***/ },
 
 /***/ 759:
 /***/ function(module, exports) {
 
-module.exports = "<app-resume>\n</app-resume>\n"
+module.exports = ""
 
 /***/ },
 
 /***/ 760:
 /***/ function(module, exports) {
 
-module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let education of educations\">\n      <b md-line>{{education.field}} - {{education.school}}</b>\n      <i md-line>{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</i>\n      <span md-line>{{education.degree}}</span>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editEducation(education)\">\n        <md-icon>edit</md-icon>\n      </button>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newEducation()\">Add Education</button>\n  </md-card-actions>\n</md-card>\n"
+module.exports = ".skill-bar {\n    margin-bottom: 30px;\n    margin-top: 10px;\n}\n"
 
 /***/ },
 
 /***/ 761:
 /***/ function(module, exports) {
 
-module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let position of positions\">\n      <img *ngIf=\"position.companyLogoUrl\" md-list-avatar [src]=\"position.companyLogoUrl\" alt=\"position.company\">\n      <h3 md-line>{{position.title}} - {{position.company}}</h3>\n      <p md-line>{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>\n      <p md-line>{{position.summary}}</p>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editPosition(position)\">\n        <md-icon>edit</md-icon>\n      </button>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newPosition()\">Add Position</button>\n  </md-card-actions>\n</md-card>\n"
+module.exports = ".summary {\n    text-align: center;\n    background: #3949ab;\n    color: #fff;\n    padding: 20px;\n    margin: -30px;\n}\n.profile-picture {\n    border-radius: 200px;\n    width: 200px;\n    height: 200px;\n}\n\n.contact-info {\n    margin-top: 40px;\n}\n.contact-info md-icon {\n    vertical-align: middle;\n}\n.contact-info md-icon:not(:first-child) {\n    margin-left: 20px;\n}\n"
 
 /***/ },
 
 /***/ 762:
 /***/ function(module, exports) {
 
-module.exports = "<!-- Summary -->\n<div class=\"app-content\">\n    <app-summary [picture]=\"resume.pictureUrl\" [name]=\"resume.name\" [description]=\"resume.summary\" [title]=\"resume.title\" [phone]=\"resume.phone\"\n        [email]=\"resume.email\">\n    </app-summary>\n\n    <!-- Work experience -->\n    <app-experience [positions]=\"resume.positions\">\n    </app-experience>\n\n    <!-- Education -->\n    <app-education [educations]=\"resume.educations\">\n    </app-education>\n\n    <!-- Skills -->\n    <app-skill [skills]=\"resume.skills\">\n    </app-skill>\n\n</div>\n"
+module.exports = "<app-resume>\n</app-resume>\n"
 
 /***/ },
 
 /***/ 763:
 /***/ function(module, exports) {
 
-module.exports = "<md-card>\n  <div class=\"row\">\n    <div *ngFor=\"let skill of firstList\" class=\"col-md-6 col-xs-12\">\n      <span>{{skill.name}}</span>\n      <md-progress-bar class=\"skill-bar\" mode=\"determinate\" value=\"{{skill.competence}}\"></md-progress-bar>\n    </div>\n    <div *ngFor=\"let skill of secondList\" class=\"col-md-6 col-xs-12\">\n      <span>{{skill.name}}</span>\n      <md-progress-bar class=\"skill-bar\" mode=\"determinate\" value=\"{{skill.competence}}\"></md-progress-bar>\n    </div>\n  </div>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newSkill()\">ADD SKILL</button>\n  </md-card-actions>\n</md-card>\n"
+module.exports = "<h3 class=\"dialog-header\">Confirm</h3>\n<div class=\"dialog-content\">\n  {{ message }}\n</div>\n<div class=\"dialog-footer\">\n  <button md-button color=\"primary\" (click)=\"dialogRef.close(false)\">Cancel</button>\n  <button md-button color=\"primary\" (click)=\"dialogRef.close(true)\">Ok</button>\n</div>\n"
 
 /***/ },
 
 /***/ 764:
 /***/ function(module, exports) {
 
+module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let education of educations\">\n      <h3 md-line>{{education.field}} - {{education.school}}</h3>\n      <p md-line>{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</p>\n      <p md-line>{{education.degree}}</p>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editEducation(education)\">\n        <md-icon>edit</md-icon>\n      </button>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"deleteEducation(education)\">\n        <md-icon>delete</md-icon>\n      </button>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newEducation()\">Add Education</button>\n  </md-card-actions>\n</md-card>\n"
+
+/***/ },
+
+/***/ 765:
+/***/ function(module, exports) {
+
+module.exports = "<md-card>\n  <md-list>\n    <md-list-item *ngFor=\"let position of positions\">\n      <img *ngIf=\"position.companyLogoUrl\" md-list-avatar [src]=\"position.companyLogoUrl\" alt=\"position.company\">\n      <h3 md-line>{{position.title}} - {{position.company}}</h3>\n      <p md-line>{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>\n      <p md-line>{{position.summary}}</p>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editPosition(position)\">\n        <md-icon>edit</md-icon>\n      </button>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"deletePosition(position)\">\n        <md-icon>delete</md-icon>\n      </button>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newPosition()\">Add Position</button>\n  </md-card-actions>\n</md-card>\n"
+
+/***/ },
+
+/***/ 766:
+/***/ function(module, exports) {
+
+module.exports = "<!-- Summary -->\n<div class=\"app-content\">\n    <app-summary [picture]=\"resume.pictureUrl\" [name]=\"resume.name\" [description]=\"resume.summary\" [title]=\"resume.title\" [phone]=\"resume.phone\"\n        [email]=\"resume.email\">\n    </app-summary>\n\n    <!-- Work experience -->\n    <app-experience [positions]=\"resume.positions\">\n    </app-experience>\n\n    <!-- Education -->\n    <app-education [educations]=\"resume.educations\">\n    </app-education>\n\n    <!-- Skills -->\n    <app-skill [skills]=\"resume.skills\">\n    </app-skill>\n\n</div>\n"
+
+/***/ },
+
+/***/ 767:
+/***/ function(module, exports) {
+
+module.exports = "<md-card>\n  <div class=\"row\">\n    <div *ngFor=\"let skill of skills\" class=\"col-md-6 col-xs-12\">\n      <span>{{skill.name}}</span>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editSkill(skill)\">\n        <md-icon>edit</md-icon>\n      </button>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"deleteSkill(skill)\">\n        <md-icon>delete</md-icon>\n      </button>\n      <md-progress-bar class=\"skill-bar\" color=\"accent\" mode=\"determinate\" value=\"{{skill.competence}}\"></md-progress-bar>\n    </div>\n  </div>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newSkill()\">Add Skill</button>\n  </md-card-actions>\n</md-card>\n"
+
+/***/ },
+
+/***/ 768:
+/***/ function(module, exports) {
+
 module.exports = "<div class=\"summary\">\n    <img class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n    <h2>{{name}}</h2>\n    <i>{{title}}</i>\n    <p>{{description}}</p>\n    <p class=\"contact-info\">\n        <md-icon>phone</md-icon> {{phone}}\n        <md-icon>email</md-icon> {{email}}\n    </p>\n    <button *ngIf=\"resumeService.editMode\" md-raised-button color=\"primary\" (click)=\"editSummary()\">Edit profile</button>\n</div>\n"
 
 /***/ },
 
-/***/ 801:
+/***/ 805:
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(442);
+module.exports = __webpack_require__(443);
 
 
 /***/ },
 
-/***/ 84:
+/***/ 85:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -953,6 +1045,18 @@ var ResumeService = (function () {
         return currentResume.positions;
     };
     /**
+     * Removes a position.
+     *
+     * @param   {Position}        position  The position to remove
+     * @return  {Array<Position>}           Positions after the deletion
+     */
+    ResumeService.prototype.removePosition = function (position) {
+        var currentResume = this.retrieveResume();
+        currentResume.positions = currentResume.positions.filter(function (p) { return p.company !== position.company; });
+        this.saveResume(currentResume);
+        return currentResume.positions;
+    };
+    /**
      * Adds an education to the saved resume and saves it.
      *
      * @param   {Education}  education  The education to add
@@ -967,12 +1071,24 @@ var ResumeService = (function () {
     /**
      * Update educations.
      *
-     * @param   {Array<Education>}   ecuations   The educations to update resume with
-     * @return  {Array<Education>}               Updated educations
+     * @param   {Array<Education>}   educations   The educations to update resume with
+     * @return  {Array<Education>}                Updated educations
      */
     ResumeService.prototype.updateEducations = function (educations) {
         var currentResume = this.retrieveResume();
         currentResume.educations = educations;
+        this.saveResume(currentResume);
+        return currentResume.educations;
+    };
+    /**
+     * Removes an education.
+     *
+     * @param   {Education}        education  The education to remove
+     * @return  {Array<Education>}            Educations after the deletion
+     */
+    ResumeService.prototype.removeEducation = function (education) {
+        var currentResume = this.retrieveResume();
+        currentResume.educations = currentResume.educations.filter(function (e) { return e.school !== education.school; });
         this.saveResume(currentResume);
         return currentResume.educations;
     };
@@ -985,6 +1101,30 @@ var ResumeService = (function () {
     ResumeService.prototype.addSkill = function (skill) {
         var currentResume = this.retrieveResume();
         currentResume.skills.push(skill);
+        this.saveResume(currentResume);
+        return currentResume.skills;
+    };
+    /**
+     * Update skills.
+     *
+     * @param   {Array<Skill>}   skills     The skills to update resume with
+     * @return  {Array<Skill>}              Updated skills
+     */
+    ResumeService.prototype.updateSkills = function (skills) {
+        var currentResume = this.retrieveResume();
+        currentResume.skills = skills;
+        this.saveResume(currentResume);
+        return currentResume.skills;
+    };
+    /**
+     * Removes a skill.
+     *
+     * @param   {Skill}             skill   The skill to remove
+     * @return  {Array<Skill>}              Skills after the deletion
+     */
+    ResumeService.prototype.removeSkill = function (skill) {
+        var currentResume = this.retrieveResume();
+        currentResume.skills = currentResume.skills.filter(function (s) { return s.name !== skill.name; });
         this.saveResume(currentResume);
         return currentResume.skills;
     };
@@ -1013,5 +1153,5 @@ var ResumeService = (function () {
 
 /***/ }
 
-},[801]);
+},[805]);
 //# sourceMappingURL=main.bundle.map
