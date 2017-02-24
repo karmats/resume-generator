@@ -196,6 +196,19 @@ export class ResumeService {
   }
 
   /**
+   * Removes an education.
+   * 
+   * @param   {Education}        education  The education to remove
+   * @return  {Array<Education>}            Educations after the deletion
+   */
+  removeEducation(education: Education): Array<Education> {
+    const currentResume = this.retrieveResume();
+    currentResume.educations = currentResume.educations.filter(e => e.school !== education.school);
+    this.saveResume(currentResume);
+    return currentResume.educations;
+  }
+
+  /**
    * Adds a skill to the saved resume and saves it.
    * 
    * @param   {Skill}  skill  The skill to add
@@ -217,6 +230,19 @@ export class ResumeService {
   updateSkills(skills: Array<Skill>): Array<Skill> {
     const currentResume = this.retrieveResume();
     currentResume.skills = skills;
+    this.saveResume(currentResume);
+    return currentResume.skills;
+  }
+
+  /**
+   * Removes a skill.
+   * 
+   * @param   {Skill}             skill   The skill to remove
+   * @return  {Array<Skill>}              Skills after the deletion
+   */
+  removeSkill(skill: Skill): Array<Skill> {
+    const currentResume = this.retrieveResume();
+    currentResume.skills = currentResume.skills.filter(s => s.name !== skill.name);
     this.saveResume(currentResume);
     return currentResume.skills;
   }

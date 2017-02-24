@@ -24,13 +24,10 @@ export class ExperienceComponent implements OnInit {
     const dialogRef = this.dialog.open(PositionDialog);
 
     dialogRef.afterClosed().subscribe(result => {
-      if (!result) {
-        return;
+      if (result) {
+        result.endDate = result.current ? null : result.endDate;
+        this.positions = this.resumeService.addPosition(result);
       }
-      if (result.current) {
-        result.endDate = null;
-      }
-      this.positions = this.resumeService.addPosition(result);
     });
   }
 
@@ -42,10 +39,8 @@ export class ExperienceComponent implements OnInit {
     dialogRef.componentInstance.position = position;
 
     dialogRef.afterClosed().subscribe(result => {
-      if (!result) {
-        return;
-      }
-      this.positions = this.resumeService.updatePositions(this.positions);
+      this.positions = result ? this.resumeService.updatePositions(this.positions) : 
+            this.resumeService.retrieveResume().positions;
     });
   }
 

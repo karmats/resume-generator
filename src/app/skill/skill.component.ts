@@ -1,7 +1,9 @@
 import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+
 import { ResumeService } from '../resume.service';
 import { Skill } from '../models';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-skill',
@@ -21,10 +23,9 @@ export class SkillComponent implements OnInit {
     const dialogRef = this.dialog.open(SkillDialog);
 
     dialogRef.afterClosed().subscribe(result => {
-      if (!result) {
-        return;
+      if (result) {
+        this.skills = this.resumeService.addSkill(result);
       }
-      this.skills = this.resumeService.addSkill(result);
     });
   }
 
@@ -36,12 +37,24 @@ export class SkillComponent implements OnInit {
     dialogRef.componentInstance.skill = skill;
 
     dialogRef.afterClosed().subscribe(result => {
-      if (!result) {
-        return;
-      }
-      this.skills = this.resumeService.updateSkills(this.skills);
+      this.skills = result ? this.resumeService.updateSkills(this.skills) :
+            this.resumeService.retrieveResume().skills;
     });
   }
+
+  deleteSkill(skill: Skill) {
+    const config = new MdDialogConfig();
+    config.viewContainerRef = this.viewContainerRef;
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, config);
+    dialogRef.componentInstance.message = `Are you sure you want to remove your skill in ${skill.name}?`;
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.skills = this.resumeService.removeSkill(skill);
+      }
+    })
+  }
+
 }
 
 // Add new skill dialog

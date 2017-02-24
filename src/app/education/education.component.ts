@@ -1,7 +1,9 @@
 import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+
 import { Education } from '../models';
 import { ResumeService } from '../resume.service'
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-education',
@@ -22,13 +24,10 @@ export class EducationComponent implements OnInit {
     const dialogRef = this.dialog.open(EducationDialog);
 
     dialogRef.afterClosed().subscribe(result => {
-      if (!result) {
-        return;
+      if (result) {
+        result.endDate = result.current ? null : result.endDate;
+        this.educations = this.resumeService.addEducation(result);
       }
-      if (result.current) {
-        result.endDate = null;
-      }
-      this.educations = this.resumeService.addEducation(result);
     });
   }
 
@@ -40,12 +39,24 @@ export class EducationComponent implements OnInit {
     dialogRef.componentInstance.education = education;
 
     dialogRef.afterClosed().subscribe(result => {
-      if (!result) {
-        return;
-      }
-      this.educations = this.resumeService.updateEducations(this.educations);
+      this.educations = result ? this.resumeService.updateEducations(this.educations) :
+                  this.resumeService.retrieveResume().educations;
     });
   }
+
+  deleteEducation(education: Education) {
+    const config = new MdDialogConfig();
+    config.viewContainerRef = this.viewContainerRef;
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, config);
+    dialogRef.componentInstance.message = `Are you sure you want to remove your work education at ${education.school}?`;
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.educations = this.resumeService.removeEducation(education);
+      }
+    })
+  }
+
 }
 
 // Add new education dialog
