@@ -1,0 +1,21 @@
+<div class="section">
+  <div class="row">
+    <md-card *ngFor="let project of projects" class="col-md-6">
+      <md-card-header>
+        <md-card-title>{{project.name}}</md-card-title>
+        <md-card-subtitle>
+          {{ months[project.startDate.month] + ' ' + project.startDate.year}} - {{project.endDate ? (months[project.endDate.month] + ' ' + project.endDate.year) : 'Present' }}
+        </md-card-subtitle>
+      </md-card-header>
+      <img md-card-image [src]="project.imageUrl">
+      <md-card-content>
+        <p>
+          {{ project.description }}
+        </p>
+      </md-card-content>
+      <md-card-actions>
+        <a md-button [href]="project.web" target="_project">Visit Page</a>
+      </md-card-actions>
+    </md-card>
+  </div>
+</div>

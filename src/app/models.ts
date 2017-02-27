@@ -7,6 +7,7 @@ export interface Resume {
     pictureUrl: string;
     positions: Array<Position>;
     educations: Array<Education>;
+    projects: Array<Project>;
     skills: Array<Skill>;
 }
 
@@ -32,6 +33,16 @@ export interface Education {
 export interface Skill {
     name: string;
     competence: number;
+}
+
+export interface Project {
+    name: string;
+    description: string;
+    imageUrl?: string;
+    startDate: YearAndMonth;
+    endDate?: YearAndMonth;
+    current?: boolean;
+    web?: string;
 }
 
 export interface YearAndMonth {

@@ -16,6 +16,7 @@ import { SkillComponent, SkillDialog } from './skill/skill.component';
 
 import { ResumeService } from './resume.service';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     SkillDialog,
     EducationComponent,
     SkillComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ProjectComponent
   ],
   entryComponents: [
     EducationDialog,

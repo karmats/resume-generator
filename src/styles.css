@@ -11,13 +11,13 @@ body {
   padding: 20px;
 }
 
-.app-content md-card {
+.app-content .section {
   width: 75%;
   margin: 20px auto;
 }
 
 /** Material override */
-button[md-button], button[md-raised-button] {
+[md-button], [md-raised-button] {
   text-transform: uppercase;
 }
 

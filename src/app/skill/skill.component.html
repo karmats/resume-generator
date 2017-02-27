@@ -1,4 +1,4 @@
-<md-card>
+<md-card class="section">
   <div class="row">
     <div *ngFor="let skill of skills" class="col-md-6 col-xs-12">
       <span>{{skill.name}}</span>
@@ -8,7 +8,7 @@
       <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="deleteSkill(skill)">
         <md-icon>delete</md-icon>
       </button>
-      <md-progress-bar class="skill-bar" color="accent" mode="determinate" value="{{skill.competence}}"></md-progress-bar>
+      <md-progress-bar class="skill-bar" color="primary" mode="determinate" value="{{skill.competence}}"></md-progress-bar>
     </div>
   </div>
   <md-card-actions *ngIf="resumeService.editMode">

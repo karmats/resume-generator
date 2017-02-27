@@ -63,6 +63,28 @@ export class ResumeService {
       },
       field: 'Computer gaming'
     }],
+    projects: [{
+      name: 'GoCD monitor',
+      description: 'Build monitor for Go cd build server. Techniques included ReactJS and NodeJS',
+      startDate: {
+        year: 2016,
+        month: 1
+      },
+      current: true,
+      imageUrl: 'https://www.gocd.io/assets/images/blog/gocd-versions/gocd_15_2-d6c97247.png',
+      web: 'https://github.com/karmats/gocd-monitor'
+    },
+    {
+      name: 'Resume Generator',
+      description: 'Generates a resume in material design, that can be stored and put up on your website. Written in Angular 2.',
+      startDate: {
+        year: 2016,
+        month: 10
+      },
+      current: true,
+      imageUrl: 'https://d13yacurqjgara.cloudfront.net/users/36126/screenshots/2228873/rb-logo_1x.png',
+      web: 'https://github.com/karmats/resume-generator'
+    }],
     skills: [{
       name: 'Angular',
       competence: 90
