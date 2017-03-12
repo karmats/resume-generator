@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DatePipe, Location } from '@angular/common';
-import { Resume, Position, Education, Skill } from './models'
+import { Resume, Position, Education, Skill, Project } from './models'
 
 @Injectable()
 export class ResumeService {
@@ -267,6 +267,19 @@ export class ResumeService {
     currentResume.skills = currentResume.skills.filter(s => s.name !== skill.name);
     this.saveResume(currentResume);
     return currentResume.skills;
+  }
+
+  /**
+   * Removes a project.
+   * 
+   * @param   {Project}             project   The project to remove
+   * @return  {Array<Project>}                Projects after the deletion
+   */
+  removeProject(project: Project): Array<Project> {
+    const currentResume = this.retrieveResume();
+    currentResume.projects = currentResume.projects.filter(s => s.name !== project.name);
+    this.saveResume(currentResume);
+    return currentResume.projects;
   }
 
   /**

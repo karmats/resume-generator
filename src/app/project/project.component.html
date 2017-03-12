@@ -15,6 +15,7 @@
       </md-card-content>
       <md-card-actions>
         <a md-button [href]="project.web" target="_project">Visit Page</a>
+        <button md-button color="primary" (click)="deleteProject(project)" *ngIf="resumeService.editMode">Delete Project</button>
       </md-card-actions>
     </md-card>
   </div>
