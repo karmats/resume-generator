@@ -270,6 +270,32 @@ export class ResumeService {
   }
 
   /**
+   * Adds a project to the saved resume and saves it.
+   * 
+   * @param   {Project}         project   The project to add
+   * @return  {Array<Project>}            Updated projects array
+   */
+  addProject(project: Project): Array<Project> {
+    const currentResume = this.retrieveResume();
+    currentResume.projects.push(project);
+    this.saveResume(currentResume);
+    return currentResume.projects;
+  }
+
+  /**
+   * Update projects.
+   * 
+   * @param   {Array<Project>}    projects     The projects to update resume with
+   * @return  {Array<Project>}                 Updated projects
+   */
+  updateProjects(projects: Array<Project>): Array<Project> {
+    const currentResume = this.retrieveResume();
+    currentResume.projects = projects;
+    this.saveResume(currentResume);
+    return currentResume.projects;
+  }
+
+  /**
    * Removes a project.
    * 
    * @param   {Project}             project   The project to remove
