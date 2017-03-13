@@ -66,23 +66,23 @@ export class ProjectComponent implements OnInit {
     <div md-dialog-content>
       <div class="row">
         <md-input-container class="col-md-12">
-          <input md-input
+          <input mdInput
             [(ngModel)]="project.name"
             placeholder="Project name">
         </md-input-container>
         <md-input-container class="col-md-12">
-          <textarea md-input
+          <textarea mdInput
             [(ngModel)]="project.description"
             placeholder="Project description">
           </textarea>
         </md-input-container>
         <md-input-container class="col-md-12">
-          <input md-input
+          <input mdInput
             [(ngModel)]="project.imageUrl"
             placeholder="Project logo url (Optional)">
         </md-input-container>
         <md-input-container class="col-md-12">
-          <input md-input
+          <input mdInput
             [(ngModel)]="project.web"
             placeholder="Project website (Optional)">
         </md-input-container>
