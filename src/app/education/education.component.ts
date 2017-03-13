@@ -66,12 +66,12 @@ export class EducationComponent implements OnInit {
     <div md-dialog-content>
       <div class="row">
         <md-input-container class="col-md-12">
-          <input md-input
+          <input mdInput
             [(ngModel)]="education.school"
             placeholder="School">
         </md-input-container>
         <md-input-container class="col-md-12">
-          <input md-input
+          <input mdInput
             [(ngModel)]="education.field"
             placeholder="Field of Study">
         </md-input-container>

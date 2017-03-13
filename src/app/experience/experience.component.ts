@@ -66,22 +66,22 @@ export class ExperienceComponent implements OnInit {
     <div md-dialog-content>
       <div class="row">
         <md-input-container class="col-md-12">
-          <input md-input
+          <input mdInput
             [(ngModel)]="position.company"
             placeholder="Company">
         </md-input-container>
         <md-input-container class="col-md-12">
-          <input md-input
+          <input mdInput
             [(ngModel)]="position.companyLogoUrl"
             placeholder="Company Logo URL (Optional)">
         </md-input-container>
         <md-input-container class="col-md-12">
-          <input md-input
+          <input mdInput
             [(ngModel)]="position.title"
             placeholder="Title">
         </md-input-container>
         <md-input-container class="col-md-12">
-          <textarea md-input
+          <textarea mdInput
           [(ngModel)]="position.summary"
           placeholder="Summary"></textarea>
         </md-input-container>

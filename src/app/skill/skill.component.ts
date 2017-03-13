@@ -63,7 +63,7 @@ export class SkillComponent implements OnInit {
     <h3 class="dialog-header">{{editMode ? 'Edit ' : 'Add new '}}skill</h3>
     <div class="dialog-content row">
       <md-input-container class="col-md-12">
-        <input md-input
+        <input mdInput
           [(ngModel)]="skill.name"
           placeholder="Competence name">
       </md-input-container>
