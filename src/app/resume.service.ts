@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DatePipe, Location } from '@angular/common';
-import { Resume, Position, Education, Skill, Project } from './models'
+import { Resume, Position, Education, Skill, Project, YearAndMonth } from './models'
 
 @Injectable()
 export class ResumeService {
@@ -322,5 +322,16 @@ export class ResumeService {
     currentResume.email = email;
     this.saveResume(currentResume);
     return currentResume;
+  }
+
+  /**
+   * @return {YearAndMonth}   Todays date as YearAndMonth object
+   */
+  todayAsYearMonth(): YearAndMonth {
+    const today = new Date();
+    return {
+      year: today.getFullYear(),
+      month: today.getMonth()
+    }
   }
 }

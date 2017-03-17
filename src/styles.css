@@ -16,6 +16,14 @@ body {
   margin: 20px auto;
 }
 
+.date-container {
+  margin: 25px 0 10px 0;
+}
+.date-container label {
+  position: relative;
+  bottom: 20px;
+}
+
 /** Material override */
 [md-button], [md-raised-button] {
   text-transform: uppercase;
