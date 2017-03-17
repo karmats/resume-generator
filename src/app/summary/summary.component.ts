@@ -32,6 +32,7 @@ export class SummaryComponent implements OnInit {
   editSummary() {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
+    config.width = "50%";
 
     const dialogRef = this.dialog.open(EditSummaryDialog, config);
     dialogRef.componentInstance.summary = {
@@ -63,41 +64,39 @@ export class SummaryComponent implements OnInit {
 @Component({
   template: `
     <h3 md-dialog-title>Edit summary</h3>
-    <div md-dialog-content>
-      <div class="row">
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="summary.name"
-            placeholder="Your name">
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="summary.profileUrl"
-            placeholder="Url to profile picture">
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="summary.title"
-            placeholder="Job title">
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <textarea mdInput
-          [(ngModel)]="summary.description"
-          placeholder="Description of yourself"></textarea>
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="summary.phone"
-            placeholder="Your phone number">
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="summary.email"
-            placeholder="Your email adress">
-        </md-input-container>
-      </div>
+    <div md-dialog-content fxLayout="column">
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="summary.name"
+          placeholder="Your name">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="summary.profileUrl"
+          placeholder="Url to profile picture">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="summary.title"
+          placeholder="Job title">
+      </md-input-container>
+      <md-input-container>
+        <textarea mdInput
+        [(ngModel)]="summary.description"
+        rows="4" placeholder="Description of yourself"></textarea>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="summary.phone"
+          placeholder="Your phone number">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="summary.email"
+          placeholder="Your email adress">
+      </md-input-container>
     </div>
-    <div class="dialog-footer">
+    <div md-dialog-actions>
       <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
       <button md-button color="primary" (click)="dialogRef.close(summary)">Ok</button>
     </div>

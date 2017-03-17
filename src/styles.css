@@ -53,3 +53,7 @@ body {
 .dialog-content md-select {
   padding-top: 25px;
 }
+
+[md-dialog-actions] {
+  float: right;
+}
