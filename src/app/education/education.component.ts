@@ -21,7 +21,10 @@ export class EducationComponent implements OnInit {
   }
 
   newEducation() {
-    const dialogRef = this.dialog.open(EducationDialog);
+    const config = new MdDialogConfig();
+    config.width = "50%";
+
+    const dialogRef = this.dialog.open(EducationDialog, config);
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -34,6 +37,7 @@ export class EducationComponent implements OnInit {
   editEducation(education: Education) {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
+    config.width = "50%";
 
     const dialogRef = this.dialog.open(EducationDialog, config);
     dialogRef.componentInstance.education = education;
@@ -63,41 +67,47 @@ export class EducationComponent implements OnInit {
 @Component({
   template: `
     <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}education</h3>
-    <div md-dialog-content>
-      <div class="row">
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="education.school"
-            placeholder="School">
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="education.field"
-            placeholder="Field of Study">
-        </md-input-container>
-        <md-select [(ngModel)]="education.degree" placeholder="Degree" class="col-md-12">
-          <md-option *ngFor="let degree of degrees" [value]="degree"> {{degree}} </md-option>
-        </md-select>
-        <label class="col-md-6 select-label">From</label>
-        <label class="col-md-6 select-label">To</label>
-        <md-select [(ngModel)]="education.startDate.year" placeholder="Year" class="col-md-3">
-          <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
-        </md-select>
-        <md-select [(ngModel)]="education.startDate.month" placeholder="Month" class="col-md-3">
-          <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
-        </md-select>
-        <md-select *ngIf="!education.current" [(ngModel)]="education.endDate.year" placeholder="Year" class="col-md-3">
-          <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
-        </md-select>
-        <md-select *ngIf="!education.current" [(ngModel)]="education.endDate.month" placeholder="Month" class="col-md-3">
-          <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
-        </md-select>
-        <md-checkbox class="col-md-12" [(ngModel)]="education.current">
-          Current education
-        </md-checkbox>
+    <div md-dialog-content fxLayout="column">
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="education.school"
+          placeholder="School">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="education.field"
+          placeholder="Field of Study">
+      </md-input-container>
+      <md-select [(ngModel)]="education.degree" placeholder="Degree">
+        <md-option *ngFor="let degree of degrees" [value]="degree"> {{degree}} </md-option>
+      </md-select>
+      <div class="date-container">
+        <label>From</label>
+        <div fxLayout="row">
+          <md-select fxFlex="50" [(ngModel)]="education.startDate.year" placeholder="Year">
+            <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
+          </md-select>
+          <md-select fxFlex="50" [(ngModel)]="education.startDate.month" placeholder="Month">
+            <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
+          </md-select>
+        </div>
+      </div>
+      <md-checkbox [(ngModel)]="education.current" (change)="currentChanged()">
+        Current education
+      </md-checkbox>
+      <div class="date-container" *ngIf="!education.current">
+        <label>To</label>
+        <div fxLayout="row">
+          <md-select fxFlex="50" [(ngModel)]="education.endDate.year" placeholder="Year">
+            <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
+          </md-select>
+          <md-select fxFlex="50" [(ngModel)]="education.endDate.month" placeholder="Month">
+            <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
+          </md-select>
+        </div>
       </div>
     </div>
-    <div class="dialog-footer">
+    <div md-dialog-actions>
       <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
       <button md-button color="primary" (click)="dialogRef.close(education)">Save</button>
     </div>
@@ -111,19 +121,12 @@ export class EducationDialog implements OnInit {
   public editMode: boolean;
 
   constructor(public dialogRef: MdDialogRef<EducationDialog>, private resumeService: ResumeService) {
-    const today = new Date();
     this.education = {
       school: '',
       field: '',
       current: true,
-      startDate: {
-        year: today.getFullYear(),
-        month: today.getMonth()
-      },
-      endDate: {
-        year: today.getFullYear(),
-        month: today.getMonth()
-      },
+      startDate: this.resumeService.todayAsYearMonth(),
+      endDate: this.resumeService.todayAsYearMonth(),
       degree: 'Other'
     }
 
@@ -135,5 +138,11 @@ export class EducationDialog implements OnInit {
   ngOnInit() {
     // Assume edit mode if school isn't blank
     this.editMode = this.education && this.education.school.length > 0;
+  }
+
+  currentChanged() {
+    if (!this.education.current && !this.education.endDate) {
+      this.education.endDate = this.resumeService.todayAsYearMonth();
+    }
   }
 }
