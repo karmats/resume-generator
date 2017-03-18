@@ -21,7 +21,10 @@ export class ProjectComponent implements OnInit {
   }
 
   newProject() {
-    const dialogRef = this.dialog.open(ProjectDialog);
+    const config = new MdDialogConfig();
+    config.width = "50%";
+
+    const dialogRef = this.dialog.open(ProjectDialog, config);
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -34,6 +37,7 @@ export class ProjectComponent implements OnInit {
   editProject(project: Project) {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
+    config.width = "50%";
 
     const dialogRef = this.dialog.open(ProjectDialog, config);
     dialogRef.componentInstance.project = project;
@@ -63,49 +67,56 @@ export class ProjectComponent implements OnInit {
 @Component({
   template: `
     <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}project</h3>
-    <div md-dialog-content>
-      <div class="row">
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="project.name"
-            placeholder="Project name">
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <textarea mdInput
-            [(ngModel)]="project.description"
-            placeholder="Project description">
-          </textarea>
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="project.imageUrl"
-            placeholder="Project logo url (Optional)">
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="project.web"
-            placeholder="Project website (Optional)">
-        </md-input-container>
-        <label class="col-md-6 select-label">From</label>
-        <label class="col-md-6 select-label">To</label>
-        <md-select [(ngModel)]="project.startDate.year" placeholder="Year" class="col-md-3">
-          <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
-        </md-select>
-        <md-select [(ngModel)]="project.startDate.month" placeholder="Month" class="col-md-3">
-          <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
-        </md-select>
-        <md-select *ngIf="!project.current" [(ngModel)]="project.endDate.year" placeholder="Year" class="col-md-3">
-          <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
-        </md-select>
-        <md-select *ngIf="!project.current" [(ngModel)]="project.endDate.month" placeholder="Month" class="col-md-3">
-          <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
-        </md-select>
-        <md-checkbox class="col-md-12" [(ngModel)]="project.current">
-          Current project
-        </md-checkbox>
+    <div md-dialog-content fxLayout="column">
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="project.name"
+          placeholder="Project name">
+      </md-input-container>
+      <md-input-container>
+        <textarea mdInput
+          rows="4"
+          [(ngModel)]="project.description"
+          placeholder="Project description">
+        </textarea>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="project.imageUrl"
+          placeholder="Project logo url (Optional)">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="project.web"
+          placeholder="Project website (Optional)">
+      </md-input-container>
+      <div class="date-container">
+        <label class="select-label">From</label>
+        <div fxLayout="row">
+          <md-select fxFlex="50" [(ngModel)]="project.startDate.year" placeholder="Year">
+            <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
+          </md-select>
+          <md-select fxFlex="50" [(ngModel)]="project.startDate.month" placeholder="Month">
+            <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
+          </md-select>
+        </div>
+      </div>
+      <md-checkbox [(ngModel)]="project.current" (change)="currentChanged()">
+        Current project
+      </md-checkbox>
+      <div class="date-container" *ngIf="!project.current">
+        <label class="select-label">To</label>
+        <div fxLayout="row">
+          <md-select fxFlex="50" [(ngModel)]="project.endDate.year" placeholder="Year">
+            <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
+          </md-select>
+          <md-select fxFlex="50" [(ngModel)]="project.endDate.month" placeholder="Month">
+            <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
+          </md-select>
+        </div>
       </div>
     </div>
-    <div class="dialog-footer">
+    <div md-dialog-actions>
       <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
       <button md-button color="primary" (click)="dialogRef.close(project)">Save</button>
     </div>
@@ -118,21 +129,14 @@ export class ProjectDialog implements OnInit {
   public editMode: boolean;
 
   constructor(public dialogRef: MdDialogRef<ProjectDialog>, private resumeService: ResumeService) {
-    const today = new Date();
     this.project = {
       name: '',
       description: '',
       imageUrl: '',
       web: '',
       current: true,
-      startDate: {
-        year: today.getFullYear(),
-        month: today.getMonth()
-      },
-      endDate: {
-        year: today.getFullYear(),
-        month: today.getMonth()
-      }
+      startDate: this.resumeService.todayAsYearMonth(),
+      endDate: this.resumeService.todayAsYearMonth()
     }
 
     this.years = resumeService.years;
@@ -143,4 +147,11 @@ export class ProjectDialog implements OnInit {
     // Assume edit mode if name isn't blank
     this.editMode = this.project && this.project.name.length > 0;
   }
+
+  currentChanged() {
+    if (!this.project.current && !this.project.endDate) {
+      this.project.endDate = this.resumeService.todayAsYearMonth();
+    }
+  }
+
 }

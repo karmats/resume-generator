@@ -1,5 +1,6 @@
 <md-card class="section">
-  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutWrap>
+  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+      fxLayoutAlign="space-between stretch" fxLayoutWrap>
     <div *ngFor="let skill of skills" fxFlex="45">
       <span>{{skill.name}}</span>
       <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="editSkill(skill)">

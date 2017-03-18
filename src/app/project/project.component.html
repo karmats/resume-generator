@@ -1,6 +1,6 @@
 <div class="section">
-  <div class="row">
-    <md-card *ngFor="let project of projects" class="col-md-6">
+  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutWrap>
+    <md-card *ngFor="let project of projects" fxFlex="45">
       <md-card-header>
         <md-card-title>{{project.name}}</md-card-title>
         <md-card-subtitle>
@@ -20,8 +20,8 @@
       </md-card-actions>
     </md-card>
   </div>
-  <div class="row">
-    <md-card *ngIf="resumeService.editMode" class="col-md-12">
-      <button md-button color="primary" (click)="newProject()" *ngIf="resumeService.editMode">Add Project</button>
-    </md-card>
+
+  <md-card *ngIf="resumeService.editMode">
+    <button md-button color="primary" (click)="newProject()" *ngIf="resumeService.editMode">Add Project</button>
+  </md-card>
 </div>

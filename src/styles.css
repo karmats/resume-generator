@@ -1,10 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
-@import '~flexboxgrid/css/flexboxgrid.min.css';
 
 body {
     background: #eee;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
 }
 
 .app-content {
@@ -28,40 +27,6 @@ body {
 [md-button], [md-raised-button] {
   text-transform: uppercase;
 }
-
-/* Dialog styles */
-.dialog-header {
-  margin: 0 0 20px 0;
-  color: rgba(0, 0, 0, 0.870588);
-  font-size: 22px;
-  line-height: 32px;
-  font-weight: 400;
-  border-bottom: none;
-}
-
-.dialog-content {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.6);
-  box-sizing: border-box;
-  padding-bottom: 24px;
-}
-
-.dialog-footer {
-  box-sizing: border-box;
-  margin-bottom: -16px;
-  margin-top: 8px;
-  width: 100%;
-  text-align: right;
-}
-
-.dialog-footer > button:last-child {
-  margin-right: -16px;
-}
-
-.dialog-content md-select {
-  padding-top: 25px;
-}
-
 [md-dialog-actions] {
   float: right;
 }
