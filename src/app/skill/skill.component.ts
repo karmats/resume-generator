@@ -20,7 +20,9 @@ export class SkillComponent implements OnInit {
   }
 
   newSkill() {
-    const dialogRef = this.dialog.open(SkillDialog);
+    const config = new MdDialogConfig();
+    config.width = "50%";
+    const dialogRef = this.dialog.open(SkillDialog, config);
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -31,6 +33,7 @@ export class SkillComponent implements OnInit {
 
   editSkill(skill: Skill) {
     const config = new MdDialogConfig();
+    config.width = "50%";
     config.viewContainerRef = this.viewContainerRef;
 
     const dialogRef = this.dialog.open(SkillDialog, config);
@@ -60,15 +63,14 @@ export class SkillComponent implements OnInit {
 // Add new skill dialog
 @Component({
   template: `
-    <h3 class="dialog-header">{{editMode ? 'Edit ' : 'Add new '}}skill</h3>
-    <div class="dialog-content row">
-      <md-input-container class="col-md-12">
+    <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}skill</h3>
+    <div md-dialog-content fxLayout="column">
+      <md-input-container>
         <input mdInput
           [(ngModel)]="skill.name"
-          placeholder="Competence name">
+          placeholder="Skill name">
       </md-input-container>
       <md-slider
-        class="col-md-12"
         [(ngModel)]="skill.competence"
         min="0"
         max="100"
@@ -76,7 +78,7 @@ export class SkillComponent implements OnInit {
         step="10"
         tickInterval="1"></md-slider>
     </div>
-    <div class="dialog-footer">
+    <div md-dialog-actions>
       <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
       <button md-button color="primary" (click)="dialogRef.close(skill)">Save</button>
     </div>
