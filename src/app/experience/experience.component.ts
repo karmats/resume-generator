@@ -21,7 +21,11 @@ export class ExperienceComponent implements OnInit {
   }
 
   newPosition() {
-    const dialogRef = this.dialog.open(PositionDialog);
+    const config = new MdDialogConfig();
+    config.width = "50%";
+
+    const dialogRef = this.dialog.open(PositionDialog, config);
+
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -34,6 +38,7 @@ export class ExperienceComponent implements OnInit {
   editPosition(position: Position) {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
+    config.width = "50%";
 
     const dialogRef = this.dialog.open(PositionDialog, config);
     dialogRef.componentInstance.position = position;
@@ -63,48 +68,54 @@ export class ExperienceComponent implements OnInit {
 @Component({
   template: `
     <h3 md-dialog-title>{{ editMode ? 'Edit ' : 'Add new '}}position</h3>
-    <div md-dialog-content>
-      <div class="row">
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="position.company"
-            placeholder="Company">
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="position.companyLogoUrl"
-            placeholder="Company Logo URL (Optional)">
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <input mdInput
-            [(ngModel)]="position.title"
-            placeholder="Title">
-        </md-input-container>
-        <md-input-container class="col-md-12">
-          <textarea mdInput
-          [(ngModel)]="position.summary"
-          placeholder="Summary"></textarea>
-        </md-input-container>
-        <label class="col-md-6 select-label">From</label>
-        <label class="col-md-6 select-label">To</label>
-        <md-select [(ngModel)]="position.startDate.year" placeholder="Year" class="col-md-3">
-          <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
-        </md-select>
-        <md-select [(ngModel)]="position.startDate.month" placeholder="Month" class="col-md-3">
-          <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
-        </md-select>
-        <md-select *ngIf="!position.current" [(ngModel)]="position.endDate.year" placeholder="Year" class="col-md-3">
-          <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
-        </md-select>
-        <md-select *ngIf="!position.current" [(ngModel)]="position.endDate.month" placeholder="Month" class="col-md-3">
-          <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
-        </md-select>
-        <md-checkbox class="col-md-12" [(ngModel)]="position.current">
-          Current job
-        </md-checkbox>
+    <div md-dialog-content fxLayout="column">
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="position.company"
+          placeholder="Company">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="position.companyLogoUrl"
+          placeholder="Company Logo URL (Optional)">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+          [(ngModel)]="position.title"
+          placeholder="Title">
+      </md-input-container>
+      <md-input-container>
+        <textarea mdInput
+        [(ngModel)]="position.summary"
+        rows="4" placeholder="Summary"></textarea>
+      </md-input-container>
+      <div class="date-container">
+        <label>From</label>
+        <div fxLayout="row">
+          <md-select fxFlex="50" [(ngModel)]="position.startDate.year" placeholder="Year">
+            <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
+          </md-select>
+          <md-select fxFlex="50" [(ngModel)]="position.startDate.month" placeholder="Month">
+            <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
+          </md-select>
+        </div>
+      </div>
+      <md-checkbox [(ngModel)]="position.current" (change)="currentChanged()">
+        Current job
+      </md-checkbox>
+      <div class="date-container" *ngIf="!position.current">
+        <label>To</label>
+        <div fxLayout="row">
+          <md-select fxFlex="50" [(ngModel)]="position.endDate.year" placeholder="Year">
+            <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
+          </md-select>
+          <md-select fxFlex="50" [(ngModel)]="position.endDate.month" placeholder="Month">
+            <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
+          </md-select>
+        </div>
       </div>
     </div>
-    <div class="dialog-footer">
+    <div md-dialog-actions>
       <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
       <button md-button color="primary" (click)="dialogRef.close(position)">Save</button>
     </div>
@@ -117,19 +128,12 @@ export class PositionDialog implements OnInit {
   public editMode: boolean;
 
   constructor(public dialogRef: MdDialogRef<PositionDialog>, private resumeService: ResumeService) {
-    const today = new Date();
     this.position = {
       company: '',
       companyLogoUrl: '',
       current: true,
-      startDate: {
-        year: today.getFullYear(),
-        month: today.getMonth()
-      },
-      endDate: {
-        year: today.getFullYear(),
-        month: today.getMonth()
-      },
+      startDate: this.resumeService.todayAsYearMonth(),
+      endDate: this.resumeService.todayAsYearMonth(),
       summary: '',
       title: ''
     }
@@ -142,4 +146,11 @@ export class PositionDialog implements OnInit {
     // Assume edit mode if company isn't blank
     this.editMode = this.position && this.position.company.length > 0;
   }
+
+  currentChanged() {
+    if (!this.position.current && !this.position.endDate) {
+      this.position.endDate = this.resumeService.todayAsYearMonth();
+    }
+  }
+
 }
