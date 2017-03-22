@@ -3,11 +3,7 @@
 
 body {
     background: #eee;
-    font-family: "Roboto", "Helvetica Neue", sans-serif;
-}
-
-.app-content {
-  padding: 20px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .app-content .section {
@@ -23,10 +19,19 @@ body {
   bottom: 20px;
 }
 
+.neg-margin-24 {
+  margin-left:-24px;
+  margin-right:-24px;
+}
+
 /** Material override */
 [md-button], [md-raised-button] {
   text-transform: uppercase;
 }
 [md-dialog-actions] {
   float: right;
+}
+
+.mat-card-header .mat-card-header-text .mat-card-title {
+  font-size: 24px;
 }
