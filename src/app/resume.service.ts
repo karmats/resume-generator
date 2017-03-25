@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { DatePipe, Location } from '@angular/common';
 import { Resume, Position, Education, Skill, Project, YearAndMonth } from './models'
 
 @Injectable()
 export class ResumeService {
+  public resumeChanged: EventEmitter<Resume>;
 
   private STORAGE_KEY = 'resume';
   private RESUME: Resume = {
@@ -116,6 +117,9 @@ export class ResumeService {
   editMode: boolean;
 
   constructor(location: Location) {
+    // EventEmitter to let components know when the resume is changed
+    this.resumeChanged = new EventEmitter(false);
+
     // Create years to choose from, 1950 - current years
     const today = new Date();
     for (let year = 1950; year <= today.getFullYear(); year++) {
@@ -382,6 +386,9 @@ export class ResumeService {
       })
     }
     this.saveResume(resume);
+
+    // Tell components resume has changed
+    this.resumeChanged.emit(resume);
   }
 
   /**
