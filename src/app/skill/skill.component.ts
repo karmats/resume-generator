@@ -17,6 +17,7 @@ export class SkillComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.sortSkills();
   }
 
   newSkill() {
@@ -27,6 +28,7 @@ export class SkillComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.skills = this.resumeService.addSkill(result);
+        this.sortSkills();
       }
     });
   }
@@ -42,6 +44,7 @@ export class SkillComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.skills = result ? this.resumeService.updateSkills(this.skills) :
             this.resumeService.retrieveResume().skills;
+      this.sortSkills();
     });
   }
 
@@ -58,6 +61,15 @@ export class SkillComponent implements OnInit {
     })
   }
 
+  // Sort by competence first, name second
+  private sortSkills() {
+    this.skills.sort((a, b) => {
+      if (a.competence !== b.competence) {
+        return b.competence - a.competence;
+      }
+      return a.name > b.name ? 1 : -1
+    });
+  }
 }
 
 // Add new skill dialog

@@ -18,6 +18,7 @@ export class EducationComponent implements OnInit {
 
   ngOnInit() {
     this.months = this.resumeService.months;
+    this.sortEducations();
   }
 
   newEducation() {
@@ -30,6 +31,7 @@ export class EducationComponent implements OnInit {
       if (result) {
         result.endDate = result.current ? null : result.endDate;
         this.educations = this.resumeService.addEducation(result);
+        this.sortEducations();
       }
     });
   }
@@ -45,6 +47,7 @@ export class EducationComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.educations = result ? this.resumeService.updateEducations(this.educations) :
                   this.resumeService.retrieveResume().educations;
+      this.sortEducations();
     });
   }
 
@@ -59,6 +62,14 @@ export class EducationComponent implements OnInit {
         this.educations = this.resumeService.removeEducation(education);
       }
     })
+  }
+
+  // Sort by start date
+  sortEducations() {
+    this.educations.sort((a, b) => {
+      return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year :
+        b.startDate.month - a.startDate.month;
+    });
   }
 
 }

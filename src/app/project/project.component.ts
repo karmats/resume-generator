@@ -18,6 +18,7 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit() {
     this.months = this.resumeService.months;
+    this.sortProjects();
   }
 
   newProject() {
@@ -30,6 +31,7 @@ export class ProjectComponent implements OnInit {
       if (result) {
         result.endDate = result.current ? null : result.endDate;
         this.projects = this.resumeService.addProject(result);
+        this.sortProjects();
       }
     });
   }
@@ -45,6 +47,7 @@ export class ProjectComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.projects = result ? this.resumeService.updateProjects(this.projects) :
                   this.resumeService.retrieveResume().projects;
+      this.sortProjects();
     });
   }
 
@@ -59,6 +62,14 @@ export class ProjectComponent implements OnInit {
         this.projects = this.resumeService.removeProject(project);
       }
     })
+  }
+
+  // Sort by start date
+  sortProjects() {
+    this.projects.sort((a, b) => {
+      return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year :
+        b.startDate.month - a.startDate.month;
+    });
   }
 
 }

@@ -18,6 +18,7 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit() {
     this.months = this.resumeService.months;
+    this.sortPositions();
   }
 
   newPosition() {
@@ -26,11 +27,11 @@ export class ExperienceComponent implements OnInit {
 
     const dialogRef = this.dialog.open(PositionDialog, config);
 
-
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         result.endDate = result.current ? null : result.endDate;
         this.positions = this.resumeService.addPosition(result);
+        this.sortPositions();
       }
     });
   }
@@ -46,6 +47,7 @@ export class ExperienceComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.positions = result ? this.resumeService.updatePositions(this.positions) : 
             this.resumeService.retrieveResume().positions;
+      this.sortPositions();
     });
   }
 
@@ -60,6 +62,14 @@ export class ExperienceComponent implements OnInit {
         this.positions = this.resumeService.removePosition(position);
       }
     })
+  }
+
+  // Sort by start date
+  sortPositions() {
+    this.positions.sort((a, b) => {
+      return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year :
+        b.startDate.month - a.startDate.month;
+    });
   }
 
 }
