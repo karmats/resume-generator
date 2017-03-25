@@ -63,8 +63,12 @@ export class SummaryComponent implements OnInit {
     const resumeFile: File = event.target.files[0];
     const reader = new FileReader();
 
-    reader.onload = function(e) {
-      console.log(reader.result);
+    // Callback when the file has been read
+    reader.onload = () => {
+      if (reader && reader.result && reader) {
+        const jsonResume = JSON.parse(reader.result);
+        this.resumeService.parseAndSaveJsonResume(jsonResume);
+      }
     }
 
     reader.readAsText(resumeFile, 'UTF-8');

@@ -325,13 +325,79 @@ export class ResumeService {
   }
 
   /**
+   * Parse and save a resume stored in the standardized json resume format (https://github.com/jsonresume/resume-schema/blob/0.0.0/schema.json)
+   * 
+   * @param jsonResume A json resume object
+   */
+  parseAndSaveJsonResume(jsonResume) {
+    const basics = jsonResume.basics;
+    const resume: Resume = {
+      name: basics.name,
+      title: basics.label,
+      summary: basics.summary,
+      phone: basics.phone,
+      email: basics.email,
+      pictureUrl: basics.picture,
+      positions: jsonResume.work.map(w => {
+        const sd = this.dateAsYearMonth(new Date(w.startDate));
+        const ed = w.endDate ? this.dateAsYearMonth(new Date(w.endDate)) : null;
+        return {
+          title: w.company,
+          summary: w.summary,
+          startDate: sd,
+          endDate: ed,
+          current: ed === null,
+          company: w.company
+        }
+      }),
+      educations: jsonResume.education.map(e => {
+        const sd = this.dateAsYearMonth(new Date(e.startDate));
+        const ed = e.endDate ? this.dateAsYearMonth(new Date(e.endDate)) : null;
+        return {
+          school: e.institution,
+          field: e.area,
+          startDate: sd,
+          endDate: ed,
+          current: ed === null,
+          degree: e.studyType
+        }
+      }),
+      skills: jsonResume.skills.map(s => {
+        return {
+          name: s.name,
+          competence: 0
+        }
+      }),
+      projects: jsonResume.projects.map(p => {
+        const sd = this.dateAsYearMonth(new Date(p.startDate));
+        const ed = p.endDate ? this.dateAsYearMonth(new Date(p.endDate)) : null;
+        return {
+          name: p.name,
+          description: p.summary,
+          startDate: sd,
+          endDate: ed,
+          current: ed === null,
+          web: p.url
+        }
+      })
+    }
+    this.saveResume(resume);
+  }
+
+  /**
    * @return {YearAndMonth}   Todays date as YearAndMonth object
    */
   todayAsYearMonth(): YearAndMonth {
-    const today = new Date();
-    return {
-      year: today.getFullYear(),
-      month: today.getMonth()
-    }
+    return this.dateAsYearMonth(new Date());
+  }
+
+  /**
+   * @return  {YearAndMonth}   A date as YearAndMonth object
+   */
+  dateAsYearMonth(d: Date): YearAndMonth {
+    return d ? {
+      year: d.getUTCFullYear(),
+      month: d.getUTCMonth()
+    } : null
   }
 }
