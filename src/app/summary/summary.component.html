@@ -7,5 +7,9 @@
         <md-icon>phone</md-icon> {{phone}}
         <md-icon>email</md-icon> {{email}}
     </p>
-    <button *ngIf="resumeService.editMode" md-raised-button color="primary" (click)="editSummary()">Edit profile</button>
+    <div *ngIf="resumeService.editMode">
+        <button md-raised-button color="primary" (click)="editSummary()">Edit profile</button>
+        <input id="resumeFile" style="display:none" *ngIf="resumeService.editMode" type="file" accept="application/json" (change)="uploadResume($event)">
+        <label for="resumeFile" class="mat-primary mat-raised-button">Upload Resume</label>
+    </div>
 </div>

@@ -58,6 +58,21 @@ export class SummaryComponent implements OnInit {
       this.email = resume.email;
     });
   }
+
+  uploadResume(event) {
+    const resumeFile: File = event.target.files[0];
+    const reader = new FileReader();
+
+    // Callback when the file has been read
+    reader.onload = () => {
+      if (reader && reader.result && reader) {
+        const jsonResume = JSON.parse(reader.result);
+        this.resumeService.parseAndSaveJsonResume(jsonResume);
+      }
+    }
+
+    reader.readAsText(resumeFile, 'UTF-8');
+  }
 }
 
 // Edit summary dialog

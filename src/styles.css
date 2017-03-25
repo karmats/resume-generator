@@ -25,7 +25,7 @@ body {
 }
 
 /** Material override */
-[md-button], [md-raised-button] {
+[md-button], [md-raised-button], .mat-raised-button, .mat-primary {
   text-transform: uppercase;
 }
 [md-dialog-actions] {
