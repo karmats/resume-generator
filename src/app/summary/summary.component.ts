@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
-import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
+import { MdDialog, MdDialogRef, MdDialogConfig, MdIconRegistry } from '@angular/material';
 import { ResumeService } from '../resume.service';
 
 interface Summary {
@@ -23,10 +24,16 @@ export class SummaryComponent implements OnInit {
   @Input() title: string;
   @Input() phone: string;
   @Input() email: string;
+  
 
-  constructor(private dialog: MdDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService) { }
+  constructor(private dialog: MdDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService,
+            private iconRegistry: MdIconRegistry, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    // Profile picture placeholder
+    this.iconRegistry.addSvgIcon(
+        'account-circle',
+        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'));
   }
 
   editSummary() {
@@ -71,7 +78,9 @@ export class SummaryComponent implements OnInit {
       }
     }
 
-    reader.readAsText(resumeFile, 'UTF-8');
+    if (resumeFile) {
+      reader.readAsText(resumeFile, 'UTF-8');
+    }
   }
 }
 

@@ -1,5 +1,8 @@
 import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { FormControl } from '@angular/forms';
+
+import { Observable } from 'rxjs/observable';
 
 import { Education } from '../models';
 import { ResumeService } from '../resume.service'
@@ -18,6 +21,7 @@ export class EducationComponent implements OnInit {
 
   ngOnInit() {
     this.months = this.resumeService.months;
+    this.educations = this.educations || [];
     this.sortEducations();
   }
 
@@ -79,19 +83,32 @@ export class EducationComponent implements OnInit {
   template: `
     <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}education</h3>
     <div md-dialog-content fxLayout="column">
+
       <md-input-container>
         <input mdInput
           [(ngModel)]="education.school"
           placeholder="School">
       </md-input-container>
+
       <md-input-container>
         <input mdInput
           [(ngModel)]="education.field"
           placeholder="Field of Study">
       </md-input-container>
-      <md-select [(ngModel)]="education.degree" placeholder="Degree">
-        <md-option *ngFor="let degree of degrees" [value]="degree"> {{degree}} </md-option>
-      </md-select>
+
+      <md-input-container>
+        <input mdInput
+              [(ngModel)]="education.degree"
+              placeholder="Degree"
+              [formControl]="degreeCtrl"
+              [mdAutocomplete]="auto">
+      </md-input-container>
+      <md-autocomplete #auto="mdAutocomplete">
+        <md-option *ngFor="let degree of filteredDegrees | async" [value]="degree">
+          {{ degree }}
+        </md-option>
+      </md-autocomplete>
+
       <div class="date-container">
         <label>From</label>
         <div fxLayout="row">
@@ -118,6 +135,7 @@ export class EducationComponent implements OnInit {
         </div>
       </div>
     </div>
+
     <div md-dialog-actions>
       <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
       <button md-button color="primary" (click)="dialogRef.close(education)">Save</button>
@@ -125,20 +143,28 @@ export class EducationComponent implements OnInit {
   `,
 })
 export class EducationDialog implements OnInit {
-  public education: Education;
-  public years: Array<number>;
-  public months: Array<string>;
-  public degrees: Array<string>;
-  public editMode: boolean;
+  degreeCtrl:FormControl;
+  degrees: Array<string>;
+  filteredDegrees: Observable<Array<string>>;
+
+  education: Education;
+  years: Array<number>;
+  months: Array<string>;
+  editMode: boolean;
 
   constructor(public dialogRef: MdDialogRef<EducationDialog>, private resumeService: ResumeService) {
+    this.degreeCtrl = new FormControl();
+    this.filteredDegrees = this.degreeCtrl.valueChanges
+        .startWith(null)
+        .map(val => this.filterDegrees(val));
+
     this.education = {
       school: '',
       field: '',
       current: true,
       startDate: this.resumeService.todayAsYearMonth(),
       endDate: this.resumeService.todayAsYearMonth(),
-      degree: 'Other'
+      degree: ''
     }
 
     this.years = resumeService.years;
@@ -149,6 +175,10 @@ export class EducationDialog implements OnInit {
   ngOnInit() {
     // Assume edit mode if school isn't blank
     this.editMode = this.education && this.education.school.length > 0;
+  }
+
+  filterDegrees(val: string) {
+    return val ? this.degrees.filter((s) => new RegExp(val, 'gi').test(s)) : this.degrees;
   }
 
   currentChanged() {

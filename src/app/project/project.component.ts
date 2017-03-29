@@ -17,6 +17,7 @@ export class ProjectComponent implements OnInit {
   constructor(private dialog: MdDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService) { }
 
   ngOnInit() {
+    this.projects = this.projects || [];
     this.months = this.resumeService.months;
     this.sortProjects();
   }

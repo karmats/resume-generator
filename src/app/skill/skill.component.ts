@@ -17,6 +17,7 @@ export class SkillComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.skills = this.skills || [];
     this.sortSkills();
   }
 

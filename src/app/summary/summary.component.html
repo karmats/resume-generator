@@ -1,5 +1,6 @@
 <div class="summary">
-    <img class="profile-picture" [src]="profileUrl" alt="Profile picture">
+    <img *ngIf="profileUrl && profileUrl.length" class="profile-picture" [src]="profileUrl" alt="Profile picture">
+    <md-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></md-icon>
     <h2>{{name}}</h2>
     <i>{{title}}</i>
     <p>{{description}}</p>

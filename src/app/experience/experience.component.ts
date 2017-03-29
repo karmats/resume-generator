@@ -18,6 +18,7 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit() {
     this.months = this.resumeService.months;
+    this.positions = this.positions || [];
     this.sortPositions();
   }
 

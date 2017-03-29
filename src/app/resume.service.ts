@@ -153,7 +153,7 @@ export class ResumeService {
    */
   retrieveResume(): Resume {
     const resumeAsString = localStorage.getItem(this.STORAGE_KEY);
-    return resumeAsString ? JSON.parse(resumeAsString) : this.RESUME;
+    return resumeAsString ? JSON.parse(resumeAsString) : {};
   }
 
   /**
@@ -346,7 +346,7 @@ export class ResumeService {
         const sd = this.dateAsYearMonth(new Date(w.startDate));
         const ed = w.endDate ? this.dateAsYearMonth(new Date(w.endDate)) : null;
         return {
-          title: w.company,
+          title: w.position,
           summary: w.summary,
           startDate: sd,
           endDate: ed,
