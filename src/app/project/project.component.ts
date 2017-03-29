@@ -7,8 +7,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 
 @Component({
   selector: 'app-project',
-  templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  templateUrl: './project.component.html'
 })
 export class ProjectComponent implements OnInit {
   @Input() projects: Array<Project>;

@@ -1,16 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+@import '~@angular/material/core/theming/prebuilt/indigo-pink';
 
 body {
     background: #eee;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+/**  Core scss */
 .app-content .section {
   width: 75%;
   margin: 20px auto;
 }
-
 .date-container {
   margin: 25px 0 10px 0;
 }
@@ -18,10 +18,36 @@ body {
   position: relative;
   bottom: 20px;
 }
-
+.skill-bar {
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
 .neg-margin-24 {
   margin-left:-24px;
   margin-right:-24px;
+}
+
+/** Summary scss */
+.summary {
+    text-align: center;
+    background: mat_color($primary);
+    color: #fff;
+    padding: 20px;
+    margin: -30px;
+}
+.profile-picture {
+    border-radius: 200px;
+    width: 200px;
+    height: 200px;
+}
+.contact-info {
+    margin-top: 40px;
+}
+.contact-info md-icon {
+    vertical-align: middle;
+}
+.contact-info md-icon:not(:first-child) {
+    margin-left: 20px;
 }
 
 /** Material override */
