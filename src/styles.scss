@@ -1,9 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/core/theming/prebuilt/indigo-pink';
 
+.dark-theme {
+  $dark-primary: mat-palette($mat-blue-grey);
+  $dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+  $dark-warn:    mat-palette($mat-deep-orange);
+
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+
+  .summary {
+    background: mat_color($dark-primary);
+  }
+}
+
 body {
-    background: #eee;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #eee;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 /**  Core scss */
@@ -26,19 +40,25 @@ body {
   margin-left:-24px;
   margin-right:-24px;
 }
+.theme-switch {
+  position: absolute;
+  top: 32px;
+  right: 16px;
+  width: 200px;
+}
 
 /** Summary scss */
 .summary {
-    text-align: center;
-    background: mat_color($primary);
-    color: #fff;
-    padding: 20px;
-    margin: -30px;
+  text-align: center;
+  background: mat_color($primary);
+  color: #fff;
+  padding: 20px;
+  margin: -30px;
 }
 .profile-picture {
-    border-radius: 200px;
-    width: 200px;
-    height: 200px;
+  border-radius: 200px;
+  width: 200px;
+  height: 200px;
 }
 .contact-info {
     margin-top: 40px;

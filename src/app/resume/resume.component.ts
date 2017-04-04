@@ -9,6 +9,8 @@ import { Resume } from '../models';
 export class ResumeComponent implements OnInit {
 
   resume: Resume;
+  themes: Array<any> = [{name: 'Indigo (default)', value: ''}, {name: 'Dark', value:'dark-theme'}];
+  currentTheme:string = this.themes[0].value;
 
   constructor(private resumeService: ResumeService) {
   }
