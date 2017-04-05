@@ -11,13 +11,12 @@ export class ResumeComponent implements OnInit {
   resume: Resume;
   themes: Array<any> = [
     { name: 'Blue grey', value:'blue-grey' },
-    { name: 'Indigo', value: '' },
+    { name: 'Indigo', value: 'indigo' },
     { name: 'Orange', value:'orange' },
     { name: 'Purple', value:'purple' },
     { name: 'Teal', value:'teal' }
   ];
-  // Indigo default theme
-  currentTheme: string = this.themes[1].value;
+  currentTheme: any;
   darkTheme: boolean = false;
 
   constructor(private resumeService: ResumeService) {
@@ -27,10 +26,25 @@ export class ResumeComponent implements OnInit {
     this.resume = this.resumeService.retrieveResume();
     // Listen to resume changed events
     this.resumeService.resumeChanged.subscribe(resume => this.resume = resume);
+
+    // Retrieve theme
+    const theme = this.resumeService.retrieveTheme();
+    if (theme && theme.themeName) {
+      this.currentTheme = this.themes.filter(t => t.value === theme.themeName).pop();
+      this.darkTheme = theme.isDark;
+    } else {
+      // Indigo default theme
+      this.currentTheme = this.themes[1];
+      this.darkTheme = false;
+    }
   }
 
   cssClasses() {
-    return this.currentTheme + (this.darkTheme ? ' dark' : '');
+    return this.currentTheme.value + (this.darkTheme ? ' dark' : '');
+  }
+
+  themeChanged(theme, dark) {
+    this.resumeService.updateTheme(this.currentTheme.value, this.darkTheme);
   }
 
 }

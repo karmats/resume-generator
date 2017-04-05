@@ -7,6 +7,8 @@ export class ResumeService {
   public resumeChanged: EventEmitter<Resume>;
 
   private STORAGE_KEY = 'resume';
+  private THEME_KEY = 'theme';
+
   private RESUME: Resume = {
     name: 'Mats Roshauw',
     title: 'Frontend engineer',
@@ -297,6 +299,26 @@ export class ResumeService {
     currentResume.projects = projects;
     this.saveResume(currentResume);
     return currentResume.projects;
+  }
+
+  /**
+   * Stores current app theme
+   * 
+   * @param themeName Name of the theme (css-class)
+   * @param isDark    True if it's dark themed
+   */
+  updateTheme(themeName: string, isDark: boolean) {
+    localStorage.setItem(this.THEME_KEY, JSON.stringify({themeName: themeName, isDark: isDark}));
+  }
+
+  /**
+   * Retrieve last saved theme
+   * 
+   * @return Theme name and if it's dark
+   */
+  retrieveTheme(): {themeName: string, isDark: boolean} {
+    const themeAsString = localStorage.getItem(this.THEME_KEY);
+    return themeAsString ? JSON.parse(themeAsString) : {};
   }
 
   /**
