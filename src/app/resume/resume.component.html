@@ -1,8 +1,11 @@
 <!-- Summary -->
-<div class="app-content" [ngClass]="currentTheme">
-    <md-select placeholder="Theme" class="theme-switch" [(ngModel)]="currentTheme" *ngIf="resumeService.editMode">
-        <md-option *ngFor="let theme of themes" [value]="theme.value">{{ theme.name }}</md-option>
-    </md-select>
+<div class="app-content" [ngClass]="cssClasses()">
+    <div *ngIf="resumeService.editMode" class="theme-switch">
+        <md-select placeholder="Theme" [(ngModel)]="currentTheme">
+            <md-option *ngFor="let theme of themes" [value]="theme.value">{{ theme.name }}</md-option>
+        </md-select>
+        <md-slide-toggle [(ngModel)]="darkTheme">Dark</md-slide-toggle>
+    </div>
     <app-summary [picture]="resume.pictureUrl" [name]="resume.name" [description]="resume.summary" [title]="resume.title" [phone]="resume.phone"
         [email]="resume.email">
     </app-summary>

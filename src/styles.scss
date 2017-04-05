@@ -1,29 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/core/theming/prebuilt/indigo-pink';
-
-.dark-theme {
-  $dark-primary: mat-palette($mat-blue-grey);
-  $dark-accent:  mat-palette($mat-amber, A200, A100, A400);
-  $dark-warn:    mat-palette($mat-deep-orange);
-
-  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
-
-  @include angular-material-theme($dark-theme);
-
-  .summary {
-    background: mat_color($dark-primary);
-  }
-}
+@import 'themes';
 
 body {
-  background: #eee;
+  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 /**  Core scss */
-.app-content .section {
-  width: 75%;
-  margin: 20px auto;
+.app-content {
+  background: #fafafa;
+  &.dark {
+    background: #303030;
+  }
+  .section {
+    width: 75%;
+    margin: 20px auto;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 .date-container {
   margin: 25px 0 10px 0;
@@ -50,10 +44,9 @@ body {
 /** Summary scss */
 .summary {
   text-align: center;
-  background: mat_color($primary);
   color: #fff;
   padding: 20px;
-  margin: -30px;
+  margin-bottom: -30px;
 }
 .profile-picture {
   border-radius: 200px;
@@ -61,13 +54,13 @@ body {
   height: 200px;
 }
 .contact-info {
-    margin-top: 40px;
-}
-.contact-info md-icon {
+  margin-top: 40px;
+  md-icon {
     vertical-align: middle;
-}
-.contact-info md-icon:not(:first-child) {
-    margin-left: 20px;
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
 }
 
 /** Material override */
