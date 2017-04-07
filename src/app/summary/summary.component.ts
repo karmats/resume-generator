@@ -14,8 +14,7 @@ interface Summary {
 
 @Component({
   selector: 'app-summary',
-  templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.css']
+  templateUrl: './summary.component.html'
 })
 export class SummaryComponent implements OnInit {
   @Input() name: string;

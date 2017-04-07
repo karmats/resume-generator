@@ -1,0 +1,76 @@
+@import 'themes';
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/**  Core scss */
+.app-content {
+  background: #fafafa;
+  &.dark {
+    background: #303030;
+  }
+  .section {
+    width: 75%;
+    margin: 20px auto;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.date-container {
+  margin: 25px 0 10px 0;
+}
+.date-container label {
+  position: relative;
+  bottom: 20px;
+}
+.skill-bar {
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.neg-margin-24 {
+  margin-left:-24px;
+  margin-right:-24px;
+}
+.theme-switch {
+  position: absolute;
+  top: 32px;
+  right: 16px;
+  width: 200px;
+}
+
+/** Summary scss */
+.summary {
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: -30px;
+}
+.profile-picture {
+  border-radius: 200px;
+  width: 200px;
+  height: 200px;
+}
+.contact-info {
+  margin-top: 40px;
+  md-icon {
+    vertical-align: middle;
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+}
+
+/** Material override */
+[md-button], [md-raised-button], .mat-raised-button, .mat-primary {
+  text-transform: uppercase;
+}
+[md-dialog-actions] {
+  float: right;
+}
+
+.mat-card-header .mat-card-header-text .mat-card-title {
+  font-size: 24px;
+}

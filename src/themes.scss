@@ -1,0 +1,40 @@
+@import '~@angular/material/core/theming/all-theme';
+
+/* Mixin to create a theme with primary and accent */
+@mixin create-theme($primary, $accent) {
+
+  @include angular-material-theme(mat-light-theme($primary, $accent));
+
+  &.dark {
+    @include angular-material-theme(mat-dark-theme($primary, $accent));
+  }
+
+  .summary {
+    background: mat_color($primary);
+  } 
+}
+
+@include mat-core();
+
+/* Default indigo theme */
+@include create-theme(mat-palette($mat-indigo), mat-palette($mat-pink, A200, A100, A400));
+
+/* Blue grey theme */
+.blue-grey {
+  @include create-theme(mat-palette($mat-blue-grey), mat-palette($mat-amber, A200, A100, A400));
+}
+
+/* Purple theme */
+.purple {
+  @include create-theme(mat-palette($mat-purple), mat-palette($mat-yellow, A200, A100, A400));
+}
+
+/* Teal theme */
+.teal {
+  @include create-theme(mat-palette($mat-teal), mat-palette($mat-grey, A200, A100, A400));
+}
+
+/* Orange theme */
+.orange {
+  @include create-theme(mat-palette($mat-deep-orange), mat-palette($mat-lime, A200, A100, A400));
+}

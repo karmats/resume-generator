@@ -7,8 +7,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 
 @Component({
   selector: 'app-skill',
-  templateUrl: './skill.component.html',
-  styleUrls: ['./skill.component.css']
+  templateUrl: './skill.component.html'
 })
 export class SkillComponent implements OnInit {
   @Input() skills:Array<Skill>;
