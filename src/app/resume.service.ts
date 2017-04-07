@@ -155,7 +155,7 @@ export class ResumeService {
    */
   retrieveResume(): Resume {
     const resumeAsString = localStorage.getItem(this.STORAGE_KEY);
-    return resumeAsString ? JSON.parse(resumeAsString) : {};
+    return resumeAsString ? JSON.parse(resumeAsString) : this.RESUME;
   }
 
   /**
