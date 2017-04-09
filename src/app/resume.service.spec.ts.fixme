@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { DatePipe } from '@angular/common';
+import { DatePipe, Location } from '@angular/common';
 import { ResumeService } from './resume.service';
 
 describe('ResumeService', () => {
@@ -10,6 +10,7 @@ describe('ResumeService', () => {
     TestBed.configureTestingModule({
       providers: [
         { provide: DatePipe, useValue: datePipeStub },
+        { provide: Location, useValue: {} },
         ResumeService
       ]
     });

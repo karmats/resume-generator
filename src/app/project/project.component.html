@@ -3,10 +3,10 @@
     <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutWrap>
       <md-card *ngFor="let project of projects" fxFlex="45">
         <md-card-header>
-        <md-card-title>{{project.name}}</md-card-title>
-        <md-card-subtitle>
-          {{ months[project.startDate.month] + ' ' + project.startDate.year}} - {{project.endDate ? (months[project.endDate.month] + ' ' + project.endDate.year) : 'Present' }}
-        </md-card-subtitle>
+          <md-card-title>{{project.name}}</md-card-title>
+          <md-card-subtitle>
+            {{ months[project.startDate.month] + ' ' + project.startDate.year}} - {{project.endDate ? (months[project.endDate.month] + ' ' + project.endDate.year) : 'Present' }}
+          </md-card-subtitle>
         </md-card-header>
         <img *ngIf="project.imageUrl" md-card-image [src]="project.imageUrl">
         <md-card-content>
