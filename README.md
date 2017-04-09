@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/karmats/resume-generator.svg?branch=master)](https://travis-ci.org/karmats/gocd-monitor)
+[![Dependencies](https://david-dm.org/karmats/resume-generator/status.svg)](https://david-dm.org/karmats/resume-generator)
+
 # Resume Generator
 
 Generates a resume in material design, that can be stored and put up on your website.
