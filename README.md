@@ -6,7 +6,10 @@
 Generates a resume in material design, that can be stored and put up on your website.
 
 ## Create your resume
-Go to [demo page](https://karmats.github.io/resume-generator) and fill in your resume data. Save page and put it up on your website :)
+Go to [demo page](https://karmats.github.io/resume-generator/?edit) and fill in your resume data. Save page and put it up on your website :)
+
+### Linkedin
+To use your information from linkedin, you need to get a [json resume](). Easiest way to get that is through [this page](https://jmperezperez.com/linkedin-to-json-resume/) where you just need to follow the instructions. When you have the json, go to [demo page](https://karmats.github.io/resume-generator/?edit) and use the "Upload Resume"-button.
 
 ## Development
 
