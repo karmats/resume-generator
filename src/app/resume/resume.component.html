@@ -6,24 +6,31 @@
         </md-select>
         <md-slide-toggle [(ngModel)]="darkTheme" (change)="themeChanged(currentTheme, darkTheme)">Dark</md-slide-toggle>
     </div>
-    <app-summary [picture]="resume.pictureUrl" [name]="resume.name" [description]="resume.summary" [title]="resume.title" [phone]="resume.phone"
-        [email]="resume.email">
-    </app-summary>
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutWrap>
+        <aside fxFlex="30">
+            <app-summary [picture]="resume.pictureUrl" [name]="resume.name" [description]="resume.summary" [title]="resume.title" [phone]="resume.phone"
+                [email]="resume.email">
+            </app-summary>
+        </aside>
 
-    <!-- Work experience -->
-    <app-experience [positions]="resume.positions">
-    </app-experience>
 
-    <!-- Education -->
-    <app-education [educations]="resume.educations">
-    </app-education>
+        <section fxFlex="70">
+            <!-- Work experience -->
+            <app-experience [positions]="resume.positions">
+            </app-experience>
 
-    <!-- Skills -->
-    <app-skill [skills]="resume.skills">
-    </app-skill>
+            <!-- Education -->
+            <app-education [educations]="resume.educations">
+            </app-education>
 
-    <!-- Projects -->
-    <app-project [projects]="resume.projects">
-    </app-project>
+            <!-- Skills -->
+            <app-skill [skills]="resume.skills">
+            </app-skill>
+
+            <!-- Projects -->
+            <app-project [projects]="resume.projects">
+            </app-project>
+        </section>
+    </div>
 
 </div>
