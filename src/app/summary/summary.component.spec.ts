@@ -5,6 +5,7 @@ import { DebugElement } from '@angular/core';
 import { MdIcon, MdIconRegistry, MaterialModule } from '@angular/material';
 
 import { ResumeService } from '../resume.service';
+import { SkillComponent } from '../skill/skill.component';
 import { SummaryComponent } from './summary.component';
 
 describe('SummaryComponent', () => {
@@ -17,10 +18,11 @@ describe('SummaryComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ 
-        SummaryComponent
+        SummaryComponent,
+        SkillComponent
       ],
       providers: [
-        { provide: ResumeService, useValue: {} },
+        { provide: ResumeService, useValue: {} }
       ],
       imports: [ MaterialModule.forRoot() ]
     })
