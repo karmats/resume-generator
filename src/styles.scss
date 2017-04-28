@@ -20,6 +20,8 @@ body {
 /**  Core scss */
 .app-content {
   background: #fafafa;
+  width: 70%;
+  margin: 0 auto;
   &.dark {
     background: #303030;
   }

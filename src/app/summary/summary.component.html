@@ -1,18 +1,17 @@
-<div class="summary">
+<div>
+
+    <div fxLayout="row" class="text-center space-up">
+        <div fxFlex><b>{{name}}</b></div>
+    </div>
+
+    <div fxLayout="row" class="text-center space-down">
+        <div fxFlex>{{title}}</div>
+    </div>
+
     <div class="text-center">
         <img *ngIf="profileUrl && profileUrl.length" class="profile-picture" [src]="profileUrl" alt="Profile picture">
     </div>
     <md-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></md-icon>
-
-    <div fxLayout="row" class="space-up">
-        <div fxFlex="30"></div>
-        <div fxFlex><b>{{name}}</b></div>
-    </div>
-
-    <div fxLayout="row" class="space-down">
-        <div fxFlex="30"></div>
-        <div fxFlex>{{title}}</div>
-    </div>
 
     <div fxLayout="row" class="space-up">
         <div fxFlex="30" class="text-center">
@@ -33,6 +32,16 @@
             <md-icon>email</md-icon>
         </div>
         <div fxFlex>{{email}}</div>
+    </div>
+
+    <div fxLayout="row" class="space-up">
+        <div fxFlex="30" class="text-center">
+            <md-icon>settings</md-icon>
+        </div>
+        <div fxFlex>
+            <app-skill [skills]="skills">
+            </app-skill>
+        </div>
     </div>
 
     <div *ngIf="resumeService.editMode">

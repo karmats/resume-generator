@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { MdDialog, MdDialogRef, MdDialogConfig, MdIconRegistry } from '@angular/material';
+
 import { ResumeService } from '../resume.service';
+import { Skill } from '../models';
 
 interface Summary {
   name: string;
@@ -23,6 +25,7 @@ export class SummaryComponent implements OnInit {
   @Input() title: string;
   @Input() phone: string;
   @Input() email: string;
+  @Input() skills: Array<Skill>;
   
 
   constructor(private dialog: MdDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService,

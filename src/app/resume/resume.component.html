@@ -6,10 +6,10 @@
         </md-select>
         <md-slide-toggle [(ngModel)]="darkTheme" (change)="themeChanged(currentTheme, darkTheme)">Dark</md-slide-toggle>
     </div>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutWrap>
-        <aside fxFlex="30">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between stretch" fxLayoutWrap>
+        <aside fxFlex="30" class="summary">
             <app-summary [picture]="resume.pictureUrl" [name]="resume.name" [description]="resume.summary" [title]="resume.title" [phone]="resume.phone"
-                [email]="resume.email">
+                [email]="resume.email" [skills]="resume.skills">
             </app-summary>
         </aside>
 
@@ -24,8 +24,8 @@
             </app-education>
 
             <!-- Skills -->
-            <app-skill [skills]="resume.skills">
-            </app-skill>
+            <!--app-skill [skills]="resume.skills">
+            </app-skill-->
 
             <!-- Projects -->
             <app-project [projects]="resume.projects">
