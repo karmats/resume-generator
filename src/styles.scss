@@ -22,6 +22,11 @@ body {
   background: #fafafa;
   width: 70%;
   margin: 0 auto;
+
+  // Small grid breakpoint in flexbox-layout
+  @media only screen and (max-width: 960px) {
+    width: 100%;
+  }
   &.dark {
     background: #303030;
   }
@@ -61,8 +66,8 @@ body {
 }
 .profile-picture {
   border-radius: 200px;
-  width: 200px;
-  height: 200px;
+  width: 200px !important;
+  height: 200px !important;
 }
 .contact-info {
   margin-top: 40px;

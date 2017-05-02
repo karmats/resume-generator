@@ -1,40 +1,40 @@
 <div>
 
-    <div fxLayout="row" class="text-center space-up">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center space-up">
         <div fxFlex><b>{{name}}</b></div>
     </div>
 
-    <div fxLayout="row" class="text-center space-down">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center space-down">
         <div fxFlex>{{title}}</div>
     </div>
 
     <div class="text-center">
         <img *ngIf="profileUrl && profileUrl.length" class="profile-picture" [src]="profileUrl" alt="Profile picture">
+        <md-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></md-icon>
     </div>
-    <md-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></md-icon>
 
-    <div fxLayout="row" class="space-up">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
         <div fxFlex="30" class="text-center">
             <md-icon>person</md-icon>
         </div>
         <div fxFlex>{{description}}</div>
     </div>
 
-    <div fxLayout="row" class="space-up">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
         <div fxFlex="30" class="text-center">
             <md-icon>phone</md-icon>
         </div>
         <div fxFlex>{{phone}}</div>
     </div>
 
-    <div fxLayout="row" class="space-up">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
         <div fxFlex="30" class="text-center">
             <md-icon>email</md-icon>
         </div>
         <div fxFlex>{{email}}</div>
     </div>
 
-    <div fxLayout="row" class="space-up">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
         <div fxFlex="30" class="text-center">
             <md-icon>settings</md-icon>
         </div>
