@@ -14,7 +14,7 @@ describe('ConfirmDialogComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ConfirmDialogComponent ],
       providers: [{ provide: MdDialogRef, useValue: {} },],
-      imports: [ MaterialModule.forRoot() ]
+      imports: [ MaterialModule ]
     })
     .compileComponents();
   }));

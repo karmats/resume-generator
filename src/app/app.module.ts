@@ -51,7 +51,7 @@ import { ProjectComponent, ProjectDialog } from './project/project.component';
     HttpModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   providers: [ResumeService, Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]

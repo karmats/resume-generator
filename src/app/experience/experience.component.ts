@@ -135,7 +135,6 @@ export class PositionDialog implements OnInit {
   constructor(public dialogRef: MdDialogRef<PositionDialog>, private resumeService: ResumeService) {
     this.position = {
       company: '',
-      companyLogoUrl: '',
       current: true,
       startDate: this.resumeService.todayAsYearMonth(),
       endDate: this.resumeService.todayAsYearMonth(),

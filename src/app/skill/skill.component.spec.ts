@@ -17,7 +17,7 @@ describe('SkillComponent', () => {
         SkillComponent
       ],
       providers: [{ provide: ResumeService, useValue: {} },],
-      imports: [ MaterialModule.forRoot() ]
+      imports: [ MaterialModule ]
     })
     .compileComponents();
   }));

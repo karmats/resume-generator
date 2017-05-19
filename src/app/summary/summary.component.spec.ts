@@ -2,6 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { MdIcon, MdIconRegistry, MaterialModule } from '@angular/material';
 
 import { ResumeService } from '../resume.service';
@@ -24,7 +25,7 @@ describe('SummaryComponent', () => {
       providers: [
         { provide: ResumeService, useValue: {} }
       ],
-      imports: [ MaterialModule.forRoot() ]
+      imports: [ MaterialModule, HttpModule ]
     })
     .compileComponents();
   }));

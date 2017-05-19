@@ -17,7 +17,7 @@ describe('ExperienceComponent', () => {
         ExperienceComponent
       ],
       providers: [{ provide: ResumeService, useValue: {} },],
-      imports: [ MaterialModule.forRoot() ]
+      imports: [ MaterialModule ]
     })
     .compileComponents();
   }));
