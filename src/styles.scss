@@ -33,6 +33,13 @@ body {
   .section {
     width: 75%;
     margin: 20px auto;
+    h1 {
+      md-icon {
+        font-size: 36px;
+        vertical-align: sub;
+        margin-right: 24px;
+      }
+    }
     &:last-child {
       margin-bottom: 0;
     }

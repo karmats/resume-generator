@@ -1,26 +1,25 @@
 <div class="section">
-  <div class="neg-margin-24">
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutWrap>
-      <md-card *ngFor="let project of projects" fxFlex="45">
-        <md-card-header>
-          <md-card-title>{{project.name}}</md-card-title>
-          <md-card-subtitle>
-            {{ months[project.startDate.month] + ' ' + project.startDate.year}} - {{project.endDate ? (months[project.endDate.month] + ' ' + project.endDate.year) : 'Present' }}
-          </md-card-subtitle>
-        </md-card-header>
-        <img *ngIf="project.imageUrl" md-card-image [src]="project.imageUrl">
-        <md-card-content>
-          <p>
-            {{ project.description }}
-          </p>
-        </md-card-content>
-        <md-card-actions>
-          <a md-button color="primary" [href]="project.web" target="_project" *ngIf="project.web">Visit Page</a>
-          <button md-button color="primary" (click)="editProject(project)" *ngIf="resumeService.editMode"><md-icon>edit</md-icon></button>
-          <button md-button color="primary" (click)="deleteProject(project)" *ngIf="resumeService.editMode"><md-icon>delete</md-icon></button>
-        </md-card-actions>
-      </md-card>
-    </div>
+  <h1><md-icon>trending_up</md-icon>Projects</h1>
+  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutWrap>
+    <md-card *ngFor="let project of projects" fxFlex="45">
+      <md-card-header>
+        <md-card-title>{{project.name}}</md-card-title>
+        <md-card-subtitle>
+          {{ months[project.startDate.month] + ' ' + project.startDate.year}} - {{project.endDate ? (months[project.endDate.month] + ' ' + project.endDate.year) : 'Present' }}
+        </md-card-subtitle>
+      </md-card-header>
+      <img *ngIf="project.imageUrl" md-card-image [src]="project.imageUrl">
+      <md-card-content>
+        <p>
+          {{ project.description }}
+        </p>
+      </md-card-content>
+      <md-card-actions>
+        <a md-button color="primary" [href]="project.web" target="_project" *ngIf="project.web">Visit Page</a>
+        <button md-button color="primary" (click)="editProject(project)" *ngIf="resumeService.editMode"><md-icon>edit</md-icon></button>
+        <button md-button color="primary" (click)="deleteProject(project)" *ngIf="resumeService.editMode"><md-icon>delete</md-icon></button>
+      </md-card-actions>
+    </md-card>
   </div>
 
   <md-card *ngIf="resumeService.editMode" class="neg-margin-24">

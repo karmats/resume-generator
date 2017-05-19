@@ -1,18 +1,21 @@
-<md-card class="section">
-  <md-list>
-    <md-list-item *ngFor="let education of educations">
-      <h3 md-line>{{education.field}} - {{education.school}}</h3>
-      <p md-line>{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</p>
-      <p md-line>{{education.degree}}</p>
-      <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="editEducation(education)">
-        <md-icon>edit</md-icon>
-      </button>
-      <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="deleteEducation(education)">
-        <md-icon>delete</md-icon>
-      </button>
-    </md-list-item>
-  </md-list>
-  <md-card-actions *ngIf="resumeService.editMode">
-    <button md-button color="primary" (click)="newEducation()">Add Education</button>
-  </md-card-actions>
-</md-card>
+<div class="section">
+  <h1><md-icon>school</md-icon>Education</h1>
+  <md-card>
+    <md-list>
+      <md-list-item *ngFor="let education of educations">
+        <h3 md-line>{{education.field}} - {{education.school}}</h3>
+        <p md-line>{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</p>
+        <p md-line>{{education.degree}}</p>
+        <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="editEducation(education)">
+          <md-icon>edit</md-icon>
+        </button>
+        <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="deleteEducation(education)">
+          <md-icon>delete</md-icon>
+        </button>
+      </md-list-item>
+    </md-list>
+    <md-card-actions *ngIf="resumeService.editMode">
+      <button md-button color="primary" (click)="newEducation()">Add Education</button>
+    </md-card-actions>
+  </md-card>
+</div>
