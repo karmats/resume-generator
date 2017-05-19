@@ -26,6 +26,13 @@ body {
   // Small grid breakpoint in flexbox-layout
   @media only screen and (max-width: 960px) {
     width: 100%;
+    .summary {
+      text-align: center;
+      .skill-bar {
+        width: 75%;
+        margin: 12px auto 36px auto;
+      }
+    }
   }
   &.dark {
     background: #303030;
@@ -53,8 +60,8 @@ body {
   bottom: 20px;
 }
 .skill-bar {
-    margin-bottom: 30px;
-    margin-top: 10px;
+    margin-bottom: 36px;
+    margin-top: 12px;
 }
 .neg-margin-24 {
   margin-left:-24px;
