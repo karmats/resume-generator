@@ -18,7 +18,6 @@ export class ResumeService {
     phone: '0707-777777',
     positions: [{
       company: 'Acando',
-      companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAeBAAAAJDViZDYyYTRmLWQ3YWUtNGRmZS04NTdlLTNlZTk2NTA0MmJiOA.png',
       startDate: {
         year: 2011,
         month: 6
@@ -32,7 +31,6 @@ export class ResumeService {
       title: 'IT consultant'
     }, {
       company: 'Seal',
-      companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAcWAAAAJGNkMTU0MzMxLTQ1MWEtNDZmZS05NTE3LTAyMDI5MmEwNTg0MQ.png',
       startDate: {
         year: 2013,
         month: 6

@@ -86,11 +86,6 @@ export class ExperienceComponent implements OnInit {
       </md-input-container>
       <md-input-container>
         <input mdInput
-          [(ngModel)]="position.companyLogoUrl"
-          placeholder="Company Logo URL (Optional)">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput
           [(ngModel)]="position.title"
           placeholder="Title">
       </md-input-container>
