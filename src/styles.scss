@@ -68,7 +68,7 @@ body {
   margin-right:-24px;
 }
 .theme-switch {
-  position: absolute;
+  position: fixed;
   top: 32px;
   right: 16px;
   width: 200px;
@@ -77,6 +77,9 @@ body {
 /** Summary scss */
 .summary {
   color: #fff;
+  .actions {
+    text-align: center;
+  }
 }
 .profile-picture {
   border-radius: 200px;
@@ -94,7 +97,7 @@ body {
 }
 
 /** Material override */
-[md-button], [md-raised-button], .mat-raised-button, .mat-primary {
+[md-button], [md-raised-button], .mat-raised-button {
   text-transform: uppercase;
 }
 [md-dialog-actions] {

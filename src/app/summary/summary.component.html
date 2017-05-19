@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <div *ngIf="resumeService.editMode">
+    <div *ngIf="resumeService.editMode" class="actions">
         <button md-raised-button color="primary" (click)="editSummary()">Edit profile</button>
         <input id="resumeFile" style="display:none" *ngIf="resumeService.editMode" type="file" accept="application/json" (change)="uploadResume($event)">
         <label for="resumeFile" class="mat-primary mat-raised-button">Upload Resume</label>
