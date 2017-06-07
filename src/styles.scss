@@ -29,6 +29,10 @@ body {
     width: 100%;
     .summary {
       text-align: center;
+      .description {
+        width: 75%;
+        margin: 0px auto;
+      }
       .skill-bar {
         width: 75%;
         margin: 12px auto 36px auto;
@@ -91,6 +95,9 @@ body {
   border-radius: 200px;
   width: 200px !important;
   height: 200px !important;
+}
+.description {
+  margin-right: 20px;
 }
 .contact-info {
   margin-top: 40px;
