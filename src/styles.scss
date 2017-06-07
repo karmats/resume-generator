@@ -3,6 +3,7 @@
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
+  font-weight: 300;
 }
 
 
@@ -32,6 +33,11 @@ body {
         width: 75%;
         margin: 12px auto 36px auto;
       }
+    }
+    .profile-picture {
+      border-radius: 300px;
+      width: 300px !important;
+      height: 300px !important;
     }
   }
   &.dark {
@@ -105,5 +111,11 @@ body {
 }
 
 .mat-card-header .mat-card-header-text .mat-card-title {
-  font-size: 24px;
+  font-size: 20px;
+}
+
+.mat-list {
+  .mat-list-item p.mat-line {
+    font-weight: 300;
+  }
 }
