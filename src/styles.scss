@@ -115,7 +115,19 @@ body {
 }
 
 .mat-list {
-  .mat-list-item p.mat-line {
-    font-weight: 300;
+  .mat-list-item {
+    &:before {
+      width: 10px;
+      height: 10px;
+      display: block;
+      top: 34px;
+      position: relative;
+      left: -8px;
+      border-radius: 10px;
+      content: '';
+    }
+    p.mat-line {
+      font-weight: 300;
+    }
   }
 }

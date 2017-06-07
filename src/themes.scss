@@ -15,6 +15,15 @@
       background-color: white;
     }
   }
+  .mat-list {
+    .mat-list-item {
+      border-left: 2px solid mat_color($primary);
+      &:before {
+        border: 2px solid mat_color($primary);
+        background: mat_color($primary);
+      }
+    }
+  }
 }
 
 @include mat-core();
