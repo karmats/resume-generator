@@ -73,10 +73,6 @@ body {
     margin-bottom: 36px;
     margin-top: 12px;
 }
-.neg-margin-24 {
-  margin-left:-24px;
-  margin-right:-24px;
-}
 .theme-switch {
   position: fixed;
   top: 32px;
@@ -107,6 +103,18 @@ body {
       margin-left: 20px;
     }
   }
+}
+
+/** Masonry layout */
+.masonry {
+    column-count: 2;
+    column-gap: 12px;
+}
+
+.item {
+    display: inline-block;
+    margin: 0 0 12px;
+    width: 100%;
 }
 
 /** Material override */
