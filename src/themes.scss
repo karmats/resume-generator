@@ -50,3 +50,7 @@
 .orange {
   @include create-theme(mat-palette($mat-deep-orange), mat-palette($mat-lime, A200, A100, A400));
 }
+
+.light-blue {
+  @include create-theme(mat-palette($mat-light-blue), mat-palette($mat-yellow, A200, A100, A400));
+}

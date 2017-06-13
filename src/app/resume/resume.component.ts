@@ -12,6 +12,7 @@ export class ResumeComponent implements OnInit {
   themes: Array<any> = [
     { name: 'Blue grey', value:'blue-grey' },
     { name: 'Indigo', value: 'indigo' },
+    { name: 'Light blue', value:'light-blue' },
     { name: 'Orange', value:'orange' },
     { name: 'Purple', value:'purple' },
     { name: 'Teal', value:'teal' }
