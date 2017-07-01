@@ -1,14 +1,50 @@
-<div class="summary">
-    <img *ngIf="profileUrl && profileUrl.length" class="profile-picture" [src]="profileUrl" alt="Profile picture">
-    <md-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></md-icon>
-    <h2>{{name}}</h2>
-    <i>{{title}}</i>
-    <p>{{description}}</p>
-    <p class="contact-info">
-        <md-icon>phone</md-icon> {{phone}}
-        <md-icon>email</md-icon> {{email}}
-    </p>
-    <div *ngIf="resumeService.editMode">
+<div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center space-up">
+        <div fxFlex><h1 style="margin-bottom:0">{{name}}</h1></div>
+    </div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center space-down">
+        <div fxFlex>{{title}}</div>
+    </div>
+
+    <div class="text-center">
+        <img *ngIf="profileUrl && profileUrl.length" class="profile-picture" [src]="profileUrl" alt="Profile picture">
+        <md-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></md-icon>
+    </div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
+        <div fxFlex="25" class="text-center">
+            <md-icon>person</md-icon>
+        </div>
+        <div fxFlex><div class="description">{{description}}</div></div>
+    </div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
+        <div fxFlex="25" class="text-center">
+            <md-icon>phone</md-icon>
+        </div>
+        <div fxFlex>{{phone}}</div>
+    </div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
+        <div fxFlex="25" class="text-center">
+            <md-icon>email</md-icon>
+        </div>
+        <div fxFlex>{{email}}</div>
+    </div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
+        <div fxFlex="25" class="text-center">
+            <md-icon>settings</md-icon>
+        </div>
+        <div fxFlex>
+            <app-skill [skills]="skills">
+            </app-skill>
+        </div>
+    </div>
+
+    <div *ngIf="resumeService.editMode" class="actions">
         <button md-raised-button color="primary" (click)="editSummary()">Edit profile</button>
         <input id="resumeFile" style="display:none" *ngIf="resumeService.editMode" type="file" accept="application/json" (change)="uploadResume($event)">
         <label for="resumeFile" class="mat-primary mat-raised-button">Upload Resume</label>

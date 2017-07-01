@@ -1,7 +1,11 @@
 <div class="section">
-  <div class="neg-margin-24">
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between start" fxLayoutWrap>
-      <md-card *ngFor="let project of projects" fxFlex="45">
+  <h1><md-icon>trending_up</md-icon>Projects</h1>
+  <div *ngIf="resumeService.editMode">
+    <button md-raised-button color="primary" (click)="newProject()" *ngIf="resumeService.editMode">Add Project</button>
+  </div>
+  <div class="masonry">
+    <div class="item" *ngFor="let project of projects">
+      <md-card>
         <md-card-header>
           <md-card-title>{{project.name}}</md-card-title>
           <md-card-subtitle>
@@ -23,7 +27,4 @@
     </div>
   </div>
 
-  <md-card *ngIf="resumeService.editMode" class="neg-margin-24">
-    <button md-button color="primary" (click)="newProject()" *ngIf="resumeService.editMode">Add Project</button>
-  </md-card>
 </div>

@@ -86,11 +86,6 @@ export class ExperienceComponent implements OnInit {
       </md-input-container>
       <md-input-container>
         <input mdInput
-          [(ngModel)]="position.companyLogoUrl"
-          placeholder="Company Logo URL (Optional)">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput
           [(ngModel)]="position.title"
           placeholder="Title">
       </md-input-container>
@@ -140,7 +135,6 @@ export class PositionDialog implements OnInit {
   constructor(public dialogRef: MdDialogRef<PositionDialog>, private resumeService: ResumeService) {
     this.position = {
       company: '',
-      companyLogoUrl: '',
       current: true,
       startDate: this.resumeService.todayAsYearMonth(),
       endDate: this.resumeService.todayAsYearMonth(),

@@ -18,7 +18,6 @@ export interface Position {
     endDate?: YearAndMonth;
     current: boolean;
     company: string;
-    companyLogoUrl?: string;
 }
 
 export interface Education {

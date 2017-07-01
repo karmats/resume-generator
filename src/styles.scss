@@ -2,18 +2,62 @@
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  background: #fafafa;
+  &.dark {
+    background: #303030;
+    color: white;
+  }
+}
+
+
+/** Helpers */
+.text-center {
+  text-align: center;
+}
+.space-up {
+  margin-top: 24px;
+}
+.space-down {
+  margin-bottom: 24px;
 }
 
 /**  Core scss */
 .app-content {
-  background: #fafafa;
-  &.dark {
-    background: #303030;
+  width: 70%;
+  margin: 0 auto;
+
+  // Small grid breakpoint in flexbox-layout
+  @media only screen and (max-width: 960px) {
+    width: 100%;
+    .summary {
+      text-align: center;
+      .description {
+        width: 75%;
+        margin: 0px auto;
+      }
+      .skill-bar {
+        width: 75%;
+        margin: 12px auto 36px auto;
+      }
+    }
+    .profile-picture {
+      border-radius: 300px;
+      width: 300px !important;
+      height: 300px !important;
+    }
   }
   .section {
     width: 75%;
     margin: 20px auto;
+    h1 {
+      md-icon {
+        font-size: 36px;
+        vertical-align: sub;
+        margin-right: 24px;
+      }
+    }
     &:last-child {
       margin-bottom: 0;
     }
@@ -27,15 +71,11 @@ body {
   bottom: 20px;
 }
 .skill-bar {
-    margin-bottom: 30px;
-    margin-top: 10px;
-}
-.neg-margin-24 {
-  margin-left:-24px;
-  margin-right:-24px;
+    margin-bottom: 36px;
+    margin-top: 12px;
 }
 .theme-switch {
-  position: absolute;
+  position: fixed;
   top: 32px;
   right: 16px;
   width: 200px;
@@ -43,15 +83,18 @@ body {
 
 /** Summary scss */
 .summary {
-  text-align: center;
   color: #fff;
-  padding: 20px;
-  margin-bottom: -30px;
+  .actions {
+    text-align: center;
+  }
 }
 .profile-picture {
   border-radius: 200px;
-  width: 200px;
-  height: 200px;
+  width: 200px !important;
+  height: 200px !important;
+}
+.description {
+  margin-right: 20px;
 }
 .contact-info {
   margin-top: 40px;
@@ -63,8 +106,20 @@ body {
   }
 }
 
+/** Masonry layout */
+.masonry {
+    column-count: 2;
+    column-gap: 12px;
+}
+
+.item {
+    display: inline-block;
+    margin: 0 0 12px;
+    width: 100%;
+}
+
 /** Material override */
-[md-button], [md-raised-button], .mat-raised-button, .mat-primary {
+[md-button], [md-raised-button], .mat-raised-button {
   text-transform: uppercase;
 }
 [md-dialog-actions] {
@@ -72,5 +127,23 @@ body {
 }
 
 .mat-card-header .mat-card-header-text .mat-card-title {
-  font-size: 24px;
+  font-size: 20px;
+}
+
+.mat-list {
+  .mat-list-item {
+    &:before {
+      width: 5px;
+      height: 5px;
+      display: block;
+      top: 30px;
+      position: relative;
+      left: -4px;
+      border-radius: 5px;
+      content: '';
+    }
+    p.mat-line {
+      font-weight: 300;
+    }
+  }
 }

@@ -2,7 +2,7 @@ import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 import { FormControl } from '@angular/forms';
 
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 
 import { Education } from '../models';
 import { ResumeService } from '../resume.service'

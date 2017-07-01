@@ -12,6 +12,7 @@ export class ResumeComponent implements OnInit {
   themes: Array<any> = [
     { name: 'Blue grey', value:'blue-grey' },
     { name: 'Indigo', value: 'indigo' },
+    { name: 'Light blue', value:'light-blue' },
     { name: 'Orange', value:'orange' },
     { name: 'Purple', value:'purple' },
     { name: 'Teal', value:'teal' }
@@ -24,6 +25,7 @@ export class ResumeComponent implements OnInit {
 
   ngOnInit() {
     this.resume = this.resumeService.retrieveResume();
+
     // Listen to resume changed events
     this.resumeService.resumeChanged.subscribe(resume => this.resume = resume);
 
@@ -37,6 +39,7 @@ export class ResumeComponent implements OnInit {
       this.currentTheme = this.themes[1];
       this.darkTheme = false;
     }
+    this.darkTheme ? document.body.classList.add('dark') : document.body.classList.remove('dark');
   }
 
   cssClasses() {
@@ -45,6 +48,7 @@ export class ResumeComponent implements OnInit {
 
   themeChanged(theme, dark) {
     this.resumeService.updateTheme(this.currentTheme.value, this.darkTheme);
+    this.darkTheme ? document.body.classList.add('dark') : document.body.classList.remove('dark');
   }
 
 }
