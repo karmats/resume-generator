@@ -133,13 +133,13 @@ body {
 .mat-list {
   .mat-list-item {
     &:before {
-      width: 10px;
-      height: 10px;
+      width: 5px;
+      height: 5px;
       display: block;
-      top: 34px;
+      top: 30px;
       position: relative;
-      left: -8px;
-      border-radius: 10px;
+      left: -4px;
+      border-radius: 5px;
       content: '';
     }
     p.mat-line {
