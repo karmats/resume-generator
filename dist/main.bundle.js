@@ -1,49 +1,30 @@
-webpackJsonp([0,3],{
+webpackJsonp([1],{
 
-/***/ 118:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "../../../../../src async recursive":
+/***/ (function(module, exports) {
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(75);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfirmDialogComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ConfirmDialogComponent = (function () {
-    function ConfirmDialogComponent(dialogRef) {
-        this.dialogRef = dialogRef;
-    }
-    ConfirmDialogComponent.prototype.ngOnInit = function () {
-    };
-    return ConfirmDialogComponent;
-}());
-ConfirmDialogComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
-        selector: 'app-confirm-dialog',
-        template: __webpack_require__(804)
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */]) === "function" && _a || Object])
-], ConfirmDialogComponent);
-
-var _a;
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/confirm-dialog.component.js.map
+function webpackEmptyContext(req) {
+	throw new Error("Cannot find module '" + req + "'.");
+}
+webpackEmptyContext.keys = function() { return []; };
+webpackEmptyContext.resolve = webpackEmptyContext;
+module.exports = webpackEmptyContext;
+webpackEmptyContext.id = "../../../../../src async recursive";
 
 /***/ }),
 
-/***/ 430:
+/***/ "../../../../../src/app/app.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-resume>\n</app-resume>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -58,75 +39,39 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
         selector: 'app-root',
-        template: __webpack_require__(803)
+        template: __webpack_require__("../../../../../src/app/app.component.html")
     })
 ], AppComponent);
 
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/app.component.js.map
+//# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 478:
-/***/ (function(module, exports) {
-
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
-}
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 478;
-
-
-/***/ }),
-
-/***/ 479:
+/***/ "../../../../../src/app/app.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(648);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(619);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(647);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app___ = __webpack_require__(642);
-
-
-
-
-
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["a" /* enableProdMode */])();
-}
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_4__app___["a" /* AppModule */]);
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/main.js.map
-
-/***/ }),
-
-/***/ 639:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_flex_layout__ = __webpack_require__(568);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_hammerjs__ = __webpack_require__(801);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_hammerjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(430);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__resume_resume_component__ = __webpack_require__(644);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__summary_summary_component__ = __webpack_require__(646);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__experience_experience_component__ = __webpack_require__(641);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__education_education_component__ = __webpack_require__(640);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__skill_skill_component__ = __webpack_require__(645);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__resume_service__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__confirm_dialog_confirm_dialog_component__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__project_project_component__ = __webpack_require__(643);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_flex_layout__ = __webpack_require__("../../../flex-layout/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__resume_resume_component__ = __webpack_require__("../../../../../src/app/resume/resume.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__summary_summary_component__ = __webpack_require__("../../../../../src/app/summary/summary.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__experience_experience_component__ = __webpack_require__("../../../../../src/app/experience/experience.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__education_education_component__ = __webpack_require__("../../../../../src/app/education/education.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__skill_skill_component__ = __webpack_require__("../../../../../src/app/skill/skill.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__project_project_component__ = __webpack_require__("../../../../../src/app/project/project.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -151,62 +96,117 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["b" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__resume_resume_component__["a" /* ResumeComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__summary_summary_component__["a" /* SummaryComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__summary_summary_component__["b" /* EditSummaryDialog */],
-            __WEBPACK_IMPORTED_MODULE_11__experience_experience_component__["a" /* ExperienceComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__experience_experience_component__["b" /* PositionDialog */],
-            __WEBPACK_IMPORTED_MODULE_12__education_education_component__["a" /* EducationDialog */],
-            __WEBPACK_IMPORTED_MODULE_13__skill_skill_component__["a" /* SkillDialog */],
-            __WEBPACK_IMPORTED_MODULE_12__education_education_component__["b" /* EducationComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__skill_skill_component__["b" /* SkillComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__project_project_component__["a" /* ProjectComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__project_project_component__["b" /* ProjectDialog */],
-            __WEBPACK_IMPORTED_MODULE_15__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
+            __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__resume_resume_component__["a" /* ResumeComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__summary_summary_component__["a" /* SummaryComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__summary_summary_component__["b" /* EditSummaryDialog */],
+            __WEBPACK_IMPORTED_MODULE_12__experience_experience_component__["a" /* ExperienceComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__experience_experience_component__["b" /* PositionDialog */],
+            __WEBPACK_IMPORTED_MODULE_13__education_education_component__["a" /* EducationDialog */],
+            __WEBPACK_IMPORTED_MODULE_14__skill_skill_component__["a" /* SkillDialog */],
+            __WEBPACK_IMPORTED_MODULE_13__education_education_component__["b" /* EducationComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__skill_skill_component__["b" /* SkillComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__project_project_component__["a" /* ProjectComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__project_project_component__["b" /* ProjectDialog */],
+            __WEBPACK_IMPORTED_MODULE_16__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
         ],
         entryComponents: [
-            __WEBPACK_IMPORTED_MODULE_12__education_education_component__["a" /* EducationDialog */],
-            __WEBPACK_IMPORTED_MODULE_11__experience_experience_component__["b" /* PositionDialog */],
-            __WEBPACK_IMPORTED_MODULE_13__skill_skill_component__["a" /* SkillDialog */],
-            __WEBPACK_IMPORTED_MODULE_10__summary_summary_component__["b" /* EditSummaryDialog */],
-            __WEBPACK_IMPORTED_MODULE_16__project_project_component__["b" /* ProjectDialog */],
-            __WEBPACK_IMPORTED_MODULE_15__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
+            __WEBPACK_IMPORTED_MODULE_13__education_education_component__["a" /* EducationDialog */],
+            __WEBPACK_IMPORTED_MODULE_12__experience_experience_component__["b" /* PositionDialog */],
+            __WEBPACK_IMPORTED_MODULE_14__skill_skill_component__["a" /* SkillDialog */],
+            __WEBPACK_IMPORTED_MODULE_11__summary_summary_component__["b" /* EditSummaryDialog */],
+            __WEBPACK_IMPORTED_MODULE_17__project_project_component__["b" /* ProjectDialog */],
+            __WEBPACK_IMPORTED_MODULE_16__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_flex_layout__["FlexLayoutModule"],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* ReactiveFormsModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_material__["a" /* MaterialModule */].forRoot()
+            __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_flex_layout__["a" /* FlexLayoutModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["a" /* MaterialModule */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_14__resume_service__["a" /* ResumeService */], __WEBPACK_IMPORTED_MODULE_5__angular_common__["a" /* Location */], { provide: __WEBPACK_IMPORTED_MODULE_5__angular_common__["b" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_5__angular_common__["c" /* PathLocationStrategy */] }],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_15__resume_service__["a" /* ResumeService */], __WEBPACK_IMPORTED_MODULE_6__angular_common__["a" /* Location */], { provide: __WEBPACK_IMPORTED_MODULE_6__angular_common__["b" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_6__angular_common__["c" /* PathLocationStrategy */] }],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/app.module.js.map
+//# sourceMappingURL=app.module.js.map
 
 /***/ }),
 
-/***/ 640:
+/***/ "../../../../../src/app/confirm-dialog/confirm-dialog.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h3 md-dialog-title>Confirm</h3>\n<div md-dialog-content>\n  {{ message }}\n</div>\n<div md-dialog-actions>\n  <button md-button color=\"primary\" (click)=\"dialogRef.close(false)\">Cancel</button>\n  <button md-button color=\"primary\" (click)=\"dialogRef.close(true)\">Ok</button>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/confirm-dialog/confirm-dialog.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__resume_service__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__confirm_dialog_confirm_dialog_component__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfirmDialogComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ConfirmDialogComponent = (function () {
+    function ConfirmDialogComponent(dialogRef) {
+        this.dialogRef = dialogRef;
+    }
+    ConfirmDialogComponent.prototype.ngOnInit = function () {
+    };
+    return ConfirmDialogComponent;
+}());
+ConfirmDialogComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
+        selector: 'app-confirm-dialog',
+        template: __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.html")
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */]) === "function" && _a || Object])
+], ConfirmDialogComponent);
+
+var _a;
+//# sourceMappingURL=confirm-dialog.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/education/education.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"section\">\n  <h1><md-icon>school</md-icon>Education</h1>\n  <md-card>\n    <md-list>\n      <md-list-item *ngFor=\"let education of educations\">\n        <h3 md-line>{{education.field}} - {{education.school}}</h3>\n        <p md-line class=\"date-label\">{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</p>\n        <p md-line>{{education.degree ? education.degree : '-'}}</p>\n        <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editEducation(education)\">\n          <md-icon>edit</md-icon>\n        </button>\n        <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"deleteEducation(education)\">\n          <md-icon>delete</md-icon>\n        </button>\n      </md-list-item>\n    </md-list>\n    <md-card-actions *ngIf=\"resumeService.editMode\">\n      <button md-button color=\"primary\" (click)=\"newEducation()\">Add Education</button>\n    </md-card-actions>\n  </md-card>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/education/education.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return EducationComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EducationDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -282,15 +282,15 @@ var EducationComponent = (function () {
     return EducationComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
     __metadata("design:type", Object)
 ], EducationComponent.prototype, "educations", void 0);
 EducationComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
         selector: 'app-education',
-        template: __webpack_require__(805)
+        template: __webpack_require__("../../../../../src/app/education/education.component.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */]) === "function" && _c || Object])
 ], EducationComponent);
 
 // Add new education dialog
@@ -299,7 +299,7 @@ var EducationDialog = (function () {
         var _this = this;
         this.dialogRef = dialogRef;
         this.resumeService = resumeService;
-        this.degreeCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* FormControl */]();
+        this.degreeCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["i" /* FormControl */]();
         this.filteredDegrees = this.degreeCtrl.valueChanges
             .startWith(null)
             .map(function (val) { return _this.filterDegrees(val); });
@@ -330,25 +330,32 @@ var EducationDialog = (function () {
     return EducationDialog;
 }());
 EducationDialog = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
         template: "\n    <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}education</h3>\n    <div md-dialog-content fxLayout=\"column\">\n\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"education.school\"\n          placeholder=\"School\">\n      </md-input-container>\n\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"education.field\"\n          placeholder=\"Field of Study\">\n      </md-input-container>\n\n      <md-input-container>\n        <input mdInput\n              [(ngModel)]=\"education.degree\"\n              placeholder=\"Degree\"\n              [formControl]=\"degreeCtrl\"\n              [mdAutocomplete]=\"auto\">\n      </md-input-container>\n      <md-autocomplete #auto=\"mdAutocomplete\">\n        <md-option *ngFor=\"let degree of filteredDegrees | async\" [value]=\"degree\">\n          {{ degree }}\n        </md-option>\n      </md-autocomplete>\n\n      <div class=\"date-container\">\n        <label>From</label>\n        <div fxLayout=\"row\">\n          <md-select fxFlex=\"50\" [(ngModel)]=\"education.startDate.year\" placeholder=\"Year\">\n            <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n          </md-select>\n          <md-select fxFlex=\"50\" [(ngModel)]=\"education.startDate.month\" placeholder=\"Month\">\n            <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n          </md-select>\n        </div>\n      </div>\n      <md-checkbox [(ngModel)]=\"education.current\" (change)=\"currentChanged()\">\n        Current education\n      </md-checkbox>\n      <div class=\"date-container\" *ngIf=\"!education.current\">\n        <label>To</label>\n        <div fxLayout=\"row\">\n          <md-select fxFlex=\"50\" [(ngModel)]=\"education.endDate.year\" placeholder=\"Year\">\n            <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n          </md-select>\n          <md-select fxFlex=\"50\" [(ngModel)]=\"education.endDate.month\" placeholder=\"Month\">\n            <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n          </md-select>\n        </div>\n      </div>\n    </div>\n\n    <div md-dialog-actions>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(education)\">Save</button>\n    </div>\n  ",
     }),
     __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */]) === "function" && _e || Object])
 ], EducationDialog);
 
 var _a, _b, _c, _d, _e;
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/education.component.js.map
+//# sourceMappingURL=education.component.js.map
 
 /***/ }),
 
-/***/ 641:
+/***/ "../../../../../src/app/experience/experience.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"section\">\n  <h1><md-icon>work</md-icon>Work experience</h1>\n  <md-card>\n    <md-list>\n      <md-list-item *ngFor=\"let position of positions\">\n        <h3 md-line>{{position.title}} - {{position.company}}</h3>\n        <p md-line class=\"date-label\">{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>\n        <p md-line [mdTooltip]=\"position.summary\">{{position.summary ? position.summary : '-'}}</p>\n        <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editPosition(position)\">\n          <md-icon>edit</md-icon>\n        </button>\n        <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"deletePosition(position)\">\n          <md-icon>delete</md-icon>\n        </button>\n      </md-list-item>\n    </md-list>\n    <md-card-actions *ngIf=\"resumeService.editMode\">\n      <button md-button color=\"primary\" (click)=\"newPosition()\">Add Position</button>\n    </md-card-actions>\n  </md-card>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/experience/experience.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExperienceComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return PositionDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -423,15 +430,15 @@ var ExperienceComponent = (function () {
     return ExperienceComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
     __metadata("design:type", Object)
 ], ExperienceComponent.prototype, "positions", void 0);
 ExperienceComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
         selector: 'app-experience',
-        template: __webpack_require__(806)
+        template: __webpack_require__("../../../../../src/app/experience/experience.component.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _c || Object])
 ], ExperienceComponent);
 
 // Add new position dialog
@@ -441,7 +448,6 @@ var PositionDialog = (function () {
         this.resumeService = resumeService;
         this.position = {
             company: '',
-            companyLogoUrl: '',
             current: true,
             startDate: this.resumeService.todayAsYearMonth(),
             endDate: this.resumeService.todayAsYearMonth(),
@@ -463,39 +469,32 @@ var PositionDialog = (function () {
     return PositionDialog;
 }());
 PositionDialog = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
-        template: "\n    <h3 md-dialog-title>{{ editMode ? 'Edit ' : 'Add new '}}position</h3>\n    <div md-dialog-content fxLayout=\"column\">\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"position.company\"\n          placeholder=\"Company\">\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"position.companyLogoUrl\"\n          placeholder=\"Company Logo URL (Optional)\">\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"position.title\"\n          placeholder=\"Title\">\n      </md-input-container>\n      <md-input-container>\n        <textarea mdInput\n        [(ngModel)]=\"position.summary\"\n        rows=\"4\" placeholder=\"Summary\"></textarea>\n      </md-input-container>\n      <div class=\"date-container\">\n        <label>From</label>\n        <div fxLayout=\"row\">\n          <md-select fxFlex=\"50\" [(ngModel)]=\"position.startDate.year\" placeholder=\"Year\">\n            <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n          </md-select>\n          <md-select fxFlex=\"50\" [(ngModel)]=\"position.startDate.month\" placeholder=\"Month\">\n            <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n          </md-select>\n        </div>\n      </div>\n      <md-checkbox [(ngModel)]=\"position.current\" (change)=\"currentChanged()\">\n        Current job\n      </md-checkbox>\n      <div class=\"date-container\" *ngIf=\"!position.current\">\n        <label>To</label>\n        <div fxLayout=\"row\">\n          <md-select fxFlex=\"50\" [(ngModel)]=\"position.endDate.year\" placeholder=\"Year\">\n            <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n          </md-select>\n          <md-select fxFlex=\"50\" [(ngModel)]=\"position.endDate.month\" placeholder=\"Month\">\n            <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n          </md-select>\n        </div>\n      </div>\n    </div>\n    <div md-dialog-actions>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(position)\">Save</button>\n    </div>\n  ",
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
+        template: "\n    <h3 md-dialog-title>{{ editMode ? 'Edit ' : 'Add new '}}position</h3>\n    <div md-dialog-content fxLayout=\"column\">\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"position.company\"\n          placeholder=\"Company\">\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"position.title\"\n          placeholder=\"Title\">\n      </md-input-container>\n      <md-input-container>\n        <textarea mdInput\n        [(ngModel)]=\"position.summary\"\n        rows=\"4\" placeholder=\"Summary\"></textarea>\n      </md-input-container>\n      <div class=\"date-container\">\n        <label>From</label>\n        <div fxLayout=\"row\">\n          <md-select fxFlex=\"50\" [(ngModel)]=\"position.startDate.year\" placeholder=\"Year\">\n            <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n          </md-select>\n          <md-select fxFlex=\"50\" [(ngModel)]=\"position.startDate.month\" placeholder=\"Month\">\n            <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n          </md-select>\n        </div>\n      </div>\n      <md-checkbox [(ngModel)]=\"position.current\" (change)=\"currentChanged()\">\n        Current job\n      </md-checkbox>\n      <div class=\"date-container\" *ngIf=\"!position.current\">\n        <label>To</label>\n        <div fxLayout=\"row\">\n          <md-select fxFlex=\"50\" [(ngModel)]=\"position.endDate.year\" placeholder=\"Year\">\n            <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n          </md-select>\n          <md-select fxFlex=\"50\" [(ngModel)]=\"position.endDate.month\" placeholder=\"Month\">\n            <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n          </md-select>\n        </div>\n      </div>\n    </div>\n    <div md-dialog-actions>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(position)\">Save</button>\n    </div>\n  ",
     }),
     __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _e || Object])
 ], PositionDialog);
 
 var _a, _b, _c, _d, _e;
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/experience.component.js.map
+//# sourceMappingURL=experience.component.js.map
 
 /***/ }),
 
-/***/ 642:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "../../../../../src/app/project/project.component.html":
+/***/ (function(module, exports) {
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_component__ = __webpack_require__(430);
-/* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(639);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__app_module__["a"]; });
-
-
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/index.js.map
+module.exports = "<div class=\"section\">\n  <h1><md-icon>trending_up</md-icon>Projects</h1>\n  <div *ngIf=\"resumeService.editMode\">\n    <button md-raised-button color=\"primary\" (click)=\"newProject()\" *ngIf=\"resumeService.editMode\">Add Project</button>\n  </div>\n  <div class=\"masonry\">\n    <div class=\"item\" *ngFor=\"let project of projects\">\n      <md-card>\n        <md-card-header>\n          <md-card-title>{{project.name}}</md-card-title>\n          <md-card-subtitle>\n            {{ months[project.startDate.month] + ' ' + project.startDate.year}} - {{project.endDate ? (months[project.endDate.month] + ' ' + project.endDate.year) : 'Present' }}\n          </md-card-subtitle>\n        </md-card-header>\n        <img *ngIf=\"project.imageUrl\" md-card-image [src]=\"project.imageUrl\">\n        <md-card-content>\n          <p>\n            {{ project.description }}\n          </p>\n        </md-card-content>\n        <md-card-actions>\n          <a md-button color=\"primary\" [href]=\"project.web\" target=\"_project\" *ngIf=\"project.web\">Visit Page</a>\n          <button md-button color=\"primary\" (click)=\"editProject(project)\" *ngIf=\"resumeService.editMode\"><md-icon>edit</md-icon></button>\n          <button md-button color=\"primary\" (click)=\"deleteProject(project)\" *ngIf=\"resumeService.editMode\"><md-icon>delete</md-icon></button>\n        </md-card-actions>\n      </md-card>\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
-/***/ 643:
+/***/ "../../../../../src/app/project/project.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ProjectDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -570,15 +569,15 @@ var ProjectComponent = (function () {
     return ProjectComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
     __metadata("design:type", Object)
 ], ProjectComponent.prototype, "projects", void 0);
 ProjectComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
         selector: 'app-project',
-        template: __webpack_require__(807)
+        template: __webpack_require__("../../../../../src/app/project/project.component.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _c || Object])
 ], ProjectComponent);
 
 // Add new project dialog
@@ -610,418 +609,23 @@ var ProjectDialog = (function () {
     return ProjectDialog;
 }());
 ProjectDialog = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
         template: "\n    <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}project</h3>\n    <div md-dialog-content fxLayout=\"column\">\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"project.name\"\n          placeholder=\"Project name\">\n      </md-input-container>\n      <md-input-container>\n        <textarea mdInput\n          rows=\"4\"\n          [(ngModel)]=\"project.description\"\n          placeholder=\"Project description\">\n        </textarea>\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"project.imageUrl\"\n          placeholder=\"Project logo url (Optional)\">\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"project.web\"\n          placeholder=\"Project website (Optional)\">\n      </md-input-container>\n      <div class=\"date-container\">\n        <label class=\"select-label\">From</label>\n        <div fxLayout=\"row\">\n          <md-select fxFlex=\"50\" [(ngModel)]=\"project.startDate.year\" placeholder=\"Year\">\n            <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n          </md-select>\n          <md-select fxFlex=\"50\" [(ngModel)]=\"project.startDate.month\" placeholder=\"Month\">\n            <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n          </md-select>\n        </div>\n      </div>\n      <md-checkbox [(ngModel)]=\"project.current\" (change)=\"currentChanged()\">\n        Current project\n      </md-checkbox>\n      <div class=\"date-container\" *ngIf=\"!project.current\">\n        <label class=\"select-label\">To</label>\n        <div fxLayout=\"row\">\n          <md-select fxFlex=\"50\" [(ngModel)]=\"project.endDate.year\" placeholder=\"Year\">\n            <md-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </md-option>\n          </md-select>\n          <md-select fxFlex=\"50\" [(ngModel)]=\"project.endDate.month\" placeholder=\"Month\">\n            <md-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </md-option>\n          </md-select>\n        </div>\n      </div>\n    </div>\n    <div md-dialog-actions>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(project)\">Save</button>\n    </div>\n  ",
     }),
     __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _e || Object])
 ], ProjectDialog);
 
 var _a, _b, _c, _d, _e;
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/project.component.js.map
+//# sourceMappingURL=project.component.js.map
 
 /***/ }),
 
-/***/ 644:
+/***/ "../../../../../src/app/resume.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__resume_service__ = __webpack_require__(76);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResumeComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ResumeComponent = (function () {
-    function ResumeComponent(resumeService) {
-        this.resumeService = resumeService;
-        this.themes = [
-            { name: 'Blue grey', value: 'blue-grey' },
-            { name: 'Indigo', value: 'indigo' },
-            { name: 'Orange', value: 'orange' },
-            { name: 'Purple', value: 'purple' },
-            { name: 'Teal', value: 'teal' }
-        ];
-        this.darkTheme = false;
-    }
-    ResumeComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.resume = this.resumeService.retrieveResume();
-        // Listen to resume changed events
-        this.resumeService.resumeChanged.subscribe(function (resume) { return _this.resume = resume; });
-        // Retrieve theme
-        var theme = this.resumeService.retrieveTheme();
-        if (theme && theme.themeName) {
-            this.currentTheme = this.themes.filter(function (t) { return t.value === theme.themeName; }).pop();
-            this.darkTheme = theme.isDark;
-        }
-        else {
-            // Indigo default theme
-            this.currentTheme = this.themes[1];
-            this.darkTheme = false;
-        }
-    };
-    ResumeComponent.prototype.cssClasses = function () {
-        return this.currentTheme.value + (this.darkTheme ? ' dark' : '');
-    };
-    ResumeComponent.prototype.themeChanged = function (theme, dark) {
-        this.resumeService.updateTheme(this.currentTheme.value, this.darkTheme);
-    };
-    return ResumeComponent;
-}());
-ResumeComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
-        selector: 'app-resume',
-        template: __webpack_require__(808)
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__resume_service__["a" /* ResumeService */]) === "function" && _a || Object])
-], ResumeComponent);
-
-var _a;
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/resume.component.js.map
-
-/***/ }),
-
-/***/ 645:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__(118);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SkillComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SkillDialog; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var SkillComponent = (function () {
-    function SkillComponent(dialog, resumeService, viewContainerRef) {
-        this.dialog = dialog;
-        this.resumeService = resumeService;
-        this.viewContainerRef = viewContainerRef;
-    }
-    SkillComponent.prototype.ngOnInit = function () {
-        this.skills = this.skills || [];
-        this.sortSkills();
-    };
-    SkillComponent.prototype.newSkill = function () {
-        var _this = this;
-        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialogConfig */]();
-        config.width = "50%";
-        var dialogRef = this.dialog.open(SkillDialog, config);
-        dialogRef.afterClosed().subscribe(function (result) {
-            if (result) {
-                _this.skills = _this.resumeService.addSkill(result);
-                _this.sortSkills();
-            }
-        });
-    };
-    SkillComponent.prototype.editSkill = function (skill) {
-        var _this = this;
-        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialogConfig */]();
-        config.width = "50%";
-        config.viewContainerRef = this.viewContainerRef;
-        var dialogRef = this.dialog.open(SkillDialog, config);
-        dialogRef.componentInstance.skill = skill;
-        dialogRef.afterClosed().subscribe(function (result) {
-            _this.skills = result ? _this.resumeService.updateSkills(_this.skills) :
-                _this.resumeService.retrieveResume().skills;
-            _this.sortSkills();
-        });
-    };
-    SkillComponent.prototype.deleteSkill = function (skill) {
-        var _this = this;
-        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialogConfig */]();
-        config.viewContainerRef = this.viewContainerRef;
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */], config);
-        dialogRef.componentInstance.message = "Are you sure you want to remove your skill in " + skill.name + "?";
-        dialogRef.afterClosed().subscribe(function (result) {
-            if (result) {
-                _this.skills = _this.resumeService.removeSkill(skill);
-            }
-        });
-    };
-    // Sort by competence first, name second
-    SkillComponent.prototype.sortSkills = function () {
-        this.skills.sort(function (a, b) {
-            if (a.competence !== b.competence) {
-                return b.competence - a.competence;
-            }
-            return a.name > b.name ? 1 : -1;
-        });
-    };
-    return SkillComponent;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
-    __metadata("design:type", Object)
-], SkillComponent.prototype, "skills", void 0);
-SkillComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
-        selector: 'app-skill',
-        template: __webpack_require__(809)
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* ViewContainerRef */]) === "function" && _c || Object])
-], SkillComponent);
-
-// Add new skill dialog
-var SkillDialog = (function () {
-    function SkillDialog(dialogRef, resumeService) {
-        this.dialogRef = dialogRef;
-        this.resumeService = resumeService;
-        var today = new Date();
-        this.skill = {
-            competence: 0,
-            name: ''
-        };
-    }
-    SkillDialog.prototype.ngOnInit = function () {
-        // Assume edit mode if name isn't blank
-        this.editMode = this.skill && this.skill.name.length > 0;
-    };
-    return SkillDialog;
-}());
-SkillDialog = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
-        template: "\n    <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}skill</h3>\n    <div md-dialog-content fxLayout=\"column\">\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"skill.name\"\n          placeholder=\"Skill name\">\n      </md-input-container>\n      <md-slider\n        [(ngModel)]=\"skill.competence\"\n        min=\"0\"\n        max=\"100\"\n        thumbLabel\n        step=\"10\"\n        tickInterval=\"1\"></md-slider>\n    </div>\n    <div md-dialog-actions>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(skill)\">Save</button>\n    </div>\n  ",
-    }),
-    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _e || Object])
-], SkillDialog);
-
-var _a, _b, _c, _d, _e;
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/skill.component.js.map
-
-/***/ }),
-
-/***/ 646:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__resume_service__ = __webpack_require__(76);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SummaryComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return EditSummaryDialog; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var SummaryComponent = (function () {
-    function SummaryComponent(dialog, viewContainerRef, resumeService, iconRegistry, sanitizer) {
-        this.dialog = dialog;
-        this.viewContainerRef = viewContainerRef;
-        this.resumeService = resumeService;
-        this.iconRegistry = iconRegistry;
-        this.sanitizer = sanitizer;
-    }
-    SummaryComponent.prototype.ngOnInit = function () {
-        // Profile picture placeholder
-        this.iconRegistry.addSvgIcon('account-circle', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'));
-    };
-    SummaryComponent.prototype.editSummary = function () {
-        var _this = this;
-        var config = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MdDialogConfig */]();
-        config.viewContainerRef = this.viewContainerRef;
-        config.width = "50%";
-        var dialogRef = this.dialog.open(EditSummaryDialog, config);
-        dialogRef.componentInstance.summary = {
-            name: this.name,
-            profileUrl: this.profileUrl,
-            description: this.description,
-            title: this.title,
-            phone: this.phone,
-            email: this.email
-        };
-        dialogRef.afterClosed().subscribe(function (result) {
-            if (!result) {
-                return;
-            }
-            var resume = _this.resumeService.updateSummary(result.name, result.profileUrl, result.description, result.title, result.phone, result.email);
-            _this.name = resume.name;
-            _this.profileUrl = resume.pictureUrl;
-            _this.description = resume.summary;
-            _this.title = resume.title;
-            _this.phone = resume.phone;
-            _this.email = resume.email;
-        });
-    };
-    SummaryComponent.prototype.uploadResume = function (event) {
-        var _this = this;
-        var resumeFile = event.target.files[0];
-        var reader = new FileReader();
-        // Callback when the file has been read
-        reader.onload = function () {
-            if (reader && reader.result && reader) {
-                var jsonResume = JSON.parse(reader.result);
-                _this.resumeService.parseAndSaveJsonResume(jsonResume);
-            }
-        };
-        if (resumeFile) {
-            reader.readAsText(resumeFile, 'UTF-8');
-        }
-    };
-    return SummaryComponent;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
-    __metadata("design:type", String)
-], SummaryComponent.prototype, "name", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])('picture'),
-    __metadata("design:type", String)
-], SummaryComponent.prototype, "profileUrl", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
-    __metadata("design:type", String)
-], SummaryComponent.prototype, "description", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
-    __metadata("design:type", String)
-], SummaryComponent.prototype, "title", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
-    __metadata("design:type", String)
-], SummaryComponent.prototype, "phone", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
-    __metadata("design:type", String)
-], SummaryComponent.prototype, "email", void 0);
-SummaryComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
-        selector: 'app-summary',
-        template: __webpack_require__(810)
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MdIconRegistry */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MdIconRegistry */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["d" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["d" /* DomSanitizer */]) === "function" && _e || Object])
-], SummaryComponent);
-
-// Edit summary dialog
-var EditSummaryDialog = (function () {
-    function EditSummaryDialog(dialogRef) {
-        this.dialogRef = dialogRef;
-    }
-    return EditSummaryDialog;
-}());
-EditSummaryDialog = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Component */])({
-        template: "\n    <h3 md-dialog-title>Edit summary</h3>\n    <div md-dialog-content fxLayout=\"column\">\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"summary.name\"\n          placeholder=\"Your name\">\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"summary.profileUrl\"\n          placeholder=\"Url to profile picture\">\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"summary.title\"\n          placeholder=\"Job title\">\n      </md-input-container>\n      <md-input-container>\n        <textarea mdInput\n        [(ngModel)]=\"summary.description\"\n        rows=\"4\" placeholder=\"Description of yourself\"></textarea>\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"summary.phone\"\n          placeholder=\"Your phone number\">\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"summary.email\"\n          placeholder=\"Your email adress\">\n      </md-input-container>\n    </div>\n    <div md-dialog-actions>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(summary)\">Ok</button>\n    </div>\n  ",
-    }),
-    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MdDialogRef */]) === "function" && _f || Object])
-], EditSummaryDialog);
-
-var _a, _b, _c, _d, _e, _f;
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/summary.component.js.map
-
-/***/ }),
-
-/***/ 647:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `angular-cli.json`.
-// The file contents for the current environment will overwrite these during build.
-var environment = {
-    production: false
-};
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/environment.js.map
-
-/***/ }),
-
-/***/ 648:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(662);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(655);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(651);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(657);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(656);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(654);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(653);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(661);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(650);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(649);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(659);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(652);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(660);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(658);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(663);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(857);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
-// This file includes polyfills needed by Angular 2 and is loaded before
-// the app. You can add your own extra polyfills to this file.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/polyfills.js.map
-
-/***/ }),
-
-/***/ 76:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResumeService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1047,7 +651,6 @@ var ResumeService = (function () {
             phone: '0707-777777',
             positions: [{
                     company: 'Acando',
-                    companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAeBAAAAJDViZDYyYTRmLWQ3YWUtNGRmZS04NTdlLTNlZTk2NTA0MmJiOA.png',
                     startDate: {
                         year: 2011,
                         month: 6
@@ -1061,7 +664,6 @@ var ResumeService = (function () {
                     title: 'IT consultant'
                 }, {
                     company: 'Seal',
-                    companyLogoUrl: 'https://media.licdn.com/media/AAEAAQAAAAAAAAcWAAAAJGNkMTU0MzMxLTQ1MWEtNDZmZS05NTE3LTAyMDI5MmEwNTg0MQ.png',
                     startDate: {
                         year: 2013,
                         month: 6
@@ -1144,7 +746,7 @@ var ResumeService = (function () {
             'Other'
         ];
         // EventEmitter to let components know when the resume is changed
-        this.resumeChanged = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */](false);
+        this.resumeChanged = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* EventEmitter */](false);
         // Create years to choose from, 1950 - current years
         var today = new Date();
         for (var year = 1950; year <= today.getFullYear(); year++) {
@@ -1438,73 +1040,403 @@ ResumeService = __decorate([
 ], ResumeService);
 
 var _a;
-//# sourceMappingURL=/Users/matros/Development/projects/other/resume-generator/src/resume.service.js.map
+//# sourceMappingURL=resume.service.js.map
 
 /***/ }),
 
-/***/ 803:
+/***/ "../../../../../src/app/resume/resume.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-resume>\n</app-resume>\n"
+module.exports = "<!-- Summary -->\n<div class=\"app-content\" [ngClass]=\"cssClasses()\">\n    <div *ngIf=\"resumeService.editMode\" class=\"theme-switch\">\n        <md-select placeholder=\"Theme\" [(ngModel)]=\"currentTheme\" (change)=\"themeChanged(currentTheme, darkTheme)\">\n            <md-option *ngFor=\"let theme of themes\" [value]=\"theme\">{{ theme.name }}</md-option>\n        </md-select>\n        <md-slide-toggle [(ngModel)]=\"darkTheme\" (change)=\"themeChanged(currentTheme, darkTheme)\">Dark</md-slide-toggle>\n    </div>\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" fxLayoutAlign=\"space-between stretch\" fxLayoutWrap>\n        <aside fxFlex=\"30\" class=\"summary\">\n            <app-summary [picture]=\"resume.pictureUrl\" [name]=\"resume.name\" [description]=\"resume.summary\" [title]=\"resume.title\" [phone]=\"resume.phone\"\n                [email]=\"resume.email\" [skills]=\"resume.skills\">\n            </app-summary>\n        </aside>\n\n\n        <section fxFlex=\"70\">\n            <!-- Work experience -->\n            <app-experience [positions]=\"resume.positions\">\n            </app-experience>\n\n            <!-- Education -->\n            <app-education [educations]=\"resume.educations\">\n            </app-education>\n\n            <!-- Projects -->\n            <app-project [projects]=\"resume.projects\">\n            </app-project>\n        </section>\n    </div>\n\n</div>\n"
 
 /***/ }),
 
-/***/ 804:
+/***/ "../../../../../src/app/resume/resume.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResumeComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ResumeComponent = (function () {
+    function ResumeComponent(resumeService) {
+        this.resumeService = resumeService;
+        this.themes = [
+            { name: 'Blue grey', value: 'blue-grey' },
+            { name: 'Indigo', value: 'indigo' },
+            { name: 'Light blue', value: 'light-blue' },
+            { name: 'Orange', value: 'orange' },
+            { name: 'Purple', value: 'purple' },
+            { name: 'Teal', value: 'teal' }
+        ];
+        this.darkTheme = false;
+    }
+    ResumeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.resume = this.resumeService.retrieveResume();
+        // Listen to resume changed events
+        this.resumeService.resumeChanged.subscribe(function (resume) { return _this.resume = resume; });
+        // Retrieve theme
+        var theme = this.resumeService.retrieveTheme();
+        if (theme && theme.themeName) {
+            this.currentTheme = this.themes.filter(function (t) { return t.value === theme.themeName; }).pop();
+            this.darkTheme = theme.isDark;
+        }
+        else {
+            // Indigo default theme
+            this.currentTheme = this.themes[1];
+            this.darkTheme = false;
+        }
+        this.darkTheme ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+    };
+    ResumeComponent.prototype.cssClasses = function () {
+        return this.currentTheme.value + (this.darkTheme ? ' dark' : '');
+    };
+    ResumeComponent.prototype.themeChanged = function (theme, dark) {
+        this.resumeService.updateTheme(this.currentTheme.value, this.darkTheme);
+        this.darkTheme ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+    };
+    return ResumeComponent;
+}());
+ResumeComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
+        selector: 'app-resume',
+        template: __webpack_require__("../../../../../src/app/resume/resume.component.html")
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__resume_service__["a" /* ResumeService */]) === "function" && _a || Object])
+], ResumeComponent);
+
+var _a;
+//# sourceMappingURL=resume.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/skill/skill.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3 md-dialog-title>Confirm</h3>\n<div md-dialog-content>\n  {{ message }}\n</div>\n<div md-dialog-actions>\n  <button md-button color=\"primary\" (click)=\"dialogRef.close(false)\">Cancel</button>\n  <button md-button color=\"primary\" (click)=\"dialogRef.close(true)\">Ok</button>\n</div>\n"
+module.exports = "<div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign=\"space-between stretch\" fxLayoutWrap>\n  <div *ngFor=\"let skill of skills\" fxFlex=\"90\">\n    <span>{{skill.name}}</span>\n    <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"secondary\" (click)=\"editSkill(skill)\">\n      <md-icon>edit</md-icon>\n    </button>\n    <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"secondary\" (click)=\"deleteSkill(skill)\">\n      <md-icon>delete</md-icon>\n    </button>\n    <md-progress-bar class=\"skill-bar\" color=\"primary\" mode=\"determinate\" value=\"{{skill.competence}}\"></md-progress-bar>\n  </div>\n</div>\n<md-card-actions *ngIf=\"resumeService.editMode\">\n  <button md-button color=\"secondary\" (click)=\"newSkill()\">Add Skill</button>\n</md-card-actions>\n"
 
 /***/ }),
 
-/***/ 805:
+/***/ "../../../../../src/app/skill/skill.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SkillComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SkillDialog; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var SkillComponent = (function () {
+    function SkillComponent(dialog, resumeService, viewContainerRef) {
+        this.dialog = dialog;
+        this.resumeService = resumeService;
+        this.viewContainerRef = viewContainerRef;
+    }
+    SkillComponent.prototype.ngOnInit = function () {
+        this.skills = this.skills || [];
+        this.sortSkills();
+    };
+    SkillComponent.prototype.newSkill = function () {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialogConfig */]();
+        config.width = "50%";
+        var dialogRef = this.dialog.open(SkillDialog, config);
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.skills = _this.resumeService.addSkill(result);
+                _this.sortSkills();
+            }
+        });
+    };
+    SkillComponent.prototype.editSkill = function (skill) {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialogConfig */]();
+        config.width = "50%";
+        config.viewContainerRef = this.viewContainerRef;
+        var dialogRef = this.dialog.open(SkillDialog, config);
+        dialogRef.componentInstance.skill = skill;
+        dialogRef.afterClosed().subscribe(function (result) {
+            _this.skills = result ? _this.resumeService.updateSkills(_this.skills) :
+                _this.resumeService.retrieveResume().skills;
+            _this.sortSkills();
+        });
+    };
+    SkillComponent.prototype.deleteSkill = function (skill) {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialogConfig */]();
+        config.viewContainerRef = this.viewContainerRef;
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */], config);
+        dialogRef.componentInstance.message = "Are you sure you want to remove your skill in " + skill.name + "?";
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.skills = _this.resumeService.removeSkill(skill);
+            }
+        });
+    };
+    // Sort by competence first, name second
+    SkillComponent.prototype.sortSkills = function () {
+        this.skills.sort(function (a, b) {
+            if (a.competence !== b.competence) {
+                return b.competence - a.competence;
+            }
+            return a.name > b.name ? 1 : -1;
+        });
+    };
+    return SkillComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
+    __metadata("design:type", Object)
+], SkillComponent.prototype, "skills", void 0);
+SkillComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
+        selector: 'app-skill',
+        template: __webpack_require__("../../../../../src/app/skill/skill.component.html")
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ViewContainerRef */]) === "function" && _c || Object])
+], SkillComponent);
+
+// Add new skill dialog
+var SkillDialog = (function () {
+    function SkillDialog(dialogRef, resumeService) {
+        this.dialogRef = dialogRef;
+        this.resumeService = resumeService;
+        var today = new Date();
+        this.skill = {
+            competence: 0,
+            name: ''
+        };
+    }
+    SkillDialog.prototype.ngOnInit = function () {
+        // Assume edit mode if name isn't blank
+        this.editMode = this.skill && this.skill.name.length > 0;
+    };
+    return SkillDialog;
+}());
+SkillDialog = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
+        template: "\n    <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}skill</h3>\n    <div md-dialog-content fxLayout=\"column\">\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"skill.name\"\n          placeholder=\"Skill name\">\n      </md-input-container>\n      <md-slider\n        [(ngModel)]=\"skill.competence\"\n        min=\"0\"\n        max=\"100\"\n        thumbLabel\n        step=\"10\"\n        tickInterval=\"1\"></md-slider>\n    </div>\n    <div md-dialog-actions>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(skill)\">Save</button>\n    </div>\n  ",
+    }),
+    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _e || Object])
+], SkillDialog);
+
+var _a, _b, _c, _d, _e;
+//# sourceMappingURL=skill.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/summary/summary.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<md-card class=\"section\">\n  <md-list>\n    <md-list-item *ngFor=\"let education of educations\">\n      <h3 md-line>{{education.field}} - {{education.school}}</h3>\n      <p md-line>{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</p>\n      <p md-line>{{education.degree}}</p>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editEducation(education)\">\n        <md-icon>edit</md-icon>\n      </button>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"deleteEducation(education)\">\n        <md-icon>delete</md-icon>\n      </button>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newEducation()\">Add Education</button>\n  </md-card-actions>\n</md-card>\n"
+module.exports = "<div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"text-center space-up\">\n        <div fxFlex><h1 style=\"margin-bottom:0\">{{name}}</h1></div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"text-center space-down\">\n        <div fxFlex>{{title}}</div>\n    </div>\n\n    <div class=\"text-center\">\n        <img *ngIf=\"profileUrl && profileUrl.length\" class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n        <md-icon *ngIf=\"!profileUrl || !profileUrl.length\" svgIcon=\"account-circle\" class=\"profile-picture\"></md-icon>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <md-icon>person</md-icon>\n        </div>\n        <div fxFlex><div class=\"description\">{{description}}</div></div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <md-icon>phone</md-icon>\n        </div>\n        <div fxFlex>{{phone}}</div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <md-icon>email</md-icon>\n        </div>\n        <div fxFlex>{{email}}</div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <md-icon>settings</md-icon>\n        </div>\n        <div fxFlex>\n            <app-skill [skills]=\"skills\">\n            </app-skill>\n        </div>\n    </div>\n\n    <div *ngIf=\"resumeService.editMode\" class=\"actions\">\n        <button md-raised-button color=\"primary\" (click)=\"editSummary()\">Edit profile</button>\n        <input id=\"resumeFile\" style=\"display:none\" *ngIf=\"resumeService.editMode\" type=\"file\" accept=\"application/json\" (change)=\"uploadResume($event)\">\n        <label for=\"resumeFile\" class=\"mat-primary mat-raised-button\">Upload Resume</label>\n    </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 806:
-/***/ (function(module, exports) {
+/***/ "../../../../../src/app/summary/summary.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<md-card class=\"section\">\n  <md-list>\n    <md-list-item *ngFor=\"let position of positions\">\n      <img *ngIf=\"position.companyLogoUrl\" md-list-avatar [src]=\"position.companyLogoUrl\" alt=\"position.company\">\n      <h3 md-line>{{position.title}} - {{position.company}}</h3>\n      <p md-line>{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>\n      <p md-line>{{position.summary}}</p>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editPosition(position)\">\n        <md-icon>edit</md-icon>\n      </button>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"deletePosition(position)\">\n        <md-icon>delete</md-icon>\n      </button>\n    </md-list-item>\n  </md-list>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newPosition()\">Add Position</button>\n  </md-card-actions>\n</md-card>\n"
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SummaryComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return EditSummaryDialog; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var SummaryComponent = (function () {
+    function SummaryComponent(dialog, viewContainerRef, resumeService, iconRegistry, sanitizer) {
+        this.dialog = dialog;
+        this.viewContainerRef = viewContainerRef;
+        this.resumeService = resumeService;
+        this.iconRegistry = iconRegistry;
+        this.sanitizer = sanitizer;
+    }
+    SummaryComponent.prototype.ngOnInit = function () {
+        // Profile picture placeholder
+        this.iconRegistry.addSvgIcon('account-circle', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'));
+    };
+    SummaryComponent.prototype.editSummary = function () {
+        var _this = this;
+        var config = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MdDialogConfig */]();
+        config.viewContainerRef = this.viewContainerRef;
+        config.width = "50%";
+        var dialogRef = this.dialog.open(EditSummaryDialog, config);
+        dialogRef.componentInstance.summary = {
+            name: this.name,
+            profileUrl: this.profileUrl,
+            description: this.description,
+            title: this.title,
+            phone: this.phone,
+            email: this.email
+        };
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (!result) {
+                return;
+            }
+            var resume = _this.resumeService.updateSummary(result.name, result.profileUrl, result.description, result.title, result.phone, result.email);
+            _this.name = resume.name;
+            _this.profileUrl = resume.pictureUrl;
+            _this.description = resume.summary;
+            _this.title = resume.title;
+            _this.phone = resume.phone;
+            _this.email = resume.email;
+        });
+    };
+    SummaryComponent.prototype.uploadResume = function (event) {
+        var _this = this;
+        var resumeFile = event.target.files[0];
+        var reader = new FileReader();
+        // Callback when the file has been read
+        reader.onload = function () {
+            if (reader && reader.result && reader) {
+                var jsonResume = JSON.parse(reader.result);
+                _this.resumeService.parseAndSaveJsonResume(jsonResume);
+            }
+        };
+        if (resumeFile) {
+            reader.readAsText(resumeFile, 'UTF-8');
+        }
+    };
+    return SummaryComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
+    __metadata("design:type", String)
+], SummaryComponent.prototype, "name", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])('picture'),
+    __metadata("design:type", String)
+], SummaryComponent.prototype, "profileUrl", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
+    __metadata("design:type", String)
+], SummaryComponent.prototype, "description", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
+    __metadata("design:type", String)
+], SummaryComponent.prototype, "title", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
+    __metadata("design:type", String)
+], SummaryComponent.prototype, "phone", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
+    __metadata("design:type", String)
+], SummaryComponent.prototype, "email", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
+    __metadata("design:type", Object)
+], SummaryComponent.prototype, "skills", void 0);
+SummaryComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
+        selector: 'app-summary',
+        template: __webpack_require__("../../../../../src/app/summary/summary.component.html")
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MdIconRegistry */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MdIconRegistry */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["e" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["e" /* DomSanitizer */]) === "function" && _e || Object])
+], SummaryComponent);
+
+// Edit summary dialog
+var EditSummaryDialog = (function () {
+    function EditSummaryDialog(dialogRef) {
+        this.dialogRef = dialogRef;
+    }
+    return EditSummaryDialog;
+}());
+EditSummaryDialog = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* Component */])({
+        template: "\n    <h3 md-dialog-title>Edit summary</h3>\n    <div md-dialog-content fxLayout=\"column\">\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"summary.name\"\n          placeholder=\"Your name\">\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"summary.profileUrl\"\n          placeholder=\"Url to profile picture\">\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"summary.title\"\n          placeholder=\"Job title\">\n      </md-input-container>\n      <md-input-container>\n        <textarea mdInput\n        [(ngModel)]=\"summary.description\"\n        rows=\"4\" placeholder=\"Description of yourself\"></textarea>\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"summary.phone\"\n          placeholder=\"Your phone number\">\n      </md-input-container>\n      <md-input-container>\n        <input mdInput\n          [(ngModel)]=\"summary.email\"\n          placeholder=\"Your email adress\">\n      </md-input-container>\n    </div>\n    <div md-dialog-actions>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button md-button color=\"primary\" (click)=\"dialogRef.close(summary)\">Ok</button>\n    </div>\n  ",
+    }),
+    __metadata("design:paramtypes", [typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MdDialogRef */]) === "function" && _f || Object])
+], EditSummaryDialog);
+
+var _a, _b, _c, _d, _e, _f;
+//# sourceMappingURL=summary.component.js.map
 
 /***/ }),
 
-/***/ 807:
-/***/ (function(module, exports) {
+/***/ "../../../../../src/environments/environment.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<div class=\"section\">\n  <div class=\"neg-margin-24\">\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" fxLayoutAlign=\"space-between start\" fxLayoutWrap>\n      <md-card *ngFor=\"let project of projects\" fxFlex=\"45\">\n        <md-card-title>{{project.name}}</md-card-title>\n        <md-card-subtitle>\n          {{ months[project.startDate.month] + ' ' + project.startDate.year}} - {{project.endDate ? (months[project.endDate.month] + ' ' + project.endDate.year) : 'Present' }}\n        </md-card-subtitle>\n        <img *ngIf=\"project.imageUrl\" md-card-image [src]=\"project.imageUrl\">\n        <md-card-content>\n          <p>\n            {{ project.description }}\n          </p>\n        </md-card-content>\n        <md-card-actions>\n          <a md-button color=\"primary\" [href]=\"project.web\" target=\"_project\" *ngIf=\"project.web\">Visit Page</a>\n          <button md-button color=\"primary\" (click)=\"editProject(project)\" *ngIf=\"resumeService.editMode\"><md-icon>edit</md-icon></button>\n          <button md-button color=\"primary\" (click)=\"deleteProject(project)\" *ngIf=\"resumeService.editMode\"><md-icon>delete</md-icon></button>\n        </md-card-actions>\n      </md-card>\n    </div>\n  </div>\n\n  <md-card *ngIf=\"resumeService.editMode\" class=\"neg-margin-24\">\n    <button md-button color=\"primary\" (click)=\"newProject()\" *ngIf=\"resumeService.editMode\">Add Project</button>\n  </md-card>\n</div>\n"
-
-/***/ }),
-
-/***/ 808:
-/***/ (function(module, exports) {
-
-module.exports = "<!-- Summary -->\n<div class=\"app-content\" [ngClass]=\"cssClasses()\">\n    <div *ngIf=\"resumeService.editMode\" class=\"theme-switch\">\n        <md-select placeholder=\"Theme\" [(ngModel)]=\"currentTheme\" (change)=\"themeChanged(currentTheme, darkTheme)\">\n            <md-option *ngFor=\"let theme of themes\" [value]=\"theme\">{{ theme.name }}</md-option>\n        </md-select>\n        <md-slide-toggle [(ngModel)]=\"darkTheme\" (change)=\"themeChanged(currentTheme, darkTheme)\">Dark</md-slide-toggle>\n    </div>\n    <app-summary [picture]=\"resume.pictureUrl\" [name]=\"resume.name\" [description]=\"resume.summary\" [title]=\"resume.title\" [phone]=\"resume.phone\"\n        [email]=\"resume.email\">\n    </app-summary>\n\n    <!-- Work experience -->\n    <app-experience [positions]=\"resume.positions\">\n    </app-experience>\n\n    <!-- Education -->\n    <app-education [educations]=\"resume.educations\">\n    </app-education>\n\n    <!-- Skills -->\n    <app-skill [skills]=\"resume.skills\">\n    </app-skill>\n\n    <!-- Projects -->\n    <app-project [projects]=\"resume.projects\">\n    </app-project>\n\n</div>\n"
-
-/***/ }),
-
-/***/ 809:
-/***/ (function(module, exports) {
-
-module.exports = "<md-card class=\"section\">\n  <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n      fxLayoutAlign=\"space-between stretch\" fxLayoutWrap>\n    <div *ngFor=\"let skill of skills\" fxFlex=\"45\">\n      <span>{{skill.name}}</span>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"editSkill(skill)\">\n        <md-icon>edit</md-icon>\n      </button>\n      <button *ngIf=\"resumeService.editMode\" md-icon-button color=\"primary\" (click)=\"deleteSkill(skill)\">\n        <md-icon>delete</md-icon>\n      </button>\n      <md-progress-bar class=\"skill-bar\" color=\"primary\" mode=\"determinate\" value=\"{{skill.competence}}\"></md-progress-bar>\n    </div>\n  </div>\n  <md-card-actions *ngIf=\"resumeService.editMode\">\n    <button md-button color=\"primary\" (click)=\"newSkill()\">Add Skill</button>\n  </md-card-actions>\n</md-card>\n"
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
+var environment = {
+    production: false
+};
+//# sourceMappingURL=environment.js.map
 
 /***/ }),
 
-/***/ 810:
-/***/ (function(module, exports) {
+/***/ "../../../../../src/main.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<div class=\"summary\">\n    <img *ngIf=\"profileUrl && profileUrl.length\" class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n    <md-icon *ngIf=\"!profileUrl || !profileUrl.length\" svgIcon=\"account-circle\" class=\"profile-picture\"></md-icon>\n    <h2>{{name}}</h2>\n    <i>{{title}}</i>\n    <p>{{description}}</p>\n    <p class=\"contact-info\">\n        <md-icon>phone</md-icon> {{phone}}\n        <md-icon>email</md-icon> {{email}}\n    </p>\n    <div *ngIf=\"resumeService.editMode\">\n        <button md-raised-button color=\"primary\" (click)=\"editSummary()\">Edit profile</button>\n        <input id=\"resumeFile\" style=\"display:none\" *ngIf=\"resumeService.editMode\" type=\"file\" accept=\"application/json\" (change)=\"uploadResume($event)\">\n        <label for=\"resumeFile\" class=\"mat-primary mat-raised-button\">Upload Resume</label>\n    </div>\n</div>\n"
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/@angular/platform-browser-dynamic.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].production) {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["a" /* enableProdMode */])();
+}
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
 
 /***/ }),
 
-/***/ 858:
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(479);
+module.exports = __webpack_require__("../../../../../src/main.ts");
 
 
 /***/ })
 
-},[858]);
-//# sourceMappingURL=main.bundle.map
+},[0]);
+//# sourceMappingURL=main.bundle.js.map
