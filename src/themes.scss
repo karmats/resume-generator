@@ -4,9 +4,19 @@
 @mixin create-theme($primary, $accent) {
 
   @include angular-material-theme(mat-light-theme($primary, $accent));
+  /* 
+  This is shamefully copied from the secondary text in @angular/material _theming.scss since I coudln't figure
+  out how to retrieve by a function :/ 
+  */
+  .date-label {
+    color: rgba(black, 0.54);
+  }
 
   &.dark {
     @include angular-material-theme(mat-dark-theme($primary, $accent));
+    .date-label {
+      color: rgba(white, 0.7);
+    }
   }
 
   .summary {

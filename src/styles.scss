@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
   font-weight: 300;
+  font-size: 14px;
   background: #fafafa;
   &.dark {
     background: #303030;
@@ -25,7 +26,7 @@ body {
 
 /**  Core scss */
 .app-content {
-  width: 70%;
+  width: 75%;
   margin: 0 auto;
 
   // Small grid breakpoint in flexbox-layout
@@ -49,8 +50,7 @@ body {
     }
   }
   .section {
-    width: 75%;
-    margin: 20px auto;
+    margin: 24px;
     h1 {
       md-icon {
         font-size: 36px;
@@ -126,8 +126,11 @@ body {
   float: right;
 }
 
-.mat-card-header .mat-card-header-text .mat-card-title {
-  font-size: 20px;
+.mat-card-header .mat-card-header-text {
+  margin: 0;
+  .mat-card-title {
+    font-size: 16px;
+  }
 }
 
 .mat-list {
