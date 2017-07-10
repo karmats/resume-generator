@@ -22,7 +22,7 @@ export class SkillComponent implements OnInit {
 
   newSkill() {
     const config = new MdDialogConfig();
-    config.width = "50%";
+    config.width = "75vw";
     const dialogRef = this.dialog.open(SkillDialog, config);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -35,7 +35,7 @@ export class SkillComponent implements OnInit {
 
   editSkill(skill: Skill) {
     const config = new MdDialogConfig();
-    config.width = "50%";
+    config.width = "75vw";
     config.viewContainerRef = this.viewContainerRef;
 
     const dialogRef = this.dialog.open(SkillDialog, config);

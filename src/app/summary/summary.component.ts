@@ -41,7 +41,7 @@ export class SummaryComponent implements OnInit {
   editSummary() {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
-    config.width = "50%";
+    config.width = "75vw";
 
     const dialogRef = this.dialog.open(EditSummaryDialog, config);
     dialogRef.componentInstance.summary = {

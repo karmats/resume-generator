@@ -23,7 +23,7 @@ export class ProjectComponent implements OnInit {
 
   newProject() {
     const config = new MdDialogConfig();
-    config.width = "50%";
+    config.width = "75vw";
 
     const dialogRef = this.dialog.open(ProjectDialog, config);
 
@@ -39,7 +39,7 @@ export class ProjectComponent implements OnInit {
   editProject(project: Project) {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
-    config.width = "50%";
+    config.width = "75vw";
 
     const dialogRef = this.dialog.open(ProjectDialog, config);
     dialogRef.componentInstance.project = project;

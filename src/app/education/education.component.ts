@@ -26,7 +26,7 @@ export class EducationComponent implements OnInit {
 
   newEducation() {
     const config = new MdDialogConfig();
-    config.width = "50%";
+    config.width = "75vw";
 
     const dialogRef = this.dialog.open(EducationDialog, config);
 
@@ -42,7 +42,7 @@ export class EducationComponent implements OnInit {
   editEducation(education: Education) {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
-    config.width = "50%";
+    config.width = "75vw";
 
     const dialogRef = this.dialog.open(EducationDialog, config);
     dialogRef.componentInstance.education = education;

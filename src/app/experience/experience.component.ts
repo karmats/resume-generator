@@ -23,7 +23,7 @@ export class ExperienceComponent implements OnInit {
 
   newPosition() {
     const config = new MdDialogConfig();
-    config.width = "50%";
+    config.width = "75vw";
 
     const dialogRef = this.dialog.open(PositionDialog, config);
 
@@ -39,7 +39,7 @@ export class ExperienceComponent implements OnInit {
   editPosition(position: Position) {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
-    config.width = "50%";
+    config.width = "75vw";
 
     const dialogRef = this.dialog.open(PositionDialog, config);
     dialogRef.componentInstance.position = position;
