@@ -3,6 +3,8 @@ import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 import { FormControl } from '@angular/forms';
 
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
 
 import { Education } from '../models';
 import { ResumeService } from '../resume.service'
