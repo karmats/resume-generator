@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/karmats/resume-generator.svg?branch=master)](https://travis-ci.org/karmats/gocd-monitor)
+[![Build Status](https://travis-ci.org/karmats/resume-generator.svg?branch=master)](https://travis-ci.org/karmats/resume-generator)
 [![Dependencies](https://david-dm.org/karmats/resume-generator/status.svg)](https://david-dm.org/karmats/resume-generator)
 
 # Resume Generator
