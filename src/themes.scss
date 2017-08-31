@@ -19,6 +19,14 @@
     }
   }
 
+  a.mat-link {
+    color: mat_color($primary);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .summary {
     background: mat_color($primary);
     .mat-progress-bar-fill:after {
