@@ -19,15 +19,20 @@ export class ResumeComponent implements OnInit {
   ];
   currentTheme: any;
   darkTheme: boolean = false;
+  resumeEmpty: boolean = true;
 
   constructor(private resumeService: ResumeService) {
   }
 
   ngOnInit() {
     this.resume = this.resumeService.retrieveResume();
+    this.resumeEmpty = Object.keys(this.resume).length <= 0
 
     // Listen to resume changed events
-    this.resumeService.resumeChanged.subscribe(resume => this.resume = resume);
+    this.resumeService.resumeChanged.subscribe(resume => {
+      this.resume = resume
+      this.resumeEmpty = Object.keys(resume).length <= 0
+    });
 
     // Retrieve theme
     const theme = this.resumeService.retrieveTheme();

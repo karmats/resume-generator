@@ -9,95 +9,6 @@ export class ResumeService {
   private STORAGE_KEY = 'resume';
   private THEME_KEY = 'theme';
 
-  private RESUME: Resume = {
-    name: 'Mats Roshauw',
-    title: 'Frontend engineer',
-    pictureUrl: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/010/3a0/1d2671f.jpg',
-    summary: 'Good stuff dev',
-    email: 'mats@mail.com',
-    phone: '0707-777777',
-    positions: [{
-      company: 'Acando',
-      startDate: {
-        year: 2011,
-        month: 6
-      },
-      endDate: {
-        year: 2013,
-        month: 6
-      },
-      current: false,
-      summary: 'Consulting stuffs',
-      title: 'IT consultant'
-    }, {
-      company: 'Seal',
-      startDate: {
-        year: 2013,
-        month: 6
-      },
-      current: true,
-      summary: 'Frontend stuffs',
-      title: 'Frontend developer'
-    }],
-    educations: [{
-      degree: 'Bachelor',
-      school: 'Växjö Unversity',
-      startDate: {
-        year: 2003,
-        month: 8
-      },
-      endDate: {
-        year: 2006,
-        month: 6
-      },
-      field: 'Computer science'
-    }, {
-      degree: 'Master',
-      school: 'Chalmers Unversity',
-      startDate: {
-        year: 2006,
-        month: 8
-      },
-      endDate: {
-        year: 2007,
-        month: 1
-      },
-      field: 'Computer gaming'
-    }],
-    projects: [{
-      name: 'GoCD monitor',
-      description: 'Build monitor for Go cd build server. Techniques included ReactJS and NodeJS',
-      startDate: {
-        year: 2016,
-        month: 1
-      },
-      current: true,
-      imageUrl: 'https://www.gocd.io/assets/images/blog/gocd-versions/gocd_15_2-d6c97247.png',
-      web: 'https://github.com/karmats/gocd-monitor'
-    },
-    {
-      name: 'Resume Generator',
-      description: 'Generates a resume in material design, that can be stored and put up on your website. Written in Angular 2.',
-      startDate: {
-        year: 2016,
-        month: 10
-      },
-      current: true,
-      imageUrl: 'https://d13yacurqjgara.cloudfront.net/users/36126/screenshots/2228873/rb-logo_1x.png',
-      web: 'https://github.com/karmats/resume-generator'
-    }],
-    skills: [{
-      name: 'Angular',
-      competence: 90
-    }, {
-      name: 'React',
-      competence: 60
-    }, {
-      name: 'Javascript',
-      competence: 80
-    }]
-  }
-
   // Years and months to choose from when adding new content to resume
   years: Array<number> = [];
   months: Array<string> = [];
@@ -144,6 +55,8 @@ export class ResumeService {
    */
   saveResume(resume: Resume) {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(resume));
+    // Tell components resume has changed
+    this.resumeChanged.emit(resume);
   }
 
   /**
@@ -153,7 +66,7 @@ export class ResumeService {
    */
   retrieveResume(): Resume {
     const resumeAsString = localStorage.getItem(this.STORAGE_KEY);
-    return resumeAsString ? JSON.parse(resumeAsString) : this.RESUME;
+    return resumeAsString ? JSON.parse(resumeAsString) : {};
   }
 
   /**
@@ -164,7 +77,7 @@ export class ResumeService {
    */
   addPosition(position: Position): Array<Position> {
     const currentResume = this.retrieveResume();
-    currentResume.positions.push(position);
+    currentResume.positions = (currentResume.positions || []).concat(position);
     this.saveResume(currentResume);
     return currentResume.positions;
   }
@@ -203,7 +116,7 @@ export class ResumeService {
    */
   addEducation(education: Education): Array<Education> {
     const currentResume = this.retrieveResume();
-    currentResume.educations.push(education);
+    currentResume.educations = (currentResume.educations || []).concat(education);
     this.saveResume(currentResume);
     return currentResume.educations;
   }
@@ -242,7 +155,7 @@ export class ResumeService {
    */
   addSkill(skill: Skill): Array<Skill> {
     const currentResume = this.retrieveResume();
-    currentResume.skills.push(skill);
+    currentResume.skills = (currentResume.skills || []).concat(skill);
     this.saveResume(currentResume);
     return currentResume.skills;
   }
@@ -281,7 +194,7 @@ export class ResumeService {
    */
   addProject(project: Project): Array<Project> {
     const currentResume = this.retrieveResume();
-    currentResume.projects.push(project);
+    currentResume.projects = (currentResume.projects || []).concat(project);
     this.saveResume(currentResume);
     return currentResume.projects;
   }
@@ -406,9 +319,6 @@ export class ResumeService {
       })
     }
     this.saveResume(resume);
-
-    // Tell components resume has changed
-    this.resumeChanged.emit(resume);
   }
 
   /**
