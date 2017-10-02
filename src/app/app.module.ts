@@ -3,7 +3,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+import { MdSelectModule, MdSlideToggleModule, MdTooltipModule, MdAutocompleteModule,
+MdProgressBarModule, MdDialogModule, MdIconModule, MdButtonModule, MdCardModule, MdInputModule,
+MdListModule, MdSliderModule, MdCheckboxModule } from '@angular/material';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -51,7 +53,19 @@ import { ProjectComponent, ProjectDialog } from './project/project.component';
     HttpModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    MaterialModule
+    MdSelectModule,
+    MdSlideToggleModule,
+    MdTooltipModule,
+    MdAutocompleteModule,
+    MdProgressBarModule,
+    MdDialogModule,
+    MdIconModule,
+    MdButtonModule,
+    MdCardModule,
+    MdInputModule,
+    MdListModule,
+    MdSliderModule,
+    MdCheckboxModule
   ],
   providers: [ResumeService, Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]

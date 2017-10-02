@@ -2,10 +2,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { MdIconModule, MdDialogModule } from '@angular/material';
 
 import { ResumeService } from '../resume.service'
 import { ProjectComponent } from './project.component';
-import { MaterialModule } from '@angular/material';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
@@ -15,7 +15,7 @@ describe('ProjectComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ProjectComponent ],
       providers: [{ provide: ResumeService, useValue: {} },],
-      imports: [ MaterialModule ]
+      imports: [ MdIconModule, MdDialogModule ]
     })
     .compileComponents();
   }));

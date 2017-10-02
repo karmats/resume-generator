@@ -2,10 +2,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { MdIconModule, MdDialogModule, MdProgressBarModule } from '@angular/material';
 
 import { ResumeService } from '../resume.service'
 import { SkillComponent } from './skill.component';
-import { MaterialModule } from '@angular/material';
 
 describe('SkillComponent', () => {
   let component: SkillComponent;
@@ -17,7 +17,7 @@ describe('SkillComponent', () => {
         SkillComponent
       ],
       providers: [{ provide: ResumeService, useValue: {} },],
-      imports: [ MaterialModule ]
+      imports: [ MdIconModule, MdDialogModule, MdProgressBarModule ]
     })
     .compileComponents();
   }));
