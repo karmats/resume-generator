@@ -56,7 +56,7 @@ body {
   .section {
     margin: 24px;
     h1 {
-      md-icon {
+      mat-icon {
         font-size: 36px;
         vertical-align: sub;
         margin-right: 24px;
@@ -83,6 +83,7 @@ body {
   top: 32px;
   right: 16px;
   width: 200px;
+  z-index: 1;
 }
 
 /** Summary scss */
@@ -106,7 +107,7 @@ body {
 }
 .contact-info {
   margin-top: 40px;
-  md-icon {
+  mat-icon {
     vertical-align: middle;
     &:not(:first-child) {
       margin-left: 20px;
@@ -127,10 +128,10 @@ body {
 }
 
 /** Material override */
-[md-button], [md-raised-button], .mat-raised-button {
+[mat-button], [mat-raised-button], .mat-raised-button {
   text-transform: uppercase;
 }
-[md-dialog-actions] {
+[mat-dialog-actions] {
   float: right;
 }
 

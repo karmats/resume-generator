@@ -3,14 +3,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { MdIconModule, MdProgressBarModule, MdDialogModule } from '@angular/material';
+import { MatIconModule, MatProgressBarModule, MatDialogModule } from '@angular/material';
 
 import { ResumeService } from '../resume.service';
 import { SkillComponent } from '../skill/skill.component';
 import { SummaryComponent } from './summary.component';
 
 describe('SummaryComponent', () => {
-  const mdIconRegistryStub = {
+  const matIconRegistryStub = {
     getDefaultFontSetClass: () => {}
   };
   let component: SummaryComponent;
@@ -25,7 +25,7 @@ describe('SummaryComponent', () => {
       providers: [
         { provide: ResumeService, useValue: {} }
       ],
-      imports: [ MdIconModule, MdProgressBarModule, MdDialogModule, HttpModule ]
+      imports: [ MatIconModule, MatProgressBarModule, MatDialogModule, HttpModule ]
     })
     .compileComponents();
   }));

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
-import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 
 import { Position } from '../models'
 import { ResumeService } from '../resume.service';
@@ -13,7 +13,7 @@ export class ExperienceComponent implements OnInit {
   @Input() positions: Array<Position>;
   months: Array<string>;
 
-  constructor(private dialog: MdDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService) { }
+  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService) { }
 
   ngOnInit() {
     this.months = this.resumeService.months;
@@ -22,7 +22,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   newPosition() {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.width = "75vw";
 
     const dialogRef = this.dialog.open(PositionDialog, config);
@@ -37,7 +37,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   editPosition(position: Position) {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
     config.width = "75vw";
 
@@ -52,7 +52,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   deletePosition(position: Position) {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, config);
@@ -77,52 +77,52 @@ export class ExperienceComponent implements OnInit {
 // Add new position dialog
 @Component({
   template: `
-    <h3 md-dialog-title>{{ editMode ? 'Edit ' : 'Add new '}}position</h3>
-    <div md-dialog-content fxLayout="column">
-      <md-input-container>
-        <input mdInput
+    <h3 mat-dialog-title>{{ editMode ? 'Edit ' : 'Add new '}}position</h3>
+    <div mat-dialog-content fxLayout="column">
+      <mat-input-container>
+        <input matInput
           [(ngModel)]="position.company"
           placeholder="Company">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput
           [(ngModel)]="position.title"
           placeholder="Title">
-      </md-input-container>
-      <md-input-container>
-        <textarea mdInput
+      </mat-input-container>
+      <mat-input-container>
+        <textarea matInput
         [(ngModel)]="position.summary"
         rows="4" placeholder="Summary"></textarea>
-      </md-input-container>
+      </mat-input-container>
       <div class="date-container">
         <label>From</label>
         <div fxLayout="row">
-          <md-select fxFlex="50" [(ngModel)]="position.startDate.year" placeholder="Year">
-            <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
-          </md-select>
-          <md-select fxFlex="50" [(ngModel)]="position.startDate.month" placeholder="Month">
-            <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
-          </md-select>
+          <mat-select fxFlex="50" [(ngModel)]="position.startDate.year" placeholder="Year">
+            <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
+          </mat-select>
+          <mat-select fxFlex="50" [(ngModel)]="position.startDate.month" placeholder="Month">
+            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
+          </mat-select>
         </div>
       </div>
-      <md-checkbox [(ngModel)]="position.current" (change)="currentChanged()">
+      <mat-checkbox [(ngModel)]="position.current" (change)="currentChanged()">
         Current job
-      </md-checkbox>
+      </mat-checkbox>
       <div class="date-container" *ngIf="!position.current">
         <label>To</label>
         <div fxLayout="row">
-          <md-select fxFlex="50" [(ngModel)]="position.endDate.year" placeholder="Year">
-            <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
-          </md-select>
-          <md-select fxFlex="50" [(ngModel)]="position.endDate.month" placeholder="Month">
-            <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
-          </md-select>
+          <mat-select fxFlex="50" [(ngModel)]="position.endDate.year" placeholder="Year">
+            <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
+          </mat-select>
+          <mat-select fxFlex="50" [(ngModel)]="position.endDate.month" placeholder="Month">
+            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
+          </mat-select>
         </div>
       </div>
     </div>
-    <div md-dialog-actions>
-      <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
-      <button md-button color="primary" (click)="dialogRef.close(position)">Save</button>
+    <div mat-dialog-actions>
+      <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
+      <button mat-button color="primary" (click)="dialogRef.close(position)">Save</button>
     </div>
   `,
 })
@@ -132,7 +132,7 @@ export class PositionDialog implements OnInit {
   public months: Array<string>;
   public editMode: boolean;
 
-  constructor(public dialogRef: MdDialogRef<PositionDialog>, private resumeService: ResumeService) {
+  constructor(public dialogRef: MatDialogRef<PositionDialog>, private resumeService: ResumeService) {
     this.position = {
       company: '',
       current: true,

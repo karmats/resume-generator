@@ -1,5 +1,5 @@
 import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
-import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 import { FormControl } from '@angular/forms';
 
 import { Observable } from 'rxjs/Observable';
@@ -18,7 +18,7 @@ export class EducationComponent implements OnInit {
   @Input() educations: Array<Education>;
   months: Array<string>
 
-  constructor(private dialog: MdDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService) { }
+  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService) { }
 
   ngOnInit() {
     this.months = this.resumeService.months;
@@ -27,7 +27,7 @@ export class EducationComponent implements OnInit {
   }
 
   newEducation() {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.width = "75vw";
 
     const dialogRef = this.dialog.open(EducationDialog, config);
@@ -42,7 +42,7 @@ export class EducationComponent implements OnInit {
   }
 
   editEducation(education: Education) {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
     config.width = "75vw";
 
@@ -57,7 +57,7 @@ export class EducationComponent implements OnInit {
   }
 
   deleteEducation(education: Education) {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, config);
@@ -82,64 +82,64 @@ export class EducationComponent implements OnInit {
 // Add new education dialog
 @Component({
   template: `
-    <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}education</h3>
-    <div md-dialog-content fxLayout="column">
+    <h3 mat-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}education</h3>
+    <div mat-dialog-content fxLayout="column">
 
-      <md-input-container>
-        <input mdInput
+      <mat-input-container>
+        <input matInput
           [(ngModel)]="education.school"
           placeholder="School">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
-        <input mdInput
+      <mat-input-container>
+        <input matInput
           [(ngModel)]="education.field"
           placeholder="Field of Study">
-      </md-input-container>
+      </mat-input-container>
 
-      <md-input-container>
-        <input mdInput
+      <mat-input-container>
+        <input matInput
               [(ngModel)]="education.degree"
               placeholder="Degree"
               [formControl]="degreeCtrl"
-              [mdAutocomplete]="auto">
-      </md-input-container>
-      <md-autocomplete #auto="mdAutocomplete">
-        <md-option *ngFor="let degree of filteredDegrees | async" [value]="degree">
+              [matAutocomplete]="auto">
+      </mat-input-container>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let degree of filteredDegrees | async" [value]="degree">
           {{ degree }}
-        </md-option>
-      </md-autocomplete>
+        </mat-option>
+      </mat-autocomplete>
 
       <div class="date-container">
         <label>From</label>
         <div fxLayout="row">
-          <md-select fxFlex="50" [(ngModel)]="education.startDate.year" placeholder="Year">
-            <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
-          </md-select>
-          <md-select fxFlex="50" [(ngModel)]="education.startDate.month" placeholder="Month">
-            <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
-          </md-select>
+          <mat-select fxFlex="50" [(ngModel)]="education.startDate.year" placeholder="Year">
+            <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
+          </mat-select>
+          <mat-select fxFlex="50" [(ngModel)]="education.startDate.month" placeholder="Month">
+            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
+          </mat-select>
         </div>
       </div>
-      <md-checkbox [(ngModel)]="education.current" (change)="currentChanged()">
+      <mat-checkbox [(ngModel)]="education.current" (change)="currentChanged()">
         Current education
-      </md-checkbox>
+      </mat-checkbox>
       <div class="date-container" *ngIf="!education.current">
         <label>To</label>
         <div fxLayout="row">
-          <md-select fxFlex="50" [(ngModel)]="education.endDate.year" placeholder="Year">
-            <md-option *ngFor="let year of years" [value]="year"> {{year}} </md-option>
-          </md-select>
-          <md-select fxFlex="50" [(ngModel)]="education.endDate.month" placeholder="Month">
-            <md-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </md-option>
-          </md-select>
+          <mat-select fxFlex="50" [(ngModel)]="education.endDate.year" placeholder="Year">
+            <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
+          </mat-select>
+          <mat-select fxFlex="50" [(ngModel)]="education.endDate.month" placeholder="Month">
+            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
+          </mat-select>
         </div>
       </div>
     </div>
 
-    <div md-dialog-actions>
-      <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
-      <button md-button color="primary" (click)="dialogRef.close(education)">Save</button>
+    <div mat-dialog-actions>
+      <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
+      <button mat-button color="primary" (click)="dialogRef.close(education)">Save</button>
     </div>
   `,
 })
@@ -153,7 +153,7 @@ export class EducationDialog implements OnInit {
   months: Array<string>;
   editMode: boolean;
 
-  constructor(public dialogRef: MdDialogRef<EducationDialog>, private resumeService: ResumeService) {
+  constructor(public dialogRef: MatDialogRef<EducationDialog>, private resumeService: ResumeService) {
     this.degreeCtrl = new FormControl();
     this.filteredDegrees = this.degreeCtrl.valueChanges
         .startWith(null)

@@ -1,21 +1,21 @@
 <div class="section">
-  <h1><md-icon>school</md-icon>Education</h1>
-  <md-card>
-    <md-list>
-      <md-list-item *ngFor="let education of educations">
-        <h3 md-line>{{education.field}} - {{education.school}}</h3>
-        <p md-line class="date-label">{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</p>
-        <p md-line>{{education.degree ? education.degree : '-'}}</p>
-        <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="editEducation(education)">
-          <md-icon>edit</md-icon>
+  <h1><mat-icon>school</mat-icon>Education</h1>
+  <mat-card>
+    <mat-list>
+      <mat-list-item *ngFor="let education of educations">
+        <h3 mat-line>{{education.field}} - {{education.school}}</h3>
+        <p mat-line class="date-label">{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</p>
+        <p mat-line>{{education.degree ? education.degree : '-'}}</p>
+        <button *ngIf="resumeService.editMode" mat-icon-button color="primary" (click)="editEducation(education)">
+          <mat-icon>edit</mat-icon>
         </button>
-        <button *ngIf="resumeService.editMode" md-icon-button color="primary" (click)="deleteEducation(education)">
-          <md-icon>delete</md-icon>
+        <button *ngIf="resumeService.editMode" mat-icon-button color="primary" (click)="deleteEducation(education)">
+          <mat-icon>delete</mat-icon>
         </button>
-      </md-list-item>
-    </md-list>
-    <md-card-actions *ngIf="resumeService.editMode">
-      <button md-button color="primary" (click)="newEducation()">Add Education</button>
-    </md-card-actions>
-  </md-card>
+      </mat-list-item>
+    </mat-list>
+    <mat-card-actions *ngIf="resumeService.editMode">
+      <button mat-button color="primary" (click)="newEducation()">Add Education</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

@@ -3,9 +3,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MdSelectModule, MdSlideToggleModule, MdTooltipModule, MdAutocompleteModule,
-MdProgressBarModule, MdDialogModule, MdIconModule, MdButtonModule, MdCardModule, MdInputModule,
-MdListModule, MdSliderModule, MdCheckboxModule } from '@angular/material';
+import { MatSelectModule, MatSlideToggleModule, MatTooltipModule, MatAutocompleteModule,
+MatProgressBarModule, MatDialogModule, MatIconModule, MatButtonModule, MatCardModule, MatInputModule,
+MatListModule, MatSliderModule, MatCheckboxModule } from '@angular/material';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -53,19 +53,19 @@ import { ProjectComponent, ProjectDialog } from './project/project.component';
     HttpModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    MdSelectModule,
-    MdSlideToggleModule,
-    MdTooltipModule,
-    MdAutocompleteModule,
-    MdProgressBarModule,
-    MdDialogModule,
-    MdIconModule,
-    MdButtonModule,
-    MdCardModule,
-    MdInputModule,
-    MdListModule,
-    MdSliderModule,
-    MdCheckboxModule
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatTooltipModule,
+    MatAutocompleteModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatListModule,
+    MatSliderModule,
+    MatCheckboxModule
   ],
   providers: [ResumeService, Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]

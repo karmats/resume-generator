@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MdDialog, MdDialogRef, MdDialogConfig, MdIconRegistry } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig, MatIconRegistry } from '@angular/material';
 
 import { ResumeService } from '../resume.service';
 import { Skill } from '../models';
@@ -28,8 +28,8 @@ export class SummaryComponent implements OnInit {
   @Input() skills: Array<Skill>;
   
 
-  constructor(private dialog: MdDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService,
-            private iconRegistry: MdIconRegistry, private sanitizer: DomSanitizer) { }
+  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService,
+            private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     // Profile picture placeholder
@@ -39,7 +39,7 @@ export class SummaryComponent implements OnInit {
   }
 
   editSummary() {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
     config.width = "75vw";
 
@@ -89,48 +89,48 @@ export class SummaryComponent implements OnInit {
 // Edit summary dialog
 @Component({
   template: `
-    <h3 md-dialog-title>Edit summary</h3>
-    <div md-dialog-content fxLayout="column">
-      <md-input-container>
-        <input mdInput
+    <h3 mat-dialog-title>Edit summary</h3>
+    <div mat-dialog-content fxLayout="column">
+      <mat-input-container>
+        <input matInput
           [(ngModel)]="summary.name"
           placeholder="Your name">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput
           [(ngModel)]="summary.profileUrl"
           placeholder="Url to profile picture">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput
           [(ngModel)]="summary.title"
           placeholder="Job title">
-      </md-input-container>
-      <md-input-container>
-        <textarea mdInput
+      </mat-input-container>
+      <mat-input-container>
+        <textarea matInput
         [(ngModel)]="summary.description"
         rows="4" placeholder="Description of yourself"></textarea>
-      </md-input-container>
-      <md-input-container>
-        <input mdInput
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput
           [(ngModel)]="summary.phone"
           placeholder="Your phone number">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput
           [(ngModel)]="summary.email"
           placeholder="Your email adress">
-      </md-input-container>
+      </mat-input-container>
     </div>
-    <div md-dialog-actions>
-      <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
-      <button md-button color="primary" (click)="dialogRef.close(summary)">Ok</button>
+    <div mat-dialog-actions>
+      <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
+      <button mat-button color="primary" (click)="dialogRef.close(summary)">Ok</button>
     </div>
   `,
 })
 export class EditSummaryDialog {
   public summary: Summary;
 
-  constructor(public dialogRef: MdDialogRef<EditSummaryDialog>) {
+  constructor(public dialogRef: MatDialogRef<EditSummaryDialog>) {
   }
 }

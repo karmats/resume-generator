@@ -1,5 +1,5 @@
 import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
-import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 
 import { ResumeService } from '../resume.service';
 import { Skill } from '../models';
@@ -12,7 +12,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 export class SkillComponent implements OnInit {
   @Input() skills:Array<Skill>;
 
-  constructor(private dialog: MdDialog, private resumeService: ResumeService, private viewContainerRef: ViewContainerRef) {
+  constructor(private dialog: MatDialog, private resumeService: ResumeService, private viewContainerRef: ViewContainerRef) {
   }
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class SkillComponent implements OnInit {
   }
 
   newSkill() {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.width = "75vw";
     const dialogRef = this.dialog.open(SkillDialog, config);
 
@@ -34,7 +34,7 @@ export class SkillComponent implements OnInit {
   }
 
   editSkill(skill: Skill) {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.width = "75vw";
     config.viewContainerRef = this.viewContainerRef;
 
@@ -49,7 +49,7 @@ export class SkillComponent implements OnInit {
   }
 
   deleteSkill(skill: Skill) {
-    const config = new MdDialogConfig();
+    const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, config);
@@ -75,24 +75,24 @@ export class SkillComponent implements OnInit {
 // Add new skill dialog
 @Component({
   template: `
-    <h3 md-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}skill</h3>
-    <div md-dialog-content fxLayout="column">
-      <md-input-container>
-        <input mdInput
+    <h3 mat-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}skill</h3>
+    <div mat-dialog-content fxLayout="column">
+      <mat-input-container>
+        <input matInput
           [(ngModel)]="skill.name"
           placeholder="Skill name">
-      </md-input-container>
-      <md-slider
+      </mat-input-container>
+      <mat-slider
         [(ngModel)]="skill.competence"
         min="0"
         max="100"
         thumbLabel
         step="10"
-        tickInterval="1"></md-slider>
+        tickInterval="1"></mat-slider>
     </div>
-    <div md-dialog-actions>
-      <button md-button color="primary" (click)="dialogRef.close()">Cancel</button>
-      <button md-button color="primary" (click)="dialogRef.close(skill)">Save</button>
+    <div mat-dialog-actions>
+      <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
+      <button mat-button color="primary" (click)="dialogRef.close(skill)">Save</button>
     </div>
   `,
 })
@@ -100,7 +100,7 @@ export class SkillDialog implements OnInit {
   public skill: Skill;
   public editMode: boolean;
 
-  constructor(public dialogRef: MdDialogRef<SkillDialog>, private resumeService: ResumeService) {
+  constructor(public dialogRef: MatDialogRef<SkillDialog>, private resumeService: ResumeService) {
     const today = new Date();
     this.skill = {
       competence: 0,

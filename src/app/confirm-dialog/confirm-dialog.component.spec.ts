@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 import { ConfirmDialogComponent } from './confirm-dialog.component';
 
@@ -13,7 +13,7 @@ describe('ConfirmDialogComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ConfirmDialogComponent ],
-      providers: [{ provide: MdDialogRef, useValue: {} },]
+      providers: [{ provide: MatDialogRef, useValue: {} },]
     })
     .compileComponents();
   }));

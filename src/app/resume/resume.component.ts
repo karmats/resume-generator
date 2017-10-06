@@ -52,8 +52,6 @@ export class ResumeComponent implements OnInit {
   }
 
   themeChanged(theme, dark) {
-    // FIXME Correct behavior when the angular MD team has fixed this bug
-    this.darkTheme = !dark;
     this.resumeService.updateTheme(this.currentTheme.value, this.darkTheme);
     this.darkTheme ? document.body.classList.add('dark') : document.body.classList.remove('dark');
   }

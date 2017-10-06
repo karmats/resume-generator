@@ -1,29 +1,29 @@
 <div class="section">
-  <h1><md-icon>trending_up</md-icon>Projects</h1>
+  <h1><mat-icon>trending_up</mat-icon>Projects</h1>
   <div *ngIf="resumeService.editMode">
-    <button md-raised-button color="primary" (click)="newProject()" *ngIf="resumeService.editMode">Add Project</button>
+    <button mat-raised-button color="primary" (click)="newProject()" *ngIf="resumeService.editMode">Add Project</button>
   </div>
   <div class="masonry">
     <div class="item" *ngFor="let project of projects">
-      <md-card>
-        <md-card-header>
-          <md-card-title>{{project.name}}</md-card-title>
-          <md-card-subtitle>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{project.name}}</mat-card-title>
+          <mat-card-subtitle>
             {{ months[project.startDate.month] + ' ' + project.startDate.year}} - {{project.endDate ? (months[project.endDate.month] + ' ' + project.endDate.year) : 'Present' }}
-          </md-card-subtitle>
-        </md-card-header>
-        <img *ngIf="project.imageUrl" md-card-image [src]="project.imageUrl">
-        <md-card-content>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <img *ngIf="project.imageUrl" mat-card-image [src]="project.imageUrl">
+        <mat-card-content>
           <p>
             {{ project.description }}
           </p>
-        </md-card-content>
-        <md-card-actions>
-          <a md-button color="primary" [href]="project.web" target="_project" *ngIf="project.web">Visit Page</a>
-          <button md-button color="primary" (click)="editProject(project)" *ngIf="resumeService.editMode"><md-icon>edit</md-icon></button>
-          <button md-button color="primary" (click)="deleteProject(project)" *ngIf="resumeService.editMode"><md-icon>delete</md-icon></button>
-        </md-card-actions>
-      </md-card>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-button color="primary" [href]="project.web" target="_project" *ngIf="project.web">Visit Page</a>
+          <button mat-button color="primary" (click)="editProject(project)" *ngIf="resumeService.editMode"><mat-icon>edit</mat-icon></button>
+          <button mat-button color="primary" (click)="deleteProject(project)" *ngIf="resumeService.editMode"><mat-icon>delete</mat-icon></button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
 
