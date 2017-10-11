@@ -27,6 +27,9 @@ body {
 .space-down {
   margin-bottom: 24px;
 }
+.space-down-s {
+  margin-bottom: 12px;
+}
 
 /**  Core scss */
 .app-content {
@@ -95,6 +98,12 @@ body {
   .information-text {
     padding: 12px;
     font-weight: bold;
+  }
+}
+.social-media {
+  >.mat-icon {
+    width: 48px;
+    height: 48px;
   }
 }
 .profile-picture {

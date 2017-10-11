@@ -33,9 +33,19 @@ export class SummaryComponent implements OnInit {
 
   ngOnInit() {
     // Profile picture placeholder
-    this.iconRegistry.addSvgIcon(
+    this.iconRegistry
+    .addSvgIcon(
         'account-circle',
-        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'));
+        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'))
+      .addSvgIcon(
+        'facebook-box',
+        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/facebook-box.svg'))
+      .addSvgIcon(
+        'twitter-box',
+        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/twitter-box.svg'))
+      .addSvgIcon(
+        'linkedin-box',
+        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/linkedin-box.svg'));
   }
 
   editSummary() {
