@@ -8,10 +8,12 @@
         <div fxFlex>{{title}}</div>
     </div>
     
-    <div fxLayout="row" fxLayoutAlign="center" fxLayout.sm="column" fxLayout.xs="column" class="social-media space-down-s">
-        <mat-icon svgIcon="linkedin-box"></mat-icon>
-        <mat-icon svgIcon="twitter-box"></mat-icon>
-        <mat-icon svgIcon="facebook-box"></mat-icon>
+    <div fxLayout="row" fxLayoutAlign="center" class="social-media space-down-s">
+        <a href="http://www.dn.se"><mat-icon svgIcon="linkedin"></mat-icon></a>
+        <a href="http://www.dn.se"><mat-icon svgIcon="twitter"></mat-icon></a>
+        <a href="http://www.dn.se"><mat-icon svgIcon="facebook"></mat-icon></a>
+        <a href="http://www.dn.se"><mat-icon svgIcon="github"></mat-icon></a>
+        <a href="http://www.dn.se"><mat-icon svgIcon="instagram"></mat-icon></a>
     </div>
 
     <div class="text-center">
@@ -26,14 +28,14 @@
         <div fxFlex><div class="description">{{description}}</div></div>
     </div>
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up" *ngIf="phone && phone.length">
         <div fxFlex="25" class="text-center">
             <mat-icon>phone</mat-icon>
         </div>
         <div fxFlex>{{phone}}</div>
     </div>
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up" *ngIf="email && email.length">
         <div fxFlex="25" class="text-center">
             <mat-icon>email</mat-icon>
         </div>

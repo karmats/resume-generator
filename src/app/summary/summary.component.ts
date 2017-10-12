@@ -38,14 +38,20 @@ export class SummaryComponent implements OnInit {
         'account-circle',
         this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'))
       .addSvgIcon(
-        'facebook-box',
+        'facebook',
         this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/facebook-box.svg'))
       .addSvgIcon(
-        'twitter-box',
+        'twitter',
         this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/twitter-box.svg'))
       .addSvgIcon(
-        'linkedin-box',
-        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/linkedin-box.svg'));
+        'linkedin',
+        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/linkedin-box.svg'))
+      .addSvgIcon(
+        'instagram',
+        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/instagram.svg'))
+      .addSvgIcon(
+        'github',
+        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/github-circle.svg'));
   }
 
   editSummary() {

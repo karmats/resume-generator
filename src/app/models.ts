@@ -5,10 +5,20 @@ export interface Resume {
     email: string;
     phone: string;
     pictureUrl: string;
+    social: Array<Social>;
     positions: Array<Position>;
     educations: Array<Education>;
     projects: Array<Project>;
     skills: Array<Skill>;
+}
+
+export enum SocialType {
+    TWITTER, FACEBOOK, LINKEDIN, GITHUB, INSTAGRAM
+}
+
+export interface Social {
+    type: SocialType;
+    url: string;
 }
 
 export interface Position {

@@ -101,7 +101,8 @@ body {
   }
 }
 .social-media {
-  >.mat-icon {
+  a .mat-icon {
+    color: #fff;
     width: 48px;
     height: 48px;
   }
@@ -142,6 +143,10 @@ body {
 }
 [mat-dialog-actions] {
   float: right;
+}
+
+mat-input-container.mat-form-field {
+  width: 100%;
 }
 
 .mat-card-header .mat-card-header-text {
