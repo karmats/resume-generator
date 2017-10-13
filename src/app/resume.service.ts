@@ -249,7 +249,7 @@ export class ResumeService {
    * Update resume personal information.
    */
   updateSummary(name: string, profileUrl: string, description: string, title: string,
-                phone: string, email: string): Resume {
+                phone: string, email: string, socials: Array<Social>): Resume {
     const currentResume = this.retrieveResume();
     currentResume.name = name;
     currentResume.pictureUrl = profileUrl;
@@ -257,6 +257,7 @@ export class ResumeService {
     currentResume.title = title;
     currentResume.phone = phone;
     currentResume.email = email;
+    currentResume.social = socials;
     this.saveResume(currentResume);
     return currentResume;
   }

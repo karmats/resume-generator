@@ -9,11 +9,10 @@
     </div>
     
     <div fxLayout="row" fxLayoutAlign="center" class="social-media space-down-s">
-        <a href="http://www.dn.se"><mat-icon svgIcon="linkedin"></mat-icon></a>
-        <a href="http://www.dn.se"><mat-icon svgIcon="twitter"></mat-icon></a>
-        <a href="http://www.dn.se"><mat-icon svgIcon="facebook"></mat-icon></a>
-        <a href="http://www.dn.se"><mat-icon svgIcon="github"></mat-icon></a>
-        <a href="http://www.dn.se"><mat-icon svgIcon="instagram"></mat-icon></a>
+        <span *ngFor="let social of socials">
+            <a *ngIf="social.url.length" [attr.href]="social.url"><mat-icon [svgIcon]="social.type.toLowerCase()"></mat-icon></a>
+        </span>
+        
     </div>
 
     <div class="text-center">

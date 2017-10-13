@@ -3,7 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatDialog, MatDialogRef, MatDialogConfig, MatIconRegistry } from '@angular/material';
 
 import { ResumeService } from '../resume.service';
-import { Skill } from '../models';
+import { Skill, Social, SocialType } from '../models';
 
 interface Summary {
   name: string;
@@ -12,6 +12,7 @@ interface Summary {
   title: string;
   phone: string;
   email: string;
+  socials: Array<Social>;
 }
 
 @Component({
@@ -25,6 +26,7 @@ export class SummaryComponent implements OnInit {
   @Input() title: string;
   @Input() phone: string;
   @Input() email: string;
+  @Input() socials: Array<Social>;
   @Input() skills: Array<Skill>;
   
 
@@ -66,7 +68,8 @@ export class SummaryComponent implements OnInit {
       description: this.description,
       title: this.title,
       phone: this.phone,
-      email: this.email
+      email: this.email,
+      socials: this.socials
     }
 
     dialogRef.afterClosed().subscribe(result => {
@@ -74,13 +77,14 @@ export class SummaryComponent implements OnInit {
         return;
       }
       const resume = this.resumeService.updateSummary(result.name, result.profileUrl,
-          result.description, result.title, result.phone, result.email);
+          result.description, result.title, result.phone, result.email, result.socials);
       this.name = resume.name;
       this.profileUrl = resume.pictureUrl;
       this.description = resume.summary;
       this.title = resume.title;
       this.phone = resume.phone;
       this.email = resume.email;
+      this.socials = resume.social;
     });
   }
 
@@ -137,6 +141,11 @@ export class SummaryComponent implements OnInit {
           [(ngModel)]="summary.email"
           placeholder="Your email adress">
       </mat-input-container>
+      <mat-input-container class="capitalize" *ngFor="let social of summary.socials">
+        <input matInput
+          [(ngModel)]="social.url"
+          placeholder="{{social.type.toLowerCase()}}">
+      </mat-input-container>
     </div>
     <div mat-dialog-actions>
       <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
@@ -144,9 +153,19 @@ export class SummaryComponent implements OnInit {
     </div>
   `,
 })
-export class EditSummaryDialog {
+export class EditSummaryDialog implements OnInit {
   public summary: Summary;
 
   constructor(public dialogRef: MatDialogRef<EditSummaryDialog>) {
+  }
+
+  ngOnInit() {
+    this.summary.socials = this.summary.socials || [];
+    for (let type in SocialType) {
+      const sType: SocialType = <SocialType>SocialType[type];
+      if (sType !== SocialType.UNKNOWN && !this.summary.socials.filter(s => s.type === sType).length) {
+        this.summary.socials.push({ type: sType, url: '' })
+      }
+    }
   }
 }
