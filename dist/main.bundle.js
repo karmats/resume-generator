@@ -504,6 +504,24 @@ var PositionDialog = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/models.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SocialType; });
+var SocialType;
+(function (SocialType) {
+    SocialType["TWITTER"] = "TWITTER";
+    SocialType["FACEBOOK"] = "FACEBOOK";
+    SocialType["LINKEDIN"] = "LINKEDIN";
+    SocialType["GITHUB"] = "GITHUB";
+    SocialType["INSTAGRAM"] = "INSTAGRAM";
+    SocialType["UNKNOWN"] = "UNKNOWN";
+})(SocialType || (SocialType = {}));
+//# sourceMappingURL=models.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/project/project.component.html":
 /***/ (function(module, exports) {
 
@@ -652,6 +670,7 @@ var ProjectDialog = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResumeService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__("../../../../../src/app/models.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -661,6 +680,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var ResumeService = /** @class */ (function () {
@@ -883,7 +903,7 @@ var ResumeService = /** @class */ (function () {
     /**
      * Update resume personal information.
      */
-    ResumeService.prototype.updateSummary = function (name, profileUrl, description, title, phone, email) {
+    ResumeService.prototype.updateSummary = function (name, profileUrl, description, title, phone, email, socials) {
         var currentResume = this.retrieveResume();
         currentResume.name = name;
         currentResume.pictureUrl = profileUrl;
@@ -891,6 +911,7 @@ var ResumeService = /** @class */ (function () {
         currentResume.title = title;
         currentResume.phone = phone;
         currentResume.email = email;
+        currentResume.social = socials;
         this.saveResume(currentResume);
         return currentResume;
     };
@@ -909,6 +930,26 @@ var ResumeService = /** @class */ (function () {
             phone: basics.phone,
             email: basics.email,
             pictureUrl: basics.picture,
+            social: basics.profiles.map(function (profile) {
+                var network = profile.network.toLowerCase();
+                var social = { url: profile.url, type: __WEBPACK_IMPORTED_MODULE_2__models__["a" /* SocialType */].UNKNOWN };
+                if (network.includes('twitter')) {
+                    social.type = __WEBPACK_IMPORTED_MODULE_2__models__["a" /* SocialType */].TWITTER;
+                }
+                else if (network.includes('facebook')) {
+                    social.type = __WEBPACK_IMPORTED_MODULE_2__models__["a" /* SocialType */].FACEBOOK;
+                }
+                else if (network.includes('linkedin')) {
+                    social.type = __WEBPACK_IMPORTED_MODULE_2__models__["a" /* SocialType */].LINKEDIN;
+                }
+                else if (network.includes('github')) {
+                    social.type = __WEBPACK_IMPORTED_MODULE_2__models__["a" /* SocialType */].GITHUB;
+                }
+                else if (network.includes('instagram')) {
+                    social.type = __WEBPACK_IMPORTED_MODULE_2__models__["a" /* SocialType */].INSTAGRAM;
+                }
+                return social;
+            }),
             positions: jsonResume.work.map(function (w) {
                 var sd = _this.dateAsYearMonth(new Date(w.startDate));
                 var ed = w.endDate ? _this.dateAsYearMonth(new Date(w.endDate)) : null;
@@ -984,7 +1025,7 @@ var ResumeService = /** @class */ (function () {
 /***/ "../../../../../src/app/resume/resume.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Summary -->\n<div class=\"app-content\" [ngClass]=\"cssClasses()\">\n    <div *ngIf=\"resumeService.editMode\" class=\"theme-switch\">\n        <mat-select placeholder=\"Theme\" [(ngModel)]=\"currentTheme\" (change)=\"themeChanged(currentTheme, darkTheme)\">\n            <mat-option *ngFor=\"let theme of themes\" [value]=\"theme\">{{ theme.name }}</mat-option>\n        </mat-select>\n        <mat-slide-toggle [(ngModel)]=\"darkTheme\" (change)=\"themeChanged(currentTheme, darkTheme)\">Dark</mat-slide-toggle>\n    </div>\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" fxLayoutAlign=\"space-between stretch\" fxLayoutWrap>\n        <aside fxFlex=\"30\" class=\"summary\">\n            <div class=\"information-text\" *ngIf=\"resumeEmpty\">\n                It seems that it's your first time here, welcome! Start by filling in some information about your self, or import your profile from linkedin. Save the page when you're happy with the result :)\n            </div>\n            <app-summary [picture]=\"resume.pictureUrl\" [name]=\"resume.name\" [description]=\"resume.summary\" [title]=\"resume.title\" [phone]=\"resume.phone\"\n                [email]=\"resume.email\" [skills]=\"resume.skills\">\n            </app-summary>\n        </aside>\n\n\n        <section fxFlex=\"70\">\n            <!-- Work experience -->\n            <app-experience [positions]=\"resume.positions\">\n            </app-experience>\n\n            <!-- Education -->\n            <app-education [educations]=\"resume.educations\">\n            </app-education>\n\n            <!-- Projects -->\n            <app-project [projects]=\"resume.projects\">\n            </app-project>\n        </section>\n    </div>\n\n    <!-- Footer -->\n    <div class=\"footer\">\n        Generated with <a class=\"mat-link\" href=\"https://github.com/karmats/resume-generator\" target=\"_homepage\">resume generator</a>\n    </div>\n\n</div>\n"
+module.exports = "<!-- Summary -->\n<div class=\"app-content\" [ngClass]=\"cssClasses()\">\n    <div *ngIf=\"resumeService.editMode\" class=\"theme-switch\">\n        <mat-select placeholder=\"Theme\" [(ngModel)]=\"currentTheme\" (change)=\"themeChanged(currentTheme, darkTheme)\">\n            <mat-option *ngFor=\"let theme of themes\" [value]=\"theme\">{{ theme.name }}</mat-option>\n        </mat-select>\n        <mat-slide-toggle [(ngModel)]=\"darkTheme\" (change)=\"themeChanged(currentTheme, darkTheme)\">Dark</mat-slide-toggle>\n    </div>\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" fxLayoutAlign=\"space-between stretch\" fxLayoutWrap>\n        <aside fxFlex=\"30\" class=\"summary\">\n            <div class=\"information-text\" *ngIf=\"resumeEmpty\">\n                It seems that it's your first time here, welcome! Start by filling in some information about your self, or import your profile from linkedin. Save the page when you're happy with the result :)\n            </div>\n            <app-summary [picture]=\"resume.pictureUrl\" [name]=\"resume.name\" [description]=\"resume.summary\" [title]=\"resume.title\" [phone]=\"resume.phone\"\n                [email]=\"resume.email\" [socials]=\"resume.social\" [skills]=\"resume.skills\">\n            </app-summary>\n        </aside>\n\n\n        <section fxFlex=\"70\">\n            <!-- Work experience -->\n            <app-experience [positions]=\"resume.positions\">\n            </app-experience>\n\n            <!-- Education -->\n            <app-education [educations]=\"resume.educations\">\n            </app-education>\n\n            <!-- Projects -->\n            <app-project [projects]=\"resume.projects\">\n            </app-project>\n        </section>\n    </div>\n\n    <!-- Footer -->\n    <div class=\"footer\">\n        Generated with <a class=\"mat-link\" href=\"https://github.com/karmats/resume-generator\" target=\"_homepage\">resume generator</a>\n    </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1197,7 +1238,7 @@ var SkillDialog = /** @class */ (function () {
 /***/ "../../../../../src/app/summary/summary.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"text-center space-up\">\n        <div fxFlex><h1 style=\"margin-bottom:0\">{{name}}</h1></div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"text-center space-down\">\n        <div fxFlex>{{title}}</div>\n    </div>\n\n    <div class=\"text-center\">\n        <img *ngIf=\"profileUrl && profileUrl.length\" class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n        <mat-icon *ngIf=\"!profileUrl || !profileUrl.length\" svgIcon=\"account-circle\" class=\"profile-picture\"></mat-icon>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>person</mat-icon>\n        </div>\n        <div fxFlex><div class=\"description\">{{description}}</div></div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>phone</mat-icon>\n        </div>\n        <div fxFlex>{{phone}}</div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>email</mat-icon>\n        </div>\n        <div fxFlex>{{email}}</div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>settings</mat-icon>\n        </div>\n        <div fxFlex>\n            <app-skill [skills]=\"skills\">\n            </app-skill>\n        </div>\n    </div>\n\n    <div *ngIf=\"resumeService.editMode\" class=\"actions\">\n        <button mat-raised-button color=\"primary\" (click)=\"editSummary()\">Edit profile</button>\n        <input id=\"resumeFile\" style=\"display:none\" *ngIf=\"resumeService.editMode\" type=\"file\" accept=\"application/json\" (change)=\"uploadResume($event)\">\n        <label for=\"resumeFile\" class=\"mat-primary mat-raised-button\">Upload Resume</label>\n    </div>\n</div>\n"
+module.exports = "<div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"text-center space-up\">\n        <div fxFlex><h1 style=\"margin-bottom:0\">{{name}}</h1></div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"text-center space-down-s\">\n        <div fxFlex>{{title}}</div>\n    </div>\n    \n    <div fxLayout=\"row\" fxLayoutAlign=\"center\" class=\"social-media space-down-s\">\n        <span *ngFor=\"let social of socials\">\n            <a *ngIf=\"social.url.length\" [attr.href]=\"social.url\"><mat-icon [svgIcon]=\"social.type.toLowerCase()\"></mat-icon></a>\n        </span>\n        \n    </div>\n\n    <div class=\"text-center\">\n        <img *ngIf=\"profileUrl && profileUrl.length\" class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n        <mat-icon *ngIf=\"!profileUrl || !profileUrl.length\" svgIcon=\"account-circle\" class=\"profile-picture\"></mat-icon>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>person</mat-icon>\n        </div>\n        <div fxFlex><div class=\"description\">{{description}}</div></div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\" *ngIf=\"phone && phone.length\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>phone</mat-icon>\n        </div>\n        <div fxFlex>{{phone}}</div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\" *ngIf=\"email && email.length\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>email</mat-icon>\n        </div>\n        <div fxFlex>{{email}}</div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>settings</mat-icon>\n        </div>\n        <div fxFlex>\n            <app-skill [skills]=\"skills\">\n            </app-skill>\n        </div>\n    </div>\n\n    <div *ngIf=\"resumeService.editMode\" class=\"actions\">\n        <button mat-raised-button color=\"primary\" (click)=\"editSummary()\">Edit profile</button>\n        <input id=\"resumeFile\" style=\"display:none\" *ngIf=\"resumeService.editMode\" type=\"file\" accept=\"application/json\" (change)=\"uploadResume($event)\">\n        <label for=\"resumeFile\" class=\"mat-primary mat-raised-button\">Upload Resume</label>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -1211,6 +1252,7 @@ module.exports = "<div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLa
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models__ = __webpack_require__("../../../../../src/app/models.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1220,6 +1262,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1234,7 +1277,13 @@ var SummaryComponent = /** @class */ (function () {
     }
     SummaryComponent.prototype.ngOnInit = function () {
         // Profile picture placeholder
-        this.iconRegistry.addSvgIcon('account-circle', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'));
+        this.iconRegistry
+            .addSvgIcon('account-circle', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'))
+            .addSvgIcon('facebook', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/facebook-box.svg'))
+            .addSvgIcon('twitter', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/twitter-box.svg'))
+            .addSvgIcon('linkedin', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/linkedin-box.svg'))
+            .addSvgIcon('instagram', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/instagram.svg'))
+            .addSvgIcon('github', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/github-circle.svg'));
     };
     SummaryComponent.prototype.editSummary = function () {
         var _this = this;
@@ -1248,19 +1297,21 @@ var SummaryComponent = /** @class */ (function () {
             description: this.description,
             title: this.title,
             phone: this.phone,
-            email: this.email
+            email: this.email,
+            socials: this.socials
         };
         dialogRef.afterClosed().subscribe(function (result) {
             if (!result) {
                 return;
             }
-            var resume = _this.resumeService.updateSummary(result.name, result.profileUrl, result.description, result.title, result.phone, result.email);
+            var resume = _this.resumeService.updateSummary(result.name, result.profileUrl, result.description, result.title, result.phone, result.email, result.socials);
             _this.name = resume.name;
             _this.profileUrl = resume.pictureUrl;
             _this.description = resume.summary;
             _this.title = resume.title;
             _this.phone = resume.phone;
             _this.email = resume.email;
+            _this.socials = resume.social;
         });
     };
     SummaryComponent.prototype.uploadResume = function (event) {
@@ -1305,6 +1356,10 @@ var SummaryComponent = /** @class */ (function () {
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
         __metadata("design:type", Object)
+    ], SummaryComponent.prototype, "socials", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object)
     ], SummaryComponent.prototype, "skills", void 0);
     SummaryComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -1322,9 +1377,22 @@ var EditSummaryDialog = /** @class */ (function () {
     function EditSummaryDialog(dialogRef) {
         this.dialogRef = dialogRef;
     }
+    EditSummaryDialog.prototype.ngOnInit = function () {
+        this.summary.socials = this.summary.socials || [];
+        var _loop_1 = function (type) {
+            var sType = __WEBPACK_IMPORTED_MODULE_4__models__["a" /* SocialType */][type];
+            if (sType !== __WEBPACK_IMPORTED_MODULE_4__models__["a" /* SocialType */].UNKNOWN && !this_1.summary.socials.filter(function (s) { return s.type === sType; }).length) {
+                this_1.summary.socials.push({ type: sType, url: '' });
+            }
+        };
+        var this_1 = this;
+        for (var type in __WEBPACK_IMPORTED_MODULE_4__models__["a" /* SocialType */]) {
+            _loop_1(type);
+        }
+    };
     EditSummaryDialog = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            template: "\n    <h3 mat-dialog-title>Edit summary</h3>\n    <div mat-dialog-content fxLayout=\"column\">\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.name\"\n          placeholder=\"Your name\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.profileUrl\"\n          placeholder=\"Url to profile picture\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.title\"\n          placeholder=\"Job title\">\n      </mat-input-container>\n      <mat-input-container>\n        <textarea matInput\n        [(ngModel)]=\"summary.description\"\n        rows=\"4\" placeholder=\"Description of yourself\"></textarea>\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.phone\"\n          placeholder=\"Your phone number\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.email\"\n          placeholder=\"Your email adress\">\n      </mat-input-container>\n    </div>\n    <div mat-dialog-actions>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close(summary)\">Ok</button>\n    </div>\n  ",
+            template: "\n    <h3 mat-dialog-title>Edit summary</h3>\n    <div mat-dialog-content fxLayout=\"column\">\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.name\"\n          placeholder=\"Your name\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.profileUrl\"\n          placeholder=\"Url to profile picture\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.title\"\n          placeholder=\"Job title\">\n      </mat-input-container>\n      <mat-input-container>\n        <textarea matInput\n        [(ngModel)]=\"summary.description\"\n        rows=\"4\" placeholder=\"Description of yourself\"></textarea>\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.phone\"\n          placeholder=\"Your phone number\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.email\"\n          placeholder=\"Your email adress\">\n      </mat-input-container>\n      <mat-input-container class=\"capitalize\" *ngFor=\"let social of summary.socials\">\n        <input matInput\n          [(ngModel)]=\"social.url\"\n          placeholder=\"{{social.type.toLowerCase()}}\">\n      </mat-input-container>\n    </div>\n    <div mat-dialog-actions>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close(summary)\">Ok</button>\n    </div>\n  ",
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MatDialogRef */]) === "function" && _a || Object])
     ], EditSummaryDialog);
