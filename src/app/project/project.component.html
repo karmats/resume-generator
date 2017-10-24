@@ -7,12 +7,14 @@
     <div class="item" *ngFor="let project of projects">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>{{project.name}}</mat-card-title>
           <mat-card-subtitle>
             {{ months[project.startDate.month] + ' ' + project.startDate.year}} - {{project.endDate ? (months[project.endDate.month] + ' ' + project.endDate.year) : 'Present' }}
           </mat-card-subtitle>
+          <mat-card-title>{{project.name}}</mat-card-title>
+          <div class="project-logo">
+            <img *ngIf="project.imageUrl" [src]="project.imageUrl">
+          </div>
         </mat-card-header>
-        <img *ngIf="project.imageUrl" mat-card-image [src]="project.imageUrl">
         <mat-card-content>
           <p>
             {{ project.description }}

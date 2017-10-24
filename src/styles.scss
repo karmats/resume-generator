@@ -58,6 +58,13 @@ body {
       width: 300px !important;
       height: 300px !important;
     }
+    .mat-card .mat-card-header {
+      flex-flow: column-reverse nowrap;
+      .project-logo {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+    }
   }
   .section {
     margin: 24px;
@@ -70,6 +77,13 @@ body {
     }
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+  .project-logo {
+    flex: 1;
+    text-align: right;
+    img {
+      height: 80px;
     }
   }
 }
@@ -152,10 +166,20 @@ mat-input-container.mat-form-field {
   width: 100%;
 }
 
-.mat-card-header .mat-card-header-text {
-  margin: 0;
-  .mat-card-title {
-    font-size: 16px;
+.mat-card .mat-card-header {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 16px;
+  .mat-card-header-text {
+    margin: auto 0;
+    .mat-card-title {
+      font-size: 16px;
+      margin-bottom: 0px;
+    }
+    .mat-card-subtitle {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
   }
 }
 
