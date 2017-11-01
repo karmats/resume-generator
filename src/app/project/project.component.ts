@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, Input, OnInit, ViewContainerRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
+import { MatAutocompleteTrigger, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 
-import { Project, Skill } from '../models';
+import { Project, Skill, Tag } from '../models';
 import { ResumeService } from '../resume.service'
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
@@ -108,27 +108,30 @@ export class ProjectComponent implements OnInit {
           [(ngModel)]="project.web"
           placeholder="Project website (Optional)">
       </mat-input-container>
-      <mat-chip-list #chipList>
-        <mat-chip *ngFor="let tag of project.tags" selectable="true"
-                removable="true" (remove)="removeTag(tag)">
-          {{tag}}
-          <mat-icon matChipRemove>cancel</mat-icon>
-        </mat-chip>
-        <mat-input-container>
+
+      <mat-form-field>
+        <mat-chip-list #tagList>
+          <mat-chip *ngFor="let tag of project.tags" selectable="true"
+                  removable="true" [selected]="tag.highlighted" (remove)="removeTag(tag)">
+              {{tag.name}}
+            <mat-icon matChipRemove>cancel</mat-icon>
+          </mat-chip>
           <input matInput 
-                 placeholder="Add tag..."
-                 [formControl]="tagControl"
-                 [matAutocomplete]="auto"
-                 [matChipInputFor]="chipList"
-                 [matChipInputAddOnBlur]="true"
-                 (matChipInputTokenEnd)="addTag($event)" />
-        </mat-input-container>
-      </mat-chip-list>
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
-            {{ skill }}
-        </mat-option>
-      </mat-autocomplete>
+            placeholder="Add tag..."
+            [formControl]="tagControl"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="tagList"
+            [matChipInputAddOnBlur]="false"
+            (optionSelected)="addTag($event)"
+            (matChipInputTokenEnd)="addTag($event)" />
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addTag($event)">
+          <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill"  >
+              {{ skill }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
       <div class="date-container">
         <label class="select-label">From</label>
         <div fxLayout="row">
@@ -162,6 +165,8 @@ export class ProjectComponent implements OnInit {
   `,
 })
 export class ProjectDialog implements OnInit {
+  @ViewChild(MatAutocompleteTrigger) autoTrigger: MatAutocompleteTrigger;
+
   public project: Project;
   public skills: Array<string>;
   public years: Array<number>;
@@ -193,30 +198,32 @@ export class ProjectDialog implements OnInit {
     // Skills for tag autocomplete
     this.filteredSkills = this.tagControl.valueChanges
     .startWith(null)
-    .map(val => val ? this.filter(val) : this.skills.slice());
+    .map(val => this.filter(val));
   }
 
   filter(val: string): string[] {
-    return this.skills.filter(s =>
-      s.toLowerCase().indexOf(val.toLowerCase()) === 0);
+    return this.skills
+    .filter(s => this.project.tags.filter(t => t.name === s).length === 0)
+    .filter(s => val ? s.toLowerCase().indexOf(val.toLowerCase()) === 0 : true);
   }
-
 
   addTag(event: any): void {
     const input = event.input;
-    const value = (event.value || '').trim();
+    const value = (event.option ? event.option.value : event.value || '').trim();
 
     if (value) {
-      this.project.tags.push(value);
+      this.project.tags.push({ name: value, highlighted: false });
     }
-
+    
     // Reset input value
+    this.autoTrigger.closePanel();
+    this.tagControl.setValue('');
     if (input) {
       input.value = '';
     }
   }
 
-  removeTag(tag: any): void {
+  removeTag(tag: Tag): void {
     const tags = this.project.tags.filter(t => t !== tag);
     this.project.tags = tags;
   }

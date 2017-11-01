@@ -162,7 +162,7 @@ body {
   float: right;
 }
 
-mat-input-container.mat-form-field {
+mat-input-container.mat-form-field, mat-form-field.mat-input-container {
   width: 100%;
 }
 

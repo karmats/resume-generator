@@ -19,6 +19,11 @@
           <p>
             {{ project.description }}
           </p>
+          <mat-chip-list>
+            <mat-chip *ngFor="let tag of project.tags" color="primary" [selected]="tag.highlighted">
+              {{tag.name}}
+            </mat-chip>
+          </mat-chip-list>
         </mat-card-content>
         <mat-card-actions>
           <a mat-button color="primary" [href]="project.web" target="_project" *ngIf="project.web">Visit Page</a>

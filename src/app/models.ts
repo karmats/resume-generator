@@ -57,7 +57,12 @@ export interface Project {
     endDate?: YearAndMonth;
     current?: boolean;
     web?: string;
-    tags?: Array<string>;
+    tags?: Array<Tag>;
+}
+
+export interface Tag {
+    name: string;
+    highlighted: boolean;
 }
 
 export interface YearAndMonth {
