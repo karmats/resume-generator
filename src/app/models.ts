@@ -57,6 +57,7 @@ export interface Project {
     endDate?: YearAndMonth;
     current?: boolean;
     web?: string;
+    tags?: Array<string>;
 }
 
 export interface YearAndMonth {

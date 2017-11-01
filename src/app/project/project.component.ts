@@ -1,7 +1,11 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
 
-import { Project } from '../models';
+import { Project, Skill } from '../models';
 import { ResumeService } from '../resume.service'
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
@@ -11,6 +15,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 })
 export class ProjectComponent implements OnInit {
   @Input() projects: Array<Project>;
+  @Input() skills: Array<Skill>;
   months: Array<string>;
 
   constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService) { }
@@ -26,6 +31,7 @@ export class ProjectComponent implements OnInit {
     config.width = "75vw";
 
     const dialogRef = this.dialog.open(ProjectDialog, config);
+    dialogRef.componentInstance.skills = this.skills.map(s => s ? s.name : '');
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -43,6 +49,7 @@ export class ProjectComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ProjectDialog, config);
     dialogRef.componentInstance.project = project;
+    dialogRef.componentInstance.skills = this.skills.map(s => s.name);
 
     dialogRef.afterClosed().subscribe(result => {
       this.projects = result ? this.resumeService.updateProjects(this.projects) :
@@ -101,6 +108,27 @@ export class ProjectComponent implements OnInit {
           [(ngModel)]="project.web"
           placeholder="Project website (Optional)">
       </mat-input-container>
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let tag of project.tags" selectable="true"
+                removable="true" (remove)="removeTag(tag)">
+          {{tag}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <mat-input-container>
+          <input matInput 
+                 placeholder="Add tag..."
+                 [formControl]="tagControl"
+                 [matAutocomplete]="auto"
+                 [matChipInputFor]="chipList"
+                 [matChipInputAddOnBlur]="true"
+                 (matChipInputTokenEnd)="addTag($event)" />
+        </mat-input-container>
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
+            {{ skill }}
+        </mat-option>
+      </mat-autocomplete>
       <div class="date-container">
         <label class="select-label">From</label>
         <div fxLayout="row">
@@ -135,9 +163,12 @@ export class ProjectComponent implements OnInit {
 })
 export class ProjectDialog implements OnInit {
   public project: Project;
+  public skills: Array<string>;
   public years: Array<number>;
   public months: Array<string>;
   public editMode: boolean;
+  public filteredSkills: Observable<Array<string>>;
+  public tagControl: FormControl = new FormControl();
 
   constructor(public dialogRef: MatDialogRef<ProjectDialog>, private resumeService: ResumeService) {
     this.project = {
@@ -146,6 +177,7 @@ export class ProjectDialog implements OnInit {
       imageUrl: '',
       web: '',
       current: true,
+      tags: [],
       startDate: this.resumeService.todayAsYearMonth(),
       endDate: this.resumeService.todayAsYearMonth()
     }
@@ -157,6 +189,36 @@ export class ProjectDialog implements OnInit {
   ngOnInit() {
     // Assume edit mode if name isn't blank
     this.editMode = this.project && this.project.name.length > 0;
+    this.project.tags = this.project.tags || [];
+    // Skills for tag autocomplete
+    this.filteredSkills = this.tagControl.valueChanges
+    .startWith(null)
+    .map(val => val ? this.filter(val) : this.skills.slice());
+  }
+
+  filter(val: string): string[] {
+    return this.skills.filter(s =>
+      s.toLowerCase().indexOf(val.toLowerCase()) === 0);
+  }
+
+
+  addTag(event: any): void {
+    const input = event.input;
+    const value = (event.value || '').trim();
+
+    if (value) {
+      this.project.tags.push(value);
+    }
+
+    // Reset input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  removeTag(tag: any): void {
+    const tags = this.project.tags.filter(t => t !== tag);
+    this.project.tags = tags;
   }
 
   currentChanged() {
