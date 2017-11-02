@@ -13,8 +13,11 @@ body {
 }
 
 .footer {
-  margin: 12px 0;
-  float: right;
+  position: absolute;
+  right: 48px;
+  width: 100%;
+  text-align: right;
+  margin-top: -24px;
 }
 
 /** Helpers */
