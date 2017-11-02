@@ -35,8 +35,10 @@ export class ProjectComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        result.endDate = result.current ? null : result.endDate;
-        this.projects = this.resumeService.addProject(result);
+        const project = result.project;
+        project.endDate = project.current ? null : project.endDate;
+        project.tags = result.tags;
+        this.projects = this.resumeService.addProject(project);
         this.sortProjects();
       }
     });
@@ -52,6 +54,7 @@ export class ProjectComponent implements OnInit {
     dialogRef.componentInstance.skills = this.skills.map(s => s.name);
 
     dialogRef.afterClosed().subscribe(result => {
+      project.tags = result.tags;
       this.projects = result ? this.resumeService.updateProjects(this.projects) :
                   this.resumeService.retrieveResume().projects;
       this.sortProjects();
@@ -111,9 +114,8 @@ export class ProjectComponent implements OnInit {
 
       <mat-form-field>
         <mat-chip-list #tagList>
-          <mat-chip *ngFor="let tag of project.tags" selectable="true"
-                  removable="true" [selected]="tag.highlighted" (remove)="removeTag(tag)">
-              {{tag.name}}
+          <mat-chip *ngFor="let tag of tags" removable="true" (remove)="removeTag(tag)">
+            <mat-checkbox [checked]="tag.highlighted" (click)="toggleTagHighlight(tag)">{{tag.name}}</mat-checkbox>
             <mat-icon matChipRemove>cancel</mat-icon>
           </mat-chip>
           <input matInput 
@@ -160,7 +162,7 @@ export class ProjectComponent implements OnInit {
     </div>
     <div mat-dialog-actions>
       <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
-      <button mat-button color="primary" (click)="dialogRef.close(project)">Save</button>
+      <button mat-button color="primary" (click)="dialogRef.close({ project: project, tags: tags})">Save</button>
     </div>
   `,
 })
@@ -168,6 +170,7 @@ export class ProjectDialog implements OnInit {
   @ViewChild(MatAutocompleteTrigger) autoTrigger: MatAutocompleteTrigger;
 
   public project: Project;
+  public tags: Array<Tag>;
   public skills: Array<string>;
   public years: Array<number>;
   public months: Array<string>;
@@ -194,7 +197,8 @@ export class ProjectDialog implements OnInit {
   ngOnInit() {
     // Assume edit mode if name isn't blank
     this.editMode = this.project && this.project.name.length > 0;
-    this.project.tags = this.project.tags || [];
+    this.tags = this.project.tags ? this.project.tags.map(t => Object.assign({}, t)) : [];
+    
     // Skills for tag autocomplete
     this.filteredSkills = this.tagControl.valueChanges
     .startWith(null)
@@ -203,7 +207,7 @@ export class ProjectDialog implements OnInit {
 
   filter(val: string): string[] {
     return this.skills
-    .filter(s => this.project.tags.filter(t => t.name === s).length === 0)
+    .filter(s => this.tags.filter(t => t.name === s).length === 0)
     .filter(s => val ? s.toLowerCase().indexOf(val.toLowerCase()) === 0 : true);
   }
 
@@ -212,7 +216,7 @@ export class ProjectDialog implements OnInit {
     const value = (event.option ? event.option.value : event.value || '').trim();
 
     if (value) {
-      this.project.tags.push({ name: value, highlighted: false });
+      this.tags.push({ name: value, highlighted: false });
     }
     
     // Reset input value
@@ -224,8 +228,11 @@ export class ProjectDialog implements OnInit {
   }
 
   removeTag(tag: Tag): void {
-    const tags = this.project.tags.filter(t => t !== tag);
-    this.project.tags = tags;
+    this.tags = this.tags.filter(t => t !== tag);
+  }
+
+  toggleTagHighlight(tag: Tag) {
+    tag.highlighted = !tag.highlighted;
   }
 
   currentChanged() {
