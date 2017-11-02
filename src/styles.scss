@@ -48,6 +48,11 @@ body {
         width: 75%;
         margin: 0px auto;
       }
+      .mat-icon.material-icons {
+        font-size: 30px;
+        width: 30px;
+        height: 30px;
+      }
       .skill-bar {
         width: 75%;
         margin: 12px auto 36px auto;
@@ -99,11 +104,14 @@ body {
     margin-top: 12px;
 }
 .theme-switch {
-  position: fixed;
-  top: 32px;
+  position: absolute;
+  top: 16px;
   right: 16px;
   width: 200px;
   z-index: 1;
+  .mat-slide-toggle {
+    float: right;
+  }
 }
 
 /** Summary scss */
@@ -179,6 +187,16 @@ mat-input-container.mat-form-field, mat-form-field.mat-input-container {
     .mat-card-subtitle {
       margin-top: 0;
       margin-bottom: 8px;
+    }
+  }
+}
+
+.mat-chip-list {
+  .mat-chip:not(.mat-basic-chip) {
+    margin: 2px;
+    padding: 5px 12px;
+    &+.mat-chip:not(.mat-basic-chip) {
+      margin: 2px;
     }
   }
 }

@@ -1,9 +1,11 @@
 <!-- Summary -->
 <div class="app-content" [ngClass]="cssClasses()">
     <div *ngIf="resumeService.editMode" class="theme-switch">
-        <mat-select placeholder="Theme" [(ngModel)]="currentTheme" (change)="themeChanged(currentTheme, darkTheme)">
-            <mat-option *ngFor="let theme of themes" [value]="theme">{{ theme.name }}</mat-option>
-        </mat-select>
+        <mat-form-field>
+            <mat-select placeholder="Theme" [(ngModel)]="currentTheme" (change)="themeChanged(currentTheme, darkTheme)">
+                <mat-option *ngFor="let theme of themes" [value]="theme">{{ theme.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
         <mat-slide-toggle [(ngModel)]="darkTheme" (change)="themeChanged(currentTheme, darkTheme)">Dark</mat-slide-toggle>
     </div>
     <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between stretch" fxLayoutWrap>

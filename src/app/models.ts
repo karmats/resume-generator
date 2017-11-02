@@ -13,10 +13,10 @@ export interface Resume {
 }
 
 export enum SocialType {
-    TWITTER = "TWITTER",
-    FACEBOOK = "FACEBOOK",
     LINKEDIN = "LINKEDIN",
     GITHUB = "GITHUB",
+    TWITTER = "TWITTER",
+    FACEBOOK = "FACEBOOK",
     INSTAGRAM = "INSTAGRAM",
     UNKNOWN = "UNKNOWN"
 }

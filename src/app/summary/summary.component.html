@@ -7,17 +7,16 @@
     <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center space-down-s">
         <div fxFlex>{{title}}</div>
     </div>
-    
-    <div fxLayout="row" fxLayoutAlign="center" class="social-media space-down-s">
-        <span *ngFor="let social of socials">
-            <a *ngIf="social.url.length" [attr.href]="social.url"><mat-icon [svgIcon]="social.type.toLowerCase()"></mat-icon></a>
-        </span>
-        
-    </div>
 
     <div class="text-center">
         <img *ngIf="profileUrl && profileUrl.length" class="profile-picture" [src]="profileUrl" alt="Profile picture">
         <mat-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></mat-icon>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center" class="social-media space-down-s">
+        <span *ngFor="let social of socials">
+            <a *ngIf="social.url.length" [attr.href]="social.url"><mat-icon [svgIcon]="social.type.toLowerCase()"></mat-icon></a>
+        </span>
     </div>
 
     <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
