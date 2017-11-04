@@ -1,10 +1,10 @@
 <div>
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center space-up">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center space-up-s">
         <div fxFlex><h1 style="margin-bottom:0">{{name}}</h1></div>
     </div>
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center space-down-s">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center">
         <div fxFlex>{{title}}</div>
     </div>
 
@@ -13,7 +13,7 @@
         <mat-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></mat-icon>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="center" class="social-media space-down-s">
+    <div fxLayout="row" fxLayoutAlign="center" class="social-media">
         <span *ngFor="let social of socials">
             <a *ngIf="social.url.length" [attr.href]="social.url"><mat-icon [svgIcon]="social.type.toLowerCase()"></mat-icon></a>
         </span>
@@ -26,14 +26,14 @@
         <div fxFlex><div class="description">{{description}}</div></div>
     </div>
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up" *ngIf="phone && phone.length">
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column" class="space-up" *ngIf="phone && phone.length">
         <div fxFlex="25" class="text-center">
             <mat-icon>phone</mat-icon>
         </div>
         <div fxFlex>{{phone}}</div>
     </div>
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up" *ngIf="email && email.length">
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column" class="space-up" *ngIf="email && email.length">
         <div fxFlex="25" class="text-center">
             <mat-icon>email</mat-icon>
         </div>

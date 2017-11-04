@@ -27,6 +27,9 @@ body {
 .space-up {
   margin-top: 24px;
 }
+.space-up-s {
+  margin-top: 12px;
+}
 .space-down {
   margin-bottom: 24px;
 }
@@ -79,8 +82,10 @@ body {
     h1 {
       mat-icon {
         font-size: 36px;
+        width: 36px;
+        height: 36px;
         vertical-align: sub;
-        margin-right: 24px;
+        margin-right: 12px;
       }
     }
     &:last-child {
@@ -139,6 +144,7 @@ body {
   border-radius: 200px;
   width: 200px !important;
   height: 200px !important;
+  margin: 12px 0;
 }
 .description {
   margin-right: 20px;
