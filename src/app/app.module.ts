@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MatSelectModule, MatSlideToggleModule, MatTooltipModule, MatAutocompleteModule,
 MatProgressBarModule, MatDialogModule, MatIconModule, MatButtonModule, MatCardModule, MatInputModule,
-MatListModule, MatSliderModule, MatCheckboxModule, MatChipsModule } from '@angular/material';
+MatListModule, MatSliderModule, MatCheckboxModule, MatChipsModule, MatMenuModule } from '@angular/material';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -66,7 +66,8 @@ import { ProjectComponent, ProjectDialog } from './project/project.component';
     MatListModule,
     MatSliderModule,
     MatCheckboxModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule
   ],
   providers: [ResumeService, Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]

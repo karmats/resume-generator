@@ -6,6 +6,13 @@
   <div class="masonry">
     <div class="item" *ngFor="let project of projects">
       <mat-card>
+        <button *ngIf="resumeService.editMode" mat-icon-button [matMenuTriggerFor]="menu" class="project-menu">
+          <mat-icon >more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="editProject(project)">Edit</button>
+          <button mat-menu-item (click)="deleteProject(project)">Delete</button>
+        </mat-menu>
         <mat-card-header>
           <mat-card-subtitle>
             {{ months[project.startDate.month] + ' ' + project.startDate.year}} - {{project.endDate ? (months[project.endDate.month] + ' ' + project.endDate.year) : 'Present' }}
@@ -27,8 +34,6 @@
         </mat-card-content>
         <mat-card-actions>
           <a mat-button color="primary" [href]="project.web" target="_project" *ngIf="project.web">Visit Page</a>
-          <button mat-button color="primary" (click)="editProject(project)" *ngIf="resumeService.editMode"><mat-icon>edit</mat-icon></button>
-          <button mat-button color="primary" (click)="deleteProject(project)" *ngIf="resumeService.editMode"><mat-icon>delete</mat-icon></button>
         </mat-card-actions>
       </mat-card>
     </div>

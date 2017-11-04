@@ -54,10 +54,12 @@ export class ProjectComponent implements OnInit {
     dialogRef.componentInstance.skills = this.skills.map(s => s.name);
 
     dialogRef.afterClosed().subscribe(result => {
-      project.tags = result.tags;
-      this.projects = result ? this.resumeService.updateProjects(this.projects) :
-                  this.resumeService.retrieveResume().projects;
-      this.sortProjects();
+      if (result) {
+        project.tags = result.tags;
+        this.projects = result ? this.resumeService.updateProjects(this.projects) :
+                    this.resumeService.retrieveResume().projects;
+        this.sortProjects();
+      }
     });
   }
 
