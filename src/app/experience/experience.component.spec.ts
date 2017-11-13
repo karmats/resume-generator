@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MatIconModule, MatDialogModule, MatTooltipModule } from '@angular/material';
+import { MatIconModule, MatDialogModule, MatTooltipModule, MatListModule, MatCardModule } from '@angular/material';
 
 import { ResumeService } from '../resume.service';
 import { ExperienceComponent } from './experience.component';
@@ -17,7 +17,7 @@ describe('ExperienceComponent', () => {
         ExperienceComponent
       ],
       providers: [{ provide: ResumeService, useValue: {} },],
-      imports: [ MatIconModule, MatDialogModule, MatTooltipModule ]
+      imports: [ MatIconModule, MatDialogModule, MatTooltipModule, MatListModule, MatCardModule ]
     })
     .compileComponents();
   }));

@@ -3,7 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { MatIconModule, MatProgressBarModule, MatDialogModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule, MatProgressBarModule, MatDialogModule, MatCardModule } from '@angular/material';
 
 import { ResumeService } from '../resume.service';
 import { SkillComponent } from '../skill/skill.component';
@@ -25,7 +26,7 @@ describe('SummaryComponent', () => {
       providers: [
         { provide: ResumeService, useValue: {} }
       ],
-      imports: [ MatIconModule, MatProgressBarModule, MatDialogModule, HttpModule ]
+      imports: [ MatIconModule, MatProgressBarModule, MatDialogModule, HttpModule, HttpClientModule, MatCardModule ]
     })
     .compileComponents();
   }));
