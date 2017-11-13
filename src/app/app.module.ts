@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule, MatSlideToggleModule, MatTooltipModule, MatAutocompleteModule,
 MatProgressBarModule, MatDialogModule, MatIconModule, MatButtonModule, MatCardModule, MatInputModule,
 MatListModule, MatSliderModule, MatCheckboxModule, MatChipsModule, MatMenuModule } from '@angular/material';
@@ -51,6 +52,7 @@ import { ProjectComponent, ProjectDialog } from './project/project.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     MatSelectModule,
