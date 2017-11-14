@@ -5,7 +5,7 @@
       <mat-list-item *ngFor="let position of positions">
         <h3 mat-line>{{position.title}} - {{position.company}}</h3>
         <p mat-line class="date-label">{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>
-        <p mat-line [matTooltip]="position.summary">{{position.summary ? position.summary : '-'}}</p>
+        <p mat-line class="text-content">{{position.summary ? position.summary : '-'}}</p>
         <button *ngIf="resumeService.editMode" mat-icon-button color="primary" (click)="editPosition(position)">
           <mat-icon>edit</mat-icon>
         </button>

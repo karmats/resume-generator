@@ -24,6 +24,9 @@ body {
 .text-center {
   text-align: center;
 }
+.space-around {
+  padding: 12px;
+}
 .space-up {
   margin-top: 24px;
 }
@@ -230,6 +233,11 @@ mat-input-container.mat-form-field, mat-form-field.mat-input-container {
     }
     p.mat-line {
       font-weight: 300;
+      &.text-content {
+        text-overflow: initial;
+        overflow: visible;
+        white-space: normal;
+      }
     }
   }
 }

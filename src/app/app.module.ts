@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http'; 
 import { HttpClientModule } from '@angular/common/http';
-import { MatSelectModule, MatSlideToggleModule, MatTooltipModule, MatAutocompleteModule,
+import { MatSelectModule, MatSlideToggleModule, MatAutocompleteModule,
 MatProgressBarModule, MatDialogModule, MatIconModule, MatButtonModule, MatCardModule, MatInputModule,
 MatListModule, MatSliderModule, MatCheckboxModule, MatChipsModule, MatMenuModule } from '@angular/material';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
@@ -57,7 +57,6 @@ import { ProjectComponent, ProjectDialog } from './project/project.component';
     ReactiveFormsModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatTooltipModule,
     MatAutocompleteModule,
     MatProgressBarModule,
     MatDialogModule,
