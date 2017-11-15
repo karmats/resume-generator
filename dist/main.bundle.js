@@ -1,6 +1,6 @@
 webpackJsonp(["main"],{
 
-/***/ "../../../../../src/$$_gendir lazy recursive":
+/***/ "../../../../../src/$$_lazy_route_resource lazy recursive":
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,7 +13,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
+webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
@@ -29,7 +29,7 @@ module.exports = "<app-resume>\n</app-resume>\n"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var AppComponent = /** @class */ (function () {
     function AppComponent() {
     }
     AppComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__("../../../../../src/app/app.component.html")
         })
@@ -49,7 +49,7 @@ var AppComponent = /** @class */ (function () {
     return AppComponent;
 }());
 
-//# sourceMappingURL=app.component.js.map
+
 
 /***/ }),
 
@@ -58,31 +58,33 @@ var AppComponent = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_flex_layout__ = __webpack_require__("../../../flex-layout/@angular/flex-layout.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_hammerjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__resume_resume_component__ = __webpack_require__("../../../../../src/app/resume/resume.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__summary_summary_component__ = __webpack_require__("../../../../../src/app/summary/summary.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__experience_experience_component__ = __webpack_require__("../../../../../src/app/experience/experience.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__education_education_component__ = __webpack_require__("../../../../../src/app/education/education.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__skill_skill_component__ = __webpack_require__("../../../../../src/app/skill/skill.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__project_project_component__ = __webpack_require__("../../../../../src/app/project/project.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_flex_layout__ = __webpack_require__("../../../flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__resume_resume_component__ = __webpack_require__("../../../../../src/app/resume/resume.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__summary_summary_component__ = __webpack_require__("../../../../../src/app/summary/summary.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__experience_experience_component__ = __webpack_require__("../../../../../src/app/experience/experience.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__education_education_component__ = __webpack_require__("../../../../../src/app/education/education.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__skill_skill_component__ = __webpack_require__("../../../../../src/app/skill/skill.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__project_project_component__ = __webpack_require__("../../../../../src/app/project/project.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -105,61 +107,61 @@ var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["L" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["H" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__resume_resume_component__["a" /* ResumeComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__summary_summary_component__["b" /* SummaryComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__summary_summary_component__["a" /* EditSummaryDialog */],
-                __WEBPACK_IMPORTED_MODULE_12__experience_experience_component__["a" /* ExperienceComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__experience_experience_component__["b" /* PositionDialog */],
-                __WEBPACK_IMPORTED_MODULE_13__education_education_component__["b" /* EducationDialog */],
-                __WEBPACK_IMPORTED_MODULE_14__skill_skill_component__["b" /* SkillDialog */],
-                __WEBPACK_IMPORTED_MODULE_13__education_education_component__["a" /* EducationComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__skill_skill_component__["a" /* SkillComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__project_project_component__["a" /* ProjectComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__project_project_component__["b" /* ProjectDialog */],
-                __WEBPACK_IMPORTED_MODULE_16__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
+                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__resume_resume_component__["a" /* ResumeComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__summary_summary_component__["b" /* SummaryComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__summary_summary_component__["a" /* EditSummaryDialog */],
+                __WEBPACK_IMPORTED_MODULE_13__experience_experience_component__["a" /* ExperienceComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__experience_experience_component__["b" /* PositionDialog */],
+                __WEBPACK_IMPORTED_MODULE_14__education_education_component__["b" /* EducationDialog */],
+                __WEBPACK_IMPORTED_MODULE_15__skill_skill_component__["b" /* SkillDialog */],
+                __WEBPACK_IMPORTED_MODULE_14__education_education_component__["a" /* EducationComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__skill_skill_component__["a" /* SkillComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__project_project_component__["a" /* ProjectComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__project_project_component__["b" /* ProjectDialog */],
+                __WEBPACK_IMPORTED_MODULE_17__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_13__education_education_component__["b" /* EducationDialog */],
-                __WEBPACK_IMPORTED_MODULE_12__experience_experience_component__["b" /* PositionDialog */],
-                __WEBPACK_IMPORTED_MODULE_14__skill_skill_component__["b" /* SkillDialog */],
-                __WEBPACK_IMPORTED_MODULE_11__summary_summary_component__["a" /* EditSummaryDialog */],
-                __WEBPACK_IMPORTED_MODULE_17__project_project_component__["b" /* ProjectDialog */],
-                __WEBPACK_IMPORTED_MODULE_16__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
+                __WEBPACK_IMPORTED_MODULE_14__education_education_component__["b" /* EducationDialog */],
+                __WEBPACK_IMPORTED_MODULE_13__experience_experience_component__["b" /* PositionDialog */],
+                __WEBPACK_IMPORTED_MODULE_15__skill_skill_component__["b" /* SkillDialog */],
+                __WEBPACK_IMPORTED_MODULE_12__summary_summary_component__["a" /* EditSummaryDialog */],
+                __WEBPACK_IMPORTED_MODULE_18__project_project_component__["b" /* ProjectDialog */],
+                __WEBPACK_IMPORTED_MODULE_17__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_flex_layout__["a" /* FlexLayoutModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_8__angular_flex_layout__["a" /* FlexLayoutModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["i" /* ReactiveFormsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["q" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["r" /* MatSlideToggleModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["t" /* MatTooltipModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["a" /* MatAutocompleteModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["p" /* MatProgressBarModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["i" /* MatDialogModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["k" /* MatIconModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["c" /* MatButtonModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["d" /* MatCardModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["m" /* MatInputModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["n" /* MatListModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["s" /* MatSliderModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["e" /* MatCheckboxModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["f" /* MatChipsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["o" /* MatMenuModule */]
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["q" /* MatSelectModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["r" /* MatSlideToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["a" /* MatAutocompleteModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["p" /* MatProgressBarModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["i" /* MatDialogModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["k" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["c" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["d" /* MatCardModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["m" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["n" /* MatListModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["s" /* MatSliderModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["e" /* MatCheckboxModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["f" /* MatChipsModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["o" /* MatMenuModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_15__resume_service__["a" /* ResumeService */], __WEBPACK_IMPORTED_MODULE_6__angular_common__["d" /* Location */], { provide: __WEBPACK_IMPORTED_MODULE_6__angular_common__["e" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_6__angular_common__["h" /* PathLocationStrategy */] }],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_16__resume_service__["a" /* ResumeService */], __WEBPACK_IMPORTED_MODULE_7__angular_common__["d" /* Location */], { provide: __WEBPACK_IMPORTED_MODULE_7__angular_common__["e" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_7__angular_common__["h" /* PathLocationStrategy */] }],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
 }());
 
-//# sourceMappingURL=app.module.js.map
+
 
 /***/ }),
 
@@ -175,7 +177,7 @@ module.exports = "<h3 mat-dialog-title>Confirm</h3>\n<div mat-dialog-content>\n 
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfirmDialogComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -195,17 +197,16 @@ var ConfirmDialogComponent = /** @class */ (function () {
     ConfirmDialogComponent.prototype.ngOnInit = function () {
     };
     ConfirmDialogComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-confirm-dialog',
             template: __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */]])
     ], ConfirmDialogComponent);
     return ConfirmDialogComponent;
-    var _a;
 }());
 
-//# sourceMappingURL=confirm-dialog.component.js.map
+
 
 /***/ }),
 
@@ -222,13 +223,11 @@ module.exports = "<div class=\"section\">\n  <h1><mat-icon>school</mat-icon>Educ
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EducationComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return EducationDialog; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/startWith.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -304,18 +303,17 @@ var EducationComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", Object)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
+        __metadata("design:type", Array)
     ], EducationComponent.prototype, "educations", void 0);
     EducationComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-education',
             template: __webpack_require__("../../../../../src/app/education/education.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewContainerRef */], __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */]])
     ], EducationComponent);
     return EducationComponent;
-    var _a, _b, _c;
 }());
 
 // Add new education dialog
@@ -353,23 +351,22 @@ var EducationDialog = /** @class */ (function () {
         }
     };
     EducationDialog = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             template: "\n    <h3 mat-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}education</h3>\n    <div mat-dialog-content fxLayout=\"column\">\n\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"education.school\"\n          placeholder=\"School\">\n      </mat-input-container>\n\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"education.field\"\n          placeholder=\"Field of Study\">\n      </mat-input-container>\n\n      <mat-input-container>\n        <input matInput\n              [(ngModel)]=\"education.degree\"\n              placeholder=\"Degree\"\n              [formControl]=\"degreeCtrl\"\n              [matAutocomplete]=\"auto\">\n      </mat-input-container>\n      <mat-autocomplete #auto=\"matAutocomplete\">\n        <mat-option *ngFor=\"let degree of filteredDegrees | async\" [value]=\"degree\">\n          {{ degree }}\n        </mat-option>\n      </mat-autocomplete>\n\n      <div class=\"date-container\">\n        <label>From</label>\n        <div fxLayout=\"row\">\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"education.startDate.year\" placeholder=\"Year\">\n            <mat-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </mat-option>\n          </mat-select>\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"education.startDate.month\" placeholder=\"Month\">\n            <mat-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </mat-option>\n          </mat-select>\n        </div>\n      </div>\n      <mat-checkbox [(ngModel)]=\"education.current\" (change)=\"currentChanged()\">\n        Current education\n      </mat-checkbox>\n      <div class=\"date-container\" *ngIf=\"!education.current\">\n        <label>To</label>\n        <div fxLayout=\"row\">\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"education.endDate.year\" placeholder=\"Year\">\n            <mat-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </mat-option>\n          </mat-select>\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"education.endDate.month\" placeholder=\"Month\">\n            <mat-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </mat-option>\n          </mat-select>\n        </div>\n      </div>\n    </div>\n\n    <div mat-dialog-actions>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close(education)\">Save</button>\n    </div>\n  ",
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */], __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */]])
     ], EducationDialog);
     return EducationDialog;
-    var _a, _b;
 }());
 
-//# sourceMappingURL=education.component.js.map
+
 
 /***/ }),
 
 /***/ "../../../../../src/app/experience/experience.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"section\">\n  <h1><mat-icon>work</mat-icon>Work experience</h1>\n  <mat-card>\n    <mat-list>\n      <mat-list-item *ngFor=\"let position of positions\">\n        <h3 mat-line>{{position.title}} - {{position.company}}</h3>\n        <p mat-line class=\"date-label\">{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>\n        <p mat-line [matTooltip]=\"position.summary\">{{position.summary ? position.summary : '-'}}</p>\n        <button *ngIf=\"resumeService.editMode\" mat-icon-button color=\"primary\" (click)=\"editPosition(position)\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button *ngIf=\"resumeService.editMode\" mat-icon-button color=\"primary\" (click)=\"deletePosition(position)\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </mat-list-item>\n    </mat-list>\n    <mat-card-actions *ngIf=\"resumeService.editMode\">\n      <button mat-button color=\"primary\" (click)=\"newPosition()\">Add Position</button>\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
+module.exports = "<div class=\"section\">\n  <h1><mat-icon>work</mat-icon>Work experience</h1>\n  <mat-card>\n    <mat-list>\n      <mat-list-item *ngFor=\"let position of positions\">\n        <h3 mat-line>{{position.title}} - {{position.company}}</h3>\n        <p mat-line class=\"date-label\">{{months[position.startDate.month] + ' ' + position.startDate.year}} - {{position.endDate ? (months[position.endDate.month] + ' ' + position.endDate.year) : 'Present'}}</p>\n        <p mat-line class=\"text-content\">{{position.summary ? position.summary : '-'}}</p>\n        <button *ngIf=\"resumeService.editMode\" mat-icon-button color=\"primary\" (click)=\"editPosition(position)\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button *ngIf=\"resumeService.editMode\" mat-icon-button color=\"primary\" (click)=\"deletePosition(position)\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </mat-list-item>\n    </mat-list>\n    <mat-card-actions *ngIf=\"resumeService.editMode\">\n      <button mat-button color=\"primary\" (click)=\"newPosition()\">Add Position</button>\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
 
 /***/ }),
 
@@ -379,7 +376,7 @@ module.exports = "<div class=\"section\">\n  <h1><mat-icon>work</mat-icon>Work e
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExperienceComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return PositionDialog; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
@@ -453,18 +450,17 @@ var ExperienceComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", Object)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
+        __metadata("design:type", Array)
     ], ExperienceComponent.prototype, "positions", void 0);
     ExperienceComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-experience',
             template: __webpack_require__("../../../../../src/app/experience/experience.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewContainerRef */], __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]])
     ], ExperienceComponent);
     return ExperienceComponent;
-    var _a, _b, _c;
 }());
 
 // Add new position dialog
@@ -493,16 +489,15 @@ var PositionDialog = /** @class */ (function () {
         }
     };
     PositionDialog = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             template: "\n    <h3 mat-dialog-title>{{ editMode ? 'Edit ' : 'Add new '}}position</h3>\n    <div mat-dialog-content fxLayout=\"column\">\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"position.company\"\n          placeholder=\"Company\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"position.title\"\n          placeholder=\"Title\">\n      </mat-input-container>\n      <mat-input-container>\n        <textarea matInput\n        [(ngModel)]=\"position.summary\"\n        rows=\"4\" placeholder=\"Summary\"></textarea>\n      </mat-input-container>\n      <div class=\"date-container\">\n        <label>From</label>\n        <div fxLayout=\"row\">\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"position.startDate.year\" placeholder=\"Year\">\n            <mat-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </mat-option>\n          </mat-select>\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"position.startDate.month\" placeholder=\"Month\">\n            <mat-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </mat-option>\n          </mat-select>\n        </div>\n      </div>\n      <mat-checkbox [(ngModel)]=\"position.current\" (change)=\"currentChanged()\">\n        Current job\n      </mat-checkbox>\n      <div class=\"date-container\" *ngIf=\"!position.current\">\n        <label>To</label>\n        <div fxLayout=\"row\">\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"position.endDate.year\" placeholder=\"Year\">\n            <mat-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </mat-option>\n          </mat-select>\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"position.endDate.month\" placeholder=\"Month\">\n            <mat-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </mat-option>\n          </mat-select>\n        </div>\n      </div>\n    </div>\n    <div mat-dialog-actions>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close(position)\">Save</button>\n    </div>\n  ",
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */], __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]])
     ], PositionDialog);
     return PositionDialog;
-    var _a, _b;
 }());
 
-//# sourceMappingURL=experience.component.js.map
+
 
 /***/ }),
 
@@ -520,7 +515,7 @@ var SocialType;
     SocialType["INSTAGRAM"] = "INSTAGRAM";
     SocialType["UNKNOWN"] = "UNKNOWN";
 })(SocialType || (SocialType = {}));
-//# sourceMappingURL=models.js.map
+
 
 /***/ }),
 
@@ -537,13 +532,11 @@ module.exports = "<div class=\"section\">\n  <h1><mat-icon>trending_up</mat-icon
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ProjectDialog; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/startWith.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -626,22 +619,21 @@ var ProjectComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", Object)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
+        __metadata("design:type", Array)
     ], ProjectComponent.prototype, "projects", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", Object)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
+        __metadata("design:type", Array)
     ], ProjectComponent.prototype, "skills", void 0);
     ProjectComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-project',
             template: __webpack_require__("../../../../../src/app/project/project.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewContainerRef */], __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */]])
     ], ProjectComponent);
     return ProjectComponent;
-    var _a, _b, _c;
 }());
 
 // Add new project dialog
@@ -704,20 +696,19 @@ var ProjectDialog = /** @class */ (function () {
         }
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatAutocompleteTrigger */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatAutocompleteTrigger */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatAutocompleteTrigger */]) === "function" && _a || Object)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatAutocompleteTrigger */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatAutocompleteTrigger */])
     ], ProjectDialog.prototype, "autoTrigger", void 0);
     ProjectDialog = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             template: "\n    <h3 mat-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}project</h3>\n    <div mat-dialog-content fxLayout=\"column\">\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"project.name\"\n          placeholder=\"Project name\">\n      </mat-input-container>\n      <mat-input-container>\n        <textarea matInput\n          rows=\"4\"\n          [(ngModel)]=\"project.description\"\n          placeholder=\"Project description\">\n        </textarea>\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"project.imageUrl\"\n          placeholder=\"Project logo url (Optional)\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"project.web\"\n          placeholder=\"Project website (Optional)\">\n      </mat-input-container>\n\n      <mat-form-field>\n        <mat-chip-list #tagList>\n          <mat-chip *ngFor=\"let tag of tags\" removable=\"true\" (remove)=\"removeTag(tag)\">\n            <mat-checkbox [checked]=\"tag.highlighted\" (click)=\"toggleTagHighlight(tag)\">{{tag.name}}</mat-checkbox>\n            <mat-icon matChipRemove>cancel</mat-icon>\n          </mat-chip>\n          <input matInput \n            placeholder=\"Add tag...\"\n            [formControl]=\"tagControl\"\n            [matAutocomplete]=\"auto\"\n            [matChipInputFor]=\"tagList\"\n            [matChipInputAddOnBlur]=\"false\"\n            (optionSelected)=\"addTag($event)\"\n            (matChipInputTokenEnd)=\"addTag($event)\" />\n        </mat-chip-list>\n        <mat-autocomplete #auto=\"matAutocomplete\" (optionSelected)=\"addTag($event)\">\n          <mat-option *ngFor=\"let skill of filteredSkills | async\" [value]=\"skill\"  >\n              {{ skill }}\n          </mat-option>\n        </mat-autocomplete>\n      </mat-form-field>\n\n      <div class=\"date-container\">\n        <label class=\"select-label\">From</label>\n        <div fxLayout=\"row\">\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"project.startDate.year\" placeholder=\"Year\">\n            <mat-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </mat-option>\n          </mat-select>\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"project.startDate.month\" placeholder=\"Month\">\n            <mat-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </mat-option>\n          </mat-select>\n        </div>\n      </div>\n      <mat-checkbox [(ngModel)]=\"project.current\" (change)=\"currentChanged()\">\n        Current project\n      </mat-checkbox>\n      <div class=\"date-container\" *ngIf=\"!project.current\">\n        <label class=\"select-label\">To</label>\n        <div fxLayout=\"row\">\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"project.endDate.year\" placeholder=\"Year\">\n            <mat-option *ngFor=\"let year of years\" [value]=\"year\"> {{year}} </mat-option>\n          </mat-select>\n          <mat-select fxFlex=\"50\" [(ngModel)]=\"project.endDate.month\" placeholder=\"Month\">\n            <mat-option *ngFor=\"let month of months\" [value]=\"months.indexOf(month)\"> {{month}} </mat-option>\n          </mat-select>\n        </div>\n      </div>\n    </div>\n    <div mat-dialog-actions>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close({ project: project, tags: tags})\">Save</button>\n    </div>\n  ",
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialogRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialogRef */], __WEBPACK_IMPORTED_MODULE_5__resume_service__["a" /* ResumeService */]])
     ], ProjectDialog);
     return ProjectDialog;
-    var _a, _b, _c;
 }());
 
-//# sourceMappingURL=project.component.js.map
+
 
 /***/ }),
 
@@ -726,8 +717,8 @@ var ProjectDialog = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResumeService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__("../../../../../src/app/models.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1069,14 +1060,13 @@ var ResumeService = /** @class */ (function () {
         } : null;
     };
     ResumeService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common__["d" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common__["d" /* Location */]) === "function" && _a || Object])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common__["d" /* Location */]])
     ], ResumeService);
     return ResumeService;
-    var _a;
 }());
 
-//# sourceMappingURL=resume.service.js.map
+
 
 /***/ }),
 
@@ -1092,7 +1082,7 @@ module.exports = "<!-- Summary -->\n<div class=\"app-content\" [ngClass]=\"cssCl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResumeComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1149,17 +1139,16 @@ var ResumeComponent = /** @class */ (function () {
         this.darkTheme ? document.body.classList.add('dark') : document.body.classList.remove('dark');
     };
     ResumeComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-resume',
             template: __webpack_require__("../../../../../src/app/resume/resume.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__resume_service__["a" /* ResumeService */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__resume_service__["a" /* ResumeService */]])
     ], ResumeComponent);
     return ResumeComponent;
-    var _a;
 }());
 
-//# sourceMappingURL=resume.component.js.map
+
 
 /***/ }),
 
@@ -1176,7 +1165,7 @@ module.exports = "<div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"col
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SkillComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SkillDialog; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
@@ -1250,18 +1239,17 @@ var SkillComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", Object)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
+        __metadata("design:type", Array)
     ], SkillComponent.prototype, "skills", void 0);
     SkillComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-skill',
             template: __webpack_require__("../../../../../src/app/skill/skill.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewContainerRef */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewContainerRef */]])
     ], SkillComponent);
     return SkillComponent;
-    var _a, _b, _c;
 }());
 
 // Add new skill dialog
@@ -1280,23 +1268,22 @@ var SkillDialog = /** @class */ (function () {
         this.editMode = this.skill && this.skill.name.length > 0;
     };
     SkillDialog = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             template: "\n    <h3 mat-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}skill</h3>\n    <div mat-dialog-content fxLayout=\"column\">\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"skill.name\"\n          placeholder=\"Skill name\">\n      </mat-input-container>\n      <mat-slider\n        [(ngModel)]=\"skill.competence\"\n        min=\"0\"\n        max=\"100\"\n        thumbLabel\n        step=\"10\"\n        tickInterval=\"1\"></mat-slider>\n    </div>\n    <div mat-dialog-actions>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close(skill)\">Save</button>\n    </div>\n  ",
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */], __WEBPACK_IMPORTED_MODULE_2__resume_service__["a" /* ResumeService */]])
     ], SkillDialog);
     return SkillDialog;
-    var _a, _b;
 }());
 
-//# sourceMappingURL=skill.component.js.map
+
 
 /***/ }),
 
 /***/ "../../../../../src/app/summary/summary.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"text-center space-up-s\">\n        <div fxFlex><h1 style=\"margin-bottom:0\">{{name}}</h1></div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"text-center\">\n        <div fxFlex>{{title}}</div>\n    </div>\n\n    <div class=\"text-center\">\n        <img *ngIf=\"profileUrl && profileUrl.length\" class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n        <mat-icon *ngIf=\"!profileUrl || !profileUrl.length\" svgIcon=\"account-circle\" class=\"profile-picture\"></mat-icon>\n    </div>\n\n    <div fxLayout=\"row\" fxLayoutAlign=\"center\" class=\"social-media\">\n        <span *ngFor=\"let social of socials\">\n            <a *ngIf=\"social.url.length\" [attr.href]=\"social.url\"><mat-icon [svgIcon]=\"social.type.toLowerCase()\"></mat-icon></a>\n        </span>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>person</mat-icon>\n        </div>\n        <div fxFlex><div class=\"description\">{{description}}</div></div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\" *ngIf=\"phone && phone.length\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>phone</mat-icon>\n        </div>\n        <div fxFlex>{{phone}}</div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\" *ngIf=\"email && email.length\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>email</mat-icon>\n        </div>\n        <div fxFlex>{{email}}</div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>settings</mat-icon>\n        </div>\n        <div fxFlex>\n            <app-skill [skills]=\"skills\">\n            </app-skill>\n        </div>\n    </div>\n\n    <div *ngIf=\"resumeService.editMode\" class=\"actions\">\n        <button mat-raised-button color=\"primary\" (click)=\"editSummary()\">Edit profile</button>\n        <input id=\"resumeFile\" style=\"display:none\" *ngIf=\"resumeService.editMode\" type=\"file\" accept=\"application/json\" (change)=\"uploadResume($event)\">\n        <label for=\"resumeFile\" class=\"mat-primary mat-raised-button\">Upload Resume</label>\n    </div>\n</div>\n"
+module.exports = "<div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"text-center space-up-s\">\n        <div fxFlex><h1 style=\"margin-bottom:0\">{{name}}</h1></div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"text-center space-around\">\n        <div fxFlex>{{title}}</div>\n    </div>\n\n    <div class=\"text-center\">\n        <img *ngIf=\"profileUrl && profileUrl.length\" class=\"profile-picture\" [src]=\"profileUrl\" alt=\"Profile picture\">\n        <mat-icon *ngIf=\"!profileUrl || !profileUrl.length\" svgIcon=\"account-circle\" class=\"profile-picture\"></mat-icon>\n    </div>\n\n    <div fxLayout=\"row\" fxLayoutAlign=\"center\" class=\"social-media\">\n        <span *ngFor=\"let social of socials\">\n            <a *ngIf=\"social.url.length\" [attr.href]=\"social.url\"><mat-icon [svgIcon]=\"social.type.toLowerCase()\"></mat-icon></a>\n        </span>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>person</mat-icon>\n        </div>\n        <div fxFlex><div class=\"description\">{{description}}</div></div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\" *ngIf=\"phone && phone.length\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>phone</mat-icon>\n        </div>\n        <div fxFlex>{{phone}}</div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\" *ngIf=\"email && email.length\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>email</mat-icon>\n        </div>\n        <div fxFlex>{{email}}</div>\n    </div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" class=\"space-up\">\n        <div fxFlex=\"25\" class=\"text-center\">\n            <mat-icon>settings</mat-icon>\n        </div>\n        <div fxFlex>\n            <app-skill [skills]=\"skills\">\n            </app-skill>\n        </div>\n    </div>\n\n    <div *ngIf=\"resumeService.editMode\" class=\"actions\">\n        <button mat-raised-button color=\"primary\" (click)=\"editSummary()\">Edit profile</button>\n        <input id=\"resumeFile\" style=\"display:none\" *ngIf=\"resumeService.editMode\" type=\"file\" accept=\"application/json\" (change)=\"uploadResume($event)\">\n        <label for=\"resumeFile\" class=\"mat-primary mat-raised-button\">Upload Resume</label>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -1306,8 +1293,8 @@ module.exports = "<div>\n\n    <div fxLayout=\"row\" fxLayout.sm=\"column\" fxLa
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SummaryComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditSummaryDialog; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__resume_service__ = __webpack_require__("../../../../../src/app/resume.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models__ = __webpack_require__("../../../../../src/app/models.ts");
@@ -1388,46 +1375,46 @@ var SummaryComponent = /** @class */ (function () {
         }
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
         __metadata("design:type", String)
     ], SummaryComponent.prototype, "name", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('picture'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])('picture'),
         __metadata("design:type", String)
     ], SummaryComponent.prototype, "profileUrl", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
         __metadata("design:type", String)
     ], SummaryComponent.prototype, "description", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
         __metadata("design:type", String)
     ], SummaryComponent.prototype, "title", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
         __metadata("design:type", String)
     ], SummaryComponent.prototype, "phone", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
         __metadata("design:type", String)
     ], SummaryComponent.prototype, "email", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", Object)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
+        __metadata("design:type", Array)
     ], SummaryComponent.prototype, "socials", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", Object)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
+        __metadata("design:type", Array)
     ], SummaryComponent.prototype, "skills", void 0);
     SummaryComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-summary',
             template: __webpack_require__("../../../../../src/app/summary/summary.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewContainerRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["l" /* MatIconRegistry */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["l" /* MatIconRegistry */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewContainerRef */], __WEBPACK_IMPORTED_MODULE_3__resume_service__["a" /* ResumeService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["l" /* MatIconRegistry */], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */]])
     ], SummaryComponent);
     return SummaryComponent;
-    var _a, _b, _c, _d, _e;
 }());
 
 // Edit summary dialog
@@ -1449,16 +1436,15 @@ var EditSummaryDialog = /** @class */ (function () {
         }
     };
     EditSummaryDialog = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             template: "\n    <h3 mat-dialog-title>Edit summary</h3>\n    <div mat-dialog-content fxLayout=\"column\">\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.name\"\n          placeholder=\"Your name\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.profileUrl\"\n          placeholder=\"Url to profile picture\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.title\"\n          placeholder=\"Job title\">\n      </mat-input-container>\n      <mat-input-container>\n        <textarea matInput\n        [(ngModel)]=\"summary.description\"\n        rows=\"4\" placeholder=\"Description of yourself\"></textarea>\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.phone\"\n          placeholder=\"Your phone number\">\n      </mat-input-container>\n      <mat-input-container>\n        <input matInput\n          [(ngModel)]=\"summary.email\"\n          placeholder=\"Your email adress\">\n      </mat-input-container>\n      <mat-input-container class=\"capitalize\" *ngFor=\"let social of summary.socials\">\n        <input matInput\n          [(ngModel)]=\"social.url\"\n          placeholder=\"{{social.type.toLowerCase()}}\">\n      </mat-input-container>\n    </div>\n    <div mat-dialog-actions>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close()\">Cancel</button>\n      <button mat-button color=\"primary\" (click)=\"dialogRef.close(summary)\">Ok</button>\n    </div>\n  ",
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialogRef */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialogRef */]])
     ], EditSummaryDialog);
     return EditSummaryDialog;
-    var _a;
 }());
 
-//# sourceMappingURL=summary.component.js.map
+
 
 /***/ }),
 
@@ -1474,7 +1460,7 @@ var EditSummaryDialog = /** @class */ (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=environment.js.map
+
 
 /***/ }),
 
@@ -1483,8 +1469,8 @@ var environment = {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/@angular/platform-browser-dynamic.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/esm5/platform-browser-dynamic.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
 
@@ -1492,10 +1478,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_21" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_13" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
+
 
 /***/ }),
 
