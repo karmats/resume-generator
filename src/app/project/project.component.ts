@@ -18,7 +18,7 @@ export class ProjectComponent implements OnInit {
   @Input() skills: Array<Skill>;
   months: Array<string>;
 
-  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService) { }
+  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService) { }
 
   ngOnInit() {
     this.projects = this.projects || [];

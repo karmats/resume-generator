@@ -21,7 +21,7 @@ export class ResumeComponent implements OnInit {
   darkTheme: boolean = false;
   resumeEmpty: boolean = true;
 
-  constructor(private resumeService: ResumeService) {
+  constructor(public resumeService: ResumeService) {
   }
 
   ngOnInit() {

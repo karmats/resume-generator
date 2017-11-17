@@ -12,7 +12,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 export class SkillComponent implements OnInit {
   @Input() skills:Array<Skill>;
 
-  constructor(private dialog: MatDialog, private resumeService: ResumeService, private viewContainerRef: ViewContainerRef) {
+  constructor(private dialog: MatDialog, public  resumeService: ResumeService, private viewContainerRef: ViewContainerRef) {
   }
 
   ngOnInit() {

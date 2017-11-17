@@ -18,7 +18,7 @@ export class EducationComponent implements OnInit {
   @Input() educations: Array<Education>;
   months: Array<string>
 
-  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService) { }
+  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService) { }
 
   ngOnInit() {
     this.months = this.resumeService.months;

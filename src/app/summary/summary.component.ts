@@ -30,7 +30,7 @@ export class SummaryComponent implements OnInit {
   @Input() skills: Array<Skill>;
   
 
-  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, private resumeService: ResumeService,
+  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService,
             private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
