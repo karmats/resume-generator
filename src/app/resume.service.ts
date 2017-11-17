@@ -36,9 +36,9 @@ export class ResumeService {
     for (let year = 1950; year <= today.getFullYear(); year++) {
       this.years.push(year);
     }
-    // To get the name of the month, use the browsers language and angular DatePipe,
-    // the position in the array will tell which js month it is
-    const datePipe = new DatePipe(navigator.language);
+    // From the angular docs "By default, Angular only contains locale data for en-US."
+    // TODO For future, import locales to support in app.module.ts see https://angular.io/guide/i18n#i18n-pipes
+    const datePipe = new DatePipe('en-US');
     for (let month = 1; month <= 12; month++) {
       let dateString = `2016-${month < 10 ? '0' : ''}${month}-15`;
       this.months.push(datePipe.transform(dateString, 'MMMM '));
