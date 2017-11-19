@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { ResumeService } from '../resume.service';
 import { Resume } from '../models';
 
@@ -21,7 +22,8 @@ export class ResumeComponent implements OnInit {
   darkTheme: boolean = false;
   resumeEmpty: boolean = true;
 
-  constructor(public resumeService: ResumeService) {
+  constructor(public resumeService: ResumeService,
+              private overlayContainer: OverlayContainer) {
   }
 
   ngOnInit() {
@@ -36,15 +38,24 @@ export class ResumeComponent implements OnInit {
 
     // Retrieve theme
     const theme = this.resumeService.retrieveTheme();
+    const overlayClassList = this.overlayContainer.getContainerElement().classList;
     if (theme && theme.themeName) {
       this.currentTheme = this.themes.filter(t => t.value === theme.themeName).pop();
+      overlayClassList.add(theme.themeName);
       this.darkTheme = theme.isDark;
     } else {
       // Indigo default theme
       this.currentTheme = this.themes[1];
       this.darkTheme = false;
+      overlayClassList.add(this.themes[1].value);
     }
-    this.darkTheme ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+    if (this.darkTheme) {
+      document.body.classList.add('dark');
+      overlayClassList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+      overlayClassList.remove('dark');
+    }
   }
 
   cssClasses() {
@@ -52,8 +63,21 @@ export class ResumeComponent implements OnInit {
   }
 
   themeChanged(theme, dark) {
+    const oldTheme = this.resumeService.retrieveTheme();
+
+    const overlayClassList = this.overlayContainer.getContainerElement().classList;
+    overlayClassList.remove(oldTheme.themeName);
+    overlayClassList.add(this.currentTheme.value);
+
+    if (this.darkTheme) {
+      document.body.classList.add('dark');
+      overlayClassList.add('dark');
+    } else {
+      document.body.classList.remove('dark')
+      overlayClassList.remove('dark');
+    }
+
     this.resumeService.updateTheme(this.currentTheme.value, this.darkTheme);
-    this.darkTheme ? document.body.classList.add('dark') : document.body.classList.remove('dark');
   }
 
 }
