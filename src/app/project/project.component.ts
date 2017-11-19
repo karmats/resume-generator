@@ -31,7 +31,7 @@ export class ProjectComponent implements OnInit {
     config.width = "75vw";
 
     const dialogRef = this.dialog.open(ProjectDialog, config);
-    dialogRef.componentInstance.skills = this.skills.map(s => s ? s.name : '');
+    dialogRef.componentInstance.skills = (this.skills || []).map(s => s ? s.name : '');
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
