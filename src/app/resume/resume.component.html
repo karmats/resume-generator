@@ -1,12 +1,24 @@
 <!-- Summary -->
 <div class="app-content" [ngClass]="cssClasses()">
     <div *ngIf="resumeService.editMode" class="theme-switch">
-        <mat-form-field>
-            <mat-select placeholder="Theme" [(ngModel)]="currentTheme" (change)="themeChanged(currentTheme, darkTheme)">
-                <mat-option *ngFor="let theme of themes" [value]="theme">{{ theme.name }}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-slide-toggle [(ngModel)]="darkTheme" (change)="themeChanged(currentTheme, darkTheme)">Dark</mat-slide-toggle>
+        <div>
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon>palette</mat-icon>
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngFor="let theme of themes" color="primary" (click)="changeTheme(theme, darkTheme)">
+                    <mat-icon *ngIf="theme.value === currentTheme.value" class="theme-item-color" [ngStyle]="{'background-color': theme.primary}">
+                        check_circle
+                    </mat-icon>
+                    <span *ngIf="theme.value !== currentTheme.value" class="theme-item-color" [ngStyle]="{'background-color': theme.primary}"></span>
+                    {{ theme.name }}
+                </button>
+            </mat-menu>
+        </div>
+        <div>
+            <mat-slide-toggle [(ngModel)]="darkTheme" (change)="changeTheme(currentTheme, darkTheme)">Dark</mat-slide-toggle>
+        </div>
     </div>
     <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between stretch" fxLayoutWrap>
         <aside fxFlex="30" class="summary">

@@ -124,11 +124,17 @@ body {
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 200px;
-  z-index: 1;
   .mat-slide-toggle {
-    float: right;
+    margin-top: 8px;
   }
+}
+.theme-item-color {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  border-radius: 24px;
+  vertical-align: middle;
+  margin-right: 16px;
 }
 
 /** Summary scss */

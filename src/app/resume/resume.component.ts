@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ResumeService } from '../resume.service';
 import { Resume } from '../models';
@@ -10,20 +11,23 @@ import { Resume } from '../models';
 export class ResumeComponent implements OnInit {
 
   resume: Resume;
+  // Since we can't import colors from material, they need to be defined here as well
+  // needed for meta tag 'theme-name'
   themes: Array<any> = [
-    { name: 'Blue grey', value:'blue-grey' },
-    { name: 'Indigo', value: 'indigo' },
-    { name: 'Light blue', value:'light-blue' },
-    { name: 'Orange', value:'orange' },
-    { name: 'Purple', value:'purple' },
-    { name: 'Teal', value:'teal' }
+    { name: 'Blue grey', value:'blue-grey', primary: '#607d8b' },
+    { name: 'Indigo', value: 'indigo', primary: '#3f51b5' },
+    { name: 'Light blue', value:'light-blue', primary: '#03a9f4' },
+    { name: 'Orange', value:'orange', primary: '#ff5722' },
+    { name: 'Purple', value:'purple', primary: '#9c27b0' },
+    { name: 'Teal', value:'teal', primary: '#009688' }
   ];
   currentTheme: any;
   darkTheme: boolean = false;
   resumeEmpty: boolean = true;
 
   constructor(public resumeService: ResumeService,
-              private overlayContainer: OverlayContainer) {
+              private overlayContainer: OverlayContainer,
+              private meta: Meta) {
   }
 
   ngOnInit() {
@@ -40,21 +44,11 @@ export class ResumeComponent implements OnInit {
     const theme = this.resumeService.retrieveTheme();
     const overlayClassList = this.overlayContainer.getContainerElement().classList;
     if (theme && theme.themeName) {
-      this.currentTheme = this.themes.filter(t => t.value === theme.themeName).pop();
-      overlayClassList.add(theme.themeName);
-      this.darkTheme = theme.isDark;
+      const currTheme = this.themes.filter(t => t.value === theme.themeName).pop();
+      this.changeTheme(currTheme, theme.isDark);
     } else {
       // Indigo default theme
-      this.currentTheme = this.themes[1];
-      this.darkTheme = false;
-      overlayClassList.add(this.themes[1].value);
-    }
-    if (this.darkTheme) {
-      document.body.classList.add('dark');
-      overlayClassList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-      overlayClassList.remove('dark');
+      this.changeTheme(this.themes[1], false);
     }
   }
 
@@ -62,12 +56,14 @@ export class ResumeComponent implements OnInit {
     return this.currentTheme.value + (this.darkTheme ? ' dark' : '');
   }
 
-  themeChanged(theme, dark) {
+  changeTheme(theme, dark) {
+    this.currentTheme = theme;
+    this.darkTheme = dark;
     const oldTheme = this.resumeService.retrieveTheme();
 
     const overlayClassList = this.overlayContainer.getContainerElement().classList;
     overlayClassList.remove(oldTheme.themeName);
-    overlayClassList.add(this.currentTheme.value);
+    overlayClassList.add(theme.value);
 
     if (this.darkTheme) {
       document.body.classList.add('dark');
@@ -76,6 +72,7 @@ export class ResumeComponent implements OnInit {
       document.body.classList.remove('dark')
       overlayClassList.remove('dark');
     }
+    this.meta.updateTag({ content: this.currentTheme.primary }, 'name="theme-color"')
 
     this.resumeService.updateTheme(this.currentTheme.value, this.darkTheme);
   }
