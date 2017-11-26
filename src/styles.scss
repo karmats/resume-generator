@@ -1,5 +1,7 @@
 @import 'themes';
 
+$sm-screen: 960px;
+
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
@@ -49,7 +51,7 @@ body {
   margin: 0 auto;
 
   // Small grid breakpoint in flexbox-layout
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: $sm-screen) {
     width: 100%;
     .summary {
       text-align: center;
@@ -71,13 +73,6 @@ body {
       border-radius: 300px;
       width: 300px !important;
       height: 300px !important;
-    }
-    .mat-card .mat-card-header {
-      flex-flow: column-reverse nowrap;
-      .project-logo {
-        text-align: center;
-        margin-bottom: 16px;
-      }
     }
   }
   .section {
@@ -178,6 +173,9 @@ body {
 .masonry {
     column-count: 2;
     column-gap: 12px;
+    @media only screen and (max-width: $sm-screen) {
+      column-count: 1;
+    }
 }
 
 .item {
