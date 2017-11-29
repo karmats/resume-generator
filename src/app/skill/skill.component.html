@@ -1,6 +1,5 @@
-<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
-    fxLayoutAlign="space-between stretch" fxLayoutWrap>
-  <div *ngFor="let skill of skills" fxFlex="90">
+<div class="summary-skill-container">
+  <div *ngFor="let skill of skills">
     <span>{{skill.name}}</span>
     <button *ngIf="resumeService.editMode" mat-icon-button color="secondary" (click)="editSkill(skill)">
       <mat-icon>edit</mat-icon>

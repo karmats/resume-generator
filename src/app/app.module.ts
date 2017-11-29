@@ -8,7 +8,6 @@ import { MatSelectModule, MatSlideToggleModule, MatAutocompleteModule,
 MatProgressBarModule, MatDialogModule, MatIconModule, MatButtonModule, MatCardModule, MatInputModule,
 MatListModule, MatSliderModule, MatCheckboxModule, MatChipsModule, MatMenuModule } from '@angular/material';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs';
 
@@ -53,7 +52,6 @@ import { ProjectComponent, ProjectDialog } from './project/project.component';
     FormsModule,
     HttpModule,
     HttpClientModule,
-    FlexLayoutModule,
     ReactiveFormsModule,
     MatSelectModule,
     MatSlideToggleModule,

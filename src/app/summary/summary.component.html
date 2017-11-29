@@ -1,11 +1,11 @@
 <div>
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center space-up-s">
-        <div fxFlex><h1 style="margin-bottom:0">{{name}}</h1></div>
+    <div class="text-center space-up-s">
+        <div><h1 class="title">{{name}}</h1></div>
     </div>
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="text-center space-around">
-        <div fxFlex>{{title}}</div>
+    <div class="text-center space-around">
+        <div>{{title}}</div>
     </div>
 
     <div class="text-center">
@@ -13,38 +13,38 @@
         <mat-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></mat-icon>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="center" class="social-media">
+    <div class="social-media text-center">
         <span *ngFor="let social of socials">
             <a *ngIf="social.url.length" [attr.href]="social.url"><mat-icon [svgIcon]="social.type.toLowerCase()"></mat-icon></a>
         </span>
     </div>
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
-        <div fxFlex="25" class="text-center">
+    <div class="space-up summary-info-container">
+        <div class="text-center">
             <mat-icon>person</mat-icon>
         </div>
-        <div fxFlex><div class="description">{{description}}</div></div>
+        <div><div class="description">{{description}}</div></div>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column" class="space-up" *ngIf="phone && phone.length">
-        <div fxFlex="25" class="text-center">
+    <div class="space-up summary-info-container" *ngIf="phone && phone.length">
+        <div class="text-center">
             <mat-icon>phone</mat-icon>
         </div>
-        <div fxFlex>{{phone}}</div>
+        <div>{{phone}}</div>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column" class="space-up" *ngIf="email && email.length">
-        <div fxFlex="25" class="text-center">
+    <div class="space-up summary-info-container" *ngIf="email && email.length">
+        <div class="text-center">
             <mat-icon>email</mat-icon>
         </div>
-        <div fxFlex>{{email}}</div>
+        <div>{{email}}</div>
     </div>
 
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="space-up">
-        <div fxFlex="25" class="text-center">
+    <div class="space-up summary-info-container">
+        <div class="text-center">
             <mat-icon>settings</mat-icon>
         </div>
-        <div fxFlex>
+        <div>
             <app-skill [skills]="skills">
             </app-skill>
         </div>

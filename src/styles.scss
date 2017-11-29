@@ -1,6 +1,7 @@
 @import 'themes';
 
-$sm-screen: 960px;
+$sm-screen: 768px;
+$md-screen: 1080px;
 
 body {
   margin: 0;
@@ -16,10 +17,13 @@ body {
 
 .footer {
   position: absolute;
-  right: 48px;
+  right: 24px;
   width: 100%;
   text-align: right;
   margin-top: -24px;
+  @media only screen and (max-width: $sm-screen) {
+    padding-top: 24px
+  }
 }
 
 /** Helpers */
@@ -47,8 +51,53 @@ body {
 
 /**  Core scss */
 .app-content {
-  width: 75%;
-  margin: 0 auto;
+
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    @media only screen and (max-width: $sm-screen) {
+      flex-flow: column wrap;
+    }
+    .title {
+      margin-bottom:0;
+      margin-top:24px;
+    }
+    .summary {
+      flex: 1 1 30%;
+    }
+    .summary-info-container {
+      display: flex;
+      flex-direction: row;
+      :first-child {
+        flex: 0 1 25%;
+      }
+      :last-child {
+        flex: 1 1;
+      }
+      @media only screen and (max-width: $sm-screen) {
+        flex-direction: column;
+      }
+      .summary-skill-container {
+        flex-flow: row wrap;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        >div {
+          flex: 1 1 90%;
+          max-width: 90%;
+        }
+        @media only screen and (max-width: $sm-screen) {
+          flex-flow: column wrap;
+          >div {
+            flex: 1 1 100%;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
 
   // Small grid breakpoint in flexbox-layout
   @media only screen and (max-width: $sm-screen) {
@@ -73,6 +122,14 @@ body {
       border-radius: 300px;
       width: 300px !important;
       height: 300px !important;
+    }
+  }
+  .content {
+    flex: 1 1 70%;
+    max-width: 70%;
+    @media only screen and (max-width: $sm-screen) {
+      flex: 1 1 100%;
+      max-width: 100%;
     }
   }
   .section {

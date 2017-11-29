@@ -20,8 +20,8 @@
             <mat-slide-toggle [(ngModel)]="darkTheme" (change)="changeTheme(currentTheme, darkTheme)">Dark</mat-slide-toggle>
         </div>
     </div>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between stretch" fxLayoutWrap>
-        <aside fxFlex="30" class="summary">
+    <div class="container">
+        <aside class="summary">
             <div class="information-text" *ngIf="resumeEmpty">
                 It seems that it's your first time here, welcome! Start by filling in some information about your self, or import your profile from linkedin. Save the page when you're happy with the result :)
             </div>
@@ -31,7 +31,7 @@
         </aside>
 
 
-        <section fxFlex="70">
+        <section class="content">
             <!-- Work experience -->
             <app-experience [positions]="resume.positions">
             </app-experience>
