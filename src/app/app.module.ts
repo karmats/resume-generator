@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule, MatSlideToggleModule, MatAutocompleteModule,
 MatProgressBarModule, MatDialogModule, MatIconModule, MatButtonModule, MatCardModule, MatInputModule,
-MatListModule, MatSliderModule, MatCheckboxModule, MatChipsModule, MatMenuModule } from '@angular/material';
+MatListModule, MatSliderModule, MatCheckboxModule, MatChipsModule, MatMenuModule, MatSnackBarModule } from '@angular/material';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import 'hammerjs';
@@ -66,7 +66,8 @@ import { ProjectComponent, ProjectDialog } from './project/project.component';
     MatSliderModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule
   ],
   providers: [ResumeService, Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]

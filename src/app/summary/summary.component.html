@@ -55,7 +55,4 @@
         <input id="resumeFile" style="display:none" *ngIf="resumeService.editMode" type="file" accept="application/json" (change)="uploadResume($event)">
         <label for="resumeFile" class="mat-primary mat-raised-button">Upload Resume</label>
     </div>
-    <div *ngIf="!resumeService.editMode" class="actions">
-        <button id="exportBtn" mat-raised-button color="primary" (click)="exportResume()">Export resume</button>
-    </div>
 </div>
