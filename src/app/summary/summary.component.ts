@@ -104,6 +104,38 @@ export class SummaryComponent implements OnInit {
       reader.readAsText(resumeFile, 'UTF-8');
     }
   }
+
+  // Export resume to html
+  exportResume() {
+    const doc = new DOMParser().parseFromString(document.body.outerHTML, 'text/html');
+    doc.head.innerHTML = document.head.innerHTML;
+
+    // Remove elements that shouldn't be in export
+    const scriptTags = doc.querySelectorAll('script');
+    this.removeTags(scriptTags);
+    const exportBtn = doc.querySelectorAll('.actions');
+    this.removeTags(exportBtn);
+    const title = doc.querySelectorAll('title');
+    this.removeTags(title);
+
+    const uriContent = "data:application/octet-stream," + 
+    encodeURIComponent(`
+    <html>
+      <head>
+        <title>${this.name}</title>
+        ${doc.head.innerHTML}
+      </head>
+      ${doc.body.outerHTML}
+    </html>`);
+  window.open(uriContent, 'export');
+  }
+
+  private removeTags(tags:NodeListOf<Element>) {
+    for (let i = 0; i < tags.length; i++) {
+      const node = tags.item(i);
+      node.parentNode.removeChild(node);
+    }
+  }
 }
 
 // Edit summary dialog

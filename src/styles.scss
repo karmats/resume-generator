@@ -78,6 +78,9 @@ body {
       }
       @media only screen and (max-width: $sm-screen) {
         flex-direction: column;
+        :first-child {
+          flex-basis: 5%;
+        }
       }
       .summary-skill-container {
         flex-flow: row wrap;
@@ -91,7 +94,7 @@ body {
         @media only screen and (max-width: $sm-screen) {
           flex-flow: column wrap;
           >div {
-            flex: 1 1 100%;
+            flex-basis: 10%;
             max-width: 100%;
           }
         }
