@@ -138,11 +138,11 @@ export class ProjectComponent implements OnInit {
 
       <div class="date-container">
         <label class="select-label">From</label>
-        <div fxLayout="row">
-          <mat-select fxFlex="50" [(ngModel)]="project.startDate.year" placeholder="Year">
+        <div>
+          <mat-select [(ngModel)]="project.startDate.year" placeholder="Year">
             <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
           </mat-select>
-          <mat-select fxFlex="50" [(ngModel)]="project.startDate.month" placeholder="Month">
+          <mat-select [(ngModel)]="project.startDate.month" placeholder="Month">
             <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
           </mat-select>
         </div>
@@ -153,10 +153,10 @@ export class ProjectComponent implements OnInit {
       <div class="date-container" *ngIf="!project.current">
         <label class="select-label">To</label>
         <div fxLayout="row">
-          <mat-select fxFlex="50" [(ngModel)]="project.endDate.year" placeholder="Year">
+          <mat-select [(ngModel)]="project.endDate.year" placeholder="Year">
             <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
           </mat-select>
-          <mat-select fxFlex="50" [(ngModel)]="project.endDate.month" placeholder="Month">
+          <mat-select [(ngModel)]="project.endDate.month" placeholder="Month">
             <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
           </mat-select>
         </div>

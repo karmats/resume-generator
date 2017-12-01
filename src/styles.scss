@@ -51,6 +51,9 @@ body {
 
 /**  Core scss */
 .app-content {
+  @media only screen and (max-width: $sm-screen) {
+    width: 100%;
+  }
 
   .container {
     display: flex;
@@ -102,31 +105,6 @@ body {
     }
   }
 
-  // Small grid breakpoint in flexbox-layout
-  @media only screen and (max-width: $sm-screen) {
-    width: 100%;
-    .summary {
-      text-align: center;
-      .description {
-        width: 75%;
-        margin: 0px auto;
-      }
-      .mat-icon.material-icons {
-        font-size: 30px;
-        width: 30px;
-        height: 30px;
-      }
-      .skill-bar {
-        width: 75%;
-        margin: 12px auto 36px auto;
-      }
-    }
-    .profile-picture {
-      border-radius: 300px;
-      width: 300px !important;
-      height: 300px !important;
-    }
-  }
   .content {
     flex: 1 1 70%;
     max-width: 70%;
@@ -166,6 +144,12 @@ body {
 }
 .date-container {
   margin: 25px 0 10px 0;
+  >div {
+    display: inline-block;
+    >mat-select {
+      width: 49%;
+    }
+  }
 }
 .date-container label {
   position: relative;
@@ -201,6 +185,28 @@ body {
   .information-text {
     padding: 12px;
     font-weight: bold;
+  }
+  // Small grid breakpoint in flexbox-layout
+  @media only screen and (max-width: $sm-screen) {
+    text-align: center;
+    .description {
+      width: 75%;
+      margin: 0px auto;
+    }
+    .mat-icon.material-icons {
+      font-size: 30px;
+      width: 30px;
+      height: 30px;
+    }
+    .skill-bar {
+      width: 75%;
+      margin: 12px auto 36px auto;
+    }
+  }
+  .profile-picture {
+    border-radius: 300px;
+    width: 300px !important;
+    height: 300px !important;
   }
 }
 .social-media {

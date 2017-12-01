@@ -96,11 +96,11 @@ export class ExperienceComponent implements OnInit {
       </mat-input-container>
       <div class="date-container">
         <label>From</label>
-        <div fxLayout="row">
-          <mat-select fxFlex="50" [(ngModel)]="position.startDate.year" placeholder="Year">
+        <div>
+          <mat-select [(ngModel)]="position.startDate.year" placeholder="Year">
             <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
           </mat-select>
-          <mat-select fxFlex="50" [(ngModel)]="position.startDate.month" placeholder="Month">
+          <mat-select [(ngModel)]="position.startDate.month" placeholder="Month">
             <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
           </mat-select>
         </div>
@@ -110,11 +110,11 @@ export class ExperienceComponent implements OnInit {
       </mat-checkbox>
       <div class="date-container" *ngIf="!position.current">
         <label>To</label>
-        <div fxLayout="row">
-          <mat-select fxFlex="50" [(ngModel)]="position.endDate.year" placeholder="Year">
+        <div>
+          <mat-select [(ngModel)]="position.endDate.year" placeholder="Year">
             <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
           </mat-select>
-          <mat-select fxFlex="50" [(ngModel)]="position.endDate.month" placeholder="Month">
+          <mat-select [(ngModel)]="position.endDate.month" placeholder="Month">
             <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
           </mat-select>
         </div>
