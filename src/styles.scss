@@ -155,9 +155,13 @@ body {
   position: relative;
   bottom: 20px;
 }
-.skill-bar {
+.mat-progress-bar.skill-bar {
     margin-bottom: 36px;
     margin-top: 12px;
+    @media only screen and (max-width: $sm-screen) {
+      width: 75%;
+      margin: 12px auto 36px auto;
+    }
 }
 .theme-switch {
   position: absolute;
@@ -186,27 +190,13 @@ body {
     padding: 12px;
     font-weight: bold;
   }
-  // Small grid breakpoint in flexbox-layout
   @media only screen and (max-width: $sm-screen) {
     text-align: center;
-    .description {
-      width: 75%;
-      margin: 0px auto;
-    }
     .mat-icon.material-icons {
       font-size: 30px;
       width: 30px;
       height: 30px;
     }
-    .skill-bar {
-      width: 75%;
-      margin: 12px auto 36px auto;
-    }
-  }
-  .profile-picture {
-    border-radius: 300px;
-    width: 300px !important;
-    height: 300px !important;
   }
 }
 .social-media {
@@ -221,9 +211,18 @@ body {
   width: 200px !important;
   height: 200px !important;
   margin: 12px 0;
+  @media only screen and (max-width: $sm-screen) {
+    border-radius: 300px;
+    width: 300px !important;
+    height: 300px !important;
+  }
 }
 .description {
   margin-right: 20px;
+  @media only screen and (max-width: $sm-screen) {
+    width: 75%;
+    margin: 0px auto;
+  }
 }
 .contact-info {
   margin-top: 40px;
@@ -243,7 +242,6 @@ body {
       column-count: 1;
     }
 }
-
 .item {
     display: inline-block;
     margin: 0 0 12px;
@@ -261,7 +259,6 @@ body {
 mat-input-container.mat-form-field, mat-form-field.mat-input-container {
   width: 100%;
 }
-
 .mat-card .mat-card-header {
   display: flex;
   flex-flow: row nowrap;
