@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rm -rf dist/",
     "build": "npm run clean && ng build",
-    "build:demo": "npm run clean && ng build --bh --prod /resume-generator/",
+    "build:demo": "npm run clean && ng build --bh --prod /resume-generator/ --extract-css=false",
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --watch=false",

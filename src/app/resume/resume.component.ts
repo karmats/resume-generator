@@ -36,13 +36,13 @@ export class ResumeComponent implements OnInit {
   ngOnInit() {
     this.resume = this.resumeService.retrieveResume();
     this.resumeEmpty = Object.keys(this.resume).length <= 0
-    this.showExportOption(!this.resumeEmpty);
+    this.showExportOption(!this.resumeEmpty && !this.resumeService.editMode);
 
     // Listen to resume changed events
     this.resumeService.resumeChanged.subscribe(resume => {
       this.resume = resume
       this.resumeEmpty = Object.keys(resume).length <= 0
-      this.showExportOption(!this.resumeEmpty);
+      this.showExportOption(!this.resumeEmpty && !this.resumeService.editMode);
     });
 
     // Retrieve theme
