@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { DatePipe, Location } from '@angular/common';
 import { Resume, Position, Education, Skill, Project, Social, SocialType, YearAndMonth } from './models'
+import { jsonResumeToResume } from 'app/util/json-resume-converter';
 
 @Injectable()
 export class ResumeService {
@@ -268,73 +269,7 @@ export class ResumeService {
    * @param jsonResume A json resume object
    */
   parseAndSaveJsonResume(jsonResume) {
-    const basics = jsonResume.basics;
-    const resume: Resume = {
-      name: basics.name,
-      title: basics.label,
-      summary: basics.summary,
-      phone: basics.phone,
-      email: basics.email,
-      pictureUrl: basics.picture,
-      social: basics.profiles.map(profile => {
-        const network: string = profile.network.toLowerCase();
-        const social: Social = { url: profile.url, type: SocialType.UNKNOWN }
-        if (network.includes('twitter')) {
-          social.type = SocialType.TWITTER;
-        } else if (network.includes('facebook')) {
-          social.type = SocialType.FACEBOOK;
-        } else if (network.includes('linkedin')) {
-          social.type = SocialType.LINKEDIN;
-        } else if (network.includes('github')) {
-          social.type = SocialType.GITHUB;
-        } else if (network.includes('instagram')) {
-          social.type = SocialType.INSTAGRAM;
-        }
-        return social;
-      }),
-      positions: jsonResume.work.map(w => {
-        const sd = this.dateAsYearMonth(new Date(w.startDate));
-        const ed = w.endDate ? this.dateAsYearMonth(new Date(w.endDate)) : null;
-        return {
-          title: w.position,
-          summary: w.summary,
-          startDate: sd,
-          endDate: ed,
-          current: ed === null,
-          company: w.company
-        }
-      }),
-      educations: jsonResume.education.map(e => {
-        const sd = this.dateAsYearMonth(new Date(e.startDate));
-        const ed = e.endDate ? this.dateAsYearMonth(new Date(e.endDate)) : null;
-        return {
-          school: e.institution,
-          field: e.area,
-          startDate: sd,
-          endDate: ed,
-          current: ed === null,
-          degree: e.studyType
-        }
-      }),
-      skills: jsonResume.skills.map(s => {
-        return {
-          name: s.name,
-          competence: 0
-        }
-      }),
-      projects: jsonResume.projects.map(p => {
-        const sd = this.dateAsYearMonth(new Date(p.startDate));
-        const ed = p.endDate ? this.dateAsYearMonth(new Date(p.endDate)) : null;
-        return {
-          name: p.name,
-          description: p.summary,
-          startDate: sd,
-          endDate: ed,
-          current: ed === null,
-          web: p.url
-        }
-      })
-    }
+    const resume = jsonResumeToResume(jsonResume);
     this.saveResume(resume);
   }
 
