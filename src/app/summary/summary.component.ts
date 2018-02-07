@@ -104,6 +104,13 @@ export class SummaryComponent implements OnInit {
       reader.readAsText(resumeFile, 'UTF-8');
     }
   }
+
+  exportToJsonResume() {
+    const json = this.resumeService.currentResumeToJsonResume();
+    const uriContent = "data:application/octet-stream," +
+        encodeURIComponent(JSON.stringify(json));
+      window.open(uriContent, 'export');
+  }
 }
 
 // Edit summary dialog

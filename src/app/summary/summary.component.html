@@ -54,5 +54,6 @@
         <button mat-raised-button color="primary" (click)="editSummary()">Edit profile</button>
         <input id="resumeFile" style="display:none" *ngIf="resumeService.editMode" type="file" accept="application/json" (change)="uploadResume($event)">
         <label for="resumeFile" class="mat-primary mat-raised-button">Upload Resume</label>
+        <a mat-raised-button color="primary" (click)="exportToJsonResume()" download="resume.json">Export</a>
     </div>
 </div>

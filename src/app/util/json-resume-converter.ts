@@ -85,6 +85,10 @@ export function jsonResumeToResume(jsonResume): Resume {
  * @return Resume in json resume format
  */
 export function resumeToJsonResume(resume: Resume) {
+    const yearMonthToDate = (yearAndMonth: YearAndMonth): string => {
+        const month = yearAndMonth.month.toString().length === 1 ? `0${yearAndMonth.month}` : yearAndMonth.month;
+        return `${yearAndMonth.year}-${month}-01`;
+    }
     return {
         basics: {
             name: resume.name,
@@ -93,11 +97,42 @@ export function resumeToJsonResume(resume: Resume) {
             phone: resume.phone,
             email: resume.email,
             picture: resume.pictureUrl,
-            profiles: [],
-            work: [],
-            education: [],
-            skills: [],
-            projects: []
-        }
+            profiles: resume.social.map(s => {
+                return { network: s.type.toLowerCase(), url: s.url, username: '' }
+            })
+        },
+        work: resume.positions.map(p => {
+            return {
+                company: p.company,
+                position: p.title,
+                summary: p.summary,
+                startDate: yearMonthToDate(p.startDate),
+                endDate: p.current ? null : yearMonthToDate(p.endDate)
+            }
+        }),
+        education: resume.educations.map(e => {
+            return {
+                institution: e.school,
+                area: e.field,
+                startDate: yearMonthToDate(e.startDate),
+                studyType: e.degree,
+                endDate: e.current ? null : yearMonthToDate(e.endDate)
+            }
+        }),
+        skills: resume.skills.map(s => {
+            return {
+                name: s.name,
+                level: s.competence
+            }
+        }),
+        projects: resume.projects.map(p => {
+            return {
+                name: p.name,
+                summary: p.description,
+                url: p.web,
+                startDate: yearMonthToDate(p.startDate),
+                endDate: p.current ? null : yearMonthToDate(p.endDate)
+            }
+        })
     }
 }

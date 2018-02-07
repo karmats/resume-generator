@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { DatePipe, Location } from '@angular/common';
 import { Resume, Position, Education, Skill, Project, Social, SocialType, YearAndMonth } from './models'
-import { jsonResumeToResume } from 'app/util/json-resume-converter';
+import { jsonResumeToResume, resumeToJsonResume } from 'app/util/json-resume-converter';
 
 @Injectable()
 export class ResumeService {
@@ -78,7 +78,7 @@ export class ResumeService {
    */
   addPosition(position: Position): Array<Position> {
     const currentResume = this.retrieveResume();
-    currentResume.positions = (currentResume.positions || []).concat(position);
+    currentResume.positions = (currentResume.positions ||  []).concat(position);
     this.saveResume(currentResume);
     return currentResume.positions;
   }
@@ -195,7 +195,7 @@ export class ResumeService {
    */
   addProject(project: Project): Array<Project> {
     const currentResume = this.retrieveResume();
-    currentResume.projects = (currentResume.projects || []).concat(project);
+    currentResume.projects = (currentResume.projects ||  []).concat(project);
     this.saveResume(currentResume);
     return currentResume.projects;
   }
@@ -220,7 +220,7 @@ export class ResumeService {
    * @param isDark    True if it's dark themed
    */
   updateTheme(themeName: string, isDark: boolean) {
-    localStorage.setItem(this.THEME_KEY, JSON.stringify({themeName: themeName, isDark: isDark}));
+    localStorage.setItem(this.THEME_KEY, JSON.stringify({ themeName: themeName, isDark: isDark }));
   }
 
   /**
@@ -228,7 +228,7 @@ export class ResumeService {
    * 
    * @return Theme name and if it's dark
    */
-  retrieveTheme(): {themeName: string, isDark: boolean} {
+  retrieveTheme(): { themeName: string, isDark: boolean } {
     const themeAsString = localStorage.getItem(this.THEME_KEY);
     return themeAsString ? JSON.parse(themeAsString) : {};
   }
@@ -250,7 +250,7 @@ export class ResumeService {
    * Update resume personal information.
    */
   updateSummary(name: string, profileUrl: string, description: string, title: string,
-                phone: string, email: string, socials: Array<Social>): Resume {
+    phone: string, email: string, socials: Array<Social>): Resume {
     const currentResume = this.retrieveResume();
     currentResume.name = name;
     currentResume.pictureUrl = profileUrl;
@@ -271,6 +271,16 @@ export class ResumeService {
   parseAndSaveJsonResume(jsonResume) {
     const resume = jsonResumeToResume(jsonResume);
     this.saveResume(resume);
+  }
+
+  /**
+   * Converts a resume to json resume
+   * 
+   * @param resume Resume to convert
+   */
+  currentResumeToJsonResume() {
+    const resume = this.retrieveResume();
+    return resumeToJsonResume(resume);
   }
 
   /**
