@@ -255,7 +255,9 @@ body {
 [mat-dialog-actions] {
   float: right;
 }
-
+mat-slider.mat-slider {
+  width: 100%;
+}
 mat-input-container.mat-form-field, mat-form-field.mat-input-container {
   width: 100%;
 }
