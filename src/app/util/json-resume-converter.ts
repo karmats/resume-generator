@@ -86,7 +86,7 @@ export function jsonResumeToResume(jsonResume): Resume {
  */
 export function resumeToJsonResume(resume: Resume) {
     const yearMonthToDate = (yearAndMonth: YearAndMonth): string => {
-        const month = yearAndMonth.month.toString().length === 1 ? `0${yearAndMonth.month}` : yearAndMonth.month;
+        const month = yearAndMonth.month.toString().length === 1 ? `0${yearAndMonth.month + 1}` : yearAndMonth.month + 1;
         return `${yearAndMonth.year}-${month}-01`;
     }
     return {
@@ -114,8 +114,8 @@ export function resumeToJsonResume(resume: Resume) {
             return {
                 institution: e.school,
                 area: e.field,
-                startDate: yearMonthToDate(e.startDate),
                 studyType: e.degree,
+                startDate: yearMonthToDate(e.startDate),
                 endDate: e.current ? null : yearMonthToDate(e.endDate)
             }
         }),
