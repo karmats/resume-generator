@@ -55,6 +55,7 @@ export class ProjectComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        project.endDate = project.current ? null : project.endDate;
         project.tags = result.tags;
         this.projects = result ? this.resumeService.updateProjects(this.projects) :
                     this.resumeService.retrieveResume().projects;
