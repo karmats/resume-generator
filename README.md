@@ -2,11 +2,11 @@
 
 # Resume Generator [![Build Status](https://travis-ci.org/karmats/resume-generator.svg?branch=master)](https://travis-ci.org/karmats/resume-generator) [![Dependencies](https://david-dm.org/karmats/resume-generator/status.svg)](https://david-dm.org/karmats/resume-generator)
 
-Generates a resume in material design, that can be stored and put up on your website.
+Generates a resume in material design, that can be exported to HTML.
 
 ## Create your resume
 
-Go to [demo page](https://karmats.github.io/resume-generator/?edit) and fill in your resume data. Save page and put it up on your website :)
+Go to [demo page](https://karmats.github.io/resume-generator/?edit) and fill in your resume data. Click the "HTML"-button in the "Export when done"-snackbar at the bottom of the page, and put it up on your website :)
 
 ### Example
 
