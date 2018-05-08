@@ -6,7 +6,7 @@ Generates a resume in material design, that can be exported to HTML.
 
 ## Create your resume
 
-Go to [demo page](https://karmats.github.io/resume-generator/?edit) and fill in your resume data. Click the "HTML"-button in the "Export when done"-snackbar at the bottom of the page, and put it up on your website :)
+Go to [demo page](https://karmats.github.io/resume-generator/?edit) and fill in your resume data. When finished remove the `?edit` parameter from the browser URL and click the "HTML"-button in the "Export when done"-snackbar at the bottom of the page. Put it up on your website :)
 
 ### Example
 
