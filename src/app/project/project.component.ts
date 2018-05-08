@@ -1,37 +1,54 @@
-import { Component, Input, OnInit, ViewContainerRef, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatAutocompleteTrigger, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/operator/map';
+import {
+  Component,
+  Input,
+  OnInit,
+  ViewContainerRef,
+  ViewChild
+} from "@angular/core";
+import { FormControl } from "@angular/forms";
+import {
+  MatAutocompleteTrigger,
+  MatDialog,
+  MatDialogConfig,
+  MatDialogRef
+} from "@angular/material";
+import { Observable } from "rxjs";
+import { startWith } from "rxjs/operators";
+import { map } from "rxjs/operators";
 
-import { Project, Skill, Tag } from '../models';
-import { ResumeService } from '../resume.service'
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { Project, Skill, Tag } from "../models";
+import { ResumeService } from "../resume.service";
+import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
 
 @Component({
-  selector: 'app-project',
-  templateUrl: './project.component.html'
+  selector: "app-project",
+  templateUrl: "./project.component.html"
 })
 export class ProjectComponent implements OnInit {
   @Input() projects: Array<Project>;
   @Input() skills: Array<Skill>;
   months: Array<string>;
 
-  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService) { }
+  constructor(
+    private dialog: MatDialog,
+    private viewContainerRef: ViewContainerRef,
+    public resumeService: ResumeService
+  ) {}
 
   ngOnInit() {
-    this.projects = this.projects || [];
+    this.projects = this.projects || [];
     this.months = this.resumeService.months;
     this.sortProjects();
   }
 
   newProject() {
     const config = new MatDialogConfig();
-    config.width = "75vw";
+    config.width = '75vw';
 
     const dialogRef = this.dialog.open(ProjectDialog, config);
-    dialogRef.componentInstance.skills = (this.skills || []).map(s => s ? s.name : '');
+    dialogRef.componentInstance.skills = (this.skills || []).map(
+      s => (s ? s.name : '')
+    );
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -57,8 +74,9 @@ export class ProjectComponent implements OnInit {
       if (result) {
         project.endDate = project.current ? null : project.endDate;
         project.tags = result.tags;
-        this.projects = result ? this.resumeService.updateProjects(this.projects) :
-                    this.resumeService.retrieveResume().projects;
+        this.projects = result
+          ? this.resumeService.updateProjects(this.projects)
+          : this.resumeService.retrieveResume().projects;
         this.sortProjects();
       }
     });
@@ -69,22 +87,24 @@ export class ProjectComponent implements OnInit {
     config.viewContainerRef = this.viewContainerRef;
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, config);
-    dialogRef.componentInstance.message = `Are you sure you want to remove your project ${project.name}?`;
+    dialogRef.componentInstance.message = `Are you sure you want to remove your project ${
+      project.name
+    }?`;
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.projects = this.resumeService.removeProject(project);
       }
-    })
+    });
   }
 
   // Sort by start date
   sortProjects() {
     this.projects.sort((a, b) => {
-      return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year :
-        b.startDate.month - a.startDate.month;
+      return b.startDate.year - a.startDate.year
+        ? b.startDate.year - a.startDate.year
+        : b.startDate.month - a.startDate.month;
     });
   }
-
 }
 
 // Add new project dialog
@@ -92,28 +112,28 @@ export class ProjectComponent implements OnInit {
   template: `
     <h3 mat-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}project</h3>
     <div mat-dialog-content fxLayout="column">
-      <mat-input-container>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="project.name"
           placeholder="Project name">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <textarea matInput
           rows="4"
           [(ngModel)]="project.description"
           placeholder="Project description">
         </textarea>
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="project.imageUrl"
           placeholder="Project logo url (Optional)">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="project.web"
           placeholder="Project website (Optional)">
-      </mat-input-container>
+      </mat-form-field>
 
       <mat-form-field>
         <mat-chip-list #tagList>
@@ -167,7 +187,7 @@ export class ProjectComponent implements OnInit {
       <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
       <button mat-button color="primary" (click)="dialogRef.close({ project: project, tags: tags})">Save</button>
     </div>
-  `,
+  `
 })
 export class ProjectDialog implements OnInit {
   @ViewChild(MatAutocompleteTrigger) autoTrigger: MatAutocompleteTrigger;
@@ -181,7 +201,10 @@ export class ProjectDialog implements OnInit {
   public filteredSkills: Observable<Array<string>>;
   public tagControl: FormControl = new FormControl();
 
-  constructor(public dialogRef: MatDialogRef<ProjectDialog>, private resumeService: ResumeService) {
+  constructor(
+    public dialogRef: MatDialogRef<ProjectDialog>,
+    private resumeService: ResumeService
+  ) {
     this.project = {
       name: '',
       description: '',
@@ -191,7 +214,7 @@ export class ProjectDialog implements OnInit {
       tags: [],
       startDate: this.resumeService.todayAsYearMonth(),
       endDate: this.resumeService.todayAsYearMonth()
-    }
+    };
 
     this.years = resumeService.years;
     this.months = resumeService.months;
@@ -200,28 +223,36 @@ export class ProjectDialog implements OnInit {
   ngOnInit() {
     // Assume edit mode if name isn't blank
     this.editMode = this.project && this.project.name.length > 0;
-    this.tags = this.project.tags ? this.project.tags.map(t => Object.assign({}, t)) : [];
-    
+    this.tags = this.project.tags
+      ? this.project.tags.map(t => Object.assign({}, t))
+      : [];
+
     // Skills for tag autocomplete
-    this.filteredSkills = this.tagControl.valueChanges
-    .startWith(null)
-    .map(val => this.filter(val));
+    this.filteredSkills = this.tagControl.valueChanges.pipe(
+      startWith(null),
+      map(val => this.filter(val))
+    );
   }
 
   filter(val: string): string[] {
     return this.skills
-    .filter(s => this.tags.filter(t => t.name === s).length === 0)
-    .filter(s => val ? s.toLowerCase().indexOf(val.toLowerCase()) === 0 : true);
+      .filter(s => this.tags.filter(t => t.name === s).length === 0)
+      .filter(
+        s => (val ? s.toLowerCase().indexOf(val.toLowerCase()) === 0 : true)
+      );
   }
 
   addTag(event: any): void {
     const input = event.input;
-    const value = (event.option ? event.option.value : event.value || '').trim();
+    const value = (event.option
+      ? event.option.value
+      : event.value || ''
+    ).trim();
 
     if (value) {
       this.tags.push({ name: value, highlighted: false });
     }
-    
+
     // Reset input value
     this.autoTrigger.closePanel();
     this.tagControl.setValue('');
@@ -243,5 +274,4 @@ export class ProjectDialog implements OnInit {
       this.project.endDate = this.resumeService.todayAsYearMonth();
     }
   }
-
 }

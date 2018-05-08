@@ -79,21 +79,21 @@ export class ExperienceComponent implements OnInit {
   template: `
     <h3 mat-dialog-title>{{ editMode ? 'Edit ' : 'Add new '}}position</h3>
     <div mat-dialog-content fxLayout="column">
-      <mat-input-container>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="position.company"
           placeholder="Company">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="position.title"
           placeholder="Title">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <textarea matInput
         [(ngModel)]="position.summary"
         rows="4" placeholder="Summary"></textarea>
-      </mat-input-container>
+      </mat-form-field>
       <div class="date-container">
         <label>From</label>
         <div>

@@ -1,14 +1,14 @@
-import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
-import { FormControl } from '@angular/forms';
+import { Component, Input, ViewContainerRef, OnInit } from "@angular/core";
+import { MatDialog, MatDialogRef, MatDialogConfig } from "@angular/material";
+import { FormControl } from "@angular/forms";
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/operator/map';
+import { Observable } from "rxjs";
+import { startWith } from "rxjs/operators";
+import { map } from "rxjs/operators";
 
-import { Education } from '../models';
-import { ResumeService } from '../resume.service'
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { Education } from "../models";
+import { ResumeService } from "../resume.service";
+import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
 
 @Component({
   selector: 'app-education',
@@ -16,19 +16,23 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 })
 export class EducationComponent implements OnInit {
   @Input() educations: Array<Education>;
-  months: Array<string>
+  months: Array<string>;
 
-  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService) { }
+  constructor(
+    private dialog: MatDialog,
+    private viewContainerRef: ViewContainerRef,
+    public resumeService: ResumeService
+  ) {}
 
   ngOnInit() {
     this.months = this.resumeService.months;
-    this.educations = this.educations || [];
+    this.educations = this.educations || [];
     this.sortEducations();
   }
 
   newEducation() {
     const config = new MatDialogConfig();
-    config.width = "75vw";
+    config.width = '75vw';
 
     const dialogRef = this.dialog.open(EducationDialog, config);
 
@@ -44,14 +48,15 @@ export class EducationComponent implements OnInit {
   editEducation(education: Education) {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
-    config.width = "75vw";
+    config.width = '75vw';
 
     const dialogRef = this.dialog.open(EducationDialog, config);
     dialogRef.componentInstance.education = education;
 
     dialogRef.afterClosed().subscribe(result => {
-      this.educations = result ? this.resumeService.updateEducations(this.educations) :
-                  this.resumeService.retrieveResume().educations;
+      this.educations = result
+        ? this.resumeService.updateEducations(this.educations)
+        : this.resumeService.retrieveResume().educations;
       this.sortEducations();
     });
   }
@@ -61,22 +66,24 @@ export class EducationComponent implements OnInit {
     config.viewContainerRef = this.viewContainerRef;
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, config);
-    dialogRef.componentInstance.message = `Are you sure you want to remove your work education at ${education.school}?`;
+    dialogRef.componentInstance.message = `Are you sure you want to remove your work education at ${
+      education.school
+    }?`;
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.educations = this.resumeService.removeEducation(education);
       }
-    })
+    });
   }
 
   // Sort by start date
   sortEducations() {
     this.educations.sort((a, b) => {
-      return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year :
-        b.startDate.month - a.startDate.month;
+      return b.startDate.year - a.startDate.year
+        ? b.startDate.year - a.startDate.year
+        : b.startDate.month - a.startDate.month;
     });
   }
-
 }
 
 // Add new education dialog
@@ -85,25 +92,25 @@ export class EducationComponent implements OnInit {
     <h3 mat-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}education</h3>
     <div mat-dialog-content fxLayout="column">
 
-      <mat-input-container>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="education.school"
           placeholder="School">
-      </mat-input-container>
+      </mat-form-field>
 
-      <mat-input-container>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="education.field"
           placeholder="Field of Study">
-      </mat-input-container>
+      </mat-form-field>
 
-      <mat-input-container>
+      <mat-form-field>
         <input matInput
               [(ngModel)]="education.degree"
               placeholder="Degree"
               [formControl]="degreeCtrl"
               [matAutocomplete]="auto">
-      </mat-input-container>
+      </mat-form-field>
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let degree of filteredDegrees | async" [value]="degree">
           {{ degree }}
@@ -141,10 +148,10 @@ export class EducationComponent implements OnInit {
       <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
       <button mat-button color="primary" (click)="dialogRef.close(education)">Save</button>
     </div>
-  `,
+  `
 })
 export class EducationDialog implements OnInit {
-  degreeCtrl:FormControl;
+  degreeCtrl: FormControl;
   degrees: Array<string>;
   filteredDegrees: Observable<Array<string>>;
 
@@ -153,11 +160,15 @@ export class EducationDialog implements OnInit {
   months: Array<string>;
   editMode: boolean;
 
-  constructor(public dialogRef: MatDialogRef<EducationDialog>, private resumeService: ResumeService) {
+  constructor(
+    public dialogRef: MatDialogRef<EducationDialog>,
+    private resumeService: ResumeService
+  ) {
     this.degreeCtrl = new FormControl();
-    this.filteredDegrees = this.degreeCtrl.valueChanges
-        .startWith(null)
-        .map(val => this.filterDegrees(val));
+    this.filteredDegrees = this.degreeCtrl.valueChanges.pipe(
+      startWith(null),
+      map(val => this.filterDegrees(val))
+    );
 
     this.education = {
       school: '',
@@ -166,7 +177,7 @@ export class EducationDialog implements OnInit {
       startDate: this.resumeService.todayAsYearMonth(),
       endDate: this.resumeService.todayAsYearMonth(),
       degree: ''
-    }
+    };
 
     this.years = resumeService.years;
     this.months = resumeService.months;
@@ -179,7 +190,9 @@ export class EducationDialog implements OnInit {
   }
 
   filterDegrees(val: string) {
-    return val ? this.degrees.filter((s) => new RegExp(val, 'gi').test(s)) : this.degrees;
+    return val
+      ? this.degrees.filter(s => new RegExp(val, 'gi').test(s))
+      : this.degrees;
   }
 
   currentChanged() {

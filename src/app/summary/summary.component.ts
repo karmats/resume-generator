@@ -118,41 +118,41 @@ export class SummaryComponent implements OnInit {
   template: `
     <h3 mat-dialog-title>Edit summary</h3>
     <div mat-dialog-content fxLayout="column">
-      <mat-input-container>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="summary.name"
           placeholder="Your name">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="summary.profileUrl"
           placeholder="Url to profile picture">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="summary.title"
           placeholder="Job title">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <textarea matInput
         [(ngModel)]="summary.description"
         rows="4" placeholder="Description of yourself"></textarea>
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="summary.phone"
           placeholder="Your phone number">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="summary.email"
           placeholder="Your email adress">
-      </mat-input-container>
-      <mat-input-container class="capitalize" *ngFor="let social of summary.socials">
+      </mat-form-field>
+      <mat-form-field class="capitalize" *ngFor="let social of summary.socials">
         <input matInput
           [(ngModel)]="social.url"
           placeholder="{{social.type.toLowerCase()}}">
-      </mat-input-container>
+      </mat-form-field>
     </div>
     <div mat-dialog-actions>
       <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>

@@ -77,11 +77,11 @@ export class SkillComponent implements OnInit {
   template: `
     <h3 mat-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}skill</h3>
     <div mat-dialog-content fxLayout="column">
-      <mat-input-container>
+      <mat-form-field>
         <input matInput
           [(ngModel)]="skill.name"
           placeholder="Skill name">
-      </mat-input-container>
+      </mat-form-field>
       <mat-slider
         [(ngModel)]="skill.competence"
         min="0"
