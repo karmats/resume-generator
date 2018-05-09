@@ -35,6 +35,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "baseHref": "/resume-generator/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
