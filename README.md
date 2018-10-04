@@ -14,7 +14,7 @@ Go to [demo page](https://karmats.github.io/resume-generator/?edit) and fill in 
 
 ### Linkedin
 
-To use your information from linkedin, you need to get a [json resume](https://jsonresume.org). Easiest way to get that is through [this page](http://roshauw.se/linkedin-to-json/) where you just follow the instructions. When you have the json, go to [demo page](https://karmats.github.io/resume-generator/?edit) and use the "Upload Resume"-button.
+To use your information from linkedin, you need to get a [json resume](https://jsonresume.org). Easiest way to get that is through [this page](https://jmperezperez.com/linkedin-to-json-resume/) where you just follow the instructions. When you have the json, go to [demo page](https://karmats.github.io/resume-generator/?edit) and use the "Upload Resume"-button.
 
 ## Development
 
