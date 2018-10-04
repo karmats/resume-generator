@@ -19,7 +19,7 @@ export function jsonResumeToResume(jsonResume): Resume {
         phone: basics.phone,
         email: basics.email,
         pictureUrl: basics.picture,
-        social: basics.profiles.map(profile => {
+        social: basics.profiles ? basics.profiles.map(profile => {
             const network: string = profile.network.toLowerCase();
             const social: Social = { url: profile.url, type: SocialType.UNKNOWN }
             if (network.includes('twitter')) {
@@ -34,8 +34,8 @@ export function jsonResumeToResume(jsonResume): Resume {
                 social.type = SocialType.INSTAGRAM;
             }
             return social;
-        }),
-        positions: jsonResume.work.map(w => {
+        }) : [],
+        positions: jsonResume.work ? jsonResume.work.map(w => {
             const sd = dateAsYearMonth(new Date(w.startDate));
             const ed = w.endDate ? dateAsYearMonth(new Date(w.endDate)) : null;
             return {
@@ -46,8 +46,8 @@ export function jsonResumeToResume(jsonResume): Resume {
                 current: ed === null,
                 company: w.company
             }
-        }),
-        educations: jsonResume.education.map(e => {
+        }) : [],
+        educations: jsonResume.education ? jsonResume.education.map(e => {
             const sd = dateAsYearMonth(new Date(e.startDate));
             const ed = e.endDate ? dateAsYearMonth(new Date(e.endDate)) : null;
             return {
@@ -58,14 +58,14 @@ export function jsonResumeToResume(jsonResume): Resume {
                 current: ed === null,
                 degree: e.studyType
             }
-        }),
-        skills: jsonResume.skills.map(s => {
+        }): [],
+        skills: jsonResume.skills ? jsonResume.skills.map(s => {
             return {
                 name: s.name,
                 competence: 0
             }
-        }),
-        projects: jsonResume.projects.map(p => {
+        }): [],
+        projects: jsonResume.projects ? jsonResume.projects.map(p => {
             const sd = dateAsYearMonth(new Date(p.startDate));
             const ed = p.endDate ? dateAsYearMonth(new Date(p.endDate)) : null;
             return {
@@ -76,7 +76,7 @@ export function jsonResumeToResume(jsonResume): Resume {
                 current: ed === null,
                 web: p.url
             }
-        })
+        }): []
     }
 }
 

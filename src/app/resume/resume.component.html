@@ -33,15 +33,15 @@
 
         <section class="content">
             <!-- Work experience -->
-            <app-experience [positions]="resume.positions">
+            <app-experience [positions]="resume.positions" *ngIf="resume.positions.length">
             </app-experience>
 
             <!-- Education -->
-            <app-education [educations]="resume.educations">
+            <app-education [educations]="resume.educations" *ngIf="resume.educations.length">
             </app-education>
 
             <!-- Projects -->
-            <app-project [projects]="resume.projects" [skills]="resume.skills">
+            <app-project [projects]="resume.projects" [skills]="resume.skills" *ngIf="resume.projects.length">
             </app-project>
         </section>
     </div>
