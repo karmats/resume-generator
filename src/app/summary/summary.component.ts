@@ -95,7 +95,7 @@ export class SummaryComponent implements OnInit {
     // Callback when the file has been read
     reader.onload = () => {
       if (reader && reader.result && reader) {
-        const jsonResume = JSON.parse(reader.result);
+        const jsonResume = JSON.parse(reader.result as string);
         this.resumeService.parseAndSaveJsonResume(jsonResume);
       }
     }

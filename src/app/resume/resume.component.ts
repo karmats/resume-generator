@@ -84,11 +84,13 @@ export class ResumeComponent implements OnInit {
 
   private showExportOption(show: boolean) {
     if (show) {
-      this.snackBarRef = !this.snackBarRef ? this.snackBar.open('Export when done', 'HTML') : this.snackBarRef;
-      this.snackBarRef.onAction().subscribe(() => {
-        this.exportResume();
-        this.snackBarRef.dismiss();
-      })
+      setTimeout(() => {
+        this.snackBarRef = !this.snackBarRef ? this.snackBar.open('Export when done', 'HTML') : this.snackBarRef;
+        this.snackBarRef.onAction().subscribe(() => {
+          this.exportResume();
+          this.snackBarRef.dismiss();
+        })
+      }, 0);
     }
   }
 
