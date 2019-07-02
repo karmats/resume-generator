@@ -12,7 +12,7 @@
     color: rgba(black, 0.54);
   }
 
-  &.dark {
+  #{if(&, "&", "*")}.dark {
     @include angular-material-theme(mat-dark-theme($primary, $accent));
     .date-label {
       color: rgba(white, 0.7);

@@ -3,7 +3,7 @@ import { Meta } from '@angular/platform-browser';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ResumeService } from '../resume.service';
 import { Resume } from '../models';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-resume',
@@ -25,7 +25,7 @@ export class ResumeComponent implements OnInit {
   currentTheme: any;
   darkTheme: boolean = false;
   resumeEmpty: boolean = true;
-  snackBarRef;
+  snackBarRef: MatSnackBarRef<SimpleSnackBar>;
 
   constructor(public resumeService: ResumeService,
     private overlayContainer: OverlayContainer,

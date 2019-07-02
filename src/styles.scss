@@ -1,4 +1,4 @@
-@import 'themes';
+@import "themes";
 
 $sm-screen: 768px;
 $md-screen: 1080px;
@@ -9,10 +9,10 @@ body {
   font-weight: 300;
   font-size: 14px;
   background: #fafafa;
-  &.dark {
-    background: #303030;
-    color: white;
-  }
+}
+body.dark {
+  background: #303030;
+  color: white;
 }
 
 .footer {
@@ -22,7 +22,7 @@ body {
   text-align: right;
   margin-top: -24px;
   @media only screen and (max-width: $sm-screen) {
-    padding-top: 24px
+    padding-top: 24px;
   }
 }
 
@@ -64,8 +64,8 @@ body {
       flex-flow: column wrap;
     }
     .title {
-      margin-bottom:0;
-      margin-top:24px;
+      margin-bottom: 0;
+      margin-top: 24px;
     }
     .summary {
       flex: 1 1 30%;
@@ -90,13 +90,13 @@ body {
         display: flex;
         align-items: stretch;
         justify-content: space-between;
-        >div {
+        > div {
           flex: 1 1 90%;
           max-width: 90%;
         }
         @media only screen and (max-width: $sm-screen) {
           flex-flow: column wrap;
-          >div {
+          > div {
             flex-basis: 10%;
             max-width: 100%;
           }
@@ -132,7 +132,7 @@ body {
     position: absolute;
     right: -6px;
     top: 0;
-    color: #BDBDBD;
+    color: #bdbdbd;
   }
   .project-logo {
     flex: 1;
@@ -144,8 +144,8 @@ body {
 }
 .date-container {
   margin: 25px 0 10px 0;
-  >div {
-    >mat-select {
+  > div {
+    > mat-select {
       width: 49%;
     }
   }
@@ -155,12 +155,12 @@ body {
   bottom: 20px;
 }
 .mat-progress-bar.skill-bar {
-    margin-bottom: 36px;
-    margin-top: 12px;
-    @media only screen and (max-width: $sm-screen) {
-      width: 75%;
-      margin: 12px auto 36px auto;
-    }
+  margin-bottom: 36px;
+  margin-top: 12px;
+  @media only screen and (max-width: $sm-screen) {
+    width: 75%;
+    margin: 12px auto 36px auto;
+  }
 }
 .theme-switch {
   position: absolute;
@@ -235,20 +235,22 @@ body {
 
 /** Masonry layout */
 .masonry {
-    column-count: 2;
-    column-gap: 12px;
-    @media only screen and (max-width: $sm-screen) {
-      column-count: 1;
-    }
+  column-count: 2;
+  column-gap: 12px;
+  @media only screen and (max-width: $sm-screen) {
+    column-count: 1;
+  }
 }
 .item {
-    display: inline-block;
-    margin: 0 0 12px;
-    width: 100%;
+  display: inline-block;
+  margin: 0 0 12px;
+  width: 100%;
 }
 
 /** Material override */
-[mat-button], [mat-raised-button], .mat-raised-button {
+[mat-button],
+[mat-raised-button],
+.mat-raised-button {
   text-transform: uppercase;
 }
 [mat-dialog-actions] {
@@ -281,7 +283,7 @@ mat-form-field.mat-form-field {
   .mat-chip:not(.mat-basic-chip) {
     margin: 2px;
     padding: 5px 12px;
-    &+.mat-chip:not(.mat-basic-chip) {
+    & + .mat-chip:not(.mat-basic-chip) {
       margin: 2px;
     }
   }
@@ -297,7 +299,7 @@ mat-form-field.mat-form-field {
       position: relative;
       left: -4px;
       border-radius: 5px;
-      content: '';
+      content: "";
     }
     p.mat-line {
       font-weight: 300;

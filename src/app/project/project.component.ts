@@ -190,7 +190,7 @@ export class ProjectComponent implements OnInit {
   `
 })
 export class ProjectDialog implements OnInit {
-  @ViewChild(MatAutocompleteTrigger) autoTrigger: MatAutocompleteTrigger;
+  @ViewChild(MatAutocompleteTrigger, { static: false }) autoTrigger: MatAutocompleteTrigger;
 
   public project: Project;
   public tags: Array<Tag>;
