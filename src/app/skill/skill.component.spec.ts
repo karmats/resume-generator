@@ -1,10 +1,11 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-import { MatIconModule, MatDialogModule, MatProgressBarModule, MatCardModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 
-import { ResumeService } from '../resume.service'
+import { ResumeService } from '../resume.service';
 import { SkillComponent } from './skill.component';
 
 describe('SkillComponent', () => {
@@ -13,13 +14,10 @@ describe('SkillComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
-        SkillComponent
-      ],
-      providers: [{ provide: ResumeService, useValue: {} },],
-      imports: [ MatIconModule, MatDialogModule, MatProgressBarModule, MatCardModule ]
-    })
-    .compileComponents();
+      declarations: [SkillComponent],
+      providers: [{ provide: ResumeService, useValue: {} }],
+      imports: [MatIconModule, MatDialogModule, MatProgressBarModule, MatCardModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

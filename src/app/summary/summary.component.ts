@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatDialog, MatDialogRef, MatDialogConfig, MatIconRegistry } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
+import { MatIconRegistry } from '@angular/material/icon';
 
 import { ResumeService } from '../resume.service';
 import { Skill, Social, SocialType } from '../models';
@@ -28,38 +29,30 @@ export class SummaryComponent implements OnInit {
   @Input() email: string;
   @Input() socials: Array<Social>;
   @Input() skills: Array<Skill>;
-  
 
-  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService,
-            private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) { }
+  constructor(
+    private dialog: MatDialog,
+    private viewContainerRef: ViewContainerRef,
+    public resumeService: ResumeService,
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
     // Profile picture placeholder
     this.iconRegistry
-    .addSvgIcon(
-        'account-circle',
-        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'))
-      .addSvgIcon(
-        'facebook',
-        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/facebook-box.svg'))
-      .addSvgIcon(
-        'twitter',
-        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/twitter-box.svg'))
-      .addSvgIcon(
-        'linkedin',
-        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/linkedin-box.svg'))
-      .addSvgIcon(
-        'instagram',
-        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/instagram.svg'))
-      .addSvgIcon(
-        'github',
-        this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/github-circle.svg'));
+      .addSvgIcon('account-circle', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'))
+      .addSvgIcon('facebook', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/facebook-box.svg'))
+      .addSvgIcon('twitter', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/twitter-box.svg'))
+      .addSvgIcon('linkedin', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/linkedin-box.svg'))
+      .addSvgIcon('instagram', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/instagram.svg'))
+      .addSvgIcon('github', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/github-circle.svg'));
   }
 
   editSummary() {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
-    config.width = "75vw";
+    config.width = '75vw';
 
     const dialogRef = this.dialog.open(EditSummaryDialog, config);
     dialogRef.componentInstance.summary = {
@@ -70,14 +63,21 @@ export class SummaryComponent implements OnInit {
       phone: this.phone,
       email: this.email,
       socials: this.socials
-    }
+    };
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) {
         return;
       }
-      const resume = this.resumeService.updateSummary(result.name, result.profileUrl,
-          result.description, result.title, result.phone, result.email, result.socials);
+      const resume = this.resumeService.updateSummary(
+        result.name,
+        result.profileUrl,
+        result.description,
+        result.title,
+        result.phone,
+        result.email,
+        result.socials
+      );
       this.name = resume.name;
       this.profileUrl = resume.pictureUrl;
       this.description = resume.summary;
@@ -98,7 +98,7 @@ export class SummaryComponent implements OnInit {
         const jsonResume = JSON.parse(reader.result as string);
         this.resumeService.parseAndSaveJsonResume(jsonResume);
       }
-    }
+    };
 
     if (resumeFile) {
       reader.readAsText(resumeFile, 'UTF-8');
@@ -107,9 +107,8 @@ export class SummaryComponent implements OnInit {
 
   exportToJsonResume() {
     const json = this.resumeService.currentResumeToJsonResume();
-    const uriContent = "data:application/octet-stream," +
-        encodeURIComponent(JSON.stringify(json));
-      window.open(uriContent, 'export');
+    const uriContent = 'data:application/octet-stream,' + encodeURIComponent(JSON.stringify(json));
+    window.open(uriContent, 'export');
   }
 }
 
@@ -119,59 +118,48 @@ export class SummaryComponent implements OnInit {
     <h3 mat-dialog-title>Edit summary</h3>
     <div mat-dialog-content fxLayout="column">
       <mat-form-field>
-        <input matInput
-          [(ngModel)]="summary.name"
-          placeholder="Your name">
+        <input matInput [(ngModel)]="summary.name" placeholder="Your name" />
       </mat-form-field>
       <mat-form-field>
-        <input matInput
-          [(ngModel)]="summary.profileUrl"
-          placeholder="Url to profile picture">
+        <input matInput [(ngModel)]="summary.profileUrl" placeholder="Url to profile picture" />
       </mat-form-field>
       <mat-form-field>
-        <input matInput
-          [(ngModel)]="summary.title"
-          placeholder="Job title">
+        <input matInput [(ngModel)]="summary.title" placeholder="Job title" />
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput
-        [(ngModel)]="summary.description"
-        rows="4" placeholder="Description of yourself"></textarea>
+        <textarea matInput [(ngModel)]="summary.description" rows="4" placeholder="Description of yourself"></textarea>
       </mat-form-field>
       <mat-form-field>
-        <input matInput
-          [(ngModel)]="summary.phone"
-          placeholder="Your phone number">
+        <input matInput [(ngModel)]="summary.phone" placeholder="Your phone number" />
       </mat-form-field>
       <mat-form-field>
-        <input matInput
-          [(ngModel)]="summary.email"
-          placeholder="Your email adress">
+        <input matInput [(ngModel)]="summary.email" placeholder="Your email adress" />
       </mat-form-field>
       <mat-form-field class="capitalize" *ngFor="let social of summary.socials">
-        <input matInput
-          [(ngModel)]="social.url"
-          placeholder="{{social.type.toLowerCase()}}">
+        <input matInput [(ngModel)]="social.url" placeholder="{{ social.type.toLowerCase() }}" />
       </mat-form-field>
     </div>
     <div mat-dialog-actions>
-      <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
-      <button mat-button color="primary" (click)="dialogRef.close(summary)">Ok</button>
+      <button mat-button color="primary" (click)="dialogRef.close()">
+        Cancel
+      </button>
+      <button mat-button color="primary" (click)="dialogRef.close(summary)">
+        Ok
+      </button>
     </div>
-  `,
+  `
 })
 export class EditSummaryDialog implements OnInit {
   public summary: Summary;
 
-  constructor(public dialogRef: MatDialogRef<EditSummaryDialog>) {
-  }
+  constructor(public dialogRef: MatDialogRef<EditSummaryDialog>) {}
 
   ngOnInit() {
     this.summary.socials = this.summary.socials || [];
     for (let type in SocialType) {
       const sType: SocialType = <SocialType>SocialType[type];
       if (sType !== SocialType.UNKNOWN && !this.summary.socials.filter(s => s.type === sType).length) {
-        this.summary.socials.push({ type: sType, url: '' })
+        this.summary.socials.push({ type: sType, url: '' });
       }
     }
   }

@@ -1,5 +1,5 @@
 import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
 
 import { ResumeService } from '../resume.service';
 import { Skill } from '../models';
@@ -10,10 +10,9 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
   templateUrl: './skill.component.html'
 })
 export class SkillComponent implements OnInit {
-  @Input() skills:Array<Skill>;
+  @Input() skills: Array<Skill>;
 
-  constructor(private dialog: MatDialog, public  resumeService: ResumeService, private viewContainerRef: ViewContainerRef) {
-  }
+  constructor(private dialog: MatDialog, public resumeService: ResumeService, private viewContainerRef: ViewContainerRef) {}
 
   ngOnInit() {
     this.skills = this.skills || [];
@@ -22,7 +21,7 @@ export class SkillComponent implements OnInit {
 
   newSkill() {
     const config = new MatDialogConfig();
-    config.width = "75vw";
+    config.width = '75vw';
     const dialogRef = this.dialog.open(SkillDialog, config);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -35,15 +34,14 @@ export class SkillComponent implements OnInit {
 
   editSkill(skill: Skill) {
     const config = new MatDialogConfig();
-    config.width = "75vw";
+    config.width = '75vw';
     config.viewContainerRef = this.viewContainerRef;
 
     const dialogRef = this.dialog.open(SkillDialog, config);
     dialogRef.componentInstance.skill = skill;
 
     dialogRef.afterClosed().subscribe(result => {
-      this.skills = result ? this.resumeService.updateSkills(this.skills) :
-            this.resumeService.retrieveResume().skills;
+      this.skills = result ? this.resumeService.updateSkills(this.skills) : this.resumeService.retrieveResume().skills;
       this.sortSkills();
     });
   }
@@ -58,7 +56,7 @@ export class SkillComponent implements OnInit {
       if (result) {
         this.skills = this.resumeService.removeSkill(skill);
       }
-    })
+    });
   }
 
   // Sort by competence first, name second
@@ -67,7 +65,7 @@ export class SkillComponent implements OnInit {
       if (a.competence !== b.competence) {
         return b.competence - a.competence;
       }
-      return a.name > b.name ? 1 : -1
+      return a.name > b.name ? 1 : -1;
     });
   }
 }
@@ -75,26 +73,18 @@ export class SkillComponent implements OnInit {
 // Add new skill dialog
 @Component({
   template: `
-    <h3 mat-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}skill</h3>
+    <h3 mat-dialog-title>{{ editMode ? 'Edit ' : 'Add new ' }}skill</h3>
     <div mat-dialog-content fxLayout="column">
       <mat-form-field>
-        <input matInput
-          [(ngModel)]="skill.name"
-          placeholder="Skill name">
+        <input matInput [(ngModel)]="skill.name" placeholder="Skill name" />
       </mat-form-field>
-      <mat-slider
-        [(ngModel)]="skill.competence"
-        min="0"
-        max="100"
-        thumbLabel
-        step="10"
-        tickInterval="1"></mat-slider>
+      <mat-slider [(ngModel)]="skill.competence" min="0" max="100" thumbLabel step="10" tickInterval="1"></mat-slider>
     </div>
     <div mat-dialog-actions>
       <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
       <button mat-button color="primary" (click)="dialogRef.close(skill)">Save</button>
     </div>
-  `,
+  `
 })
 export class SkillDialog implements OnInit {
   public skill: Skill;
@@ -105,12 +95,11 @@ export class SkillDialog implements OnInit {
     this.skill = {
       competence: 0,
       name: ''
-    }
+    };
   }
 
   ngOnInit() {
     // Assume edit mode if name isn't blank
     this.editMode = this.skill && this.skill.name.length > 0;
   }
-
 }

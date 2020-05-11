@@ -2,14 +2,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http'; 
+import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { MatSelectModule, MatSlideToggleModule, MatAutocompleteModule,
-MatProgressBarModule, MatDialogModule, MatIconModule, MatButtonModule, MatCardModule, MatInputModule,
-MatListModule, MatSliderModule, MatCheckboxModule, MatChipsModule, MatMenuModule, MatSnackBarModule } from '@angular/material';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
-import 'hammerjs';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { ResumeComponent } from './resume/resume.component';
@@ -38,14 +50,7 @@ import { ProjectComponent, ProjectDialog } from './project/project.component';
     ProjectDialog,
     ConfirmDialogComponent
   ],
-  entryComponents: [
-    EducationDialog,
-    PositionDialog,
-    SkillDialog,
-    EditSummaryDialog,
-    ProjectDialog,
-    ConfirmDialogComponent
-  ],
+  entryComponents: [EducationDialog, PositionDialog, SkillDialog, EditSummaryDialog, ProjectDialog, ConfirmDialogComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -72,4 +77,4 @@ import { ProjectComponent, ProjectDialog } from './project/project.component';
   providers: [ResumeService, Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

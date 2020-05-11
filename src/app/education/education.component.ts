@@ -1,14 +1,14 @@
-import { Component, Input, ViewContainerRef, OnInit } from "@angular/core";
-import { MatDialog, MatDialogRef, MatDialogConfig } from "@angular/material";
-import { FormControl } from "@angular/forms";
+import { Component, Input, ViewContainerRef, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
+import { FormControl } from '@angular/forms';
 
-import { Observable } from "rxjs";
-import { startWith } from "rxjs/operators";
-import { map } from "rxjs/operators";
+import { Observable } from 'rxjs';
+import { startWith } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
-import { Education } from "../models";
-import { ResumeService } from "../resume.service";
-import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
+import { Education } from '../models';
+import { ResumeService } from '../resume.service';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-education',
@@ -18,11 +18,7 @@ export class EducationComponent implements OnInit {
   @Input() educations: Array<Education>;
   months: Array<string>;
 
-  constructor(
-    private dialog: MatDialog,
-    private viewContainerRef: ViewContainerRef,
-    public resumeService: ResumeService
-  ) {}
+  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService) {}
 
   ngOnInit() {
     this.months = this.resumeService.months;
@@ -54,9 +50,7 @@ export class EducationComponent implements OnInit {
     dialogRef.componentInstance.education = education;
 
     dialogRef.afterClosed().subscribe(result => {
-      this.educations = result
-        ? this.resumeService.updateEducations(this.educations)
-        : this.resumeService.retrieveResume().educations;
+      this.educations = result ? this.resumeService.updateEducations(this.educations) : this.resumeService.retrieveResume().educations;
       this.sortEducations();
     });
   }
@@ -66,9 +60,7 @@ export class EducationComponent implements OnInit {
     config.viewContainerRef = this.viewContainerRef;
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, config);
-    dialogRef.componentInstance.message = `Are you sure you want to remove your work education at ${
-      education.school
-    }?`;
+    dialogRef.componentInstance.message = `Are you sure you want to remove your work education at ${education.school}?`;
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.educations = this.resumeService.removeEducation(education);
@@ -79,9 +71,7 @@ export class EducationComponent implements OnInit {
   // Sort by start date
   sortEducations() {
     this.educations.sort((a, b) => {
-      return b.startDate.year - a.startDate.year
-        ? b.startDate.year - a.startDate.year
-        : b.startDate.month - a.startDate.month;
+      return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year : b.startDate.month - a.startDate.month;
     });
   }
 }
@@ -89,27 +79,18 @@ export class EducationComponent implements OnInit {
 // Add new education dialog
 @Component({
   template: `
-    <h3 mat-dialog-title>{{editMode ? 'Edit ' : 'Add new '}}education</h3>
+    <h3 mat-dialog-title>{{ editMode ? 'Edit ' : 'Add new ' }}education</h3>
     <div mat-dialog-content fxLayout="column">
-
       <mat-form-field>
-        <input matInput
-          [(ngModel)]="education.school"
-          placeholder="School">
+        <input matInput [(ngModel)]="education.school" placeholder="School" />
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput
-          [(ngModel)]="education.field"
-          placeholder="Field of Study">
+        <input matInput [(ngModel)]="education.field" placeholder="Field of Study" />
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput
-              [(ngModel)]="education.degree"
-              placeholder="Degree"
-              [formControl]="degreeCtrl"
-              [matAutocomplete]="auto">
+        <input matInput [(ngModel)]="education.degree" placeholder="Degree" [formControl]="degreeCtrl" [matAutocomplete]="auto" />
       </mat-form-field>
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let degree of filteredDegrees | async" [value]="degree">
@@ -121,10 +102,10 @@ export class EducationComponent implements OnInit {
         <label>From</label>
         <div>
           <mat-select [(ngModel)]="education.startDate.year" placeholder="Year">
-            <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
+            <mat-option *ngFor="let year of years" [value]="year"> {{ year }} </mat-option>
           </mat-select>
           <mat-select [(ngModel)]="education.startDate.month" placeholder="Month">
-            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
+            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{ month }} </mat-option>
           </mat-select>
         </div>
       </div>
@@ -135,10 +116,10 @@ export class EducationComponent implements OnInit {
         <label>To</label>
         <div>
           <mat-select [(ngModel)]="education.endDate.year" placeholder="Year">
-            <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
+            <mat-option *ngFor="let year of years" [value]="year"> {{ year }} </mat-option>
           </mat-select>
           <mat-select [(ngModel)]="education.endDate.month" placeholder="Month">
-            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
+            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{ month }} </mat-option>
           </mat-select>
         </div>
       </div>
@@ -160,10 +141,7 @@ export class EducationDialog implements OnInit {
   months: Array<string>;
   editMode: boolean;
 
-  constructor(
-    public dialogRef: MatDialogRef<EducationDialog>,
-    private resumeService: ResumeService
-  ) {
+  constructor(public dialogRef: MatDialogRef<EducationDialog>, private resumeService: ResumeService) {
     this.degreeCtrl = new FormControl();
     this.filteredDegrees = this.degreeCtrl.valueChanges.pipe(
       startWith(null),
@@ -190,9 +168,7 @@ export class EducationDialog implements OnInit {
   }
 
   filterDegrees(val: string) {
-    return val
-      ? this.degrees.filter(s => new RegExp(val, 'gi').test(s))
-      : this.degrees;
+    return val ? this.degrees.filter(s => new RegExp(val, 'gi').test(s)) : this.degrees;
   }
 
   currentChanged() {

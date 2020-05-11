@@ -1,54 +1,62 @@
 <!-- Summary -->
 <div class="app-content" [ngClass]="cssClasses()">
-    <div *ngIf="resumeService.editMode" class="theme-switch">
-        <div>
-            <button mat-button [matMenuTriggerFor]="menu">
-                <mat-icon>palette</mat-icon>
-                <mat-icon>arrow_drop_down</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item *ngFor="let theme of themes" color="primary" (click)="changeTheme(theme, darkTheme)">
-                    <mat-icon *ngIf="theme.value === currentTheme.value" class="theme-item-color" [ngStyle]="{'background-color': theme.primary}">
-                        check_circle
-                    </mat-icon>
-                    <span *ngIf="theme.value !== currentTheme.value" class="theme-item-color" [ngStyle]="{'background-color': theme.primary}"></span>
-                    {{ theme.name }}
-                </button>
-            </mat-menu>
-        </div>
-        <div>
-            <mat-slide-toggle [(ngModel)]="darkTheme" (change)="changeTheme(currentTheme, darkTheme)">Dark</mat-slide-toggle>
-        </div>
+  <div *ngIf="resumeService.editMode" class="theme-switch">
+    <div>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>palette</mat-icon>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let theme of themes" color="primary" (click)="changeTheme(theme, darkTheme)">
+          <mat-icon *ngIf="theme.value === currentTheme.value" class="theme-item-color" [ngStyle]="{ 'background-color': theme.primary }">
+            check_circle
+          </mat-icon>
+          <span
+            *ngIf="theme.value !== currentTheme.value"
+            class="theme-item-color"
+            [ngStyle]="{ 'background-color': theme.primary }"
+          ></span>
+          {{ theme.name }}
+        </button>
+      </mat-menu>
     </div>
-    <div class="container">
-        <aside class="summary">
-            <div class="information-text" *ngIf="resumeEmpty">
-                It seems that it's your first time here, welcome! Start by filling in some information about your self, or import your profile from linkedin. Save the page when you're happy with the result :)
-            </div>
-            <app-summary [picture]="resume.pictureUrl" [name]="resume.name" [description]="resume.summary" [title]="resume.title" [phone]="resume.phone"
-                [email]="resume.email" [socials]="resume.social" [skills]="resume.skills">
-            </app-summary>
-        </aside>
-
-
-        <section class="content">
-            <!-- Work experience -->
-            <app-experience [positions]="resume.positions" *ngIf="resume.positions && resume.positions.length">
-            </app-experience>
-
-            <!-- Education -->
-            <app-education [educations]="resume.educations" *ngIf="resume.education && resume.educations.length">
-            </app-education>
-
-            <!-- Projects -->
-            <app-project [projects]="resume.projects" [skills]="resume.skills" *ngIf="resume.projects &&  resume.projects.length">
-            </app-project>
-        </section>
+    <div>
+      <mat-slide-toggle [(ngModel)]="darkTheme" (change)="changeTheme(currentTheme, darkTheme)">Dark</mat-slide-toggle>
     </div>
+  </div>
+  <div class="container">
+    <aside class="summary">
+      <div class="information-text" *ngIf="resumeEmpty">
+        It seems that it's your first time here, welcome! Start by filling in some information about your self, or import your profile from
+        linkedin. Save the page when you're happy with the result :)
+      </div>
+      <app-summary
+        [picture]="resume.pictureUrl"
+        [name]="resume.name"
+        [description]="resume.summary"
+        [title]="resume.title"
+        [phone]="resume.phone"
+        [email]="resume.email"
+        [socials]="resume.social"
+        [skills]="resume.skills"
+      >
+      </app-summary>
+    </aside>
 
-    <!-- Footer -->
-    <div class="footer">
-        Generated with <a class="mat-link" href="https://github.com/karmats/resume-generator" target="_homepage">resume generator</a>
-    </div>
+    <section class="content">
+      <!-- Work experience -->
+      <app-experience [positions]="resume.positions" *ngIf="isPosistionsVisible()"> </app-experience>
 
+      <!-- Education -->
+      <app-education [educations]="resume.educations" *ngIf="isEducationsVisible()"> </app-education>
+
+      <!-- Projects -->
+      <app-project [projects]="resume.projects" [skills]="resume.skills" *ngIf="isProjectsVisible()"> </app-project>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Generated with <a class="mat-link" href="https://github.com/karmats/resume-generator" target="_homepage">resume generator</a>
+  </div>
 </div>

@@ -3,14 +3,13 @@ import { Meta } from '@angular/platform-browser';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ResumeService } from '../resume.service';
 import { Resume } from '../models';
-import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
+import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html'
 })
 export class ResumeComponent implements OnInit {
-
   resume: Resume;
   // Since we can't import colors from material, they need to be defined here as well
   // needed for meta tag 'theme-name'
@@ -27,27 +26,27 @@ export class ResumeComponent implements OnInit {
   resumeEmpty: boolean = true;
   snackBarRef: MatSnackBarRef<SimpleSnackBar>;
 
-  constructor(public resumeService: ResumeService,
+  constructor(
+    public resumeService: ResumeService,
     private overlayContainer: OverlayContainer,
     private meta: Meta,
-    private snackBar: MatSnackBar) {
-  }
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
     this.resume = this.resumeService.retrieveResume();
-    this.resumeEmpty = Object.keys(this.resume).length <= 0
+    this.resumeEmpty = Object.keys(this.resume).length <= 0;
     this.showExportOption(!this.resumeEmpty && !this.resumeService.editMode);
 
     // Listen to resume changed events
     this.resumeService.resumeChanged.subscribe(resume => {
-      this.resume = resume
-      this.resumeEmpty = Object.keys(resume).length <= 0
+      this.resume = resume;
+      this.resumeEmpty = Object.keys(resume).length <= 0;
       this.showExportOption(!this.resumeEmpty && !this.resumeService.editMode);
     });
 
     // Retrieve theme
     const theme = this.resumeService.retrieveTheme();
-    const overlayClassList = this.overlayContainer.getContainerElement().classList;
     if (theme && theme.themeName) {
       const currTheme = this.themes.filter(t => t.value === theme.themeName).pop();
       this.changeTheme(currTheme, theme.isDark);
@@ -74,12 +73,24 @@ export class ResumeComponent implements OnInit {
       document.body.classList.add('dark');
       overlayClassList.add('dark');
     } else {
-      document.body.classList.remove('dark')
+      document.body.classList.remove('dark');
       overlayClassList.remove('dark');
     }
-    this.meta.updateTag({ content: this.currentTheme.primary }, 'name="theme-color"')
+    this.meta.updateTag({ content: this.currentTheme.primary }, 'name="theme-color"');
 
     this.resumeService.updateTheme(this.currentTheme.value, this.darkTheme);
+  }
+
+  isPosistionsVisible() {
+    return this.resumeService.editMode || (this.resume.positions && this.resume.positions.length);
+  }
+
+  isEducationsVisible() {
+    return this.resumeService.editMode || (this.resume.educations && this.resume.educations.length);
+  }
+
+  isProjectsVisible() {
+    return this.resumeService.editMode || (this.resume.projects && this.resume.projects.length);
   }
 
   private showExportOption(show: boolean) {
@@ -89,7 +100,7 @@ export class ResumeComponent implements OnInit {
         this.snackBarRef.onAction().subscribe(() => {
           this.exportResume();
           this.snackBarRef.dismiss();
-        })
+        });
       }, 0);
     }
   }
@@ -107,7 +118,8 @@ export class ResumeComponent implements OnInit {
     const title = doc.querySelectorAll('title');
     this.removeTags(title);
 
-    const uriContent = "data:application/octet-stream," +
+    const uriContent =
+      'data:application/octet-stream,' +
       encodeURIComponent(`
       <html>
         <head>

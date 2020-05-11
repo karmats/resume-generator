@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core';
-import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
 
-import { Position } from '../models'
+import { Position } from '../models';
 import { ResumeService } from '../resume.service';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
@@ -13,17 +13,17 @@ export class ExperienceComponent implements OnInit {
   @Input() positions: Array<Position>;
   months: Array<string>;
 
-  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService) { }
+  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService) {}
 
   ngOnInit() {
     this.months = this.resumeService.months;
-    this.positions = this.positions || [];
+    this.positions = this.positions || [];
     this.sortPositions();
   }
 
   newPosition() {
     const config = new MatDialogConfig();
-    config.width = "75vw";
+    config.width = '75vw';
 
     const dialogRef = this.dialog.open(PositionDialog, config);
 
@@ -39,14 +39,13 @@ export class ExperienceComponent implements OnInit {
   editPosition(position: Position) {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
-    config.width = "75vw";
+    config.width = '75vw';
 
     const dialogRef = this.dialog.open(PositionDialog, config);
     dialogRef.componentInstance.position = position;
 
     dialogRef.afterClosed().subscribe(result => {
-      this.positions = result ? this.resumeService.updatePositions(this.positions) : 
-            this.resumeService.retrieveResume().positions;
+      this.positions = result ? this.resumeService.updatePositions(this.positions) : this.resumeService.retrieveResume().positions;
       this.sortPositions();
     });
   }
@@ -61,47 +60,39 @@ export class ExperienceComponent implements OnInit {
       if (result) {
         this.positions = this.resumeService.removePosition(position);
       }
-    })
+    });
   }
 
   // Sort by start date
   sortPositions() {
     this.positions.sort((a, b) => {
-      return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year :
-        b.startDate.month - a.startDate.month;
+      return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year : b.startDate.month - a.startDate.month;
     });
   }
-
 }
 
 // Add new position dialog
 @Component({
   template: `
-    <h3 mat-dialog-title>{{ editMode ? 'Edit ' : 'Add new '}}position</h3>
+    <h3 mat-dialog-title>{{ editMode ? 'Edit ' : 'Add new ' }}position</h3>
     <div mat-dialog-content fxLayout="column">
       <mat-form-field>
-        <input matInput
-          [(ngModel)]="position.company"
-          placeholder="Company">
+        <input matInput [(ngModel)]="position.company" placeholder="Company" />
       </mat-form-field>
       <mat-form-field>
-        <input matInput
-          [(ngModel)]="position.title"
-          placeholder="Title">
+        <input matInput [(ngModel)]="position.title" placeholder="Title" />
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput
-        [(ngModel)]="position.summary"
-        rows="4" placeholder="Summary"></textarea>
+        <textarea matInput [(ngModel)]="position.summary" rows="4" placeholder="Summary"></textarea>
       </mat-form-field>
       <div class="date-container">
         <label>From</label>
         <div>
           <mat-select [(ngModel)]="position.startDate.year" placeholder="Year">
-            <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
+            <mat-option *ngFor="let year of years" [value]="year"> {{ year }} </mat-option>
           </mat-select>
           <mat-select [(ngModel)]="position.startDate.month" placeholder="Month">
-            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
+            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{ month }} </mat-option>
           </mat-select>
         </div>
       </div>
@@ -112,10 +103,10 @@ export class ExperienceComponent implements OnInit {
         <label>To</label>
         <div>
           <mat-select [(ngModel)]="position.endDate.year" placeholder="Year">
-            <mat-option *ngFor="let year of years" [value]="year"> {{year}} </mat-option>
+            <mat-option *ngFor="let year of years" [value]="year"> {{ year }} </mat-option>
           </mat-select>
           <mat-select [(ngModel)]="position.endDate.month" placeholder="Month">
-            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{month}} </mat-option>
+            <mat-option *ngFor="let month of months" [value]="months.indexOf(month)"> {{ month }} </mat-option>
           </mat-select>
         </div>
       </div>
@@ -124,7 +115,7 @@ export class ExperienceComponent implements OnInit {
       <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
       <button mat-button color="primary" (click)="dialogRef.close(position)">Save</button>
     </div>
-  `,
+  `
 })
 export class PositionDialog implements OnInit {
   public position: Position;
@@ -140,7 +131,7 @@ export class PositionDialog implements OnInit {
       endDate: resumeService.todayAsYearMonth(),
       summary: '',
       title: ''
-    }
+    };
 
     this.years = resumeService.years;
     this.months = resumeService.months;
@@ -156,5 +147,4 @@ export class PositionDialog implements OnInit {
       this.position.endDate = this.resumeService.todayAsYearMonth();
     }
   }
-
 }
