@@ -1,6 +1,5 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -22,7 +21,7 @@ describe('SummaryComponent', () => {
     TestBed.configureTestingModule({
       declarations: [SummaryComponent, SkillComponent],
       providers: [{ provide: ResumeService, useValue: {} }],
-      imports: [MatIconModule, MatProgressBarModule, MatDialogModule, HttpModule, HttpClientModule, MatCardModule]
+      imports: [MatIconModule, MatProgressBarModule, MatDialogModule, HttpClientModule, MatCardModule]
     }).compileComponents();
   }));
 
