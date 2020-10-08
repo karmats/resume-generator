@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -12,13 +12,13 @@ describe('EducationComponent', () => {
   let component: EducationComponent;
   let fixture: ComponentFixture<EducationComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       declarations: [EducationComponent],
       providers: [{ provide: ResumeService, useValue: {} }],
       imports: [MatIconModule, MatDialogModule, MatListModule, MatCardModule]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(EducationComponent);

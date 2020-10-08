@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -12,13 +12,13 @@ describe('SkillComponent', () => {
   let component: SkillComponent;
   let fixture: ComponentFixture<SkillComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       declarations: [SkillComponent],
       providers: [{ provide: ResumeService, useValue: {} }],
       imports: [MatIconModule, MatDialogModule, MatProgressBarModule, MatCardModule]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SkillComponent);
