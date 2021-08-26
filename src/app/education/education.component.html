@@ -3,9 +3,12 @@
   <mat-card>
     <mat-list>
       <mat-list-item *ngFor="let education of educations">
-        <h3 mat-line>{{education.field}} - {{education.school}}</h3>
-        <p mat-line class="date-label">{{months[education.startDate.month] + ' ' + education.startDate.year}} - {{education.endDate ? (months[education.endDate.month] + ' ' + education.endDate.year) : 'Present'}}</p>
-        <p mat-line>{{education.degree ? education.degree : '-'}}</p>
+        <h3 mat-line>{{ education.field }} - {{ education.school }}</h3>
+        <p mat-line class="date-label">
+          {{ months[education.startDate.month] + ' ' + education.startDate.year }} -
+          {{ education.endDate ? months[education.endDate.month] + ' ' + education.endDate.year : 'Present' }}
+        </p>
+        <p mat-line>{{ education.degree ? education.degree : '-' }}</p>
         <button *ngIf="resumeService.editMode" mat-icon-button color="primary" (click)="editEducation(education)">
           <mat-icon>edit</mat-icon>
         </button>

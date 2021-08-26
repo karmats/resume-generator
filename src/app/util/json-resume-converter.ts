@@ -1,10 +1,11 @@
 import { Resume, SocialType, Social, YearAndMonth } from 'app/models';
+import { ResumeSchema } from 'typings';
 
 /**
  * @param jsonResume The json resume json to parse
  * @return {Resume} A Resume object
  */
-export function jsonResumeToResume(jsonResume): Resume {
+export function jsonResumeToResume(jsonResume: ResumeSchema): Resume {
   const dateAsYearMonth = (d: Date): YearAndMonth => {
     return d
       ? {
@@ -20,7 +21,7 @@ export function jsonResumeToResume(jsonResume): Resume {
     summary: basics.summary,
     phone: basics.phone,
     email: basics.email,
-    pictureUrl: basics.picture,
+    pictureUrl: basics.picture as string,
     social: basics.profiles
       ? basics.profiles.map(profile => {
           const network: string = profile.network.toLowerCase();
@@ -49,7 +50,7 @@ export function jsonResumeToResume(jsonResume): Resume {
             startDate: sd,
             endDate: ed,
             current: ed === null,
-            company: w.company
+            company: w.company as string
           };
         })
       : [],
@@ -81,7 +82,7 @@ export function jsonResumeToResume(jsonResume): Resume {
           const ed = p.endDate ? dateAsYearMonth(new Date(p.endDate)) : null;
           return {
             name: p.name,
-            description: p.summary,
+            description: p.summary as string,
             startDate: sd,
             endDate: ed,
             current: ed === null,
@@ -96,7 +97,7 @@ export function jsonResumeToResume(jsonResume): Resume {
  * @param {Resume} resume The resume object to convert to json-resume
  * @return Resume in json resume format
  */
-export function resumeToJsonResume(resume: Resume) {
+export function resumeToJsonResume(resume: Resume): ResumeSchema {
   const yearMonthToDate = (yearAndMonth: YearAndMonth): string => {
     const month = yearAndMonth.month.toString().length === 1 ? `0${yearAndMonth.month + 1}` : yearAndMonth.month + 1;
     return `${yearAndMonth.year}-${month}-01`;
@@ -141,7 +142,7 @@ export function resumeToJsonResume(resume: Resume) {
       ? resume.skills.map(s => {
           return {
             name: s.name,
-            level: s.competence
+            level: s.competence + ''
           };
         })
       : [],

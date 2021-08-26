@@ -1,4 +1,3 @@
-/* tslint:disable:no-unused-variable */
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,9 +10,6 @@ import { SkillComponent } from '../skill/skill.component';
 import { SummaryComponent } from './summary.component';
 
 describe('SummaryComponent', () => {
-  const matIconRegistryStub = {
-    getDefaultFontSetClass: () => {}
-  };
   let component: SummaryComponent;
   let fixture: ComponentFixture<SummaryComponent>;
 

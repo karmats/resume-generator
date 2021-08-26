@@ -10,16 +10,20 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
   templateUrl: './skill.component.html'
 })
 export class SkillComponent implements OnInit {
-  @Input() skills: Array<Skill>;
+  @Input() skills: Skill[];
 
-  constructor(private dialog: MatDialog, public resumeService: ResumeService, private viewContainerRef: ViewContainerRef) {}
+  constructor(
+    private readonly dialog: MatDialog,
+    public resumeService: ResumeService,
+    private readonly viewContainerRef: ViewContainerRef
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.skills = this.skills || [];
     this.sortSkills();
   }
 
-  newSkill() {
+  newSkill(): void {
     const config = new MatDialogConfig();
     config.width = '75vw';
     const dialogRef = this.dialog.open(SkillDialog, config);
@@ -32,7 +36,7 @@ export class SkillComponent implements OnInit {
     });
   }
 
-  editSkill(skill: Skill) {
+  editSkill(skill: Skill): void {
     const config = new MatDialogConfig();
     config.width = '75vw';
     config.viewContainerRef = this.viewContainerRef;
@@ -46,7 +50,7 @@ export class SkillComponent implements OnInit {
     });
   }
 
-  deleteSkill(skill: Skill) {
+  deleteSkill(skill: Skill): void {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
 
@@ -60,7 +64,7 @@ export class SkillComponent implements OnInit {
   }
 
   // Sort by competence first, name second
-  private sortSkills() {
+  private sortSkills(): void {
     this.skills.sort((a, b) => {
       if (a.competence !== b.competence) {
         return b.competence - a.competence;
@@ -87,18 +91,17 @@ export class SkillComponent implements OnInit {
   `
 })
 export class SkillDialog implements OnInit {
-  public skill: Skill;
-  public editMode: boolean;
+  skill: Skill;
+  editMode: boolean;
 
-  constructor(public dialogRef: MatDialogRef<SkillDialog>, private resumeService: ResumeService) {
-    const today = new Date();
+  constructor(public dialogRef: MatDialogRef<SkillDialog>, private readonly resumeService: ResumeService) {
     this.skill = {
       competence: 0,
       name: ''
     };
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Assume edit mode if name isn't blank
     this.editMode = this.skill && this.skill.name.length > 0;
   }

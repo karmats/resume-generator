@@ -15,19 +15,23 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
   templateUrl: './project.component.html'
 })
 export class ProjectComponent implements OnInit {
-  @Input() projects: Array<Project>;
-  @Input() skills: Array<Skill>;
-  months: Array<string>;
+  @Input() projects: Project[];
+  @Input() skills: Skill[];
+  months: string[];
 
-  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService) {}
+  constructor(
+    private readonly dialog: MatDialog,
+    private readonly viewContainerRef: ViewContainerRef,
+    public resumeService: ResumeService
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.projects = this.projects || [];
     this.months = this.resumeService.months;
     this.sortProjects();
   }
 
-  newProject() {
+  newProject(): void {
     const config = new MatDialogConfig();
     config.width = '75vw';
 
@@ -45,7 +49,7 @@ export class ProjectComponent implements OnInit {
     });
   }
 
-  editProject(project: Project) {
+  editProject(project: Project): void {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
     config.width = '75vw';
@@ -64,7 +68,7 @@ export class ProjectComponent implements OnInit {
     });
   }
 
-  deleteProject(project: Project) {
+  deleteProject(project: Project): void {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
 
@@ -78,7 +82,7 @@ export class ProjectComponent implements OnInit {
   }
 
   // Sort by start date
-  sortProjects() {
+  sortProjects(): void {
     this.projects.sort((a, b) => {
       return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year : b.startDate.month - a.startDate.month;
     });
@@ -142,9 +146,7 @@ export class ProjectComponent implements OnInit {
           </mat-select>
         </div>
       </div>
-      <mat-checkbox [(ngModel)]="project.current" (change)="currentChanged()">
-        Current project
-      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="project.current" (change)="currentChanged()"> Current project </mat-checkbox>
       <div class="date-container" *ngIf="!project.current">
         <label class="select-label">To</label>
         <div fxLayout="row">
@@ -162,12 +164,8 @@ export class ProjectComponent implements OnInit {
       </div>
     </div>
     <div mat-dialog-actions>
-      <button mat-button color="primary" (click)="dialogRef.close()">
-        Cancel
-      </button>
-      <button mat-button color="primary" (click)="dialogRef.close({ project: project, tags: tags })">
-        Save
-      </button>
+      <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
+      <button mat-button color="primary" (click)="dialogRef.close({ project: project, tags: tags })">Save</button>
     </div>
   `
 })
@@ -175,16 +173,16 @@ export class ProjectDialog implements OnInit {
   @ViewChild(MatAutocompleteTrigger, { static: false })
   autoTrigger: MatAutocompleteTrigger;
 
-  public project: Project;
-  public tags: Array<Tag>;
-  public skills: Array<string>;
-  public years: Array<number>;
-  public months: Array<string>;
-  public editMode: boolean;
-  public filteredSkills: Observable<Array<string>>;
-  public tagControl: FormControl = new FormControl();
+  project: Project;
+  tags: Tag[];
+  skills: string[];
+  years: number[];
+  months: string[];
+  editMode: boolean;
+  filteredSkills: Observable<string[]>;
+  tagControl: FormControl = new FormControl();
 
-  constructor(public dialogRef: MatDialogRef<ProjectDialog>, private resumeService: ResumeService) {
+  constructor(public dialogRef: MatDialogRef<ProjectDialog>, private readonly resumeService: ResumeService) {
     this.project = {
       name: '',
       description: '',
@@ -200,7 +198,7 @@ export class ProjectDialog implements OnInit {
     this.months = resumeService.months;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Assume edit mode if name isn't blank
     this.editMode = this.project && this.project.name.length > 0;
     this.tags = this.project.tags ? this.project.tags.map(t => Object.assign({}, t)) : [];
@@ -215,10 +213,10 @@ export class ProjectDialog implements OnInit {
   filter(val: string): string[] {
     return this.skills
       .filter(s => this.tags.filter(t => t.name === s).length === 0)
-      .filter(s => (val ? s.toLowerCase().indexOf(val.toLowerCase()) === 0 : true));
+      .filter(s => (val ? s.toLowerCase().startsWith(val.toLowerCase()) : true));
   }
 
-  addTag(event: any): void {
+  addTag(event: { input: { value: string }; value: string; option: { value: string } }): void {
     const input = event.input;
     const value = (event.option ? event.option.value : event.value || '').trim();
 
@@ -238,11 +236,11 @@ export class ProjectDialog implements OnInit {
     this.tags = this.tags.filter(t => t !== tag);
   }
 
-  toggleTagHighlight(tag: Tag) {
+  toggleTagHighlight(tag: Tag): void {
     tag.highlighted = !tag.highlighted;
   }
 
-  currentChanged() {
+  currentChanged(): void {
     if (!this.project.current && !this.project.endDate) {
       this.project.endDate = this.resumeService.todayAsYearMonth();
     }

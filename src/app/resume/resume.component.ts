@@ -5,6 +5,11 @@ import { ResumeService } from '../resume.service';
 import { Resume } from '../models';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 
+interface Theme {
+  name: string;
+  value: string;
+  primary: string;
+}
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html'
@@ -13,7 +18,7 @@ export class ResumeComponent implements OnInit {
   resume: Resume;
   // Since we can't import colors from material, they need to be defined here as well
   // needed for meta tag 'theme-name'
-  themes: Array<any> = [
+  themes: Theme[] = [
     { name: 'Blue grey', value: 'blue-grey', primary: '#607d8b' },
     { name: 'Indigo', value: 'indigo', primary: '#3f51b5' },
     { name: 'Light blue', value: 'light-blue', primary: '#03a9f4' },
@@ -21,19 +26,19 @@ export class ResumeComponent implements OnInit {
     { name: 'Purple', value: 'purple', primary: '#9c27b0' },
     { name: 'Teal', value: 'teal', primary: '#009688' }
   ];
-  currentTheme: any;
-  darkTheme: boolean = false;
-  resumeEmpty: boolean = true;
+  currentTheme: Theme;
+  darkTheme = false;
+  resumeEmpty = true;
   snackBarRef: MatSnackBarRef<SimpleSnackBar>;
 
   constructor(
     public resumeService: ResumeService,
-    private overlayContainer: OverlayContainer,
-    private meta: Meta,
-    private snackBar: MatSnackBar
+    private readonly overlayContainer: OverlayContainer,
+    private readonly meta: Meta,
+    private readonly snackBar: MatSnackBar
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.resume = this.resumeService.retrieveResume();
     this.resumeEmpty = Object.keys(this.resume).length <= 0;
     this.showExportOption(!this.resumeEmpty && !this.resumeService.editMode);
@@ -47,7 +52,7 @@ export class ResumeComponent implements OnInit {
 
     // Retrieve theme
     const theme = this.resumeService.retrieveTheme();
-    if (theme && theme.themeName) {
+    if (theme?.themeName) {
       const currTheme = this.themes.filter(t => t.value === theme.themeName).pop();
       this.changeTheme(currTheme, theme.isDark);
     } else {
@@ -56,11 +61,11 @@ export class ResumeComponent implements OnInit {
     }
   }
 
-  cssClasses() {
+  cssClasses(): string {
     return this.currentTheme.value + (this.darkTheme ? ' dark' : '');
   }
 
-  changeTheme(theme, dark) {
+  changeTheme(theme: Theme, dark: boolean): void {
     this.currentTheme = theme;
     this.darkTheme = dark;
     const oldTheme = this.resumeService.retrieveTheme();
@@ -81,19 +86,19 @@ export class ResumeComponent implements OnInit {
     this.resumeService.updateTheme(this.currentTheme.value, this.darkTheme);
   }
 
-  isPosistionsVisible() {
-    return this.resumeService.editMode || (this.resume.positions && this.resume.positions.length);
+  isPosistionsVisible(): boolean {
+    return !!(this.resumeService.editMode || this.resume.positions?.length);
   }
 
-  isEducationsVisible() {
-    return this.resumeService.editMode || (this.resume.educations && this.resume.educations.length);
+  isEducationsVisible(): boolean {
+    return !!(this.resumeService.editMode || this.resume.educations?.length);
   }
 
-  isProjectsVisible() {
-    return this.resumeService.editMode || (this.resume.projects && this.resume.projects.length);
+  isProjectsVisible(): boolean {
+    return !!(this.resumeService.editMode || this.resume?.projects.length);
   }
 
-  private showExportOption(show: boolean) {
+  private showExportOption(show: boolean): void {
     if (show) {
       setTimeout(() => {
         this.snackBarRef = !this.snackBarRef ? this.snackBar.open('Export when done', 'HTML') : this.snackBarRef;
@@ -106,7 +111,7 @@ export class ResumeComponent implements OnInit {
   }
 
   // Export resume to html
-  private exportResume() {
+  private exportResume(): void {
     const doc = new DOMParser().parseFromString(document.body.outerHTML, 'text/html');
     doc.head.innerHTML = document.head.innerHTML;
 
@@ -131,7 +136,7 @@ export class ResumeComponent implements OnInit {
     window.open(uriContent, 'export');
   }
 
-  private removeTags(tags: NodeListOf<Element>) {
+  private removeTags(tags: NodeListOf<Element>): void {
     for (let i = 0; i < tags.length; i++) {
       const node = tags.item(i);
       node.parentNode.removeChild(node);

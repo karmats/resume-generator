@@ -10,18 +10,22 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
   templateUrl: './experience.component.html'
 })
 export class ExperienceComponent implements OnInit {
-  @Input() positions: Array<Position>;
-  months: Array<string>;
+  @Input() positions: Position[];
+  months: string[];
 
-  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService) {}
+  constructor(
+    private readonly dialog: MatDialog,
+    private readonly viewContainerRef: ViewContainerRef,
+    public resumeService: ResumeService
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.months = this.resumeService.months;
     this.positions = this.positions || [];
     this.sortPositions();
   }
 
-  newPosition() {
+  newPosition(): void {
     const config = new MatDialogConfig();
     config.width = '75vw';
 
@@ -36,7 +40,7 @@ export class ExperienceComponent implements OnInit {
     });
   }
 
-  editPosition(position: Position) {
+  editPosition(position: Position): void {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
     config.width = '75vw';
@@ -50,7 +54,7 @@ export class ExperienceComponent implements OnInit {
     });
   }
 
-  deletePosition(position: Position) {
+  deletePosition(position: Position): void {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
 
@@ -64,7 +68,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   // Sort by start date
-  sortPositions() {
+  sortPositions(): void {
     this.positions.sort((a, b) => {
       return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year : b.startDate.month - a.startDate.month;
     });
@@ -96,9 +100,7 @@ export class ExperienceComponent implements OnInit {
           </mat-select>
         </div>
       </div>
-      <mat-checkbox [(ngModel)]="position.current" (change)="currentChanged()">
-        Current job
-      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="position.current" (change)="currentChanged()"> Current job </mat-checkbox>
       <div class="date-container" *ngIf="!position.current">
         <label>To</label>
         <div>
@@ -118,12 +120,12 @@ export class ExperienceComponent implements OnInit {
   `
 })
 export class PositionDialog implements OnInit {
-  public position: Position;
-  public years: Array<number>;
-  public months: Array<string>;
-  public editMode: boolean;
+  position: Position;
+  years: number[];
+  months: string[];
+  editMode: boolean;
 
-  constructor(public dialogRef: MatDialogRef<PositionDialog>, private resumeService: ResumeService) {
+  constructor(public dialogRef: MatDialogRef<PositionDialog>, private readonly resumeService: ResumeService) {
     this.position = {
       company: '',
       current: true,
@@ -137,12 +139,12 @@ export class PositionDialog implements OnInit {
     this.months = resumeService.months;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Assume edit mode if company isn't blank
     this.editMode = this.position && this.position.company.length > 0;
   }
 
-  currentChanged() {
+  currentChanged(): void {
     if (!this.position.current && !this.position.endDate) {
       this.position.endDate = this.resumeService.todayAsYearMonth();
     }

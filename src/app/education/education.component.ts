@@ -15,18 +15,22 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
   templateUrl: './education.component.html'
 })
 export class EducationComponent implements OnInit {
-  @Input() educations: Array<Education>;
-  months: Array<string>;
+  @Input() educations: Education[];
+  months: string[];
 
-  constructor(private dialog: MatDialog, private viewContainerRef: ViewContainerRef, public resumeService: ResumeService) {}
+  constructor(
+    private readonly dialog: MatDialog,
+    private readonly viewContainerRef: ViewContainerRef,
+    public resumeService: ResumeService
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.months = this.resumeService.months;
     this.educations = this.educations || [];
     this.sortEducations();
   }
 
-  newEducation() {
+  newEducation(): void {
     const config = new MatDialogConfig();
     config.width = '75vw';
 
@@ -41,7 +45,7 @@ export class EducationComponent implements OnInit {
     });
   }
 
-  editEducation(education: Education) {
+  editEducation(education: Education): void {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
     config.width = '75vw';
@@ -55,7 +59,7 @@ export class EducationComponent implements OnInit {
     });
   }
 
-  deleteEducation(education: Education) {
+  deleteEducation(education: Education): void {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
 
@@ -69,7 +73,7 @@ export class EducationComponent implements OnInit {
   }
 
   // Sort by start date
-  sortEducations() {
+  sortEducations(): void {
     this.educations.sort((a, b) => {
       return b.startDate.year - a.startDate.year ? b.startDate.year - a.startDate.year : b.startDate.month - a.startDate.month;
     });
@@ -109,9 +113,7 @@ export class EducationComponent implements OnInit {
           </mat-select>
         </div>
       </div>
-      <mat-checkbox [(ngModel)]="education.current" (change)="currentChanged()">
-        Current education
-      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="education.current" (change)="currentChanged()"> Current education </mat-checkbox>
       <div class="date-container" *ngIf="!education.current">
         <label>To</label>
         <div>
@@ -133,15 +135,15 @@ export class EducationComponent implements OnInit {
 })
 export class EducationDialog implements OnInit {
   degreeCtrl: FormControl;
-  degrees: Array<string>;
-  filteredDegrees: Observable<Array<string>>;
+  degrees: string[];
+  filteredDegrees: Observable<string[]>;
 
   education: Education;
-  years: Array<number>;
-  months: Array<string>;
+  years: number[];
+  months: string[];
   editMode: boolean;
 
-  constructor(public dialogRef: MatDialogRef<EducationDialog>, private resumeService: ResumeService) {
+  constructor(public dialogRef: MatDialogRef<EducationDialog>, private readonly resumeService: ResumeService) {
     this.degreeCtrl = new FormControl();
     this.filteredDegrees = this.degreeCtrl.valueChanges.pipe(
       startWith(null),
@@ -162,16 +164,16 @@ export class EducationDialog implements OnInit {
     this.degrees = resumeService.degrees;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Assume edit mode if school isn't blank
     this.editMode = this.education && this.education.school.length > 0;
   }
 
-  filterDegrees(val: string) {
+  filterDegrees(val: string): string[] {
     return val ? this.degrees.filter(s => new RegExp(val, 'gi').test(s)) : this.degrees;
   }
 
-  currentChanged() {
+  currentChanged(): void {
     if (!this.education.current && !this.education.endDate) {
       this.education.endDate = this.resumeService.todayAsYearMonth();
     }

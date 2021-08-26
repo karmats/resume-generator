@@ -2,7 +2,6 @@
 
 /* Mixin to create a theme with primary and accent */
 @mixin create-theme($primary, $accent) {
-
   @include angular-material-theme(mat-light-theme($primary, $accent));
   /* 
   This is shamefully copied from the secondary text in @angular/material _theming.scss since I coudln't figure

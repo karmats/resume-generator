@@ -1,59 +1,68 @@
 <div>
-
-    <div class="text-center space-up-s">
-        <div><h1 class="title">{{name}}</h1></div>
+  <div class="text-center space-up-s">
+    <div>
+      <h1 class="title">{{ name }}</h1>
     </div>
+  </div>
 
-    <div class="text-center space-around">
-        <div>{{title}}</div>
-    </div>
+  <div class="text-center space-around">
+    <div>{{ title }}</div>
+  </div>
 
+  <div class="text-center">
+    <img *ngIf="profileUrl && profileUrl.length" class="profile-picture" [src]="profileUrl" alt="Profile picture" />
+    <mat-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></mat-icon>
+  </div>
+
+  <div class="social-media text-center">
+    <span *ngFor="let social of socials">
+      <a *ngIf="social.url.length" [attr.href]="social.url"><mat-icon [svgIcon]="social.type.toLowerCase()"></mat-icon></a>
+    </span>
+  </div>
+
+  <div class="space-up summary-info-container">
     <div class="text-center">
-        <img *ngIf="profileUrl && profileUrl.length" class="profile-picture" [src]="profileUrl" alt="Profile picture">
-        <mat-icon *ngIf="!profileUrl || !profileUrl.length" svgIcon="account-circle" class="profile-picture"></mat-icon>
+      <mat-icon>person</mat-icon>
     </div>
+    <div>
+      <div class="description">{{ description }}</div>
+    </div>
+  </div>
 
-    <div class="social-media text-center">
-        <span *ngFor="let social of socials">
-            <a *ngIf="social.url.length" [attr.href]="social.url"><mat-icon [svgIcon]="social.type.toLowerCase()"></mat-icon></a>
-        </span>
+  <div class="space-up summary-info-container" *ngIf="phone && phone.length">
+    <div class="text-center">
+      <mat-icon>phone</mat-icon>
     </div>
+    <div>{{ phone }}</div>
+  </div>
 
-    <div class="space-up summary-info-container">
-        <div class="text-center">
-            <mat-icon>person</mat-icon>
-        </div>
-        <div><div class="description">{{description}}</div></div>
+  <div class="space-up summary-info-container" *ngIf="email && email.length">
+    <div class="text-center">
+      <mat-icon>email</mat-icon>
     </div>
+    <div>{{ email }}</div>
+  </div>
 
-    <div class="space-up summary-info-container" *ngIf="phone && phone.length">
-        <div class="text-center">
-            <mat-icon>phone</mat-icon>
-        </div>
-        <div>{{phone}}</div>
+  <div class="space-up summary-info-container">
+    <div class="text-center">
+      <mat-icon>settings</mat-icon>
     </div>
+    <div>
+      <app-skill [skills]="skills"> </app-skill>
+    </div>
+  </div>
 
-    <div class="space-up summary-info-container" *ngIf="email && email.length">
-        <div class="text-center">
-            <mat-icon>email</mat-icon>
-        </div>
-        <div>{{email}}</div>
-    </div>
-
-    <div class="space-up summary-info-container">
-        <div class="text-center">
-            <mat-icon>settings</mat-icon>
-        </div>
-        <div>
-            <app-skill [skills]="skills">
-            </app-skill>
-        </div>
-    </div>
-
-    <div *ngIf="resumeService.editMode" class="actions">
-        <button mat-raised-button color="primary" (click)="editSummary()">Edit profile</button>
-        <input id="resumeFile" style="display:none" *ngIf="resumeService.editMode" type="file" accept="application/json" (change)="uploadResume($event)">
-        <label for="resumeFile" class="mat-primary mat-raised-button">Upload Resume</label>
-        <a mat-raised-button color="primary" (click)="exportToJsonResume()" download="resume.json">Export</a>
-    </div>
+  <div *ngIf="resumeService.editMode" class="actions">
+    <button mat-raised-button color="primary" (click)="editSummary()">Edit profile</button>
+    <input
+      id="resumeFile"
+      style="display: none"
+      *ngIf="resumeService.editMode"
+      type="file"
+      accept="application/json"
+      (change)="uploadResume($event)"
+    />
+    <label for="resumeFile" class="mat-primary mat-raised-button">Upload Resume</label>
+    <a mat-raised-button color="primary" (click)="exportToJsonResume()" download="resume.json">Export</a>
+  </div>
 </div>

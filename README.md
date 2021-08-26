@@ -10,7 +10,7 @@ Go to [demo page](https://karmats.github.io/resume-generator/?edit) and fill in 
 
 ### Example
 
-![Example](https://raw.githubusercontent.com/karmats/resume-generator/master/src/assets/images/example.png "Resume example")
+![Example](https://raw.githubusercontent.com/karmats/resume-generator/master/src/assets/images/example.png 'Resume example')
 
 ### Linkedin
 

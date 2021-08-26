@@ -13,7 +13,7 @@ interface Summary {
   title: string;
   phone: string;
   email: string;
-  socials: Array<Social>;
+  socials: Social[];
 }
 
 @Component({
@@ -27,18 +27,18 @@ export class SummaryComponent implements OnInit {
   @Input() title: string;
   @Input() phone: string;
   @Input() email: string;
-  @Input() socials: Array<Social>;
-  @Input() skills: Array<Skill>;
+  @Input() socials: Social[];
+  @Input() skills: Skill[];
 
   constructor(
-    private dialog: MatDialog,
-    private viewContainerRef: ViewContainerRef,
+    private readonly dialog: MatDialog,
+    private readonly viewContainerRef: ViewContainerRef,
     public resumeService: ResumeService,
-    private iconRegistry: MatIconRegistry,
-    private sanitizer: DomSanitizer
+    private readonly iconRegistry: MatIconRegistry,
+    private readonly sanitizer: DomSanitizer
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Profile picture placeholder
     this.iconRegistry
       .addSvgIcon('account-circle', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/account_circle.svg'))
@@ -49,7 +49,7 @@ export class SummaryComponent implements OnInit {
       .addSvgIcon('github', this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/github-circle.svg'));
   }
 
-  editSummary() {
+  editSummary(): void {
     const config = new MatDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
     config.width = '75vw';
@@ -88,13 +88,13 @@ export class SummaryComponent implements OnInit {
     });
   }
 
-  uploadResume(event) {
-    const resumeFile: File = event.target.files[0];
+  uploadResume(event: Event): void {
+    const resumeFile: File = event.target['files'][0];
     const reader = new FileReader();
 
     // Callback when the file has been read
-    reader.onload = () => {
-      if (reader && reader.result && reader) {
+    reader.onload = (): void => {
+      if (reader?.result) {
         const jsonResume = JSON.parse(reader.result as string);
         this.resumeService.parseAndSaveJsonResume(jsonResume);
       }
@@ -105,7 +105,7 @@ export class SummaryComponent implements OnInit {
     }
   }
 
-  exportToJsonResume() {
+  exportToJsonResume(): void {
     const json = this.resumeService.currentResumeToJsonResume();
     const uriContent = 'data:application/octet-stream,' + encodeURIComponent(JSON.stringify(json));
     window.open(uriContent, 'export');
@@ -140,23 +140,19 @@ export class SummaryComponent implements OnInit {
       </mat-form-field>
     </div>
     <div mat-dialog-actions>
-      <button mat-button color="primary" (click)="dialogRef.close()">
-        Cancel
-      </button>
-      <button mat-button color="primary" (click)="dialogRef.close(summary)">
-        Ok
-      </button>
+      <button mat-button color="primary" (click)="dialogRef.close()">Cancel</button>
+      <button mat-button color="primary" (click)="dialogRef.close(summary)">Ok</button>
     </div>
   `
 })
 export class EditSummaryDialog implements OnInit {
-  public summary: Summary;
+  summary: Summary;
 
   constructor(public dialogRef: MatDialogRef<EditSummaryDialog>) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.summary.socials = this.summary.socials || [];
-    for (let type in SocialType) {
+    for (const type in SocialType) {
       const sType: SocialType = <SocialType>SocialType[type];
       if (sType !== SocialType.UNKNOWN && !this.summary.socials.filter(s => s.type === sType).length) {
         this.summary.socials.push({ type: sType, url: '' });

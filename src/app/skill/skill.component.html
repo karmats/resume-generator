@@ -1,13 +1,13 @@
 <div class="summary-skill-container">
   <div *ngFor="let skill of skills">
-    <span>{{skill.name}}</span>
+    <span>{{ skill.name }}</span>
     <button *ngIf="resumeService.editMode" mat-icon-button color="secondary" (click)="editSkill(skill)">
       <mat-icon>edit</mat-icon>
     </button>
     <button *ngIf="resumeService.editMode" mat-icon-button color="secondary" (click)="deleteSkill(skill)">
       <mat-icon>delete</mat-icon>
     </button>
-    <mat-progress-bar class="skill-bar" color="primary" mode="determinate" value="{{skill.competence}}"></mat-progress-bar>
+    <mat-progress-bar class="skill-bar" color="primary" mode="determinate" value="{{ skill.competence }}"></mat-progress-bar>
   </div>
 </div>
 <mat-card-actions *ngIf="resumeService.editMode">

@@ -1,0 +1,80 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "es2020": true
+  },
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "tsconfigRootDir": "./",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "no-unused-vars": "off",
+    "max-len": ["warn", 140],
+    "no-console": ["error", { "allow": ["error"] }],
+    "@typescript-eslint/array-type": [
+      "error",
+      {
+        "default": "array"
+      }
+    ],
+    "@typescript-eslint/ban-ts-comment": ["error"],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      { "selector": "property", "format": ["camelCase", "PascalCase"], "leadingUnderscore": "allow" },
+      { "selector": "property", "modifiers": ["static"], "format": ["UPPER_CASE"] },
+      { "selector": "class", "format": ["PascalCase"] }
+    ],
+    "@typescript-eslint/explicit-function-return-type": ["error"],
+    "@typescript-eslint/explicit-member-accessibility": [
+      "error",
+      {
+        "accessibility": "no-public"
+      }
+    ],
+    "@typescript-eslint/func-call-spacing": ["error", "never"],
+    "@typescript-eslint/member-ordering": ["error"],
+    "@typescript-eslint/no-explicit-any": ["error", { "ignoreRestArgs": false }],
+    "@typescript-eslint/no-for-in-array": ["off"],
+    "@typescript-eslint/no-unnecessary-type-arguments": ["off"],
+    "@typescript-eslint/no-unnecessary-type-assertion": ["warn"],
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-inferrable-types": ["error"],
+    "@typescript-eslint/no-unused-expressions": ["warn"],
+    "@typescript-eslint/prefer-includes": ["warn"],
+    "@typescript-eslint/prefer-optional-chain": ["warn"],
+    "@typescript-eslint/prefer-nullish-coalescing": ["warn"],
+    "@typescript-eslint/prefer-readonly": ["warn"],
+    "@typescript-eslint/prefer-string-starts-ends-with": ["warn"],
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      {
+        "allowNumber": true,
+        "allowBoolean": true,
+        "allowNullable": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.spec.ts"],
+      "rules": {
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/unbound-method": "off"
+      }
+    }
+  ]
+}

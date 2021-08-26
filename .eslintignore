@@ -1,0 +1,5 @@
+node_modules
+dist
+coverage
+karma.conf.js
+protractor.conf.js

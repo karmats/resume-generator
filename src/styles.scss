@@ -1,4 +1,4 @@
-@import "themes";
+@import 'themes';
 
 $sm-screen: 768px;
 $md-screen: 1080px;
@@ -299,7 +299,7 @@ mat-form-field.mat-form-field {
       position: relative;
       left: -4px;
       border-radius: 5px;
-      content: "";
+      content: '';
     }
     p.mat-line {
       font-weight: 300;

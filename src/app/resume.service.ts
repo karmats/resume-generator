@@ -1,20 +1,23 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { DatePipe, Location } from '@angular/common';
-import { Resume, Position, Education, Skill, Project, Social, SocialType, YearAndMonth } from './models'
+import { Resume, Position, Education, Skill, Project, Social, YearAndMonth } from './models';
 import { jsonResumeToResume, resumeToJsonResume } from 'app/util/json-resume-converter';
+import { ResumeSchema } from 'typings';
 
 @Injectable()
 export class ResumeService {
-  public resumeChanged: EventEmitter<Resume>;
+  private static readonly STORAGE_KEY = 'resume';
+  private static readonly THEME_KEY = 'theme';
 
-  private STORAGE_KEY = 'resume';
-  private THEME_KEY = 'theme';
+  resumeChanged: EventEmitter<Resume>;
 
+  // If in edit mode, possible to edit
+  editMode: boolean;
   // Years and months to choose from when adding new content to resume
-  years: Array<number> = [];
-  months: Array<string> = [];
+  years: number[] = [];
+  months: string[] = [];
   // All posssible education degrees
-  readonly degrees: Array<string> = [
+  readonly degrees: string[] = [
     'Associate’s Degree',
     'Bachelor’s Degree',
     'Master’s Degree',
@@ -23,10 +26,8 @@ export class ResumeService {
     'Doctor of Medicine (M.D.)',
     'Doctor of Philosophy (Ph.D.)',
     'Engineer’s Degree',
-    'Other']
-
-  // If in edit mode, possible to edit
-  editMode: boolean;
+    'Other'
+  ];
 
   constructor(location: Location) {
     // EventEmitter to let components know when the resume is changed
@@ -41,7 +42,7 @@ export class ResumeService {
     // TODO For future, import locales to support in app.module.ts see https://angular.io/guide/i18n#i18n-pipes
     const datePipe = new DatePipe('en-US');
     for (let month = 1; month <= 12; month++) {
-      let dateString = `2016-${month < 10 ? '0' : ''}${month}-15`;
+      const dateString = `2016-${month < 10 ? '0' : ''}${month}-15`;
       this.months.push(datePipe.transform(dateString, 'MMMM '));
     }
 
@@ -51,45 +52,45 @@ export class ResumeService {
 
   /**
    * Saves resume in browser
-   * 
+   *
    * @param {Resume}  resume  The resume to store
    */
-  saveResume(resume: Resume) {
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(resume));
+  saveResume(resume: Resume): void {
+    localStorage.setItem(ResumeService.STORAGE_KEY, JSON.stringify(resume));
     // Tell components resume has changed
     this.resumeChanged.emit(resume);
   }
 
   /**
    * Retrive last saved resume stored in browser
-   * 
+   *
    * @return {Resume}  Latest stored resume
    */
   retrieveResume(): Resume {
-    const resumeAsString = localStorage.getItem(this.STORAGE_KEY);
+    const resumeAsString = localStorage.getItem(ResumeService.STORAGE_KEY);
     return resumeAsString ? JSON.parse(resumeAsString) : {};
   }
 
   /**
    * Adds a position to the saved resume and saves it.
-   * 
+   *
    * @param   {Position}  position  The position to add
    * @return  {Array<Position>}     Updated positions array
    */
-  addPosition(position: Position): Array<Position> {
+  addPosition(position: Position): Position[] {
     const currentResume = this.retrieveResume();
-    currentResume.positions = (currentResume.positions ||  []).concat(position);
+    currentResume.positions = (currentResume.positions || []).concat(position);
     this.saveResume(currentResume);
     return currentResume.positions;
   }
 
   /**
    * Update positions.
-   * 
+   *
    * @param   {Array<Position>}   positions   The positons to update resume with
    * @return  {Array<Position>}               Updated positions
    */
-  updatePositions(positions: Array<Position>): Array<Position> {
+  updatePositions(positions: Position[]): Position[] {
     const currentResume = this.retrieveResume();
     currentResume.positions = positions;
     this.saveResume(currentResume);
@@ -98,11 +99,11 @@ export class ResumeService {
 
   /**
    * Removes a position.
-   * 
+   *
    * @param   {Position}        position  The position to remove
    * @return  {Array<Position>}           Positions after the deletion
    */
-  removePosition(position: Position): Array<Position> {
+  removePosition(position: Position): Position[] {
     const currentResume = this.retrieveResume();
     currentResume.positions = currentResume.positions.filter(p => p.company !== position.company);
     this.saveResume(currentResume);
@@ -111,11 +112,11 @@ export class ResumeService {
 
   /**
    * Adds an education to the saved resume and saves it.
-   * 
+   *
    * @param   {Education}  education  The education to add
    * @return  {Array<Education>}      Updated educations array
    */
-  addEducation(education: Education): Array<Education> {
+  addEducation(education: Education): Education[] {
     const currentResume = this.retrieveResume();
     currentResume.educations = (currentResume.educations || []).concat(education);
     this.saveResume(currentResume);
@@ -124,11 +125,11 @@ export class ResumeService {
 
   /**
    * Update educations.
-   * 
+   *
    * @param   {Array<Education>}   educations   The educations to update resume with
    * @return  {Array<Education>}                Updated educations
    */
-  updateEducations(educations: Array<Education>): Array<Education> {
+  updateEducations(educations: Education[]): Education[] {
     const currentResume = this.retrieveResume();
     currentResume.educations = educations;
     this.saveResume(currentResume);
@@ -137,11 +138,11 @@ export class ResumeService {
 
   /**
    * Removes an education.
-   * 
+   *
    * @param   {Education}        education  The education to remove
    * @return  {Array<Education>}            Educations after the deletion
    */
-  removeEducation(education: Education): Array<Education> {
+  removeEducation(education: Education): Education[] {
     const currentResume = this.retrieveResume();
     currentResume.educations = currentResume.educations.filter(e => e.school !== education.school);
     this.saveResume(currentResume);
@@ -150,11 +151,11 @@ export class ResumeService {
 
   /**
    * Adds a skill to the saved resume and saves it.
-   * 
+   *
    * @param   {Skill}  skill  The skill to add
    * @return  {Array<Skill>}  Updated skills array
    */
-  addSkill(skill: Skill): Array<Skill> {
+  addSkill(skill: Skill): Skill[] {
     const currentResume = this.retrieveResume();
     currentResume.skills = (currentResume.skills || []).concat(skill);
     this.saveResume(currentResume);
@@ -163,11 +164,11 @@ export class ResumeService {
 
   /**
    * Update skills.
-   * 
+   *
    * @param   {Array<Skill>}   skills     The skills to update resume with
    * @return  {Array<Skill>}              Updated skills
    */
-  updateSkills(skills: Array<Skill>): Array<Skill> {
+  updateSkills(skills: Skill[]): Skill[] {
     const currentResume = this.retrieveResume();
     currentResume.skills = skills;
     this.saveResume(currentResume);
@@ -176,11 +177,11 @@ export class ResumeService {
 
   /**
    * Removes a skill.
-   * 
+   *
    * @param   {Skill}             skill   The skill to remove
    * @return  {Array<Skill>}              Skills after the deletion
    */
-  removeSkill(skill: Skill): Array<Skill> {
+  removeSkill(skill: Skill): Skill[] {
     const currentResume = this.retrieveResume();
     currentResume.skills = currentResume.skills.filter(s => s.name !== skill.name);
     this.saveResume(currentResume);
@@ -189,24 +190,24 @@ export class ResumeService {
 
   /**
    * Adds a project to the saved resume and saves it.
-   * 
+   *
    * @param   {Project}         project   The project to add
    * @return  {Array<Project>}            Updated projects array
    */
-  addProject(project: Project): Array<Project> {
+  addProject(project: Project): Project[] {
     const currentResume = this.retrieveResume();
-    currentResume.projects = (currentResume.projects ||  []).concat(project);
+    currentResume.projects = (currentResume.projects || []).concat(project);
     this.saveResume(currentResume);
     return currentResume.projects;
   }
 
   /**
    * Update projects.
-   * 
+   *
    * @param   {Array<Project>}    projects     The projects to update resume with
    * @return  {Array<Project>}                 Updated projects
    */
-  updateProjects(projects: Array<Project>): Array<Project> {
+  updateProjects(projects: Project[]): Project[] {
     const currentResume = this.retrieveResume();
     currentResume.projects = projects;
     this.saveResume(currentResume);
@@ -215,31 +216,31 @@ export class ResumeService {
 
   /**
    * Stores current app theme
-   * 
+   *
    * @param themeName Name of the theme (css-class)
    * @param isDark    True if it's dark themed
    */
-  updateTheme(themeName: string, isDark: boolean) {
-    localStorage.setItem(this.THEME_KEY, JSON.stringify({ themeName: themeName, isDark: isDark }));
+  updateTheme(themeName: string, isDark: boolean): void {
+    localStorage.setItem(ResumeService.THEME_KEY, JSON.stringify({ themeName: themeName, isDark: isDark }));
   }
 
   /**
    * Retrieve last saved theme
-   * 
+   *
    * @return Theme name and if it's dark
    */
-  retrieveTheme(): { themeName: string, isDark: boolean } {
-    const themeAsString = localStorage.getItem(this.THEME_KEY);
+  retrieveTheme(): { themeName: string; isDark: boolean } {
+    const themeAsString = localStorage.getItem(ResumeService.THEME_KEY);
     return themeAsString ? JSON.parse(themeAsString) : {};
   }
 
   /**
    * Removes a project.
-   * 
+   *
    * @param   {Project}             project   The project to remove
    * @return  {Array<Project>}                Projects after the deletion
    */
-  removeProject(project: Project): Array<Project> {
+  removeProject(project: Project): Project[] {
     const currentResume = this.retrieveResume();
     currentResume.projects = currentResume.projects.filter(s => s.name !== project.name);
     this.saveResume(currentResume);
@@ -249,8 +250,15 @@ export class ResumeService {
   /**
    * Update resume personal information.
    */
-  updateSummary(name: string, profileUrl: string, description: string, title: string,
-    phone: string, email: string, socials: Array<Social>): Resume {
+  updateSummary(
+    name: string,
+    profileUrl: string,
+    description: string,
+    title: string,
+    phone: string,
+    email: string,
+    socials: Social[]
+  ): Resume {
     const currentResume = this.retrieveResume();
     currentResume.name = name;
     currentResume.pictureUrl = profileUrl;
@@ -264,21 +272,22 @@ export class ResumeService {
   }
 
   /**
-   * Parse and save a resume stored in the standardized json resume format (https://github.com/jsonresume/resume-schema/blob/0.0.0/schema.json)
-   * 
+   * Parse and save a resume stored in the standardized json resume format
+   * (https://github.com/jsonresume/resume-schema/blob/0.0.0/schema.json)
+   *
    * @param jsonResume A json resume object
    */
-  parseAndSaveJsonResume(jsonResume) {
+  parseAndSaveJsonResume(jsonResume: ResumeSchema): void {
     const resume = jsonResumeToResume(jsonResume);
     this.saveResume(resume);
   }
 
   /**
    * Converts a resume to json resume
-   * 
+   *
    * @param resume Resume to convert
    */
-  currentResumeToJsonResume() {
+  currentResumeToJsonResume(): ResumeSchema {
     const resume = this.retrieveResume();
     return resumeToJsonResume(resume);
   }
@@ -294,9 +303,11 @@ export class ResumeService {
    * @return  {YearAndMonth}   A date as YearAndMonth object
    */
   dateAsYearMonth(d: Date): YearAndMonth {
-    return d ? {
-      year: d.getUTCFullYear(),
-      month: d.getUTCMonth()
-    } : null
+    return d
+      ? {
+          year: d.getUTCFullYear(),
+          month: d.getUTCMonth()
+        }
+      : null;
   }
 }
