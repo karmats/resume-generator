@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf dist/",
-    "build": "npm run clean && ng build",
-    "build:demo": "npm run clean && ng build --prod --extract-css=false",
+    "build": "ng build",
+    "build:demo": "ng build --prod --extract-css=false",
     "start": "ng serve",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
