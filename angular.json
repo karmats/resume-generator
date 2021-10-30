@@ -14,6 +14,8 @@
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "sourceMap": true,
+            "namedChunks": true,
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": ["src/assets"],
@@ -30,7 +32,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "baseHref": "/resume-generator/",
+              "baseHref": "/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -49,12 +51,6 @@
             "production": {
               "browserTarget": "resume-generator:build:production"
             }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "resume-generator:build"
           }
         },
         "test": {

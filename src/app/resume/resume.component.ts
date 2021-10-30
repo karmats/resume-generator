@@ -95,7 +95,7 @@ export class ResumeComponent implements OnInit {
   }
 
   isProjectsVisible(): boolean {
-    return !!(this.resumeService.editMode || this.resume?.projects.length);
+    return !!(this.resumeService.editMode || this.resume?.projects?.length);
   }
 
   private showExportOption(show: boolean): void {
