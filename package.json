@@ -9,7 +9,8 @@
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
     "format": "prettier ./**/*.{html,json,md,scss,ts,js} --write",
-    "test": "ng test --watch=false"
+    "test": "ng test --browsers=Chrome ",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox"
   },
   "private": true,
   "dependencies": {
