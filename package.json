@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "ng build",
-    "build:demo": "ng build --configuration production --extract-css=false",
+    "build:demo": "ng build --configuration production --extract-css=false --base-href /resume-generator/",
     "start": "ng serve",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
