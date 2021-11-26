@@ -1,6 +1,6 @@
 <img src="https://github.com/karmats/resume-generator/blob/master/src/assets/images/logo.png?raw=true" width="150" align="right" />
 
-# Resume Generator [![Build Status](https://travis-ci.org/karmats/resume-generator.svg?branch=master)](https://travis-ci.org/karmats/resume-generator) [![Dependencies](https://david-dm.org/karmats/resume-generator/status.svg)](https://david-dm.org/karmats/resume-generator)
+# Resume Generator [![Node CI](https://github.com/karmats/resume-generator/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/karmats/resume-generator/actions/workflows/build-and-deploy.yml)
 
 Generates a resume in material design, that can be exported to HTML.
 
