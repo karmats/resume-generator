@@ -4,6 +4,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { ResumeService } from '../resume.service';
 import { Resume } from '../models';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
+import { forkJoin } from 'rxjs';
 
 interface Theme {
   name: string;
@@ -123,17 +124,31 @@ export class ResumeComponent implements OnInit {
     const title = doc.querySelectorAll('title');
     this.removeTags(title);
 
-    const uriContent =
-      'data:application/octet-stream,' +
-      encodeURIComponent(`
-      <html>
-        <head>
-          <title>${this.resume.name}</title>
-          ${doc.head.innerHTML}
-        </head>
-        ${doc.body.outerHTML}
-      </html>`);
-    window.open(uriContent, 'export');
+    // Add stylesheets in a style-tag
+    const styles = doc.querySelectorAll('link[rel="stylesheet"]');
+    const styleUrls: string[] = Array.prototype.map
+      .call(styles, (style: Element) => style.getAttribute('href'))
+      .reduce((acc: string[], c: string) => (acc.includes(c) ? acc : acc.concat(c)), []);
+    forkJoin(styleUrls.map(url => this.resumeService.getTextContent(url))).subscribe(contents => {
+      contents.forEach(content => {
+        const styleTag = doc.createElement('style');
+        styleTag.innerHTML = content;
+        doc.head.appendChild(styleTag);
+      });
+
+      // Open file content
+      const uriContent =
+        'data:application/octet-stream,' +
+        encodeURIComponent(`
+        <html>
+          <head>
+            <title>${this.resume.name}</title>
+            ${doc.head.innerHTML}
+          </head>
+          ${doc.body.outerHTML}
+        </html>`);
+      window.open(uriContent, 'export');
+    });
   }
 
   private removeTags(tags: NodeListOf<Element>): void {

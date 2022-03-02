@@ -1,8 +1,10 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { DatePipe, Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Resume, Position, Education, Skill, Project, Social, YearAndMonth } from './models';
-import { jsonResumeToResume, resumeToJsonResume } from 'app/util/json-resume-converter';
+import { jsonResumeToResume, resumeToJsonResume } from './util/json-resume-converter';
 import { ResumeSchema } from 'typings';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ResumeService {
@@ -29,7 +31,7 @@ export class ResumeService {
     'Other'
   ];
 
-  constructor(location: Location) {
+  constructor(location: Location, private readonly http: HttpClient) {
     // EventEmitter to let components know when the resume is changed
     this.resumeChanged = new EventEmitter(false);
 
@@ -309,5 +311,9 @@ export class ResumeService {
           month: d.getUTCMonth()
         }
       : null;
+  }
+
+  getTextContent(url: string): Observable<string> {
+    return this.http.get(url, { responseType: 'text' });
   }
 }
